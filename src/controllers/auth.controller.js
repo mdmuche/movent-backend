@@ -5,6 +5,7 @@ import { v4 } from "uuid";
 
 import User from "../models/users.model.js";
 import { sendEmail } from "../utils/email.util.js";
+import TokenCollection from "../models/token.model.js";
 
 //controller for user registration
 export const register = async (req, res) => {
@@ -34,17 +35,6 @@ export const register = async (req, res) => {
       authPurpose: "verify-email",
     });
 
-    const loginToken = jwt.sign(
-      {
-        userId: user._id,
-        role: user.role,
-        fullName: user.fullName,
-        email: user.email,
-      },
-      process.env.JWT_SECRET,
-      { expiresIn: "1d" },
-    );
-
     //5.send email to verify otp
     const verificationUrl = `http://localhost:5001/v1/auth/verify-email/${verificationToken}`;
 
@@ -70,7 +60,6 @@ export const register = async (req, res) => {
         fullName: user.fullName,
         email: user.email,
         role: user.role,
-        loginToken,
       },
     });
   } catch (error) {
@@ -142,7 +131,7 @@ export const login = async (req, res) => {
     }
 
     // 4. Generate JWT Token
-    const token = jwt.sign(
+    const accessToken = jwt.sign(
       {
         userId: user._id,
         role: user.role,
@@ -150,14 +139,43 @@ export const login = async (req, res) => {
         email: user.email,
       },
       process.env.JWT_SECRET,
-      { expiresIn: "1d" },
+      { expiresIn: process.env.JWT_EXPIRES_IN },
     );
 
+    // Generate Refresh Token (optional, but recommended for better security)
+    const refreshToken = jwt.sign(
+      {
+        userId: user._id,
+      },
+      process.env.JWT_REFRESH_SECRET,
+      { expiresIn: process.env.JWT_REFRESH_EXPIRES_IN },
+    );
+    // SAVE TOKEN IN DB
+    await TokenCollection.create({
+      user: user._id,
+      token: refreshToken,
+      expiresAt: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
+    });
+
+    // SEND ACCESSTOKEN COOKIE TO CLIENT
+    res.cookie("accessToken", accessToken, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "none",
+      maxAge: 24 * 60 * 60 * 1000,
+    });
+
+    // SEND REFRESHTOKEN COOKIE TO CLIENT
+    res.cookie("refreshToken", refreshToken, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "none",
+      maxAge: 7 * 24 * 60 * 60 * 1000,
+    });
     // 5. Send Response
     return res.status(httpStatus.OK).json({
       success: true,
       message: "Login successful",
-      token: token,
       data: {
         userId: user._id,
         fullName: user.fullName,
@@ -165,6 +183,92 @@ export const login = async (req, res) => {
         profilePicture: user.profilePicture,
         role: user.role,
       },
+    });
+  } catch (error) {
+    return res.status(httpStatus.INTERNAL_SERVER_ERROR).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
+
+export const refreshToken = async (req, res) => {
+  try {
+    const { refreshToken } = req.cookies;
+
+    if (!refreshToken) {
+      return res.status(httpStatus.UNAUTHORIZED).json({
+        success: false,
+        message: "No refresh token provided",
+      });
+    }
+
+    // Check DB
+    const storedToken = await TokenCollection.findOne({
+      token: refreshToken,
+    });
+
+    if (!storedToken) {
+      return res.status(401).json({
+        success: false,
+        message: "Invalid refresh token",
+      });
+    }
+    // Verify refresh token
+    const decoded = jwt.verify(refreshToken, process.env.JWT_REFRESH_SECRET);
+
+    // Generate NEW access token
+    const newAccessToken = jwt.sign(
+      {
+        userId: decoded.userId,
+      },
+      process.env.JWT_SECRET,
+      { expiresIn: "15m" },
+    );
+
+    // Send new access token cookie
+    res.cookie("accessToken", newAccessToken, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "none",
+      maxAge: 24 * 60 * 60 * 1000,
+    });
+
+    return res.status(200).json({
+      success: true,
+      message: "Access token refreshed",
+    });
+  } catch (error) {
+    return res.status(httpStatus.INTERNAL_SERVER_ERROR).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
+
+export const logout = async (req, res) => {
+  try {
+    const { refreshToken } = req.cookies;
+
+    if (refreshToken) {
+      await TokenCollection.deleteOne({ token: refreshToken });
+    }
+
+    res.clearCookie("refreshToken", {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "none",
+    });
+
+    res.clearCookie("accessToken", {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "none",
+    });
+
+    return res.status(httpStatus.OK).json({
+      success: true,
+      message: "Logout successful",
     });
   } catch (error) {
     return res.status(httpStatus.INTERNAL_SERVER_ERROR).json({

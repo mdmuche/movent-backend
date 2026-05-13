@@ -1,32 +1,41 @@
 import jwt from "jsonwebtoken";
 import httpStatus from "http-status";
+import TokenCollection from "../models/token.model.js";
 
-export const verifyToken = (req, res, next) => {
-  // 1. Get token from header (Format: Bearer <token>)
-  const authHeader = req.headers.authorization;
-
-  if (!authHeader || !authHeader.startsWith("Bearer ")) {
-    return res.status(httpStatus.UNAUTHORIZED).json({
-      success: false,
-      message: "Access denied. No token provided.",
-    });
-  }
-
-  const token = authHeader.split(" ")[1];
-
+export const verifyToken = async (req, res, next) => {
   try {
-    // 2. Verify token
+    // 1. Get token from cookies (NOT headers anymore)
+    const token = req.cookies.token;
+
+    if (!token) {
+      return res.status(httpStatus.UNAUTHORIZED).json({
+        success: false,
+        message: "Access denied. No token provided.",
+      });
+    }
+
+    // 2. Check token exists in DB (THIS IS YOUR NEW ADDITION)
+    const storedToken = await TokenCollection.findOne({ token });
+
+    if (!storedToken) {
+      return res.status(httpStatus.UNAUTHORIZED).json({
+        success: false,
+        message: "Session expired. Please login again.",
+      });
+    }
+
+    // 3. Verify JWT
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
-    // 3. Add user info from payload to the request object
+    // 4. Attach user
     req.user = decoded;
 
     next();
   } catch (error) {
-    console.error("Token verification failed:", error);
     return res.status(httpStatus.FORBIDDEN).json({
       success: false,
       message: "Invalid or expired token.",
+      error: error.message,
     });
   }
 };
