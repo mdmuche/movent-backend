@@ -8,11 +8,11 @@ import cors from "cors";
 import cookieParser from "cookie-parser";
 
 // Import custom modules
-import { connectDB } from "./config/connection.config.js";
-import authRoutes from "./routes/auth.route.js";
-import userRoutes from "./routes/user.route.js";
+import { connectDB } from "./config/connection.js";
+import authRouter from "./routes/auth..js";
+import userRouter from "./routes/user.js";
 import { swaggerSpec } from "./config/swagger.js";
-import { generalLimiter } from "./middlewares/rateLimit.middleware.js";
+import { generalLimiter } from "./middlewares/rateLimit.js";
 
 dotenv.config();
 
@@ -59,10 +59,10 @@ if (process.env.NODE_ENV !== "production") {
 
 // routes
 // auth routes for handling auth-related requests
-app.use("/v1/auth", authRoutes);
+app.use("/v1/auth", authRouter);
 
 // user routes for handling user-related requests
-app.use("/v1/user", userRoutes);
+app.use("/v1/user", userRouter);
 
 app.get("/", function (req, res) {
   res.send("Welcome to Movent API!");

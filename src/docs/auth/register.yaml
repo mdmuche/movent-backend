@@ -1,0 +1,30 @@
+paths:
+  /v1/auth/register:
+    post:
+      summary: Register a new user
+      tags: [Auth]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - fullName
+                - email
+                - password
+                - location
+              properties:
+                fullName:
+                  type: string
+                email:
+                  type: string
+                password:
+                  type: string
+                location:
+                  type: string
+      responses:
+        201:
+          description: User registered successfully
+        409:
+          description: Conflict - User already exists

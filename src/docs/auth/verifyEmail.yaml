@@ -1,0 +1,13 @@
+/v1/auth/verify-email/{token}:
+  get:
+    summary: Verify user email
+    tags: [Auth]
+    parameters:
+      - in: path
+        name: token
+        required: true
+        schema:
+          type: string
+    responses:
+      200:
+        description: Email verified

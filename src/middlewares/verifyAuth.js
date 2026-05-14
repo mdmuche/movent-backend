@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
 import httpStatus from "http-status";
-import TokenCollection from "../models/token.model.js";
+import TokenCollection from "../models/token.js";
 
 export const verifyToken = async (req, res, next) => {
   try {

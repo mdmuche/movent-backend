@@ -1,4 +1,5 @@
-import { tp } from "../config/email.config.js";
+import { tp } from "../../config/email.js";
+
 export const sendEmail = async (to, subject, body) => {
   try {
     await tp.sendMail({

@@ -7,11 +7,24 @@ const tokenSchema = new mongoose.Schema({
     required: true,
   },
 
-  token: {
+  refreshToken: {
     type: String,
     required: true,
   },
-
+  resetToken: {
+    type: String,
+    required: true,
+  },
+  authPurpose: {
+    type: String,
+  },
+  resetPasswordCode: {
+    type: String,
+  },
+  isCodeVerified: {
+    type: Boolean,
+    default: false,
+  },
   expiresAt: {
     type: Date,
     required: true,
