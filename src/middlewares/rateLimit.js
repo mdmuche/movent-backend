@@ -1,7 +1,4 @@
 import rateLimit from "express-rate-limit";
-import dotenv from "dotenv";
-
-dotenv.config();
 
 export const authLimiter = rateLimit({
   // radix is 10 to ensure the environment variables are parsed as base-10 integers
