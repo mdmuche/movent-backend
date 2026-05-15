@@ -20,29 +20,30 @@ export const createEvent = async (req, res) => {
       startTime,
       endTime,
       isFree,
+      entryRequirements,
+      agreedToRefundPolicy,
       ticketPrice,
       totalTickets,
       tags,
     } = req.body;
 
-    // basic validation
-    if (
-      !title ||
-      !description ||
-      !category ||
-      !venue ||
-      !city ||
-      !country ||
-      !startDate ||
-      !endDate
-    ) {
-      return errorResponse(res, {
-        statusCode: httpStatus.BAD_REQUEST,
-        message: "Missing required fields",
-      });
-    }
+    // if (
+    //   !title ||
+    //   !description ||
+    //   !category ||
+    //   !venue ||
+    //   !city ||
+    //   !country ||
+    //   !startDate ||
+    //   !endDate ||
+    //   !agreedToRefundPolicy
+    // ) {
+    //   return errorResponse(res, {
+    //     statusCode: httpStatus.BAD_REQUEST,
+    //     message: "Missing required fields",
+    //   });
+    // }
 
-    // ticket validation
     if (!isFree && (!ticketPrice || ticketPrice <= 0)) {
       return errorResponse(res, {
         statusCode: httpStatus.BAD_REQUEST,
@@ -50,7 +51,6 @@ export const createEvent = async (req, res) => {
       });
     }
 
-    // upload banner
     let bannerImage = null;
 
     if (req.file) {
@@ -60,7 +60,7 @@ export const createEvent = async (req, res) => {
 
       bannerImage = {
         public_id: result.public_id,
-        url: result.secure_url,
+        secure_url: result.secure_url,
       };
     }
 
@@ -68,6 +68,18 @@ export const createEvent = async (req, res) => {
       lower: true,
       strict: true,
     });
+
+    //!validate entry requirements in validation layer instead of controller
+    // //! if (
+    //   !entryRequirements ||
+    //   !Array.isArray(entryRequirements) ||
+    //!   entryRequirements.length < 3
+    //! ) {
+    // !  return errorResponse(res, {
+    // !    statusCode: httpStatus.BAD_REQUEST,
+    // !    message: "At least 3 entry requirements are required",
+    // !  });
+    //! }
 
     const event = await Event.create({
       title,
@@ -84,12 +96,14 @@ export const createEvent = async (req, res) => {
       endTime,
       organizer: req.userDetails.id,
       isFree,
-      ticketPrice: isFree ? 0 : ticketPrice,
-      totalTickets,
+      ticketPrice: isFree ? 0 : Number(ticketPrice),
+      totalTickets: Number(totalTickets),
       soldTickets: 0,
       tags,
       bannerImage,
-      status: "upcoming",
+      status: "draft",
+      entryRequirements,
+      agreedToRefundPolicy,
     });
 
     return successResponse(res, {

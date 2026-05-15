@@ -77,27 +77,25 @@ const eventSchema = new mongoose.Schema(
       type: String,
     },
 
-    ticket: {
-      type: {
-        type: String,
-        enum: ["regular", "vip", "vvip"],
-        default: "regular",
-      },
+    ticketType: {
+      type: String,
+      enum: ["regular", "vip", "vvip"],
+      default: "regular",
+    },
 
-      price: {
-        type: Number,
-        default: 0,
-      },
+    ticketPrice: {
+      type: Number,
+      default: 0,
+    },
 
-      totalTickets: {
-        type: Number,
-        default: 0,
-      },
+    totalTickets: {
+      type: Number,
+      default: 0,
+    },
 
-      soldTickets: {
-        type: Number,
-        default: 0,
-      },
+    soldTickets: {
+      type: Number,
+      default: 0,
     },
 
     isFree: {
@@ -111,17 +109,53 @@ const eventSchema = new mongoose.Schema(
     },
 
     tags: [String],
+    entryRequirements: {
+      type: [String],
+      validate: {
+        validator: function (value) {
+          return value.length >= 3;
+        },
+        message: "At least 3 entry requirements are required",
+      },
+    },
+    agreedToRefundPolicy: {
+      type: Boolean,
+      required: true,
+      default: false,
+    },
 
     status: {
       type: String,
       enum: ["draft", "upcoming", "ongoing", "completed", "cancelled"],
       default: "draft",
     },
+    location: {
+      type: {
+        type: String,
+        enum: ["Point"],
+        default: "Point",
+      },
+      coordinates: {
+        type: [Number], // [lng, lat]
+      },
+    },
   },
   {
     timestamps: true,
   },
 );
+
+eventSchema.index({
+  title: "text",
+  description: "text",
+  tags: "text",
+});
+
+eventSchema.index({ location: "2dsphere" });
+eventSchema.index({ category: 1 });
+eventSchema.index({ city: 1 });
+eventSchema.index({ startDate: 1 });
+eventSchema.index({ status: 1 });
 
 const Event = mongoose.model("Event", eventSchema);
 
