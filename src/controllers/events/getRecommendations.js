@@ -6,7 +6,7 @@ import { successResponse } from "../../utils/response/success.js";
 
 export const getRecommendations = async (req, res) => {
   try {
-    const userId = req.userDetails?.id;
+    const userId = req.user?.userId;
 
     if (!userId) {
       return errorResponse(res, {

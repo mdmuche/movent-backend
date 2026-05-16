@@ -5,7 +5,7 @@ import TokenCollection from "../models/token.js";
 export const verifyToken = async (req, res, next) => {
   try {
     // 1. Get token from cookies (NOT headers anymore)
-    const token = req.cookies.token;
+    const token = req.cookies.accessToken;
 
     if (!token) {
       return res.status(httpStatus.UNAUTHORIZED).json({
