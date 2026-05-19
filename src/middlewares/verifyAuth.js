@@ -1,7 +1,6 @@
 import jwt from "jsonwebtoken";
 import httpStatus from "http-status";
 import TokenCollection from "../models/token.js";
-import User from "../models/user.js";
 
 export const verifyToken = async (req, res, next) => {
   try {
@@ -25,19 +24,10 @@ export const verifyToken = async (req, res, next) => {
       });
     }
 
-    // 3. Check if user is suspended
-    const user = await User.findById(storedToken.user);
-    if (user.accountStatus === "suspended") {
-      return res.status(403).json({
-        success: false,
-        message: "Your account has been suspended.",
-      });
-    }
-
-    // 4. Verify JWT
+    // 3. Verify JWT
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
-    // 5. Attach user
+    // 4. Attach user
     req.user = decoded;
 
     next();

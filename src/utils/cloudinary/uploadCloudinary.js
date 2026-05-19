@@ -9,15 +9,18 @@ export const uploadToCloudinary = async (filePath, folder = "movent") => {
       folder,
     });
 
-    // remove file from local storage after upload
-    fs.unlinkSync(filePath);
+    if (fs.existsSync(filePath)) {
+      fs.unlinkSync(filePath);
+    }
 
     return {
       public_id: result.public_id,
       url: result.secure_url,
+      width: result.width,
+      height: result.height,
+      format: result.format,
     };
   } catch (error) {
-    // cleanup local file if upload fails
     if (fs.existsSync(filePath)) {
       fs.unlinkSync(filePath);
     }

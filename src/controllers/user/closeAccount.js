@@ -1,34 +1,26 @@
 import httpStatus from "http-status";
 
 import User from "../../models/user.js";
+
 import { successResponse } from "../../utils/response/success.js";
 import { errorResponse } from "../../utils/response/error.js";
 
-export const updateProfile = async (req, res) => {
+export const closeAccount = async (req, res) => {
   try {
     const userId = req.user.userId;
 
-    const { fullName, email, bio } = req.body;
-
-    const user = await User.findByIdAndUpdate(
-      userId,
-      {
-        fullName,
-        email,
-        bio,
-      },
-      { new: true },
-    ).select("-password");
+    await User.findByIdAndUpdate(userId, {
+      accountStatus: "closed",
+    });
 
     return successResponse(res, {
       statusCode: httpStatus.OK,
-      message: "Profile updated successfully",
-      data: user,
+      message: "Account closed successfully",
     });
   } catch (error) {
     return errorResponse(res, {
       statusCode: httpStatus.INTERNAL_SERVER_ERROR,
-      message: "Error updating profile",
+      message: "Error closing account",
       error: error.message,
     });
   }

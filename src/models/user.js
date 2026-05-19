@@ -34,6 +34,11 @@ const userSchema = new Schema(
       type: String,
       default: "https://cdn-icons-png.flaticon.com/128/2202/2202112.png",
     },
+    language: {
+      type: String,
+      enum: ["en-US", "en-GB", "igbo", "hausa", "yoruba"],
+      default: "en-US",
+    },
     interests: {
       type: [String],
     },
@@ -44,7 +49,7 @@ const userSchema = new Schema(
     },
     accountStatus: {
       type: String,
-      enum: ["active", "pro", "flagged", "suspended"],
+      enum: ["active", "pro", "flagged", "suspended", "closed"],
       default: "active",
     },
     authToken: {

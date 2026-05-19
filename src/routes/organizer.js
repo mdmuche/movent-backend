@@ -11,11 +11,13 @@ import { deleteEvent } from "../controllers/organizer/deleteEvent.js";
 import { getMyEvents } from "../controllers/organizer/getMyEvents.js";
 import { getOrganizerAnalytics } from "../controllers/organizer/getOrganizerAnalytics.js";
 import { getEventStats } from "../controllers/organizer/getEventStats.js";
+import { checkAccountStatus } from "../middlewares/checkAccountStatus.js";
 
 const router = express.Router();
 router.get(
   "/analytics",
   verifyToken,
+  checkAccountStatus,
   rolesAllowed("organizer", "admin"),
   getOrganizerAnalytics,
 );
@@ -23,12 +25,14 @@ router.get(
 router.get(
   "/events/:id/stats",
   verifyToken,
+  checkAccountStatus,
   rolesAllowed("organizer", "admin"),
   getEventStats,
 );
 router.get(
   "/my-events",
   verifyToken,
+  checkAccountStatus,
   rolesAllowed("organizer", "admin"),
   getMyEvents,
 );
@@ -36,6 +40,7 @@ router.get(
 router.post(
   "/events",
   verifyToken,
+  checkAccountStatus,
   rolesAllowed("organizer", "admin"),
   validateRequest(createEventSchema),
   upload.single("bannerImage"),
@@ -45,6 +50,7 @@ router.post(
 router.put(
   "/events/:id",
   verifyToken,
+  checkAccountStatus,
   rolesAllowed("organizer", "admin"),
   upload.single("bannerImage"),
   updateEvent,
@@ -53,6 +59,7 @@ router.put(
 router.delete(
   "/events/:id",
   verifyToken,
+  checkAccountStatus,
   rolesAllowed("organizer", "admin"),
   deleteEvent,
 );

@@ -1,8 +1,10 @@
 import httpStatus from "http-status";
 import slugify from "slugify";
+
 import { errorResponse } from "../../utils/response/error.js";
 import { successResponse } from "../../utils/response/success.js";
 import { uploadToCloudinary } from "../../utils/cloudinary/uploadCloudinary.js";
+
 import Event from "../../models/event.js";
 import AuditLog from "../../models/auditLog.js";
 
@@ -28,24 +30,9 @@ export const createEvent = async (req, res) => {
       tags,
     } = req.body;
 
-    // if (
-    //   !title ||
-    //   !description ||
-    //   !category ||
-    //   !venue ||
-    //   !city ||
-    //   !country ||
-    //   !startDate ||
-    //   !endDate ||
-    //   !agreedToRefundPolicy
-    // ) {
-    //   return errorResponse(res, {
-    //     statusCode: httpStatus.BAD_REQUEST,
-    //     message: "Missing required fields",
-    //   });
-    // }
+    const free = isFree === true || isFree === "true";
 
-    if (!isFree && (!ticketPrice || ticketPrice <= 0)) {
+    if (!free && (!ticketPrice || ticketPrice <= 0)) {
       return errorResponse(res, {
         statusCode: httpStatus.BAD_REQUEST,
         message: "Paid events must have a valid ticket price",
@@ -61,7 +48,7 @@ export const createEvent = async (req, res) => {
 
       bannerImage = {
         public_id: result.public_id,
-        secure_url: result.secure_url,
+        url: result.url,
       };
     }
 
@@ -69,18 +56,6 @@ export const createEvent = async (req, res) => {
       lower: true,
       strict: true,
     });
-
-    //!validate entry requirements in validation layer instead of controller
-    // //! if (
-    //   !entryRequirements ||
-    //   !Array.isArray(entryRequirements) ||
-    //!   entryRequirements.length < 3
-    //! ) {
-    // !  return errorResponse(res, {
-    // !    statusCode: httpStatus.BAD_REQUEST,
-    // !    message: "At least 3 entry requirements are required",
-    // !  });
-    //! }
 
     const event = await Event.create({
       title,
@@ -95,9 +70,9 @@ export const createEvent = async (req, res) => {
       endDate,
       startTime,
       endTime,
-      organizer: req.userDetails.id,
-      isFree,
-      ticketPrice: isFree ? 0 : Number(ticketPrice),
+      organizer: req.user.userId,
+      isFree: free,
+      ticketPrice: free ? 0 : Number(ticketPrice),
       totalTickets: Number(totalTickets),
       soldTickets: 0,
       tags,

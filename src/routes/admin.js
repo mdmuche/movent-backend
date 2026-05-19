@@ -12,6 +12,8 @@ import { getAuditLogs } from "../controllers/admin/getAuditLogs.js";
 import { makeOrganizer } from "../controllers/admin/makeOrganizer.js";
 import { flagUser } from "../controllers/admin/flagUser.js";
 import { suspendUser } from "../controllers/admin/suspendUser.js";
+import { exportReports } from "../controllers/admin/exportReport.js";
+import { checkAccountStatus } from "../middlewares/checkAccountStatus.js";
 
 const router = express.Router();
 
@@ -19,26 +21,60 @@ const router = express.Router();
 router.get(
   "/overview",
   verifyToken,
+  checkAccountStatus,
   rolesAllowed("admin"),
   getPlatformOverview,
 );
 
 // route to get pending events for admin review
-router.get("/event-queue", verifyToken, rolesAllowed("admin"), getEventQueue);
+router.get(
+  "/event-queue",
+  verifyToken,
+  checkAccountStatus,
+  rolesAllowed("admin"),
+  getEventQueue,
+);
 
 // route to get all users (for admin)
-router.get("/users", verifyToken, rolesAllowed("admin"), getAllUsers);
+router.get(
+  "/users",
+  verifyToken,
+  checkAccountStatus,
+  rolesAllowed("admin"),
+  getAllUsers,
+);
 
 // route to get system settings
-router.get("/settings", verifyToken, rolesAllowed("admin"), getSystemSettings);
+router.get(
+  "/settings",
+  verifyToken,
+  checkAccountStatus,
+  rolesAllowed("admin"),
+  getSystemSettings,
+);
 
 // route to get audit logs
-router.get("/audit-logs", verifyToken, rolesAllowed("admin"), getAuditLogs);
+router.get(
+  "/audit-logs",
+  verifyToken,
+  checkAccountStatus,
+  rolesAllowed("admin"),
+  getAuditLogs,
+);
 
+// route to export reports
+router.get(
+  "/reports/export",
+  verifyToken,
+  checkAccountStatus,
+  rolesAllowed("admin"),
+  exportReports,
+);
 // route to make a user an organizer
 router.patch(
   "/users/:id/make-organizer",
   verifyToken,
+  checkAccountStatus,
   rolesAllowed("admin"),
   makeOrganizer,
 );
@@ -47,6 +83,7 @@ router.patch(
 router.patch(
   "/users/:userId/flag",
   verifyToken,
+  checkAccountStatus,
   rolesAllowed("admin"),
   flagUser,
 );
@@ -55,6 +92,7 @@ router.patch(
 router.patch(
   "/users/:userId/suspend",
   verifyToken,
+  checkAccountStatus,
   rolesAllowed("admin"),
   suspendUser,
 );
@@ -63,6 +101,7 @@ router.patch(
 router.patch(
   "/settings",
   verifyToken,
+  checkAccountStatus,
   rolesAllowed("admin"),
   updateSystemSettings,
 );
