@@ -34,10 +34,18 @@ const userSchema = new Schema(
       type: String,
       default: "https://cdn-icons-png.flaticon.com/128/2202/2202112.png",
     },
+    interests: {
+      type: [String],
+    },
     role: {
       type: String,
       enum: ["attendee", "organizer", "admin"],
       default: "attendee",
+    },
+    accountStatus: {
+      type: String,
+      enum: ["active", "pro", "flagged", "suspended"],
+      default: "active",
     },
     authToken: {
       type: String,

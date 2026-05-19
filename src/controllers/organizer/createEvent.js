@@ -1,9 +1,10 @@
 import httpStatus from "http-status";
 import slugify from "slugify";
-import Event from "../models/event.model.js";
 import { errorResponse } from "../../utils/response/error.js";
 import { successResponse } from "../../utils/response/success.js";
 import { uploadToCloudinary } from "../../utils/cloudinary/uploadCloudinary.js";
+import Event from "../../models/event.js";
+import AuditLog from "../../models/auditLog.js";
 
 export const createEvent = async (req, res) => {
   try {
@@ -104,6 +105,13 @@ export const createEvent = async (req, res) => {
       status: "draft",
       entryRequirements,
       agreedToRefundPolicy,
+    });
+
+    await AuditLog.create({
+      action: "event_created",
+      performedBy: req.user.userId,
+      targetType: "event",
+      targetId: event._id,
     });
 
     return successResponse(res, {

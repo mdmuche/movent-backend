@@ -3,12 +3,18 @@ import { verifyToken } from "../middlewares/verifyAuth.js";
 import { getProfile } from "../controllers/user/profile.js";
 import { getDashboardOverview } from "../controllers/user/getDashboardOverview.js";
 import { getSavedEvents } from "../controllers/user/getSavedEvents.js";
+import { getUserActivity } from "../controllers/user/userActivity.js";
+import { saveEvent } from "../controllers/user/saveEvent.js";
+import { deleteSavedEvent } from "../controllers/user/deleteSavedEvent.js";
 
 const router = express.Router();
 
 // Define the route for user
 router.get("/profile", verifyToken, getProfile);
-router.get("/", verifyToken, getDashboardOverview);
+router.get("/dashboard", verifyToken, getDashboardOverview);
+router.post("/saved-events/:eventId", verifyToken, saveEvent);
 router.get("/saved-events", verifyToken, getSavedEvents);
+router.get("/activity", verifyToken, getUserActivity);
+router.delete("/saved-events/:eventId", verifyToken, deleteSavedEvent);
 
 export default router;

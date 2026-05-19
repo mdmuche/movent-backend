@@ -1,6 +1,5 @@
 // import third-party modules
 import express from "express";
-import dotenv from "dotenv";
 import swaggerUi from "swagger-ui-express";
 import helmet from "helmet";
 import httpStatus from "http-status";
@@ -11,10 +10,12 @@ import cookieParser from "cookie-parser";
 import { connectDB } from "./config/connection.js";
 import authRouter from "./routes/auth..js";
 import userRouter from "./routes/user.js";
+import eventRouter from "./routes/event.js";
+import ticketRouter from "./routes/ticket.js";
+import organizerRouter from "./routes/organizer.js";
+import adminRouter from "./routes/admin.js";
 import { swaggerSpec } from "./config/swagger.js";
 import { generalLimiter } from "./middlewares/rateLimit.js";
-
-dotenv.config();
 
 const PORT = process.env.PORT || 5000;
 
@@ -63,6 +64,18 @@ app.use("/v1/auth", authRouter);
 
 // user routes for handling user-related requests
 app.use("/v1/user", userRouter);
+
+// event routes for handling event-related requests
+app.use("/v1/event", eventRouter);
+
+// ticket routes for handling ticket-related requests
+app.use("/v1/ticket", ticketRouter);
+
+// organizer routes for handling organizer-related requests
+app.use("/v1/organizer", organizerRouter);
+
+// admin routes for handling admin-related requests
+app.use("/v1/admin", adminRouter);
 
 app.get("/", function (req, res) {
   res.send("Welcome to Movent API!");

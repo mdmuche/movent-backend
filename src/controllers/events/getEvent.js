@@ -1,5 +1,5 @@
 import httpStatus from "http-status";
-import Event from "../models/event.model.js";
+import Event from "../../models/event.js";
 import { errorResponse } from "../../utils/response/error.js";
 import { successResponse } from "../../utils/response/success.js";
 

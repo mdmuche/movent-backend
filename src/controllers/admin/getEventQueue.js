@@ -2,14 +2,12 @@ import httpStatus from "http-status";
 
 import Event from "../../models/event.js";
 
-import { errorResponse } from "../../utils/response/error.js";
 import { successResponse } from "../../utils/response/success.js";
+import { errorResponse } from "../../utils/response/error.js";
 import { paginationUtils } from "../../utils/pagination/pagination.js";
 
-export const getMyEvents = async (req, res) => {
+export const getEventQueue = async (req, res) => {
   try {
-    const userId = req.user.userId;
-
     const { page = 1, limit = 10 } = req.query;
 
     // -----------------------------
@@ -25,34 +23,38 @@ export const getMyEvents = async (req, res) => {
     });
 
     // -----------------------------
-    // GET TOTAL COUNT
+    // TOTAL PENDING EVENTS
     // -----------------------------
-    const total = await Event.countDocuments({
-      organizer: userId,
+    const totalApproved = await Event.countDocuments({
+      approvalStatus: "pending",
     });
 
     // -----------------------------
-    // FETCH EVENTS (PAGINATED)
+    // FETCH PAGINATED EVENTS
     // -----------------------------
     const events = await Event.find({
-      organizer: userId,
+      approvalStatus: "pending",
     })
+      .populate("organizer", "fullName email")
       .sort({ createdAt: -1 })
       .skip(skip)
       .limit(limitNum);
 
     return successResponse(res, {
       statusCode: httpStatus.OK,
-      message: "Organizer events fetched successfully",
+      message: "Event queue fetched successfully",
       data: {
         events,
-        pagination,
+        pagination: {
+          ...pagination,
+          totalApproved,
+        },
       },
     });
   } catch (error) {
     return errorResponse(res, {
       statusCode: httpStatus.INTERNAL_SERVER_ERROR,
-      message: "Error fetching events",
+      message: "Error fetching event queue",
       error: error.message,
     });
   }

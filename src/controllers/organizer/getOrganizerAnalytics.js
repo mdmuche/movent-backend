@@ -1,12 +1,17 @@
 import httpStatus from "http-status";
-import Event from "../../models/event.model.js";
+
+import Event from "../../models/event.js";
 import TicketCollection from "../../models/ticket.js";
+
 import { successResponse } from "../../utils/response/success.js";
 import { errorResponse } from "../../utils/response/error.js";
+import { paginationUtils } from "../../utils/pagination/pagination.js";
 
 export const getOrganizerAnalytics = async (req, res) => {
   try {
     const organizerId = req.user.userId;
+
+    const { page = 1, limit = 10 } = req.query;
 
     // -------------------------
     // ALL EVENTS BY ORGANIZER
@@ -16,7 +21,7 @@ export const getOrganizerAnalytics = async (req, res) => {
     const eventIds = events.map((e) => e._id);
 
     // -------------------------
-    // ALL TICKETS FOR THESE EVENTS
+    // ALL PAID TICKETS
     // -------------------------
     const tickets = await TicketCollection.find({
       event: { $in: eventIds },
@@ -33,7 +38,7 @@ export const getOrganizerAnalytics = async (req, res) => {
     }, 0);
 
     // -------------------------
-    // UPCOMING / PAST / ACTIVE
+    // EVENT STATUS BREAKDOWN
     // -------------------------
     const now = new Date();
 
@@ -46,19 +51,34 @@ export const getOrganizerAnalytics = async (req, res) => {
     );
 
     // -------------------------
-    // RECENT ACTIVITY (LAST 10 TICKET PURCHASES)
+    // PAGINATION (ONLY FOR RECENT ACTIVITY)
     // -------------------------
-    const recentActivity = tickets
-      .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
-      .slice(0, 10)
-      .map((ticket) => ({
-        type: "ticket_purchase",
-        user: ticket.user,
-        event: ticket.event,
-        amount: ticket.totalAmount,
-        createdAt: ticket.createdAt,
-      }));
+    const {
+      skip,
+      limit: limitNum,
+      pagination,
+    } = paginationUtils({
+      page,
+      limit,
+    });
 
+    const sortedTickets = tickets.sort(
+      (a, b) => new Date(b.createdAt) - new Date(a.createdAt),
+    );
+
+    const paginatedTickets = sortedTickets.slice(skip, skip + limitNum);
+
+    const recentActivity = paginatedTickets.map((ticket) => ({
+      type: "ticket_purchase",
+      user: ticket.user,
+      event: ticket.event,
+      amount: ticket.totalAmount,
+      createdAt: ticket.createdAt,
+    }));
+
+    // -------------------------
+    // RESPONSE
+    // -------------------------
     return successResponse(res, {
       statusCode: httpStatus.OK,
       message: "Organizer analytics fetched successfully",
@@ -66,10 +86,13 @@ export const getOrganizerAnalytics = async (req, res) => {
         totalEvents: events.length,
         totalTicketsSold: tickets.length,
         totalRevenue,
+
         upcomingEvents: upcomingEvents.length,
         pastEvents: pastEvents.length,
         activeEvents: activeEvents.length,
+
         recentActivity,
+        pagination,
       },
     });
   } catch (error) {

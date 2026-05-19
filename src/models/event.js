@@ -139,6 +139,11 @@ const eventSchema = new mongoose.Schema(
         type: [Number], // [lng, lat]
       },
     },
+    approvalStatus: {
+      type: String,
+      enum: ["pending", "approved", "rejected"],
+      default: "pending",
+    },
   },
   {
     timestamps: true,
@@ -156,7 +161,7 @@ eventSchema.index({ category: 1 });
 eventSchema.index({ city: 1 });
 eventSchema.index({ startDate: 1 });
 eventSchema.index({ status: 1 });
-
+eventSchema.index({ approvalStatus: 1 });
 const Event = mongoose.model("Event", eventSchema);
 
 export default Event;

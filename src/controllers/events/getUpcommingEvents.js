@@ -1,12 +1,12 @@
 import httpStatus from "http-status";
 
-import Event from "../../models/event.js";
+import TicketCollection from "../../models/ticket.js";
 
 import { errorResponse } from "../../utils/response/error.js";
 import { successResponse } from "../../utils/response/success.js";
 import { paginationUtils } from "../../utils/pagination/pagination.js";
 
-export const getMyEvents = async (req, res) => {
+export const getUpcomingEvents = async (req, res) => {
   try {
     const userId = req.user.userId;
 
@@ -25,34 +25,35 @@ export const getMyEvents = async (req, res) => {
     });
 
     // -----------------------------
-    // GET TOTAL COUNT
+    // FETCH TICKETS (PAGINATED)
     // -----------------------------
-    const total = await Event.countDocuments({
-      organizer: userId,
-    });
-
-    // -----------------------------
-    // FETCH EVENTS (PAGINATED)
-    // -----------------------------
-    const events = await Event.find({
-      organizer: userId,
+    const tickets = await TicketCollection.find({
+      user: userId,
     })
-      .sort({ createdAt: -1 })
+      .populate({
+        path: "event",
+        match: { startDate: { $gte: new Date() } },
+      })
       .skip(skip)
       .limit(limitNum);
 
+    // -----------------------------
+    // EXTRACT UPCOMING EVENTS
+    // -----------------------------
+    const upcomingEvents = tickets.map((t) => t.event).filter(Boolean);
+
     return successResponse(res, {
       statusCode: httpStatus.OK,
-      message: "Organizer events fetched successfully",
+      message: "Upcoming events fetched successfully",
       data: {
-        events,
+        events: upcomingEvents,
         pagination,
       },
     });
   } catch (error) {
     return errorResponse(res, {
       statusCode: httpStatus.INTERNAL_SERVER_ERROR,
-      message: "Error fetching events",
+      message: "Error fetching upcoming events",
       error: error.message,
     });
   }

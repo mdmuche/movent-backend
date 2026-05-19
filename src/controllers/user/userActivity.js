@@ -1,16 +1,16 @@
 import httpStatus from "http-status";
 
-import Event from "../../models/event.js";
+import UserActivity from "../../models/userActivity.js";
 
-import { errorResponse } from "../../utils/response/error.js";
 import { successResponse } from "../../utils/response/success.js";
+import { errorResponse } from "../../utils/response/error.js";
 import { paginationUtils } from "../../utils/pagination/pagination.js";
 
-export const getMyEvents = async (req, res) => {
+export const getUserActivity = async (req, res) => {
   try {
     const userId = req.user.userId;
 
-    const { page = 1, limit = 10 } = req.query;
+    const { page = 1, limit = 20 } = req.query;
 
     // -----------------------------
     // PAGINATION UTILS
@@ -25,34 +25,28 @@ export const getMyEvents = async (req, res) => {
     });
 
     // -----------------------------
-    // GET TOTAL COUNT
+    // FETCH ACTIVITIES (PAGINATED)
     // -----------------------------
-    const total = await Event.countDocuments({
-      organizer: userId,
-    });
-
-    // -----------------------------
-    // FETCH EVENTS (PAGINATED)
-    // -----------------------------
-    const events = await Event.find({
-      organizer: userId,
+    const activities = await UserActivity.find({
+      user: userId,
     })
+      .populate("event", "title bannerImage startDate")
       .sort({ createdAt: -1 })
       .skip(skip)
       .limit(limitNum);
 
     return successResponse(res, {
       statusCode: httpStatus.OK,
-      message: "Organizer events fetched successfully",
+      message: "User activity fetched successfully",
       data: {
-        events,
+        activities,
         pagination,
       },
     });
   } catch (error) {
     return errorResponse(res, {
       statusCode: httpStatus.INTERNAL_SERVER_ERROR,
-      message: "Error fetching events",
+      message: "Error fetching user activity",
       error: error.message,
     });
   }

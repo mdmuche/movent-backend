@@ -1,7 +1,8 @@
 import httpStatus from "http-status";
-import Event from "../models/event.model.js";
 import { errorResponse } from "../../utils/response/error.js";
 import { successResponse } from "../../utils/response/success.js";
+import Event from "../../models/event.js";
+import { paginationUtils } from "../../utils/pagination/pagination.js";
 
 export const getAllEvents = async (req, res) => {
   try {
@@ -102,9 +103,17 @@ export const getAllEvents = async (req, res) => {
     // -------------------------
     // PAGINATION
     // -------------------------
-    const pageNum = Number(page);
-    const limitNum = Number(limit);
-    const skip = (pageNum - 1) * limitNum;
+    const total = await Event.countDocuments(query);
+
+    const {
+      skip,
+      limit: limitNum,
+      pagination,
+    } = paginationUtils({
+      page,
+      limit,
+      total,
+    });
 
     const events = await Event.find(query)
       .populate("organizer", "fullName email")
@@ -112,20 +121,13 @@ export const getAllEvents = async (req, res) => {
       .skip(skip)
       .limit(limitNum);
 
-    const total = await Event.countDocuments(query);
-
     return successResponse(res, {
       statusCode: httpStatus.OK,
       success: true,
       message: "Events fetched successfully",
       data: {
         events,
-        pagination: {
-          total,
-          page: Number(page),
-          limit: Number(limit),
-          pages: Math.ceil(total / limit),
-        },
+        pagination,
       },
     });
   } catch (error) {

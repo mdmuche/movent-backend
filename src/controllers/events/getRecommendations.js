@@ -1,12 +1,14 @@
 import httpStatus from "http-status";
-import Event from "../models/event.model.js";
-import User from "../models/user.model.js";
+import User from "../../models/user.js";
+import Event from "../../models/event.js";
 import { errorResponse } from "../../utils/response/error.js";
 import { successResponse } from "../../utils/response/success.js";
+import { paginationUtils } from "../../utils/pagination/pagination.js";
 
 export const getRecommendations = async (req, res) => {
   try {
     const userId = req.user?.userId;
+    const { page = 1, limit = 10 } = req.query;
 
     if (!userId) {
       return errorResponse(res, {
@@ -24,32 +26,45 @@ export const getRecommendations = async (req, res) => {
       });
     }
 
+    const {
+      skip,
+      limit: limitNum,
+      pagination,
+    } = paginationUtils({
+      page,
+      limit,
+    });
+
+    const baseQuery = {
+      startDate: { $gte: new Date() },
+      status: "upcoming",
+      $expr: { $lt: ["$soldTickets", "$totalTickets"] },
+    };
+
     let recommendedEvents = [];
 
     // -----------------------------
-    // 1. BASED ON USER INTERESTS
+    // 1. INTEREST BASED
     // -----------------------------
-    if (user.interests && user.interests.length > 0) {
+    if (user.interests?.length) {
       recommendedEvents = await Event.find({
+        ...baseQuery,
         category: { $in: user.interests },
-        startDate: { $gte: new Date() },
-        status: "upcoming",
       })
         .sort({ startDate: 1 })
-        .limit(10)
+        .skip(skip)
+        .limit(limitNum)
         .populate("organizer", "fullName email");
     }
 
     // -----------------------------
-    // 2. FALLBACK (NO INTERESTS OR EMPTY RESULT)
+    // 2. FALLBACK
     // -----------------------------
     if (!recommendedEvents.length) {
-      recommendedEvents = await Event.find({
-        startDate: { $gte: new Date() },
-        status: "upcoming",
-      })
-        .sort({ soldTickets: -1 }) // trending fallback
-        .limit(10)
+      recommendedEvents = await Event.find(baseQuery)
+        .sort({ soldTickets: -1 })
+        .skip(skip)
+        .limit(limitNum)
         .populate("organizer", "fullName email");
     }
 
@@ -58,8 +73,8 @@ export const getRecommendations = async (req, res) => {
       success: true,
       message: "Recommended events fetched successfully",
       data: {
-        count: recommendedEvents.length,
         events: recommendedEvents,
+        pagination,
       },
     });
   } catch (error) {

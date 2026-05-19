@@ -1,16 +1,14 @@
 import httpStatus from "http-status";
 
-import Event from "../../models/event.js";
-
-import { errorResponse } from "../../utils/response/error.js";
 import { successResponse } from "../../utils/response/success.js";
+import { errorResponse } from "../../utils/response/error.js";
+import AuditLog from "../../models/auditLog.js";
+
 import { paginationUtils } from "../../utils/pagination/pagination.js";
 
-export const getMyEvents = async (req, res) => {
+export const getAuditLogs = async (req, res) => {
   try {
-    const userId = req.user.userId;
-
-    const { page = 1, limit = 10 } = req.query;
+    const { page = 1, limit = 20 } = req.query;
 
     // -----------------------------
     // PAGINATION UTILS
@@ -25,34 +23,34 @@ export const getMyEvents = async (req, res) => {
     });
 
     // -----------------------------
-    // GET TOTAL COUNT
+    // TOTAL LOG COUNT
     // -----------------------------
-    const total = await Event.countDocuments({
-      organizer: userId,
-    });
+    const total = await AuditLog.countDocuments();
 
     // -----------------------------
-    // FETCH EVENTS (PAGINATED)
+    // FETCH PAGINATED LOGS
     // -----------------------------
-    const events = await Event.find({
-      organizer: userId,
-    })
+    const logs = await AuditLog.find()
+      .populate("performedBy", "fullName email")
       .sort({ createdAt: -1 })
       .skip(skip)
       .limit(limitNum);
 
     return successResponse(res, {
       statusCode: httpStatus.OK,
-      message: "Organizer events fetched successfully",
+      message: "Audit logs fetched successfully",
       data: {
-        events,
-        pagination,
+        logs,
+        pagination: {
+          ...pagination,
+          total,
+        },
       },
     });
   } catch (error) {
     return errorResponse(res, {
       statusCode: httpStatus.INTERNAL_SERVER_ERROR,
-      message: "Error fetching events",
+      message: "Error fetching audit logs",
       error: error.message,
     });
   }

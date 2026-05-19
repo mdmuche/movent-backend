@@ -1,21 +1,45 @@
 import httpStatus from "http-status";
-import Event from "../models/event.model.js";
+
+import Event from "../../models/event.js";
+
 import { errorResponse } from "../../utils/response/error.js";
 import { successResponse } from "../../utils/response/success.js";
+import { paginationUtils } from "../../utils/pagination/pagination.js";
 
 export const getTrendingEvents = async (req, res) => {
   try {
-    const limit = Number(req.query.limit) || 10;
+    const { page = 1, limit = 10 } = req.query;
 
-    const trendingEvents = await Event.find({
+    // -----------------------------
+    // PAGINATION UTILS
+    // -----------------------------
+    const {
+      skip,
+      limit: limitNum,
+      pagination,
+    } = paginationUtils({
+      page,
+      limit,
+    });
+
+    // -----------------------------
+    // BASE QUERY
+    // -----------------------------
+    const query = {
       startDate: { $gte: new Date() },
       status: "upcoming",
-    })
+    };
+
+    // -----------------------------
+    // FETCH TRENDING EVENTS
+    // -----------------------------
+    const trendingEvents = await Event.find(query)
       .sort({
         soldTickets: -1,
         createdAt: -1,
       })
-      .limit(limit)
+      .skip(skip)
+      .limit(limitNum)
       .populate("organizer", "fullName email");
 
     return successResponse(res, {
@@ -23,8 +47,8 @@ export const getTrendingEvents = async (req, res) => {
       success: true,
       message: "Trending events fetched successfully",
       data: {
-        count: trendingEvents.length,
         events: trendingEvents,
+        pagination,
       },
     });
   } catch (error) {

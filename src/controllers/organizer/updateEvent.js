@@ -1,10 +1,11 @@
 import httpStatus from "http-status";
 import slugify from "slugify";
-import Event from "../models/event.model.js";
 import { errorResponse } from "../../utils/response/error.js";
 import { successResponse } from "../../utils/response/success.js";
 import { uploadToCloudinary } from "../../utils/cloudinary/uploadCloudinary.js";
 import { deleteFromCloudinary } from "../../utils/cloudinary/deleteCloudinary.js";
+import Event from "../../models/event.js";
+import AuditLog from "../../models/auditLog.js";
 
 export const updateEvent = async (req, res) => {
   try {
@@ -63,6 +64,13 @@ export const updateEvent = async (req, res) => {
 
     const updatedEvent = await Event.findByIdAndUpdate(id, updatedData, {
       new: true,
+    });
+
+    await AuditLog.create({
+      action: "event_updated",
+      performedBy: req.user.userId,
+      targetType: "event",
+      targetId: event._id,
     });
 
     return successResponse(res, {
