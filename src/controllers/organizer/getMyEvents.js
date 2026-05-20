@@ -25,13 +25,6 @@ export const getMyEvents = async (req, res) => {
     });
 
     // -----------------------------
-    // GET TOTAL COUNT
-    // -----------------------------
-    const total = await Event.countDocuments({
-      organizer: userId,
-    });
-
-    // -----------------------------
     // FETCH EVENTS (PAGINATED)
     // -----------------------------
     const events = await Event.find({

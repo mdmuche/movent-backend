@@ -78,6 +78,7 @@ export const webhook = async (req, res) => {
 
     return res.sendStatus(200);
   } catch (error) {
+    console.error(error);
     return res.sendStatus(500);
   }
 };

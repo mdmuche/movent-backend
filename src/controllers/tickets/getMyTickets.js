@@ -25,13 +25,6 @@ export const getMyTickets = async (req, res) => {
     });
 
     // -----------------------------
-    // GET TOTAL COUNT
-    // -----------------------------
-    const total = await TicketCollection.countDocuments({
-      user: userId,
-    });
-
-    // -----------------------------
     // FETCH PAGINATED TICKETS
     // -----------------------------
     const tickets = await TicketCollection.find({
