@@ -15,6 +15,7 @@ import ticketRouter from "./routes/ticket.js";
 import organizerRouter from "./routes/organizer.js";
 import adminRouter from "./routes/admin.js";
 import checkoutRouter from "./routes/checkout.js";
+import newsletterRouter from "./routes/newsletter.js";
 import { swaggerSpec } from "./config/swagger.js";
 import { generalLimiter } from "./middlewares/rateLimit.js";
 
@@ -80,6 +81,9 @@ app.use("/v1/admin", adminRouter);
 
 // checkout routes for handling checkout-related requests
 app.use("/v1/checkout", checkoutRouter);
+
+// checkout routes for handling checkout-related requests
+app.use("/v1/newsletter", newsletterRouter);
 
 app.get("/", function (req, res) {
   res.send("Welcome to Movent API!");
