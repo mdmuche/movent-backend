@@ -1,8 +1,9 @@
 import httpStatus from "http-status";
 import jwt from "jsonwebtoken";
 
-import User from "../models/users.model.js";
-import TokenCollection from "../models/token.model.js";
+import TokenCollection from "../../models/token.js";
+import User from "../../models/user.js";
+
 import { errorResponse } from "../../utils/response/error.js";
 import { successResponse } from "../../utils/response/success.js";
 

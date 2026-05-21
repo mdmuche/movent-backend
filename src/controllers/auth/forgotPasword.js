@@ -2,12 +2,13 @@ import httpStatus from "http-status";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs";
 
-import User from "../models/users.model.js";
-import { sendEmail } from "../utils/email.util.js";
-import TokenCollection from "../models/token.model.js";
-import { resetPasswordTemplate } from "../utils/email/templates/resetPassword.js";
+import User from "../../models/user.js";
+
 import { errorResponse } from "../../utils/response/error.js";
 import { successResponse } from "../../utils/response/success.js";
+import TokenCollection from "../../models/token.js";
+import { sendEmail } from "../../utils/email/sendEmail.js";
+import { resetPasswordTemplate } from "../../utils/email/templates/resetPassword.js";
 
 export const forgotPassword = async (req, res) => {
   try {

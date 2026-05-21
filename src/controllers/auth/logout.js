@@ -1,6 +1,7 @@
 import httpStatus from "http-status";
 
-import TokenCollection from "../models/token.model.js";
+import TokenCollection from "../../models/token.js";
+
 import { successResponse } from "../../utils/response/success.js";
 import { errorResponse } from "../../utils/response/error.js";
 
