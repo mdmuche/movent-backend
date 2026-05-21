@@ -14,6 +14,15 @@ import { flagUser } from "../controllers/admin/flagUser.js";
 import { suspendUser } from "../controllers/admin/suspendUser.js";
 import { exportReports } from "../controllers/admin/exportReport.js";
 import { checkAccountStatus } from "../middlewares/checkAccountStatus.js";
+import { validateRequest } from "../middlewares/validateRequest.js";
+import { getAllUsersSchema } from "../validators/admin/getAllUsers.js";
+import { getAuditLogsSchema } from "../validators/admin/getAuditLogs.js";
+import { exportReportsSchema } from "../validators/admin/exportReport.js";
+import { makeOrganizerSchema } from "../validators/admin/makeOrganizer.js";
+import { flagUserSchema } from "../validators/admin/flagUser.js";
+import { suspendUserSchema } from "../validators/admin/suspendUser.js";
+import { updateSystemSettingsSchema } from "../validators/admin/updateSystemSettings.js";
+import { getEventQueueSchema } from "../validators/admin/getEventQueue.js";
 
 const router = express.Router();
 
@@ -32,15 +41,17 @@ router.get(
   verifyToken,
   checkAccountStatus,
   rolesAllowed("admin"),
+  validateRequest(getEventQueueSchema, "query"),
   getEventQueue,
 );
 
 // route to get all users (for admin)
 router.get(
-  "/users",
+  "/",
   verifyToken,
   checkAccountStatus,
   rolesAllowed("admin"),
+  validateRequest(getAllUsersSchema, "query"),
   getAllUsers,
 );
 
@@ -59,6 +70,7 @@ router.get(
   verifyToken,
   checkAccountStatus,
   rolesAllowed("admin"),
+  validateRequest(getAuditLogsSchema, "query"),
   getAuditLogs,
 );
 
@@ -68,6 +80,7 @@ router.get(
   verifyToken,
   checkAccountStatus,
   rolesAllowed("admin"),
+  validateRequest(exportReportsSchema, "query"),
   exportReports,
 );
 // route to make a user an organizer
@@ -76,6 +89,7 @@ router.patch(
   verifyToken,
   checkAccountStatus,
   rolesAllowed("admin"),
+  validateRequest(makeOrganizerSchema, "params"),
   makeOrganizer,
 );
 
@@ -85,6 +99,7 @@ router.patch(
   verifyToken,
   checkAccountStatus,
   rolesAllowed("admin"),
+  validateRequest(flagUserSchema, "params"),
   flagUser,
 );
 
@@ -94,6 +109,7 @@ router.patch(
   verifyToken,
   checkAccountStatus,
   rolesAllowed("admin"),
+  validateRequest(suspendUserSchema, "params"),
   suspendUser,
 );
 
@@ -103,6 +119,7 @@ router.patch(
   verifyToken,
   checkAccountStatus,
   rolesAllowed("admin"),
+  validateRequest(updateSystemSettingsSchema),
   updateSystemSettings,
 );
 
