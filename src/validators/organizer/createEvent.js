@@ -1,94 +1,99 @@
 import Joi from "joi";
 
 export const createEventSchema = Joi.object({
-  title: Joi.string().trim().min(3).max(100).required().messages({
-    "string.base": "Title should be a string",
-    "string.empty": "Title cannot be empty",
-    "string.min": "Title must be at least 3 characters",
-    "string.max": "Title cannot exceed 100 characters",
+  title: Joi.string().trim().required().messages({
+    "string.base": "Title must be a string",
+    "string.empty": "Title is required",
     "any.required": "Title is required",
   }),
 
-  description: Joi.string().trim().min(10).max(2000).required().messages({
-    "string.base": "Description should be a string",
-    "string.empty": "Description cannot be empty",
-    "string.min": "Description must be at least 10 characters",
-    "string.max": "Description cannot exceed 2000 characters",
+  description: Joi.string().trim().required().messages({
+    "string.base": "Description must be a string",
+    "string.empty": "Description is required",
     "any.required": "Description is required",
   }),
 
-  category: Joi.string()
-    .valid(
-      "music",
-      "tech",
-      "business",
-      "sports",
-      "education",
-      "fashion",
-      "comedy",
-      "gaming",
-      "other",
-    )
-    .required()
-    .messages({
-      "any.only": "Invalid category selected",
-      "any.required": "Category is required",
-    }),
+  category: Joi.string().trim().required().messages({
+    "string.base": "Category must be a string",
+    "string.empty": "Category is required",
+    "any.required": "Category is required",
+  }),
 
-  venue: Joi.string().trim().min(3).max(150).required().messages({
-    "string.base": "Venue should be a string",
-    "string.empty": "Venue cannot be empty",
+  venue: Joi.string().trim().required().messages({
+    "string.base": "Venue must be a string",
+    "string.empty": "Venue is required",
     "any.required": "Venue is required",
   }),
 
-  city: Joi.string().trim().min(2).max(100).required().messages({
-    "string.base": "City should be a string",
+  city: Joi.string().trim().required().messages({
+    "string.base": "City must be a string",
+    "string.empty": "City is required",
     "any.required": "City is required",
   }),
 
-  state: Joi.string().trim().max(100).allow("").optional(),
+  state: Joi.string().trim().required().messages({
+    "string.base": "State must be a string",
+    "string.empty": "State is required",
+    "any.required": "State is required",
+  }),
 
-  country: Joi.string().trim().min(2).max(100).required().messages({
+  country: Joi.string().trim().required().messages({
+    "string.base": "Country must be a string",
+    "string.empty": "Country is required",
     "any.required": "Country is required",
   }),
 
-  startDate: Joi.date().iso().required().messages({
-    "any.required": "Start date is required",
+  startDate: Joi.date().required().messages({
     "date.base": "Start date must be a valid date",
+    "any.required": "Start date is required",
   }),
 
-  endDate: Joi.date().iso().greater(Joi.ref("startDate")).required().messages({
-    "any.required": "End date is required",
+  endDate: Joi.date().greater(Joi.ref("startDate")).required().messages({
     "date.base": "End date must be a valid date",
     "date.greater": "End date must be after start date",
+    "any.required": "End date is required",
   }),
 
-  startTime: Joi.string().optional(),
+  startTime: Joi.string().required().messages({
+    "string.base": "Start time must be a string",
+    "string.empty": "Start time is required",
+    "any.required": "Start time is required",
+  }),
 
-  endTime: Joi.string().optional(),
+  endTime: Joi.string().required().messages({
+    "string.base": "End time must be a string",
+    "string.empty": "End time is required",
+    "any.required": "End time is required",
+  }),
 
-  isFree: Joi.boolean().default(false),
+  isFree: Joi.boolean().required().messages({
+    "boolean.base": "isFree must be true or false",
+    "any.required": "isFree is required",
+  }),
 
-  ticketPrice: Joi.number()
-    .min(0)
-    .when("isFree", {
-      is: false,
-      then: Joi.required(),
-      otherwise: Joi.forbidden(),
-    })
-    .messages({
-      "number.base": "Ticket price must be a number",
-      "number.min": "Ticket price cannot be negative",
-      "any.required": "Ticket price is required for paid events",
-    }),
+  ticketPrice: Joi.number().min(0).optional().messages({
+    "number.base": "Ticket price must be a number",
+    "number.min": "Ticket price cannot be negative",
+  }),
 
   totalTickets: Joi.number().integer().min(1).required().messages({
     "number.base": "Total tickets must be a number",
-    "number.min": "At least 1 ticket is required",
+    "number.min": "Total tickets must be at least 1",
     "any.required": "Total tickets is required",
   }),
 
-  tags: Joi.array().items(Joi.string().trim().lowercase()).optional(),
+  tags: Joi.alternatives()
+    .try(Joi.array().items(Joi.string()), Joi.string())
+    .optional()
+    .messages({
+      "array.base": "Tags must be an array of strings",
+      "string.base": "Tags must be a string or array",
+    }),
 
-  bannerImage: Joi.string().uri().optional(),
+  entryRequirements: Joi.string().allow("").optional(),
+
+  agreedToRefundPolicy: Joi.boolean().valid(true).required().messages({
+    "any.only": "You must agree to the refund policy",
+    "any.required": "Refund policy agreement is required",
+  }),
 });

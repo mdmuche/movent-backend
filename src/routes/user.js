@@ -1,6 +1,13 @@
 import express from "express";
 
+import { validateRequest } from "../middlewares/validateRequest.js";
+
 import { verifyToken } from "../middlewares/verifyAuth.js";
+import { checkAccountStatus } from "../middlewares/checkAccountStatus.js";
+
+import upload from "../config/multer.js";
+
+// controllers
 import { getProfile } from "../controllers/user/profile.js";
 import { getDashboardOverview } from "../controllers/user/getDashboardOverview.js";
 import { getSavedEvents } from "../controllers/user/getSavedEvents.js";
@@ -11,37 +18,70 @@ import { updateProfile } from "../controllers/user/updateProfile.js";
 import { updateNotificationPreferences } from "../controllers/user/notificationPreference.js";
 import { updateLanguage } from "../controllers/user/updateLanguage.js";
 import { closeAccount } from "../controllers/user/closeAccount.js";
-import { checkAccountStatus } from "../middlewares/checkAccountStatus.js";
 import { updateProfilePicture } from "../controllers/user/updateProfilePicture.js";
-import upload from "../config/multer.js";
+
+// validators
+import { saveEventSchema } from "../validators/user/saveEvent.js";
+import { deleteSavedEventSchema } from "../validators/user/deleteSavedEvent.js";
+import { updateProfileSchema } from "../validators/user/updateProfile.js";
+import { updateLanguageSchema } from "../validators/user/updateLanguage.js";
+import { closeAccountSchema } from "../validators/user/closeAccount.js";
+import { updateNotificationPreferencesSchema } from "../validators/user/notificationPreference.js";
+import { getSavedEventsSchema } from "../validators/user/getSavedEvents.js";
+import { getUserActivitySchema } from "../validators/user/getUserActivity.js";
+import { getDashboardOverviewSchema } from "../validators/user/getDashboardOverview.js";
 
 const router = express.Router();
 
-// routes for user
-// route to get user profile
+// profile
 router.get("/profile", verifyToken, checkAccountStatus, getProfile);
 
-// route to get dashboard overview
-router.get("/dashboard", verifyToken, checkAccountStatus, getDashboardOverview);
+// dashboard
+router.get(
+  "/dashboard",
+  verifyToken,
+  checkAccountStatus,
+  validateRequest(getDashboardOverviewSchema),
+  getDashboardOverview,
+);
 
-// route to save an event
+// save event
 router.post(
   "/saved-events/:eventId",
   verifyToken,
   checkAccountStatus,
+  validateRequest(saveEventSchema),
   saveEvent,
 );
 
-// route to get saved events
-router.get("/saved-events", verifyToken, checkAccountStatus, getSavedEvents);
+// saved events list
+router.get(
+  "/saved-events",
+  verifyToken,
+  checkAccountStatus,
+  validateRequest(getSavedEventsSchema),
+  getSavedEvents,
+);
 
-// route to get user activity
-router.get("/activity", verifyToken, checkAccountStatus, getUserActivity);
+// activity
+router.get(
+  "/activity",
+  verifyToken,
+  checkAccountStatus,
+  validateRequest(getUserActivitySchema),
+  getUserActivity,
+);
 
-// route to update user profile
-router.patch("/profile", verifyToken, checkAccountStatus, updateProfile);
+// update profile
+router.patch(
+  "/profile",
+  verifyToken,
+  checkAccountStatus,
+  validateRequest(updateProfileSchema),
+  updateProfile,
+);
 
-// route to update profile picture
+// profile picture
 router.patch(
   "/profile/picture",
   verifyToken,
@@ -50,30 +90,39 @@ router.patch(
   updateProfilePicture,
 );
 
-// route to update notification preferences
+// notifications
 router.patch(
   "/preferences/notifications",
   verifyToken,
   checkAccountStatus,
+  validateRequest(updateNotificationPreferencesSchema),
   updateNotificationPreferences,
 );
 
-// route to update language preference
+// language
 router.patch(
   "/preferences/language",
   verifyToken,
   checkAccountStatus,
+  validateRequest(updateLanguageSchema),
   updateLanguage,
 );
 
-// route to close account
-router.delete("/account", verifyToken, checkAccountStatus, closeAccount);
+// close account
+router.delete(
+  "/account",
+  verifyToken,
+  checkAccountStatus,
+  validateRequest(closeAccountSchema),
+  closeAccount,
+);
 
-// route to delete a saved event
+// delete saved event
 router.delete(
   "/saved-events/:eventId",
   verifyToken,
   checkAccountStatus,
+  validateRequest(deleteSavedEventSchema),
   deleteSavedEvent,
 );
 
