@@ -8,7 +8,7 @@ export const webhook = async (req, res) => {
   try {
     const hash = crypto
       .createHmac("sha512", process.env.PAYSTACK_SECRET_KEY)
-      .update(JSON.stringify(req.body))
+      .update(req.body)
       .digest("hex");
 
     const signature = req.headers["x-paystack-signature"];
