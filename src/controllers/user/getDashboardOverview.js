@@ -1,4 +1,5 @@
 import httpStatus from "http-status";
+import mongoose from "mongoose";
 
 import TicketCollection from "../../models/ticket.js";
 
@@ -8,12 +9,12 @@ import { paginationUtils } from "../../utils/pagination/pagination.js";
 
 export const getDashboardOverview = async (req, res) => {
   try {
-    const userId = req.user.userId;
+    const userId = new mongoose.Types.ObjectId(req.user.userId);
 
     const { page = 1, limit = 10 } = req.query;
 
     // -----------------------------
-    // PAGINATION UTILS (ONLY FOR LIST DATA)
+    // PAGINATION UTILS
     // -----------------------------
     const {
       skip,
@@ -25,27 +26,63 @@ export const getDashboardOverview = async (req, res) => {
     });
 
     // -----------------------------
-    // TOTAL TICKETS (NO PAGINATION NEEDED)
+    // TOTAL PURCHASED TICKETS
     // -----------------------------
     const purchasedTickets = await TicketCollection.countDocuments({
       user: userId,
     });
 
     // -----------------------------
-    // UPCOMING EVENTS QUERY
+    // UPCOMING EVENTS AGGREGATION
     // -----------------------------
-    const tickets = await TicketCollection.find({
-      user: userId,
-    })
-      .populate({
-        path: "event",
-        match: { startDate: { $gte: new Date() } },
-      })
-      .sort({ createdAt: -1 })
-      .skip(skip)
-      .limit(limitNum);
+    const upcomingEvents = await TicketCollection.aggregate([
+      {
+        $match: {
+          user: userId,
+        },
+      },
 
-    const upcomingEvents = tickets.map((t) => t.event).filter(Boolean);
+      {
+        $lookup: {
+          from: "events",
+          localField: "event",
+          foreignField: "_id",
+          as: "event",
+        },
+      },
+
+      {
+        $unwind: "$event",
+      },
+
+      {
+        $match: {
+          "event.startDate": {
+            $gte: new Date(),
+          },
+        },
+      },
+
+      {
+        $sort: {
+          createdAt: -1,
+        },
+      },
+
+      {
+        $skip: skip,
+      },
+
+      {
+        $limit: limitNum,
+      },
+
+      {
+        $replaceRoot: {
+          newRoot: "$event",
+        },
+      },
+    ]);
 
     // -----------------------------
     // RESPONSE
@@ -54,9 +91,12 @@ export const getDashboardOverview = async (req, res) => {
       statusCode: httpStatus.OK,
       success: true,
       message: "Dashboard overview fetched successfully",
+
       data: {
         purchasedTickets,
+
         upcomingEvents,
+
         pagination,
       },
     });

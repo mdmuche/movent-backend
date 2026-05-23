@@ -1,4 +1,5 @@
 import httpStatus from "http-status";
+import mongoose from "mongoose";
 
 import TicketCollection from "../../models/ticket.js";
 
@@ -8,7 +9,7 @@ import { paginationUtils } from "../../utils/pagination/pagination.js";
 
 export const getUpcomingEvents = async (req, res) => {
   try {
-    const userId = req.user.userId;
+    const userId = new mongoose.Types.ObjectId(req.user.userId);
 
     const { page = 1, limit = 10 } = req.query;
 
@@ -25,28 +26,64 @@ export const getUpcomingEvents = async (req, res) => {
     });
 
     // -----------------------------
-    // FETCH TICKETS (PAGINATED)
+    // UPCOMING EVENTS AGGREGATION
     // -----------------------------
-    const tickets = await TicketCollection.find({
-      user: userId,
-    })
-      .populate({
-        path: "event",
-        match: { startDate: { $gte: new Date() } },
-      })
-      .skip(skip)
-      .limit(limitNum);
+    const upcomingEvents = await TicketCollection.aggregate([
+      {
+        $match: {
+          user: userId,
+        },
+      },
 
-    // -----------------------------
-    // EXTRACT UPCOMING EVENTS
-    // -----------------------------
-    const upcomingEvents = tickets.map((t) => t.event).filter(Boolean);
+      {
+        $lookup: {
+          from: "events",
+          localField: "event",
+          foreignField: "_id",
+          as: "event",
+        },
+      },
+
+      {
+        $unwind: "$event",
+      },
+
+      {
+        $match: {
+          "event.startDate": {
+            $gte: new Date(),
+          },
+        },
+      },
+
+      {
+        $sort: {
+          createdAt: -1,
+        },
+      },
+
+      {
+        $skip: skip,
+      },
+
+      {
+        $limit: limitNum,
+      },
+
+      {
+        $replaceRoot: {
+          newRoot: "$event",
+        },
+      },
+    ]);
 
     return successResponse(res, {
       statusCode: httpStatus.OK,
       message: "Upcoming events fetched successfully",
+
       data: {
         events: upcomingEvents,
+
         pagination,
       },
     });

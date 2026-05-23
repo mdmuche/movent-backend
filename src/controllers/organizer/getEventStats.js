@@ -1,13 +1,17 @@
 import httpStatus from "http-status";
+import mongoose from "mongoose";
+
 import Event from "../../models/event.js";
 import TicketCollection from "../../models/ticket.js";
+
 import { successResponse } from "../../utils/response/success.js";
 import { errorResponse } from "../../utils/response/error.js";
 
 export const getEventStats = async (req, res) => {
   try {
-    const organizerId = req.user.userId;
-    const eventId = req.params.id;
+    const organizerId = new mongoose.Types.ObjectId(req.user.userId);
+
+    const eventId = new mongoose.Types.ObjectId(req.params.id);
 
     // -------------------------
     // FIND EVENT (SECURITY CHECK)
@@ -25,19 +29,35 @@ export const getEventStats = async (req, res) => {
     }
 
     // -------------------------
-    // GET TICKETS
+    // TICKET ANALYTICS
     // -------------------------
-    const tickets = await TicketCollection.find({
-      event: eventId,
-      paymentStatus: "paid",
-    });
+    const ticketStats = await TicketCollection.aggregate([
+      {
+        $match: {
+          event: eventId,
+          paymentStatus: "paid",
+        },
+      },
 
-    // -------------------------
-    // REVENUE CALCULATION
-    // -------------------------
-    const revenue = tickets.reduce((acc, ticket) => {
-      return acc + (ticket.totalAmount || 0);
-    }, 0);
+      {
+        $group: {
+          _id: null,
+
+          ticketsSold: {
+            $sum: 1,
+          },
+
+          revenue: {
+            $sum: "$totalAmount",
+          },
+        },
+      },
+    ]);
+
+    const stats = ticketStats[0] || {
+      ticketsSold: 0,
+      revenue: 0,
+    };
 
     // -------------------------
     // REMAINING TICKETS
@@ -47,13 +67,20 @@ export const getEventStats = async (req, res) => {
     return successResponse(res, {
       statusCode: httpStatus.OK,
       message: "Event stats fetched successfully",
+
       data: {
-        eventId,
+        eventId: event._id,
+
         title: event.title,
-        ticketsSold: tickets.length,
-        revenue,
+
+        ticketsSold: stats.ticketsSold,
+
+        revenue: stats.revenue,
+
         remainingTickets,
+
         totalTickets: event.totalTickets,
+
         soldTickets: event.soldTickets,
       },
     });

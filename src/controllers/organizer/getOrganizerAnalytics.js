@@ -1,4 +1,5 @@
 import httpStatus from "http-status";
+import mongoose from "mongoose";
 
 import Event from "../../models/event.js";
 import TicketCollection from "../../models/ticket.js";
@@ -9,49 +10,12 @@ import { paginationUtils } from "../../utils/pagination/pagination.js";
 
 export const getOrganizerAnalytics = async (req, res) => {
   try {
-    const organizerId = req.user.userId;
+    const organizerId = new mongoose.Types.ObjectId(req.user.userId);
 
     const { page = 1, limit = 10 } = req.query;
 
     // -------------------------
-    // ALL EVENTS BY ORGANIZER
-    // -------------------------
-    const events = await Event.find({ organizer: organizerId });
-
-    const eventIds = events.map((e) => e._id);
-
-    // -------------------------
-    // ALL PAID TICKETS
-    // -------------------------
-    const tickets = await TicketCollection.find({
-      event: { $in: eventIds },
-      paymentStatus: "paid",
-    })
-      .populate("user", "fullName email")
-      .populate("event", "title");
-
-    // -------------------------
-    // TOTAL REVENUE
-    // -------------------------
-    const totalRevenue = tickets.reduce((acc, ticket) => {
-      return acc + (ticket.totalAmount || 0);
-    }, 0);
-
-    // -------------------------
-    // EVENT STATUS BREAKDOWN
-    // -------------------------
-    const now = new Date();
-
-    const upcomingEvents = events.filter((e) => new Date(e.startDate) > now);
-
-    const pastEvents = events.filter((e) => new Date(e.endDate) < now);
-
-    const activeEvents = events.filter(
-      (e) => new Date(e.startDate) <= now && new Date(e.endDate) >= now,
-    );
-
-    // -------------------------
-    // PAGINATION (ONLY FOR RECENT ACTIVITY)
+    // PAGINATION
     // -------------------------
     const {
       skip,
@@ -62,19 +26,158 @@ export const getOrganizerAnalytics = async (req, res) => {
       limit,
     });
 
-    const sortedTickets = tickets.sort(
-      (a, b) => new Date(b.createdAt) - new Date(a.createdAt),
-    );
+    // -------------------------
+    // EVENT ANALYTICS
+    // -------------------------
+    const events = await Event.aggregate([
+      {
+        $match: {
+          organizer: organizerId,
+        },
+      },
+      {
+        $group: {
+          _id: null,
 
-    const paginatedTickets = sortedTickets.slice(skip, skip + limitNum);
+          totalEvents: {
+            $sum: 1,
+          },
 
-    const recentActivity = paginatedTickets.map((ticket) => ({
-      type: "ticket_purchase",
-      user: ticket.user,
-      event: ticket.event,
-      amount: ticket.totalAmount,
-      createdAt: ticket.createdAt,
-    }));
+          upcomingEvents: {
+            $sum: {
+              $cond: [{ $gt: ["$startDate", new Date()] }, 1, 0],
+            },
+          },
+
+          pastEvents: {
+            $sum: {
+              $cond: [{ $lt: ["$endDate", new Date()] }, 1, 0],
+            },
+          },
+
+          activeEvents: {
+            $sum: {
+              $cond: [
+                {
+                  $and: [
+                    { $lte: ["$startDate", new Date()] },
+                    { $gte: ["$endDate", new Date()] },
+                  ],
+                },
+                1,
+                0,
+              ],
+            },
+          },
+        },
+      },
+    ]);
+
+    // -------------------------
+    // GET ORGANIZER EVENT IDS
+    // -------------------------
+    const organizerEvents = await Event.find({ organizer: organizerId }, "_id");
+
+    const eventIds = organizerEvents.map((event) => event._id);
+
+    // -------------------------
+    // TOTAL TICKETS + REVENUE
+    // -------------------------
+    const ticketStats = await TicketCollection.aggregate([
+      {
+        $match: {
+          event: { $in: eventIds },
+          paymentStatus: "paid",
+        },
+      },
+      {
+        $group: {
+          _id: null,
+
+          totalTicketsSold: {
+            $sum: 1,
+          },
+
+          totalRevenue: {
+            $sum: "$totalAmount",
+          },
+        },
+      },
+    ]);
+
+    // -------------------------
+    // RECENT ACTIVITY
+    // -------------------------
+    const recentActivity = await TicketCollection.aggregate([
+      {
+        $match: {
+          event: { $in: eventIds },
+          paymentStatus: "paid",
+        },
+      },
+
+      {
+        $sort: {
+          createdAt: -1,
+        },
+      },
+
+      {
+        $skip: skip,
+      },
+
+      {
+        $limit: limitNum,
+      },
+
+      {
+        $lookup: {
+          from: "users",
+          localField: "user",
+          foreignField: "_id",
+          as: "user",
+        },
+      },
+
+      {
+        $unwind: "$user",
+      },
+
+      {
+        $lookup: {
+          from: "events",
+          localField: "event",
+          foreignField: "_id",
+          as: "event",
+        },
+      },
+
+      {
+        $unwind: "$event",
+      },
+
+      {
+        $project: {
+          _id: 0,
+          type: "ticket_purchase",
+
+          amount: "$totalAmount",
+
+          createdAt: 1,
+
+          user: {
+            _id: "$user._id",
+            fullName: "$user.fullName",
+            email: "$user.email",
+          },
+
+          event: {
+            _id: "$event._id",
+            title: "$event.title",
+          },
+        },
+      },
+    ]);
 
     // -------------------------
     // RESPONSE
@@ -82,16 +185,22 @@ export const getOrganizerAnalytics = async (req, res) => {
     return successResponse(res, {
       statusCode: httpStatus.OK,
       message: "Organizer analytics fetched successfully",
-      data: {
-        totalEvents: events.length,
-        totalTicketsSold: tickets.length,
-        totalRevenue,
 
-        upcomingEvents: upcomingEvents.length,
-        pastEvents: pastEvents.length,
-        activeEvents: activeEvents.length,
+      data: {
+        totalEvents: events[0]?.totalEvents || 0,
+
+        totalTicketsSold: ticketStats[0]?.totalTicketsSold || 0,
+
+        totalRevenue: ticketStats[0]?.totalRevenue || 0,
+
+        upcomingEvents: events[0]?.upcomingEvents || 0,
+
+        pastEvents: events[0]?.pastEvents || 0,
+
+        activeEvents: events[0]?.activeEvents || 0,
 
         recentActivity,
+
         pagination,
       },
     });
