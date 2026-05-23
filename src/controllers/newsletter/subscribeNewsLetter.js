@@ -4,7 +4,7 @@ import NewsletterCollection from "../../models/newsletter.js";
 
 import { successResponse } from "../../utils/response/success.js";
 import { errorResponse } from "../../utils/response/error.js";
-console.log("x");
+
 export const subscribeNewsletter = async (req, res) => {
   try {
     const { email } = req.body;
