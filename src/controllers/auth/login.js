@@ -59,6 +59,7 @@ export const login = async (req, res) => {
     // SAVE TOKEN IN DB
     await TokenCollection.create({
       user: user._id,
+      authPurpose: "refresh_token",
       refreshToken,
       expiresAt: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
     });

@@ -1,5 +1,4 @@
 import httpStatus from "http-status";
-import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs";
 
 import TokenCollection from "../../models/token.js";
@@ -18,11 +17,9 @@ export const verifyCode = async (req, res) => {
       });
     }
 
-    jwt.verify(resetToken, process.env.JWT_RESET_SECRET);
-
     const databaseToken = await TokenCollection.findOne({
-      resetToken: resetToken,
-      authPurpose: "reset-password",
+      resetToken,
+      authPurpose: "password_reset",
     });
 
     if (!databaseToken) {
@@ -32,15 +29,26 @@ export const verifyCode = async (req, res) => {
       });
     }
 
+    // optional: check expiry manually (if you didn't use TTL index)
+    if (databaseToken.expiresAt < new Date()) {
+      return errorResponse(res, {
+        statusCode: httpStatus.BAD_REQUEST,
+        message: "token expired",
+      });
+    }
+
     const isMatch = await bcrypt.compare(code, databaseToken.resetPasswordCode);
+
     if (!isMatch) {
       return errorResponse(res, {
         statusCode: httpStatus.BAD_REQUEST,
         message: "invalid code",
       });
     }
+
     databaseToken.isCodeVerified = true;
     await databaseToken.save();
+
     return successResponse(res, {
       statusCode: httpStatus.OK,
       message: "Code verified successfully",

@@ -35,10 +35,10 @@ export const forgotPassword = async (req, res) => {
     // Save reset token in DB
     await TokenCollection.create({
       user: user._id,
-      resetToken,
+      authPurpose: "password_reset",
       resetPasswordCode: hashedCode,
-      authPurpose: "reset-password",
       expiresAt: new Date(Date.now() + 60 * 60 * 1000),
+      isCodeVerified: false,
     });
 
     // send email to get reset password code

@@ -6,11 +6,12 @@ import { errorResponse } from "../../utils/response/error.js";
 import User from "../../models/user.js";
 import { sendEmail } from "../../utils/email/sendEmail.js";
 import { verifyEmailTemplate } from "../../utils/email/templates/verifyEmail.js";
+import TokenCollection from "../../models/token.js";
 
 export const register = async (req, res) => {
   try {
     //1. Get user input
-    const { fullName, email, location, password } = req.body;
+    const { fullName, email, password } = req.body;
 
     //2. Check if the user already exists in the database
     const existingUser = await User.findOne({ email });
@@ -28,16 +29,23 @@ export const register = async (req, res) => {
       fullName,
       email,
       password: password,
-      location,
       authToken: verificationToken,
       authPurpose: "verify-email",
     });
 
     //5.send email to verify otp
-    const verificationUrl = `${process.env.FRONTEND_URL_MAIN}/v1/auth/verify-email/${verificationToken}`;
+    const verificationUrl = `${process.env.FRONTEND_TEST_URL}/verify-email/${verificationToken}`;
 
     const emailBody = verifyEmailTemplate(user.fullName, verificationUrl);
     await sendEmail(email, "verify your email", emailBody);
+
+    // store email verification token
+    await TokenCollection.create({
+      user: user._id,
+      authPurpose: "email_verification",
+      emailVerificationToken: verificationToken,
+      expiresAt: new Date(Date.now() + 24 * 60 * 60 * 1000),
+    });
 
     //6. Return a success response with the created user data
     return successResponse(res, {
