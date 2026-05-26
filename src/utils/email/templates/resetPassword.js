@@ -1,4 +1,4 @@
-export const resetPasswordTemplate = (name, resetUrl, code) => {
+export const resetPasswordTemplate = (name, resetUrl) => {
   return `
   <div style="font-family: Arial, sans-serif; background:#f4f4f4; padding:40px;">
     <div style="max-width:600px; margin:auto; background:white; border-radius:10px; overflow:hidden;">
@@ -14,11 +14,9 @@ export const resetPasswordTemplate = (name, resetUrl, code) => {
 
         <p>We received a request to reset your password.</p>
 
-        <p>Your verification code is:</p>
-
-        <div style="font-size:32px; font-weight:bold; letter-spacing:5px; margin:20px 0;">
-          ${code}
-        </div>
+        <p>
+          Click the button below to reset your password:
+        </p>
 
         <a href="${resetUrl}"
           style="
@@ -34,7 +32,11 @@ export const resetPasswordTemplate = (name, resetUrl, code) => {
         </a>
 
         <p style="margin-top:30px; color:#666;">
-          This link expires in 1 hour.
+          This link expires in 5mins.
+        </p>
+
+        <p style="margin-top:20px; color:#666;">
+          If you did not request this, please ignore this email.
         </p>
       </div>
 

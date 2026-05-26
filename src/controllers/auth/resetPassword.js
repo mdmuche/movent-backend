@@ -12,13 +12,20 @@ export const resetPassword = async (req, res) => {
     const { resetToken } = req.params;
     const { newPassword } = req.body;
 
-    // Verify JWT token
-    jwt.verify(resetToken, process.env.JWT_RESET_SECRET);
+    try {
+      jwt.verify(resetToken, process.env.JWT_RESET_SECRET);
+    } catch (error) {
+      return errorResponse(res, {
+        statusCode: httpStatus.UNAUTHORIZED,
+        message: "Invalid or expired reset token",
+        error: error.message,
+      });
+    }
 
     // Check DB for stored token
     const storedToken = await TokenCollection.findOne({
-      resetToken,
-      authPurpose: "reset-password",
+      passwordResetToken: resetToken,
+      authPurpose: "password_reset",
     });
 
     if (!storedToken) {
@@ -28,10 +35,10 @@ export const resetPassword = async (req, res) => {
       });
     }
 
-    if (!storedToken.isCodeVerified) {
+    if (storedToken.expiresAt < new Date()) {
       return errorResponse(res, {
-        statusCode: httpStatus.FORBIDDEN,
-        message: "Code verification required",
+        statusCode: httpStatus.UNAUTHORIZED,
+        message: "Reset token expired",
       });
     }
 
@@ -51,9 +58,7 @@ export const resetPassword = async (req, res) => {
     await user.save();
 
     // Delete used token
-    await TokenCollection.deleteOne({
-      resetToken,
-    });
+    await TokenCollection.findByIdAndDelete(storedToken._id);
 
     return successResponse(res, {
       statusCode: httpStatus.OK,

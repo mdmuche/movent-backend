@@ -28,16 +28,6 @@ const tokenSchema = new mongoose.Schema({
     type: String,
   },
 
-  // Optional OTP support (if you use code-based reset)
-  resetPasswordCode: {
-    type: String,
-  },
-
-  isCodeVerified: {
-    type: Boolean,
-    default: false,
-  },
-
   expiresAt: {
     type: Date,
     required: true,

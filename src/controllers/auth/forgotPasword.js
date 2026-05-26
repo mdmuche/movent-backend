@@ -1,6 +1,5 @@
 import httpStatus from "http-status";
 import jwt from "jsonwebtoken";
-import bcrypt from "bcryptjs";
 
 import User from "../../models/user.js";
 
@@ -15,6 +14,7 @@ export const forgotPassword = async (req, res) => {
     const { email } = req.body;
 
     const user = await User.findOne({ email });
+
     if (!user) {
       return errorResponse(res, {
         statusCode: httpStatus.NOT_FOUND,
@@ -22,29 +22,26 @@ export const forgotPassword = async (req, res) => {
       });
     }
 
-    // Generate reset token
+    // Generate JWT reset token
     const resetToken = jwt.sign(
       { userId: user._id },
       process.env.JWT_RESET_SECRET,
       { expiresIn: process.env.JWT_RESET_EXPIRES_IN },
     );
 
-    let code = String(Math.floor(Math.random() * 10000)).padStart(4, "0");
-
-    const hashedCode = await bcrypt.hash(code, 10);
-    // Save reset token in DB
+    // Save token in DB
     await TokenCollection.create({
       user: user._id,
       authPurpose: "password_reset",
-      resetPasswordCode: hashedCode,
+      passwordResetToken: resetToken,
       expiresAt: new Date(Date.now() + 60 * 60 * 1000),
-      isCodeVerified: false,
     });
 
-    // send email to get reset password code
-    const resetUrl = `${process.env.FRONTEND_URL_MAIN}/v1/auth/reset-password/${resetToken}`;
+    // Reset URL
+    const resetUrl = `${process.env.FRONTEND_TEST_URL}/reset-password/${resetToken}`;
 
-    const emailBody = resetPasswordTemplate(user.fullName, resetUrl, code);
+    const emailBody = resetPasswordTemplate(user.fullName, resetUrl);
+
     await sendEmail(email, "Reset your password", emailBody);
 
     return successResponse(res, {
