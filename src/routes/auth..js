@@ -16,9 +16,6 @@ import { logout } from "../controllers/auth/logout.js";
 import { forgotPasswordSchema } from "../validators/auth/forgotPassword.js";
 import { resetPasswordSchema } from "../validators/auth/resetPassword.js";
 
-import { verifyToken } from "../middlewares/verifyAuth.js";
-import { checkAccountStatus } from "../middlewares/checkAccountStatus.js";
-
 const router = express.Router();
 
 router.post(
