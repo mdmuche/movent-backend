@@ -12,6 +12,10 @@ export const getMyEvents = async (req, res) => {
 
     const { page = 1, limit = 10 } = req.query;
 
+    const total = await Event.countDocuments({
+      organizer: userId,
+    });
+
     // -----------------------------
     // PAGINATION UTILS
     // -----------------------------
@@ -22,6 +26,7 @@ export const getMyEvents = async (req, res) => {
     } = paginationUtils({
       page,
       limit,
+      total,
     });
 
     // -----------------------------

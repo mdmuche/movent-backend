@@ -1,7 +1,6 @@
 import express from "express";
 
-import { verifyToken } from "../middlewares/verifyAuth.js";
-import { checkAccountStatus } from "../middlewares/checkAccountStatus.js";
+import { requireAuth } from "../middlewares/authFlow.js";
 import { validateRequest } from "../middlewares/validateRequest.js";
 
 import { getMyTickets } from "../controllers/tickets/getMyTickets.js";
@@ -15,8 +14,7 @@ const router = express.Router();
 // get user tickets
 router.get(
   "/my-tickets",
-  verifyToken,
-  checkAccountStatus,
+  requireAuth,
   validateRequest(getMyTicketsSchema, "query"),
   getMyTickets,
 );
@@ -24,8 +22,7 @@ router.get(
 // purchase ticket
 router.post(
   "/purchase",
-  verifyToken,
-  checkAccountStatus,
+  requireAuth,
   validateRequest(purchaseTicketSchema),
   purchaseTicket,
 );

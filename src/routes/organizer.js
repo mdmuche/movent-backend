@@ -8,9 +8,7 @@ import { getMyEvents } from "../controllers/organizer/getMyEvents.js";
 import { getOrganizerAnalytics } from "../controllers/organizer/getOrganizerAnalytics.js";
 import { getEventStats } from "../controllers/organizer/getEventStats.js";
 
-import { verifyToken } from "../middlewares/verifyAuth.js";
-import { rolesAllowed } from "../middlewares/roleBased.js";
-import { checkAccountStatus } from "../middlewares/checkAccountStatus.js";
+import { requireOrganizer } from "../middlewares/authFlow.js";
 
 import upload from "../config/multer.js";
 
@@ -20,41 +18,34 @@ import { updateEventSchema } from "../validators/organizer/updateEvent.js";
 import { getMyEventsSchema } from "../validators/organizer/getMyEvents.js";
 import { getOrganizerAnalyticsSchema } from "../validators/organizer/getOrganizerAnalytics.js";
 import { getEventStatsSchema } from "../validators/organizer/getEventStats.js";
+import { deleteEventSchema } from "../validators/organizer/deleteEvent.js";
 
 const router = express.Router();
 
 router.get(
   "/analytics",
-  verifyToken,
-  checkAccountStatus,
-  rolesAllowed("organizer", "admin"),
-  validateRequest(getOrganizerAnalyticsSchema),
+  requireOrganizer,
+  validateRequest(getOrganizerAnalyticsSchema, "query"),
   getOrganizerAnalytics,
 );
 
 router.get(
   "/events/:id/stats",
-  verifyToken,
-  checkAccountStatus,
-  rolesAllowed("organizer", "admin"),
-  validateRequest(getEventStatsSchema),
+  requireOrganizer,
+  validateRequest(getEventStatsSchema, "params"),
   getEventStats,
 );
 
 router.get(
   "/my-events",
-  verifyToken,
-  checkAccountStatus,
-  rolesAllowed("organizer", "admin"),
-  validateRequest(getMyEventsSchema),
+  requireOrganizer,
+  validateRequest(getMyEventsSchema, "query"),
   getMyEvents,
 );
 
 router.post(
   "/events",
-  verifyToken,
-  checkAccountStatus,
-  rolesAllowed("organizer", "admin"),
+  requireOrganizer,
   upload.single("bannerImage"),
   validateRequest(createEventSchema),
   createEvent,
@@ -62,19 +53,17 @@ router.post(
 
 router.put(
   "/events/:id",
-  verifyToken,
-  checkAccountStatus,
-  rolesAllowed("organizer", "admin"),
+  requireOrganizer,
   upload.single("bannerImage"),
+  validateRequest(deleteEventSchema, "params"),
   validateRequest(updateEventSchema),
   updateEvent,
 );
 
 router.delete(
   "/events/:id",
-  verifyToken,
-  checkAccountStatus,
-  rolesAllowed("organizer", "admin"),
+  requireOrganizer,
+  validateRequest(deleteEventSchema, "params"),
   deleteEvent,
 );
 

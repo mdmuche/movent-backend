@@ -10,13 +10,30 @@ export const validateTicket = async (req, res) => {
     const { ticketId } = req.params;
 
     const ticket = await TicketCollection.findById(ticketId)
-      .populate("event", "title startDate endDate venue")
+      .populate("event", "title startDate endDate venue organizer")
       .populate("user", "fullName email");
 
     if (!ticket) {
       return errorResponse(res, {
         statusCode: httpStatus.NOT_FOUND,
         message: "Ticket not found",
+      });
+    }
+
+    if (!ticket.event) {
+      return errorResponse(res, {
+        statusCode: httpStatus.NOT_FOUND,
+        message: "Event not found for this ticket",
+      });
+    }
+
+    if (
+      req.userDetails.role !== "admin" &&
+      ticket.event.organizer.toString() !== req.user.userId
+    ) {
+      return errorResponse(res, {
+        statusCode: httpStatus.FORBIDDEN,
+        message: "Unauthorized to validate this ticket",
       });
     }
 

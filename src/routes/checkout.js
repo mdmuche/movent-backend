@@ -1,11 +1,13 @@
 import express from "express";
 
-import { verifyToken } from "../middlewares/verifyAuth.js";
-import { checkAccountStatus } from "../middlewares/checkAccountStatus.js";
-import { rolesAllowed } from "../middlewares/roleBased.js";
+import {
+  requireAdmin,
+  requireAuth,
+  requireOrganizer,
+} from "../middlewares/authFlow.js";
 import { validateRequest } from "../middlewares/validateRequest.js";
 
-import { initiateCheckout } from "../controllers/checkout/innitiateCheckout.js";
+import { initiateCheckout } from "../controllers/checkout/initiateCheckout.js";
 import { verifyPayment } from "../controllers/checkout/verifyPayment.js";
 import { applyPromoCode } from "../controllers/checkout/applyPromoCode.js";
 import { refundPayment } from "../controllers/checkout/refundPayment.js";
@@ -32,8 +34,7 @@ const router = express.Router();
 // initiate checkout
 router.post(
   "/initiate",
-  verifyToken,
-  checkAccountStatus,
+  requireAuth,
   validateRequest(initiateCheckoutSchema),
   initiateCheckout,
 );
@@ -41,17 +42,15 @@ router.post(
 // Verify payment
 router.get(
   "/verify/:reference",
-  verifyToken,
-  checkAccountStatus,
+  requireAuth,
   validateRequest(verifyPaymentSchema, "params"),
   verifyPayment,
 );
 
 //  Apply promo code
 router.post(
-  "/checkout/promo/apply",
-  verifyToken,
-  checkAccountStatus,
+  "/promo/apply",
+  requireAuth,
   validateRequest(applyPromoCodeSchema),
   applyPromoCode,
 );
@@ -59,46 +58,37 @@ router.post(
 // Refund payment (Admin only)
 
 router.post(
-  "/checkout/refund/:ticketId",
-  verifyToken,
-  checkAccountStatus,
-  rolesAllowed("admin"),
+  "/refund/:paymentId",
+  requireAdmin,
   validateRequest(refundPaymentSchema, "params"),
   refundPayment,
 );
 
 // Webhook (No auth / No validation)
 
-router.post(
-  "/checkout/webhook",
-  express.raw({ type: "application/json" }),
-  webhook,
-);
+router.post("/webhook", express.raw({ type: "application/json" }), webhook);
 
 // Payment History
 
 router.get(
-  "/checkout/history",
-  verifyToken,
-  checkAccountStatus,
+  "/history",
+  requireAuth,
   validateRequest(getPaymentHistorySchema, "query"),
   getPaymentHistory,
 );
 
 // Payment Details
 router.get(
-  "/checkout/:reference",
-  verifyToken,
-  checkAccountStatus,
+  "/:reference",
+  requireAuth,
   validateRequest(getPaymentDetailsSchema, "params"),
   getPaymentDetails,
 );
 
 // Cancel Checkout
 router.patch(
-  "/checkout/cancel/:reference",
-  verifyToken,
-  checkAccountStatus,
+  "/cancel/:reference",
+  requireAuth,
   validateRequest(cancelCheckoutSchema, "params"),
   cancelCheckout,
 );
@@ -106,9 +96,8 @@ router.patch(
 // Resent Ticket
 
 router.post(
-  "/checkout/resend-ticket/:ticketId",
-  verifyToken,
-  checkAccountStatus,
+  "/resend-ticket/:ticketId",
+  requireAuth,
   validateRequest(resendTicketSchema, "params"),
   resendTicket,
 );
@@ -116,9 +105,8 @@ router.post(
 // Validate Ticket
 
 router.post(
-  "/checkout/validate-ticket/:ticketId",
-  verifyToken,
-  checkAccountStatus,
+  "/validate-ticket/:ticketId",
+  requireOrganizer,
   validateRequest(validateTicketSchema, "params"),
   validateTicket,
 );

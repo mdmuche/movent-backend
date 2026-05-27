@@ -8,8 +8,13 @@ import { errorResponse } from "../../utils/response/error.js";
 export const getPaymentDetails = async (req, res) => {
   try {
     const { reference } = req.params;
+    const query = { reference };
 
-    const payment = await PaymentCollection.findOne({ reference })
+    if (req.userDetails?.role !== "admin") {
+      query.user = req.user.userId;
+    }
+
+    const payment = await PaymentCollection.findOne(query)
       .populate("user", "fullName email")
       .populate("event", "title bannerImage startDate");
 

@@ -1,5 +1,6 @@
 import httpStatus from "http-status";
 import User from "../models/user.js";
+import { errorResponse } from "../utils/response/error.js";
 
 export const checkAccountStatus = async (req, res, next) => {
   try {
@@ -8,34 +9,34 @@ export const checkAccountStatus = async (req, res, next) => {
     const user = await User.findById(userId);
 
     if (!user) {
-      return res.status(httpStatus.NOT_FOUND).json({
-        success: false,
+      return errorResponse(res, {
+        statusCode: httpStatus.NOT_FOUND,
         message: "User not found",
       });
     }
 
     // BLOCK CLOSED ACCOUNTS
     if (user.accountStatus === "closed") {
-      return res.status(httpStatus.FORBIDDEN).json({
-        success: false,
+      return errorResponse(res, {
+        statusCode: httpStatus.FORBIDDEN,
         message: "This account has been closed.",
       });
     }
 
     // OPTIONAL: block suspended accounts too
     if (user.accountStatus === "suspended") {
-      return res.status(httpStatus.FORBIDDEN).json({
-        success: false,
+      return errorResponse(res, {
+        statusCode: httpStatus.FORBIDDEN,
         message: "This account has been suspended.",
       });
     }
 
     req.userDetails = user;
 
-    next();
+    return next();
   } catch (error) {
-    return res.status(httpStatus.INTERNAL_SERVER_ERROR).json({
-      success: false,
+    return errorResponse(res, {
+      statusCode: httpStatus.INTERNAL_SERVER_ERROR,
       message: "Account status check failed",
       error: error.message,
     });

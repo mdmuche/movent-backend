@@ -104,8 +104,14 @@ const eventSchema = new mongoose.Schema(
     },
 
     bannerImage: {
-      public_id: String,
-      secure_url: String,
+      public_id: {
+        type: String,
+        required: true,
+      },
+      secure_url: {
+        type: String,
+        required: true,
+      },
     },
 
     tags: [String],

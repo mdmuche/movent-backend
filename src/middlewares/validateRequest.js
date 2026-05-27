@@ -1,15 +1,24 @@
+import httpStatus from "http-status";
+
+import { errorResponse } from "../utils/response/error.js";
+
 export const validateRequest = (schema, property = "body") => {
   return (req, res, next) => {
-    const { error } = schema.validate(req[property], {
+    const { error, value } = schema.validate(req[property], {
       abortEarly: false,
+      stripUnknown: true,
     });
 
     if (error) {
-      return res.status(400).json({
-        errors: error.details.map((detail) => detail.message),
+      return errorResponse(res, {
+        statusCode: httpStatus.BAD_REQUEST,
+        message: "Validation failed",
+        error: error.details.map((detail) => detail.message),
       });
     }
 
-    next();
+    Object.assign(req[property], value);
+
+    return next();
   };
 };

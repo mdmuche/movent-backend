@@ -1,0 +1,882 @@
+components:
+  schemas:
+    ErrorResponse:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+        success:
+          type: boolean
+          example: false
+        message:
+          type: string
+        error:
+          nullable: true
+    SuccessResponse:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+        success:
+          type: boolean
+          example: true
+        message:
+          type: string
+        data:
+          nullable: true
+    AuthUser:
+      type: object
+      properties:
+        userId:
+          type: string
+        fullName:
+          type: string
+        email:
+          type: string
+          format: email
+        profilePicture:
+          type: string
+        role:
+          type: string
+          enum: [attendee, organizer, admin]
+    Event:
+      type: object
+      properties:
+        _id:
+          type: string
+        title:
+          type: string
+        slug:
+          type: string
+        description:
+          type: string
+        category:
+          type: string
+        venue:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        country:
+          type: string
+        startDate:
+          type: string
+          format: date-time
+        endDate:
+          type: string
+          format: date-time
+        startTime:
+          type: string
+        endTime:
+          type: string
+        ticketPrice:
+          type: number
+        totalTickets:
+          type: integer
+        soldTickets:
+          type: integer
+        isFree:
+          type: boolean
+        status:
+          type: string
+        approvalStatus:
+          type: string
+    Ticket:
+      type: object
+      properties:
+        _id:
+          type: string
+        event:
+          type: string
+        quantity:
+          type: integer
+        totalAmount:
+          type: number
+        paymentStatus:
+          type: string
+    Payment:
+      type: object
+      properties:
+        _id:
+          type: string
+        reference:
+          type: string
+        amount:
+          type: number
+        status:
+          type: string
+        quantity:
+          type: integer
+    Notification:
+      type: object
+      properties:
+        _id:
+          type: string
+        title:
+          type: string
+        message:
+          type: string
+        type:
+          type: string
+        isRead:
+          type: boolean
+  responses:
+    Unauthorized:
+      description: Authentication required or session expired
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ErrorResponse"
+    Forbidden:
+      description: Authenticated user is not allowed to access this resource
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ErrorResponse"
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ErrorResponse"
+    ValidationError:
+      description: Request validation failed
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ErrorResponse"
+  parameters:
+    Id:
+      in: path
+      name: id
+      required: true
+      schema:
+        type: string
+    UserId:
+      in: path
+      name: userId
+      required: true
+      schema:
+        type: string
+    EventId:
+      in: path
+      name: eventId
+      required: true
+      schema:
+        type: string
+    TicketId:
+      in: path
+      name: ticketId
+      required: true
+      schema:
+        type: string
+    NotificationId:
+      in: path
+      name: notificationId
+      required: true
+      schema:
+        type: string
+    Reference:
+      in: path
+      name: reference
+      required: true
+      schema:
+        type: string
+    Page:
+      in: query
+      name: page
+      schema:
+        type: integer
+        minimum: 1
+    Limit:
+      in: query
+      name: limit
+      schema:
+        type: integer
+        minimum: 1
+
+paths:
+  /v1/auth/register:
+    post:
+      tags: [Auth]
+      summary: Register a new user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [fullName, email, password]
+              properties:
+                fullName:
+                  type: string
+                email:
+                  type: string
+                  format: email
+                password:
+                  type: string
+      responses:
+        "201":
+          description: User registered
+        "400":
+          $ref: "#/components/responses/ValidationError"
+  /v1/auth/login:
+    post:
+      tags: [Auth]
+      summary: Login and set access/refresh token cookies
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [email, password]
+              properties:
+                email:
+                  type: string
+                  format: email
+                password:
+                  type: string
+      responses:
+        "200":
+          description: Login successful
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+  /v1/auth/verify-email/{token}:
+    get:
+      tags: [Auth]
+      summary: Verify a user's email address
+      parameters:
+        - in: path
+          name: token
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Email verified
+        "404":
+          $ref: "#/components/responses/NotFound"
+  /v1/auth/forgot-password:
+    post:
+      tags: [Auth]
+      summary: Request password reset
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [email]
+              properties:
+                email:
+                  type: string
+                  format: email
+      responses:
+        "200":
+          description: Reset token sent
+  /v1/auth/reset-password/{resetToken}:
+    post:
+      tags: [Auth]
+      summary: Reset password with token
+      parameters:
+        - in: path
+          name: resetToken
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [newPassword]
+              properties:
+                newPassword:
+                  type: string
+      responses:
+        "200":
+          description: Password reset
+  /v1/auth/refresh-token:
+    post:
+      tags: [Auth]
+      summary: Refresh access token from refresh token cookie
+      responses:
+        "200":
+          description: Token refreshed
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+  /v1/auth/logout:
+    post:
+      tags: [Auth]
+      summary: Logout and clear auth cookies
+      responses:
+        "200":
+          description: Logout successful
+
+  /v1/user/profile:
+    get:
+      tags: [User]
+      summary: Get current user profile
+      security:
+        - cookieAuth: []
+      responses:
+        "200":
+          description: Profile fetched
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+    patch:
+      tags: [User]
+      summary: Update current user profile
+      security:
+        - cookieAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        "200":
+          description: Profile updated
+  /v1/user/dashboard:
+    get:
+      tags: [User]
+      summary: Get user dashboard overview
+      security:
+        - cookieAuth: []
+      parameters:
+        - $ref: "#/components/parameters/Page"
+        - $ref: "#/components/parameters/Limit"
+      responses:
+        "200":
+          description: Dashboard fetched
+  /v1/user/saved-events:
+    get:
+      tags: [User]
+      summary: Get saved events
+      security:
+        - cookieAuth: []
+      responses:
+        "200":
+          description: Saved events fetched
+  /v1/user/saved-events/{eventId}:
+    post:
+      tags: [User]
+      summary: Save an event
+      security:
+        - cookieAuth: []
+      parameters:
+        - $ref: "#/components/parameters/EventId"
+      responses:
+        "200":
+          description: Event saved
+    delete:
+      tags: [User]
+      summary: Remove a saved event
+      security:
+        - cookieAuth: []
+      parameters:
+        - $ref: "#/components/parameters/EventId"
+      responses:
+        "200":
+          description: Saved event removed
+  /v1/user/activity:
+    get:
+      tags: [User]
+      summary: Get user activity
+      security:
+        - cookieAuth: []
+      responses:
+        "200":
+          description: Activity fetched
+  /v1/user/profile/picture:
+    patch:
+      tags: [User]
+      summary: Update profile picture
+      security:
+        - cookieAuth: []
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                profilePicture:
+                  type: string
+                  format: binary
+      responses:
+        "200":
+          description: Profile picture updated
+  /v1/user/preferences/notifications:
+    patch:
+      tags: [User]
+      summary: Update notification preferences
+      security:
+        - cookieAuth: []
+      responses:
+        "200":
+          description: Preferences updated
+  /v1/user/preferences/language:
+    patch:
+      tags: [User]
+      summary: Update language preference
+      security:
+        - cookieAuth: []
+      responses:
+        "200":
+          description: Language updated
+  /v1/user/account:
+    delete:
+      tags: [User]
+      summary: Close current user account
+      security:
+        - cookieAuth: []
+      responses:
+        "200":
+          description: Account closed
+
+  /v1/event:
+    get:
+      tags: [Events]
+      summary: Get public events
+      parameters:
+        - $ref: "#/components/parameters/Page"
+        - $ref: "#/components/parameters/Limit"
+        - in: query
+          name: search
+          schema:
+            type: string
+        - in: query
+          name: category
+          schema:
+            type: string
+        - in: query
+          name: status
+          schema:
+            type: string
+            enum: [upcoming, past, available]
+        - in: query
+          name: sort
+          schema:
+            type: string
+            enum: [latest, oldest, price_asc, price_desc, popularity]
+        - in: query
+          name: city
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Events fetched
+  /v1/event/trending:
+    get:
+      tags: [Events]
+      summary: Get trending events
+      responses:
+        "200":
+          description: Trending events fetched
+  /v1/event/recommendations:
+    get:
+      tags: [Events]
+      summary: Get personalized event recommendations
+      security:
+        - cookieAuth: []
+      responses:
+        "200":
+          description: Recommendations fetched
+  /v1/event/upcoming:
+    get:
+      tags: [Events]
+      summary: Get upcoming events for current user
+      security:
+        - cookieAuth: []
+      responses:
+        "200":
+          description: Upcoming events fetched
+  /v1/event/{slug}:
+    get:
+      tags: [Events]
+      summary: Get event by slug
+      parameters:
+        - in: path
+          name: slug
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Event fetched
+
+  /v1/organizer/events:
+    post:
+      tags: [Organizer]
+      summary: Create event
+      security:
+        - cookieAuth: []
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                bannerImage:
+                  type: string
+                  format: binary
+      responses:
+        "201":
+          description: Event created
+  /v1/organizer/events/{id}:
+    put:
+      tags: [Organizer]
+      summary: Update event
+      security:
+        - cookieAuth: []
+      parameters:
+        - $ref: "#/components/parameters/Id"
+      responses:
+        "200":
+          description: Event updated
+    delete:
+      tags: [Organizer]
+      summary: Delete event
+      security:
+        - cookieAuth: []
+      parameters:
+        - $ref: "#/components/parameters/Id"
+      responses:
+        "200":
+          description: Event deleted
+  /v1/organizer/analytics:
+    get:
+      tags: [Organizer]
+      summary: Get organizer analytics
+      security:
+        - cookieAuth: []
+      responses:
+        "200":
+          description: Analytics fetched
+  /v1/organizer/events/{id}/stats:
+    get:
+      tags: [Organizer]
+      summary: Get event stats
+      security:
+        - cookieAuth: []
+      parameters:
+        - $ref: "#/components/parameters/Id"
+      responses:
+        "200":
+          description: Event stats fetched
+  /v1/organizer/my-events:
+    get:
+      tags: [Organizer]
+      summary: Get current organizer events
+      security:
+        - cookieAuth: []
+      responses:
+        "200":
+          description: Organizer events fetched
+
+  /v1/ticket/my-tickets:
+    get:
+      tags: [Tickets]
+      summary: Get current user tickets
+      security:
+        - cookieAuth: []
+      responses:
+        "200":
+          description: Tickets fetched
+  /v1/ticket/purchase:
+    post:
+      tags: [Tickets]
+      summary: Purchase a ticket directly
+      security:
+        - cookieAuth: []
+      responses:
+        "201":
+          description: Ticket purchased
+
+  /v1/checkout/initiate:
+    post:
+      tags: [Checkout]
+      summary: Initiate checkout
+      security:
+        - cookieAuth: []
+      responses:
+        "200":
+          description: Checkout initialized
+  /v1/checkout/verify/{reference}:
+    get:
+      tags: [Checkout]
+      summary: Verify payment
+      security:
+        - cookieAuth: []
+      parameters:
+        - $ref: "#/components/parameters/Reference"
+      responses:
+        "200":
+          description: Payment verified
+  /v1/checkout/promo/apply:
+    post:
+      tags: [Checkout]
+      summary: Apply promo code
+      security:
+        - cookieAuth: []
+      responses:
+        "200":
+          description: Promo code applied
+  /v1/checkout/refund/{paymentId}:
+    post:
+      tags: [Checkout]
+      summary: Refund payment
+      security:
+        - cookieAuth: []
+      parameters:
+        - in: path
+          name: paymentId
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Payment refunded
+  /v1/checkout/webhook:
+    post:
+      tags: [Checkout]
+      summary: Paystack webhook endpoint
+      responses:
+        "200":
+          description: Webhook accepted
+  /v1/checkout/history:
+    get:
+      tags: [Checkout]
+      summary: Get payment history
+      security:
+        - cookieAuth: []
+      responses:
+        "200":
+          description: History fetched
+  /v1/checkout/{reference}:
+    get:
+      tags: [Checkout]
+      summary: Get payment details
+      security:
+        - cookieAuth: []
+      parameters:
+        - $ref: "#/components/parameters/Reference"
+      responses:
+        "200":
+          description: Payment details fetched
+  /v1/checkout/cancel/{reference}:
+    patch:
+      tags: [Checkout]
+      summary: Cancel checkout
+      security:
+        - cookieAuth: []
+      parameters:
+        - $ref: "#/components/parameters/Reference"
+      responses:
+        "200":
+          description: Checkout cancelled
+  /v1/checkout/resend-ticket/{ticketId}:
+    post:
+      tags: [Checkout]
+      summary: Resend ticket
+      security:
+        - cookieAuth: []
+      parameters:
+        - $ref: "#/components/parameters/TicketId"
+      responses:
+        "200":
+          description: Ticket resent
+  /v1/checkout/validate-ticket/{ticketId}:
+    post:
+      tags: [Checkout]
+      summary: Validate ticket at event
+      security:
+        - cookieAuth: []
+      parameters:
+        - $ref: "#/components/parameters/TicketId"
+      responses:
+        "200":
+          description: Ticket validation result
+
+  /v1/notification:
+    post:
+      tags: [Notifications]
+      summary: Create notification
+      security:
+        - cookieAuth: []
+      responses:
+        "201":
+          description: Notification created
+    get:
+      tags: [Notifications]
+      summary: Get current user notifications
+      security:
+        - cookieAuth: []
+      responses:
+        "200":
+          description: Notifications fetched
+  /v1/notification/unread-count:
+    get:
+      tags: [Notifications]
+      summary: Get unread notification count
+      security:
+        - cookieAuth: []
+      responses:
+        "200":
+          description: Unread count fetched
+  /v1/notification/{notificationId}/read:
+    patch:
+      tags: [Notifications]
+      summary: Mark notification as read
+      security:
+        - cookieAuth: []
+      parameters:
+        - $ref: "#/components/parameters/NotificationId"
+      responses:
+        "200":
+          description: Notification marked read
+  /v1/notification/mark-all-read:
+    patch:
+      tags: [Notifications]
+      summary: Mark all notifications as read
+      security:
+        - cookieAuth: []
+      responses:
+        "200":
+          description: Notifications marked read
+  /v1/notification/{notificationId}:
+    delete:
+      tags: [Notifications]
+      summary: Delete notification
+      security:
+        - cookieAuth: []
+      parameters:
+        - $ref: "#/components/parameters/NotificationId"
+      responses:
+        "200":
+          description: Notification deleted
+
+  /v1/admin/overview:
+    get:
+      tags: [Admin]
+      summary: Get platform overview
+      security:
+        - cookieAuth: []
+      responses:
+        "200":
+          description: Overview fetched
+  /v1/admin/event-queue:
+    get:
+      tags: [Admin]
+      summary: Get event approval queue
+      security:
+        - cookieAuth: []
+      responses:
+        "200":
+          description: Event queue fetched
+  /v1/admin:
+    get:
+      tags: [Admin]
+      summary: Get all users
+      security:
+        - cookieAuth: []
+      responses:
+        "200":
+          description: Users fetched
+  /v1/admin/settings:
+    get:
+      tags: [Admin]
+      summary: Get system settings
+      security:
+        - cookieAuth: []
+      responses:
+        "200":
+          description: Settings fetched
+    patch:
+      tags: [Admin]
+      summary: Update system settings
+      security:
+        - cookieAuth: []
+      responses:
+        "200":
+          description: Settings updated
+  /v1/admin/audit-logs:
+    get:
+      tags: [Admin]
+      summary: Get audit logs
+      security:
+        - cookieAuth: []
+      responses:
+        "200":
+          description: Audit logs fetched
+  /v1/admin/reports/export:
+    get:
+      tags: [Admin]
+      summary: Export platform reports
+      security:
+        - cookieAuth: []
+      responses:
+        "200":
+          description: Report exported
+  /v1/admin/users/{id}/make-organizer:
+    patch:
+      tags: [Admin]
+      summary: Promote user to organizer
+      security:
+        - cookieAuth: []
+      parameters:
+        - $ref: "#/components/parameters/Id"
+      responses:
+        "200":
+          description: User promoted
+  /v1/admin/users/{userId}/flag:
+    patch:
+      tags: [Admin]
+      summary: Flag user
+      security:
+        - cookieAuth: []
+      parameters:
+        - $ref: "#/components/parameters/UserId"
+      responses:
+        "200":
+          description: User flagged
+  /v1/admin/users/{userId}/suspend:
+    patch:
+      tags: [Admin]
+      summary: Suspend user
+      security:
+        - cookieAuth: []
+      parameters:
+        - $ref: "#/components/parameters/UserId"
+      responses:
+        "200":
+          description: User suspended
+
+  /v1/newsletter/subscribe:
+    post:
+      tags: [Newsletter]
+      summary: Subscribe to newsletter
+      responses:
+        "201":
+          description: Subscriber created
+  /v1/newsletter/unsubscribe:
+    post:
+      tags: [Newsletter]
+      summary: Unsubscribe from newsletter
+      responses:
+        "200":
+          description: Subscriber removed
+  /v1/newsletter/subscribers:
+    get:
+      tags: [Newsletter]
+      summary: Get newsletter subscribers
+      security:
+        - cookieAuth: []
+      responses:
+        "200":
+          description: Subscribers fetched

@@ -7,9 +7,7 @@ import { getNotifications } from "../controllers/notifications/getNotifications.
 import { getUnreadCount } from "../controllers/notifications/getUnreadCount.js";
 import { markAsRead } from "../controllers/notifications/markAsRead.js";
 
-import { verifyToken } from "../middlewares/verifyAuth.js";
-import { checkAccountStatus } from "../middlewares/checkAccountStatus.js";
-import { rolesAllowed } from "../middlewares/roleBased.js";
+import { requireAdmin, requireAuth } from "../middlewares/authFlow.js";
 import { validateRequest } from "../middlewares/validateRequest.js";
 
 // validations
@@ -23,9 +21,7 @@ const router = express.Router();
 // create notification (admin only)
 router.post(
   "/",
-  verifyToken,
-  checkAccountStatus,
-  rolesAllowed("admin"),
+  requireAdmin,
   validateRequest(createNotificationSchema),
   createNotification,
 );
@@ -33,32 +29,29 @@ router.post(
 // get user notifications
 router.get(
   "/",
-  verifyToken,
-  checkAccountStatus,
+  requireAuth,
   validateRequest(getNotificationsSchema, "query"),
   getNotifications,
 );
 
 // unread count
-router.get("/unread-count", verifyToken, checkAccountStatus, getUnreadCount);
+router.get("/unread-count", requireAuth, getUnreadCount);
 
 // mark single notification as read
 router.patch(
   "/:notificationId/read",
-  verifyToken,
-  checkAccountStatus,
+  requireAuth,
   validateRequest(markAsReadSchema, "params"),
   markAsRead,
 );
 
 // mark all as read
-router.patch("/mark-all-read", verifyToken, checkAccountStatus, markAllAsRead);
+router.patch("/mark-all-read", requireAuth, markAllAsRead);
 
 // delete notification
 router.delete(
   "/:notificationId",
-  verifyToken,
-  checkAccountStatus,
+  requireAuth,
   validateRequest(deleteNotificationSchema, "params"),
   deleteNotification,
 );

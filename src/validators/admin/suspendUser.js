@@ -9,7 +9,9 @@ export const suspendUserSchema = Joi.object({
     "string.length": "User ID must be 24 characters long",
     "any.required": "User ID is required",
   }),
+});
 
+export const suspendUserBodySchema = Joi.object({
   reason: Joi.string().optional().messages({
     "string.base": "Reason must be a string",
   }),

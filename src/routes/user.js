@@ -2,8 +2,7 @@ import express from "express";
 
 import { validateRequest } from "../middlewares/validateRequest.js";
 
-import { verifyToken } from "../middlewares/verifyAuth.js";
-import { checkAccountStatus } from "../middlewares/checkAccountStatus.js";
+import { requireAuth } from "../middlewares/authFlow.js";
 
 import upload from "../config/multer.js";
 
@@ -34,49 +33,44 @@ import { getDashboardOverviewSchema } from "../validators/user/getDashboardOverv
 const router = express.Router();
 
 // profile
-router.get("/profile", verifyToken, checkAccountStatus, getProfile);
+router.get("/profile", requireAuth, getProfile);
 
 // dashboard
 router.get(
   "/dashboard",
-  verifyToken,
-  checkAccountStatus,
-  validateRequest(getDashboardOverviewSchema),
+  requireAuth,
+  validateRequest(getDashboardOverviewSchema, "query"),
   getDashboardOverview,
 );
 
 // save event
 router.post(
   "/saved-events/:eventId",
-  verifyToken,
-  checkAccountStatus,
-  validateRequest(saveEventSchema),
+  requireAuth,
+  validateRequest(saveEventSchema, "params"),
   saveEvent,
 );
 
 // saved events list
 router.get(
   "/saved-events",
-  verifyToken,
-  checkAccountStatus,
-  validateRequest(getSavedEventsSchema),
+  requireAuth,
+  validateRequest(getSavedEventsSchema, "query"),
   getSavedEvents,
 );
 
 // activity
 router.get(
   "/activity",
-  verifyToken,
-  checkAccountStatus,
-  validateRequest(getUserActivitySchema),
+  requireAuth,
+  validateRequest(getUserActivitySchema, "query"),
   getUserActivity,
 );
 
 // update profile
 router.patch(
   "/profile",
-  verifyToken,
-  checkAccountStatus,
+  requireAuth,
   validateRequest(updateProfileSchema),
   updateProfile,
 );
@@ -84,8 +78,7 @@ router.patch(
 // profile picture
 router.patch(
   "/profile/picture",
-  verifyToken,
-  checkAccountStatus,
+  requireAuth,
   upload.single("profilePicture"),
   updateProfilePicture,
 );
@@ -93,8 +86,7 @@ router.patch(
 // notifications
 router.patch(
   "/preferences/notifications",
-  verifyToken,
-  checkAccountStatus,
+  requireAuth,
   validateRequest(updateNotificationPreferencesSchema),
   updateNotificationPreferences,
 );
@@ -102,8 +94,7 @@ router.patch(
 // language
 router.patch(
   "/preferences/language",
-  verifyToken,
-  checkAccountStatus,
+  requireAuth,
   validateRequest(updateLanguageSchema),
   updateLanguage,
 );
@@ -111,8 +102,7 @@ router.patch(
 // close account
 router.delete(
   "/account",
-  verifyToken,
-  checkAccountStatus,
+  requireAuth,
   validateRequest(closeAccountSchema),
   closeAccount,
 );
@@ -120,9 +110,8 @@ router.delete(
 // delete saved event
 router.delete(
   "/saved-events/:eventId",
-  verifyToken,
-  checkAccountStatus,
-  validateRequest(deleteSavedEventSchema),
+  requireAuth,
+  validateRequest(deleteSavedEventSchema, "params"),
   deleteSavedEvent,
 );
 

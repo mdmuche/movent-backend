@@ -5,9 +5,7 @@ import { unsubscribeNewsletter } from "../controllers/newsletter/unsubscribeNews
 import { getSubscribers } from "../controllers/newsletter/getSubscribers.js";
 
 import { validateRequest } from "../middlewares/validateRequest.js";
-import { verifyToken } from "../middlewares/verifyAuth.js";
-import { rolesAllowed } from "../middlewares/roleBased.js";
-import { checkAccountStatus } from "../middlewares/checkAccountStatus.js";
+import { requireAdmin } from "../middlewares/authFlow.js";
 
 import { subscribeNewsletterSchema } from "../validators/newsletter/subscribeNewsletter.js";
 import { unsubscribeNewsletterSchema } from "../validators/newsletter/unsubscribeNewsletter.js";
@@ -32,9 +30,7 @@ router.post(
 // get all newsletter subscribers (admin only)
 router.get(
   "/subscribers",
-  verifyToken,
-  checkAccountStatus,
-  rolesAllowed("admin"),
+  requireAdmin,
   validateRequest(getSubscribersSchema, "query"),
   getSubscribers,
 );

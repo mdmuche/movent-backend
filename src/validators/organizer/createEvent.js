@@ -92,6 +92,10 @@ export const createEventSchema = Joi.object({
 
   entryRequirements: Joi.string().allow("").optional(),
 
+  bannerImage: Joi.string().trim().optional().messages({
+    "string.base": "Banner image must be a string",
+  }),
+
   longitude: Joi.number().min(-180).max(180).optional().messages({
     "number.base": "Longitude must be a number",
     "number.min": "Longitude cannot be less than -180",

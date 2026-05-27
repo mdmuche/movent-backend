@@ -46,6 +46,16 @@ const buildLocation = ({ longitude, latitude }) => {
   };
 };
 
+const getBannerImageSource = (req) => {
+  if (req.file?.path) return req.file.path;
+
+  if (typeof req.body.bannerImage === "string" && req.body.bannerImage.trim()) {
+    return req.body.bannerImage.trim();
+  }
+
+  return null;
+};
+
 export const createEvent = async (req, res) => {
   try {
     const {
@@ -88,18 +98,24 @@ export const createEvent = async (req, res) => {
       });
     }
 
-    let bannerImage = null;
+    let bannerImage;
+    const bannerImageSource = getBannerImageSource(req);
 
-    if (req.file) {
-      const result = await uploadToCloudinary(req.file.path, {
-        folder: "movent/events",
+    if (!bannerImageSource) {
+      return errorResponse(res, {
+        statusCode: httpStatus.BAD_REQUEST,
+        message: "Event banner image is required",
       });
-
-      bannerImage = {
-        public_id: result.public_id,
-        secure_url: result.secure_url,
-      };
     }
+
+    const result = await uploadToCloudinary(bannerImageSource, {
+      folder: "movent/events",
+    });
+
+    bannerImage = {
+      public_id: result.public_id,
+      secure_url: result.secure_url,
+    };
 
     const slug = slugify(title, {
       lower: true,

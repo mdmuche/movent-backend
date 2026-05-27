@@ -1,21 +1,22 @@
 import jwt from "jsonwebtoken";
 import httpStatus from "http-status";
 import TokenCollection from "../models/token.js";
+import { errorResponse } from "../utils/response/error.js";
 
 export const verifyToken = async (req, res, next) => {
   try {
     const { accessToken, refreshToken } = req.cookies;
 
     if (!accessToken) {
-      return res.status(httpStatus.UNAUTHORIZED).json({
-        success: false,
+      return errorResponse(res, {
+        statusCode: httpStatus.UNAUTHORIZED,
         message: "Access denied. No token provided.",
       });
     }
 
     if (!refreshToken) {
-      return res.status(httpStatus.UNAUTHORIZED).json({
-        success: false,
+      return errorResponse(res, {
+        statusCode: httpStatus.UNAUTHORIZED,
         message: "Session expired. Please login again.",
       });
     }
@@ -30,8 +31,8 @@ export const verifyToken = async (req, res, next) => {
     });
 
     if (!storedToken) {
-      return res.status(httpStatus.UNAUTHORIZED).json({
-        success: false,
+      return errorResponse(res, {
+        statusCode: httpStatus.UNAUTHORIZED,
         message: "Session expired. Please login again.",
       });
     }
@@ -40,8 +41,8 @@ export const verifyToken = async (req, res, next) => {
 
     return next();
   } catch (error) {
-    return res.status(httpStatus.FORBIDDEN).json({
-      success: false,
+    return errorResponse(res, {
+      statusCode: httpStatus.FORBIDDEN,
       message: "Invalid or expired token.",
       error: error.message,
     });

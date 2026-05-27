@@ -14,6 +14,10 @@ export const getOrganizerAnalytics = async (req, res) => {
 
     const { page = 1, limit = 10 } = req.query;
 
+    const total = await Event.countDocuments({
+      organizer: organizerId,
+    });
+
     // -------------------------
     // PAGINATION
     // -------------------------
@@ -24,6 +28,7 @@ export const getOrganizerAnalytics = async (req, res) => {
     } = paginationUtils({
       page,
       limit,
+      total,
     });
 
     // -------------------------

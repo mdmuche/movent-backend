@@ -1,6 +1,6 @@
 import httpStatus from "http-status";
 
-import NotificationCollection from "../../models/notification.js";
+import NotificationCollection from "../../models/notifications.js";
 
 import { successResponse } from "../../utils/response/success.js";
 import { errorResponse } from "../../utils/response/error.js";

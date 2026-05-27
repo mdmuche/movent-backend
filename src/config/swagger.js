@@ -4,9 +4,9 @@ const options = {
   definition: {
     openapi: "3.0.0",
     info: {
-      title: "NaijaPrice API",
+      title: "Movent API",
       version: "1.0.0",
-      description: "API documentation for the NaijaPrice platform",
+      description: "API documentation for the Movent platform",
     },
     servers: [
       {
@@ -16,15 +16,15 @@ const options = {
     ],
     components: {
       securitySchemes: {
-        bearerAuth: {
-          type: "http",
-          scheme: "bearer",
-          bearerFormat: "JWT",
+        cookieAuth: {
+          type: "apiKey",
+          in: "cookie",
+          name: "accessToken",
         },
       },
     },
   },
-  apis: ["./src/docs/*.yaml", "./src/routes/*.js"],
+  apis: ["./src/docs/openapi.yaml", "./src/routes/*.js"],
 };
 
 export const swaggerSpec = swaggerJSDoc(options);
