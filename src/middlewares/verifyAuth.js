@@ -4,18 +4,30 @@ import TokenCollection from "../models/token.js";
 
 export const verifyToken = async (req, res, next) => {
   try {
-    // 1. Get token from cookies (NOT headers anymore)
-    const token = req.cookies.accessToken;
+    const { accessToken, refreshToken } = req.cookies;
 
-    if (!token) {
+    if (!accessToken) {
       return res.status(httpStatus.UNAUTHORIZED).json({
         success: false,
         message: "Access denied. No token provided.",
       });
     }
 
-    // 2. Check token exists in DB (THIS IS YOUR NEW ADDITION)
-    const storedToken = await TokenCollection.findOne({ refreshToken: token });
+    if (!refreshToken) {
+      return res.status(httpStatus.UNAUTHORIZED).json({
+        success: false,
+        message: "Session expired. Please login again.",
+      });
+    }
+
+    const decoded = jwt.verify(accessToken, process.env.JWT_SECRET);
+
+    const storedToken = await TokenCollection.findOne({
+      user: decoded.userId,
+      authPurpose: "refresh_token",
+      refreshToken,
+      expiresAt: { $gt: new Date() },
+    });
 
     if (!storedToken) {
       return res.status(httpStatus.UNAUTHORIZED).json({
@@ -24,13 +36,9 @@ export const verifyToken = async (req, res, next) => {
       });
     }
 
-    // 3. Verify JWT
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
-
-    // 4. Attach user
     req.user = decoded;
 
-    next();
+    return next();
   } catch (error) {
     return res.status(httpStatus.FORBIDDEN).json({
       success: false,

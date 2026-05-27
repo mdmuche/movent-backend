@@ -3,7 +3,7 @@ import httpStatus from "http-status";
 export const rolesAllowed = (...roles) => {
   return (req, res, next) => {
     if (roles.includes(req.user.role)) {
-      next();
+      return next();
     }
 
     return res.status(httpStatus.FORBIDDEN).json({

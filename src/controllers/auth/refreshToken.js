@@ -2,6 +2,7 @@ import httpStatus from "http-status";
 import jwt from "jsonwebtoken";
 
 import TokenCollection from "../../models/token.js";
+import User from "../../models/user.js";
 
 import { errorResponse } from "../../utils/response/error.js";
 import { successResponse } from "../../utils/response/success.js";
@@ -30,14 +31,25 @@ export const refreshToken = async (req, res) => {
     }
     // Verify refresh token
     const decoded = jwt.verify(refreshToken, process.env.JWT_REFRESH_SECRET);
+    const user = await User.findById(decoded.userId);
+
+    if (!user) {
+      return errorResponse(res, {
+        statusCode: httpStatus.UNAUTHORIZED,
+        message: "Invalid refresh token",
+      });
+    }
 
     // Generate NEW access token
     const newAccessToken = jwt.sign(
       {
-        userId: decoded.userId,
+        userId: user._id,
+        role: user.role,
+        fullName: user.fullName,
+        email: user.email,
       },
       process.env.JWT_SECRET,
-      { expiresIn: "15m" },
+      { expiresIn: process.env.JWT_EXPIRES_IN },
     );
 
     // Send new access token cookie

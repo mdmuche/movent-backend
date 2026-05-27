@@ -22,7 +22,7 @@ const eventSchema = new mongoose.Schema(
       type: String,
       enum: [
         "music",
-        "tech",
+        "technology",
         "business",
         "sports",
         "education",
@@ -111,12 +111,6 @@ const eventSchema = new mongoose.Schema(
     tags: [String],
     entryRequirements: {
       type: [String],
-      validate: {
-        validator: function (value) {
-          return value.length >= 3;
-        },
-        message: "At least 3 entry requirements are required",
-      },
     },
     agreedToRefundPolicy: {
       type: Boolean,
@@ -133,10 +127,15 @@ const eventSchema = new mongoose.Schema(
       type: {
         type: String,
         enum: ["Point"],
-        default: "Point",
+        required: true,
       },
       coordinates: {
         type: [Number], // [lng, lat]
+        required: true,
+        validate: {
+          validator: (coordinates) => coordinates.length === 2,
+          message: "Location coordinates must include longitude and latitude",
+        },
       },
     },
     approvalStatus: {

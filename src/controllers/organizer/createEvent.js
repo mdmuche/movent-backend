@@ -8,6 +8,44 @@ import { uploadToCloudinary } from "../../utils/cloudinary/uploadCloudinary.js";
 import Event from "../../models/event.js";
 import AuditLog from "../../models/auditLog.js";
 
+const normalizeList = (value) => {
+  if (!value) return [];
+
+  const values = Array.isArray(value) ? value : [value];
+
+  return values
+    .flatMap((item) => String(item).split(","))
+    .map((item) => item.trim())
+    .filter(Boolean);
+};
+
+const buildLocation = ({ longitude, latitude }) => {
+  const hasLongitude = longitude !== undefined && longitude !== "";
+  const hasLatitude = latitude !== undefined && latitude !== "";
+
+  if (!hasLongitude && !hasLatitude) return null;
+  if (!hasLongitude || !hasLatitude) return false;
+
+  const lng = Number(longitude);
+  const lat = Number(latitude);
+
+  if (
+    !Number.isFinite(lng) ||
+    !Number.isFinite(lat) ||
+    lng < -180 ||
+    lng > 180 ||
+    lat < -90 ||
+    lat > 90
+  ) {
+    return false;
+  }
+
+  return {
+    type: "Point",
+    coordinates: [lng, lat],
+  };
+};
+
 export const createEvent = async (req, res) => {
   try {
     const {
@@ -28,6 +66,8 @@ export const createEvent = async (req, res) => {
       ticketPrice,
       totalTickets,
       tags,
+      longitude,
+      latitude,
     } = req.body;
 
     const free = isFree === true || isFree === "true";
@@ -36,6 +76,15 @@ export const createEvent = async (req, res) => {
       return errorResponse(res, {
         statusCode: httpStatus.BAD_REQUEST,
         message: "Paid events must have a valid ticket price",
+      });
+    }
+
+    const location = buildLocation({ longitude, latitude });
+
+    if (location === false) {
+      return errorResponse(res, {
+        statusCode: httpStatus.BAD_REQUEST,
+        message: "Longitude and latitude must both be valid coordinates",
       });
     }
 
@@ -48,7 +97,7 @@ export const createEvent = async (req, res) => {
 
       bannerImage = {
         public_id: result.public_id,
-        url: result.url,
+        secure_url: result.secure_url,
       };
     }
 
@@ -75,11 +124,12 @@ export const createEvent = async (req, res) => {
       ticketPrice: free ? 0 : Number(ticketPrice),
       totalTickets: Number(totalTickets),
       soldTickets: 0,
-      tags,
+      tags: normalizeList(tags),
       bannerImage,
       status: "draft",
-      entryRequirements,
+      entryRequirements: normalizeList(entryRequirements),
       agreedToRefundPolicy,
+      ...(location && { location }),
     });
 
     await AuditLog.create({

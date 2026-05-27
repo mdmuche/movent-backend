@@ -7,6 +7,45 @@ import { deleteFromCloudinary } from "../../utils/cloudinary/deleteCloudinary.js
 import Event from "../../models/event.js";
 import AuditLog from "../../models/auditLog.js";
 
+const normalizeList = (value) => {
+  if (value === undefined) return undefined;
+  if (!value) return [];
+
+  const values = Array.isArray(value) ? value : [value];
+
+  return values
+    .flatMap((item) => String(item).split(","))
+    .map((item) => item.trim())
+    .filter(Boolean);
+};
+
+const buildLocation = ({ longitude, latitude }) => {
+  const hasLongitude = longitude !== undefined && longitude !== "";
+  const hasLatitude = latitude !== undefined && latitude !== "";
+
+  if (!hasLongitude && !hasLatitude) return undefined;
+  if (!hasLongitude || !hasLatitude) return false;
+
+  const lng = Number(longitude);
+  const lat = Number(latitude);
+
+  if (
+    !Number.isFinite(lng) ||
+    !Number.isFinite(lat) ||
+    lng < -180 ||
+    lng > 180 ||
+    lat < -90 ||
+    lat > 90
+  ) {
+    return false;
+  }
+
+  return {
+    type: "Point",
+    coordinates: [lng, lat],
+  };
+};
+
 export const updateEvent = async (req, res) => {
   try {
     const { id } = req.params;
@@ -49,10 +88,32 @@ export const updateEvent = async (req, res) => {
       };
     }
 
+    const location = buildLocation(req.body);
+
+    if (location === false) {
+      return errorResponse(res, {
+        statusCode: httpStatus.BAD_REQUEST,
+        message: "Longitude and latitude must both be valid coordinates",
+      });
+    }
+
+    const body = { ...req.body };
+    delete body.longitude;
+    delete body.latitude;
+
     const updatedData = {
-      ...req.body,
+      ...body,
       bannerImage,
     };
+
+    const tags = normalizeList(req.body.tags);
+    const entryRequirements = normalizeList(req.body.entryRequirements);
+
+    if (tags !== undefined) updatedData.tags = tags;
+    if (entryRequirements !== undefined) {
+      updatedData.entryRequirements = entryRequirements;
+    }
+    if (location) updatedData.location = location;
 
     // regenerate slug if title changes
     if (req.body.title) {
