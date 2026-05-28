@@ -4,7 +4,9 @@ import { errorResponse } from "../utils/response/error.js";
 
 export const validateRequest = (schema, property = "body") => {
   return (req, res, next) => {
-    const { error, value } = schema.validate(req[property], {
+    const currentData = req[property] || {};
+
+    const { error, value } = schema.validate(currentData, {
       abortEarly: false,
       stripUnknown: true,
     });
@@ -17,7 +19,15 @@ export const validateRequest = (schema, property = "body") => {
       });
     }
 
-    Object.assign(req[property], value);
+    // BODY can safely be reassigned
+    if (property === "body") {
+      req.body = value;
+    }
+
+    // QUERY/PARAMS should mutate existing object
+    else {
+      Object.assign(currentData, value);
+    }
 
     return next();
   };

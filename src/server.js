@@ -4,6 +4,8 @@ dotenv.config();
 const { connectDB } = await import("./config/connection.js");
 const { default: app } = await import("./app.js");
 
+import "./jobs/cron/userCleanup.js";
+
 const PORT = process.env.PORT || 5000;
 
 const startServer = async () => {

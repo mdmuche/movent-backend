@@ -27,7 +27,7 @@ export const flagUser = async (req, res) => {
       });
     }
 
-    user.accountStatus = "flagged";
+    user.accountModerationStatus = "flagged";
 
     await user.save();
 
@@ -46,7 +46,7 @@ export const flagUser = async (req, res) => {
       message: "User has been flagged successfully",
       data: {
         userId: user._id,
-        accountStatus: user.accountStatus,
+        accountModerationStatus: user.accountModerationStatus,
       },
     });
   } catch (error) {

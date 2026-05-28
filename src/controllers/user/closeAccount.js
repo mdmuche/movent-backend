@@ -11,6 +11,7 @@ export const closeAccount = async (req, res) => {
 
     await User.findByIdAndUpdate(userId, {
       accountStatus: "closed",
+      closedAt: new Date(),
     });
 
     return successResponse(res, {

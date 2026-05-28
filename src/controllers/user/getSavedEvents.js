@@ -12,6 +12,16 @@ export const getSavedEvents = async (req, res) => {
 
     const { page = 1, limit = 10 } = req.query;
 
+    const user = await User.findById(userId);
+
+    if (!user) {
+      return errorResponse(res, {
+        statusCode: httpStatus.NOT_FOUND,
+        message: "User not found",
+      });
+    }
+
+    const total = user.savedEvents.length;
     // -----------------------------
     // PAGINATION UTILS
     // -----------------------------
@@ -22,12 +32,13 @@ export const getSavedEvents = async (req, res) => {
     } = paginationUtils({
       page,
       limit,
+      total,
     });
 
     // -----------------------------
     // FETCH USER WITH PAGINATED SAVED EVENTS
     // -----------------------------
-    const user = await User.findById(userId).populate({
+    const populatedUser = await User.findById(userId).populate({
       path: "savedEvents",
       options: {
         sort: { createdAt: -1 },
@@ -36,18 +47,11 @@ export const getSavedEvents = async (req, res) => {
       },
     });
 
-    if (!user) {
-      return errorResponse(res, {
-        statusCode: httpStatus.NOT_FOUND,
-        message: "User not found",
-      });
-    }
-
     return successResponse(res, {
       statusCode: httpStatus.OK,
       message: "Saved events fetched successfully",
       data: {
-        savedEvents: user.savedEvents,
+        savedEvents: populatedUser.savedEvents,
         pagination,
       },
     });

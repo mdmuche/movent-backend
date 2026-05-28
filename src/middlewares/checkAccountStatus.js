@@ -24,7 +24,7 @@ export const checkAccountStatus = async (req, res, next) => {
     }
 
     // OPTIONAL: block suspended accounts too
-    if (user.accountStatus === "suspended") {
+    if (user.accountModerationStatus === "suspended") {
       return errorResponse(res, {
         statusCode: httpStatus.FORBIDDEN,
         message: "This account has been suspended.",

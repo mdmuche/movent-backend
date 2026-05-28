@@ -85,7 +85,7 @@ router.patch(
 
 // notifications
 router.patch(
-  "/preferences/notifications",
+  "/notification/preferences",
   requireAuth,
   validateRequest(updateNotificationPreferencesSchema),
   updateNotificationPreferences,
@@ -93,7 +93,7 @@ router.patch(
 
 // language
 router.patch(
-  "/preferences/language",
+  "/language/preference",
   requireAuth,
   validateRequest(updateLanguageSchema),
   updateLanguage,

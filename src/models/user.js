@@ -10,13 +10,15 @@ const userSchema = new Schema(
       type: String,
       required: true,
       unique: true,
-      minlength: 6,
-      maxlength: 20,
+      minlength: 2,
     },
     email: {
       type: String,
       required: true,
       unique: true,
+    },
+    bio: {
+      type: String,
     },
     isEmailVerified: {
       type: Boolean,
@@ -35,8 +37,8 @@ const userSchema = new Schema(
     },
     language: {
       type: String,
-      enum: ["en-US", "en-GB", "igbo", "hausa", "yoruba"],
-      default: "en-US",
+      enum: ["en", "fr", "es", "pt", "de", "zh", "ar", "ha", "yo", "ig"],
+      default: "en",
     },
     interests: {
       type: [String],
@@ -48,8 +50,30 @@ const userSchema = new Schema(
     },
     accountStatus: {
       type: String,
-      enum: ["active", "pro", "flagged", "suspended", "closed"],
+      enum: ["active", "deleted", "closed"],
       default: "active",
+    },
+    accountModerationStatus: {
+      type: String,
+      enum: ["none", "flagged", "suspended"],
+      default: "none",
+    },
+    subscriptionPlan: {
+      type: String,
+      enum: ["free", "pro"],
+      default: "free",
+    },
+    closedAt: {
+      type: Date,
+      default: null,
+    },
+    deletedAt: {
+      type: Date,
+      default: null,
+    },
+    lastLoginAt: {
+      type: Date,
+      default: null,
     },
     authToken: {
       type: String,
@@ -57,6 +81,12 @@ const userSchema = new Schema(
     authPurpose: {
       type: String,
     },
+    savedEvents: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Event",
+      },
+    ],
   },
   { timestamps: true },
 );

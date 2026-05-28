@@ -409,7 +409,7 @@ paths:
       responses:
         "200":
           description: Profile picture updated
-  /v1/user/preferences/notifications:
+  /v1/user/notification/preferences:
     patch:
       tags: [User]
       summary: Update notification preferences
@@ -418,7 +418,7 @@ paths:
       responses:
         "200":
           description: Preferences updated
-  /v1/user/preferences/language:
+  /v1/user/language/preference:
     patch:
       tags: [User]
       summary: Update language preference

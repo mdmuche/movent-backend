@@ -13,6 +13,41 @@ export const getDashboardOverview = async (req, res) => {
 
     const { page = 1, limit = 10 } = req.query;
 
+    const total = await TicketCollection.aggregate([
+      {
+        $match: {
+          user: userId,
+        },
+      },
+
+      {
+        $lookup: {
+          from: "events",
+          localField: "event",
+          foreignField: "_id",
+          as: "event",
+        },
+      },
+
+      {
+        $unwind: "$event",
+      },
+
+      {
+        $match: {
+          "event.startDate": {
+            $gte: new Date(),
+          },
+        },
+      },
+
+      {
+        $count: "total",
+      },
+    ]);
+
+    const totalUpcomingEvents = total[0]?.total || 0;
+
     // -----------------------------
     // PAGINATION UTILS
     // -----------------------------
@@ -23,6 +58,7 @@ export const getDashboardOverview = async (req, res) => {
     } = paginationUtils({
       page,
       limit,
+      total: totalUpcomingEvents,
     });
 
     // -----------------------------

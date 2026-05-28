@@ -57,7 +57,7 @@ export const getProfile = async (req, res) => {
       .limit(10)
       .populate("event", "title bannerImage startDate");
 
-    const lastLogin = user.lastLogin || null;
+    const lastLogin = user.lastLoginAt || null;
 
     // -----------------------------
     // RESPONSE

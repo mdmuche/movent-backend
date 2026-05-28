@@ -29,14 +29,14 @@ export const suspendUser = async (req, res) => {
     }
 
     // prevent re-suspending already suspended users
-    if (user.accountStatus === "suspended") {
+    if (user.accountModerationStatus === "suspended") {
       return errorResponse(res, {
         statusCode: httpStatus.BAD_REQUEST,
         message: "User is already suspended",
       });
     }
 
-    user.accountStatus = "suspended";
+    user.accountModerationStatus = "suspended";
 
     await user.save();
 
@@ -56,7 +56,7 @@ export const suspendUser = async (req, res) => {
       message: "User suspended successfully",
       data: {
         userId: user._id,
-        accountStatus: user.accountStatus,
+        accountModerationStatus: user.accountModerationStatus,
       },
     });
   } catch (error) {

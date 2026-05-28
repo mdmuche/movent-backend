@@ -19,6 +19,15 @@ export const login = async (req, res) => {
         message: "Invalid credentials",
       });
     }
+
+    // 2. ❌ hard blocked state
+    if (user.accountStatus === "deleted") {
+      return errorResponse(res, {
+        statusCode: httpStatus.FORBIDDEN,
+        message: "Account no longer exists",
+      });
+    }
+
     // 2. check if user is verified
     if (!user.isEmailVerified) {
       return errorResponse(res, {

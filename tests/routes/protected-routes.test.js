@@ -8,8 +8,8 @@ const protectedRoutes = [
   ["GET", "/v1/user/activity"],
   ["PATCH", "/v1/user/profile"],
   ["PATCH", "/v1/user/profile/picture"],
-  ["PATCH", "/v1/user/preferences/notifications"],
-  ["PATCH", "/v1/user/preferences/language"],
+  ["PATCH", "/v1/user/notification/preferences"],
+  ["PATCH", "/v1/user/language/preference"],
   ["DELETE", "/v1/user/account"],
   ["DELETE", "/v1/user/saved-events/64f000000000000000000001"],
   ["GET", "/v1/ticket/my-tickets"],
@@ -51,10 +51,13 @@ const protectedRoutes = [
 ];
 
 describe("protected routes", () => {
-  it.each(protectedRoutes)("%s %s rejects missing auth", async (method, url) => {
-    const res = await api[method.toLowerCase()](url);
+  it.each(protectedRoutes)(
+    "%s %s rejects missing auth",
+    async (method, url) => {
+      const res = await api[method.toLowerCase()](url);
 
-    expect(res.status).toBe(401);
-    expect(res.body.success).toBe(false);
-  });
+      expect(res.status).toBe(401);
+      expect(res.body.success).toBe(false);
+    },
+  );
 });
