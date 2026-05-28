@@ -24,6 +24,14 @@ const userSchema = new Schema(
       type: Boolean,
       default: false,
     },
+    isVerifiedOrganizer: {
+      type: Boolean,
+      default: false,
+    },
+    reputationScore: {
+      type: Number,
+      default: 0,
+    },
     location: {
       type: String,
     },

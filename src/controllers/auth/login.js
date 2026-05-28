@@ -28,7 +28,7 @@ export const login = async (req, res) => {
       });
     }
 
-    // 2. check if user is verified
+    // 3. check if user is verified
     if (!user.isEmailVerified) {
       return errorResponse(res, {
         statusCode: httpStatus.FORBIDDEN,
@@ -36,7 +36,7 @@ export const login = async (req, res) => {
       });
     }
 
-    // 3. Compare Password
+    // 4. Compare Password
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
       return errorResponse(res, {
@@ -45,7 +45,7 @@ export const login = async (req, res) => {
       });
     }
 
-    // 4. Generate JWT Token
+    // 5. Generate JWT Token
     const accessToken = jwt.sign(
       {
         userId: user._id,

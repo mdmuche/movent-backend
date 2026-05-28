@@ -123,11 +123,15 @@ const eventSchema = new mongoose.Schema(
       required: true,
       default: false,
     },
-
     status: {
       type: String,
-      enum: ["draft", "upcoming", "ongoing", "completed", "cancelled"],
+      enum: ["draft", "cancelled", "active"],
       default: "draft",
+    },
+    approvalStatus: {
+      type: String,
+      enum: ["pending", "approved", "rejected"],
+      default: "pending",
     },
     location: {
       type: {
@@ -143,11 +147,6 @@ const eventSchema = new mongoose.Schema(
           message: "Location coordinates must include longitude and latitude",
         },
       },
-    },
-    approvalStatus: {
-      type: String,
-      enum: ["pending", "approved", "rejected"],
-      default: "pending",
     },
   },
   {

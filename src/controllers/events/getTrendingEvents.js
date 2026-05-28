@@ -11,6 +11,19 @@ export const getTrendingEvents = async (req, res) => {
     const { page = 1, limit = 10 } = req.query;
 
     // -----------------------------
+    // BASE QUERY
+    // -----------------------------
+    const query = {
+      startDate: { $gte: new Date() },
+      status: "upcoming",
+    };
+
+    // -----------------------------
+    // TOTAL EVENTS
+    // -----------------------------
+    const total = await Event.countDocuments(query);
+
+    // -----------------------------
     // PAGINATION UTILS
     // -----------------------------
     const {
@@ -20,15 +33,8 @@ export const getTrendingEvents = async (req, res) => {
     } = paginationUtils({
       page,
       limit,
+      total,
     });
-
-    // -----------------------------
-    // BASE QUERY
-    // -----------------------------
-    const query = {
-      startDate: { $gte: new Date() },
-      status: "upcoming",
-    };
 
     // -----------------------------
     // FETCH TRENDING EVENTS

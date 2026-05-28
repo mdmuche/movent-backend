@@ -11,6 +11,13 @@ export const getEventQueue = async (req, res) => {
     const { page = 1, limit = 10 } = req.query;
 
     // -----------------------------
+    // TOTAL PENDING EVENTS
+    // -----------------------------
+    const total = await Event.countDocuments({
+      approvalStatus: "pending",
+    });
+
+    // -----------------------------
     // PAGINATION UTILS
     // -----------------------------
     const {
@@ -20,13 +27,7 @@ export const getEventQueue = async (req, res) => {
     } = paginationUtils({
       page,
       limit,
-    });
-
-    // -----------------------------
-    // TOTAL PENDING EVENTS
-    // -----------------------------
-    const totalApproved = await Event.countDocuments({
-      approvalStatus: "pending",
+      total,
     });
 
     // -----------------------------
@@ -45,10 +46,7 @@ export const getEventQueue = async (req, res) => {
       message: "Event queue fetched successfully",
       data: {
         events,
-        pagination: {
-          ...pagination,
-          totalApproved,
-        },
+        pagination,
       },
     });
   } catch (error) {

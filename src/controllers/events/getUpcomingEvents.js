@@ -1,7 +1,6 @@
 import httpStatus from "http-status";
-import mongoose from "mongoose";
 
-import TicketCollection from "../../models/ticket.js";
+import Event from "../../models/event.js";
 
 import { errorResponse } from "../../utils/response/error.js";
 import { successResponse } from "../../utils/response/success.js";
@@ -9,13 +8,15 @@ import { paginationUtils } from "../../utils/pagination/pagination.js";
 
 export const getUpcomingEvents = async (req, res) => {
   try {
-    const userId = new mongoose.Types.ObjectId(req.user.userId);
-
     const { page = 1, limit = 10 } = req.query;
 
-    // -----------------------------
-    // PAGINATION UTILS
-    // -----------------------------
+    const query = {
+      startDate: { $gte: new Date() },
+      approvalStatus: "approved",
+    };
+
+    const total = await Event.countDocuments(query);
+
     const {
       skip,
       limit: limitNum,
@@ -23,67 +24,20 @@ export const getUpcomingEvents = async (req, res) => {
     } = paginationUtils({
       page,
       limit,
+      total,
     });
 
-    // -----------------------------
-    // UPCOMING EVENTS AGGREGATION
-    // -----------------------------
-    const upcomingEvents = await TicketCollection.aggregate([
-      {
-        $match: {
-          user: userId,
-        },
-      },
-
-      {
-        $lookup: {
-          from: "events",
-          localField: "event",
-          foreignField: "_id",
-          as: "event",
-        },
-      },
-
-      {
-        $unwind: "$event",
-      },
-
-      {
-        $match: {
-          "event.startDate": {
-            $gte: new Date(),
-          },
-        },
-      },
-
-      {
-        $sort: {
-          createdAt: -1,
-        },
-      },
-
-      {
-        $skip: skip,
-      },
-
-      {
-        $limit: limitNum,
-      },
-
-      {
-        $replaceRoot: {
-          newRoot: "$event",
-        },
-      },
-    ]);
+    const events = await Event.find(query)
+      .sort({ startDate: 1 })
+      .skip(skip)
+      .limit(limitNum)
+      .populate("organizer", "fullName");
 
     return successResponse(res, {
       statusCode: httpStatus.OK,
       message: "Upcoming events fetched successfully",
-
       data: {
-        events: upcomingEvents,
-
+        events,
         pagination,
       },
     });

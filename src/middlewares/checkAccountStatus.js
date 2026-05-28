@@ -15,15 +15,15 @@ export const checkAccountStatus = async (req, res, next) => {
       });
     }
 
-    // BLOCK CLOSED ACCOUNTS
-    if (user.accountStatus === "closed") {
+    // blocks deleted accounts
+    if (user.accountStatus === "deleted") {
       return errorResponse(res, {
         statusCode: httpStatus.FORBIDDEN,
-        message: "This account has been closed.",
+        message: "Account permanently deleted.",
       });
     }
 
-    // OPTIONAL: block suspended accounts too
+    // block suspended accounts too
     if (user.accountModerationStatus === "suspended") {
       return errorResponse(res, {
         statusCode: httpStatus.FORBIDDEN,

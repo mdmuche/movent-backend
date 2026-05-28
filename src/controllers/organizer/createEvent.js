@@ -7,6 +7,7 @@ import { uploadToCloudinary } from "../../utils/cloudinary/uploadCloudinary.js";
 
 import Event from "../../models/event.js";
 import AuditLog from "../../models/auditLog.js";
+import User from "../../models/user.js";
 
 const normalizeList = (value) => {
   if (!value) return [];
@@ -80,6 +81,15 @@ export const createEvent = async (req, res) => {
       latitude,
     } = req.body;
 
+    const organizer = await User.findById(req.user.userId);
+
+    if (!organizer) {
+      return errorResponse(res, {
+        statusCode: httpStatus.NOT_FOUND,
+        message: "User not found",
+      });
+    }
+
     const free = isFree === true || isFree === "true";
 
     if (!free && (!ticketPrice || ticketPrice <= 0)) {
@@ -143,11 +153,14 @@ export const createEvent = async (req, res) => {
       tags: normalizeList(tags),
       bannerImage,
       status: "draft",
+      approvalStatus:
+        organizer.isVerifiedOrganizer && organizer.reputationScore > 50
+          ? "approved"
+          : "pending",
       entryRequirements: normalizeList(entryRequirements),
       agreedToRefundPolicy,
       ...(location && { location }),
     });
-
     await AuditLog.create({
       action: "event_created",
       performedBy: req.user.userId,

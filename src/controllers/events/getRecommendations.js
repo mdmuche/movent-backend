@@ -30,18 +30,6 @@ export const getRecommendations = async (req, res) => {
     }
 
     // -----------------------------
-    // PAGINATION UTILS
-    // -----------------------------
-    const {
-      skip,
-      limit: limitNum,
-      pagination,
-    } = paginationUtils({
-      page,
-      limit,
-    });
-
-    // -----------------------------
     // BASE MATCH
     // -----------------------------
     const baseMatch = {
@@ -53,133 +41,102 @@ export const getRecommendations = async (req, res) => {
     };
 
     let recommendedEvents = [];
+    let total = 0;
 
     // -----------------------------
-    // 1. INTEREST-BASED RECOMMENDATIONS
+    // INTEREST-BASED MATCH
     // -----------------------------
+    let matchQuery = baseMatch;
+
     if (user.interests?.length) {
-      recommendedEvents = await Event.aggregate([
-        {
-          $match: {
-            ...baseMatch,
-            category: {
-              $in: user.interests,
-            },
-          },
+      matchQuery = {
+        ...baseMatch,
+        category: {
+          $in: user.interests,
         },
+      };
 
-        {
-          $sort: {
-            startDate: 1,
-          },
-        },
-
-        {
-          $skip: skip,
-        },
-
-        {
-          $limit: limitNum,
-        },
-
-        {
-          $lookup: {
-            from: "users",
-            localField: "organizer",
-            foreignField: "_id",
-            as: "organizer",
-          },
-        },
-
-        {
-          $unwind: "$organizer",
-        },
-
-        {
-          $project: {
-            title: 1,
-            slug: 1,
-            description: 1,
-            category: 1,
-            bannerImage: 1,
-            startDate: 1,
-            endDate: 1,
-            venue: 1,
-            city: 1,
-            ticketPrice: 1,
-            soldTickets: 1,
-            totalTickets: 1,
-
-            organizer: {
-              _id: "$organizer._id",
-              fullName: "$organizer.fullName",
-              email: "$organizer.email",
-            },
-          },
-        },
-      ]);
+      total = await Event.countDocuments(matchQuery);
     }
 
     // -----------------------------
-    // 2. FALLBACK RECOMMENDATIONS
+    // FALLBACK TOTAL
     // -----------------------------
-    if (!recommendedEvents.length) {
-      recommendedEvents = await Event.aggregate([
-        {
-          $match: baseMatch,
-        },
+    if (!total) {
+      matchQuery = baseMatch;
 
-        {
-          $sort: {
-            soldTickets: -1,
-          },
-        },
-
-        {
-          $skip: skip,
-        },
-
-        {
-          $limit: limitNum,
-        },
-
-        {
-          $lookup: {
-            from: "users",
-            localField: "organizer",
-            foreignField: "_id",
-            as: "organizer",
-          },
-        },
-
-        {
-          $unwind: "$organizer",
-        },
-
-        {
-          $project: {
-            title: 1,
-            slug: 1,
-            description: 1,
-            category: 1,
-            bannerImage: 1,
-            startDate: 1,
-            endDate: 1,
-            venue: 1,
-            city: 1,
-            ticketPrice: 1,
-            soldTickets: 1,
-            totalTickets: 1,
-
-            organizer: {
-              _id: "$organizer._id",
-              fullName: "$organizer.fullName",
-              email: "$organizer.email",
-            },
-          },
-        },
-      ]);
+      total = await Event.countDocuments(matchQuery);
     }
+
+    // -----------------------------
+    // PAGINATION UTILS
+    // -----------------------------
+    const {
+      skip,
+      limit: limitNum,
+      pagination,
+    } = paginationUtils({
+      page,
+      limit,
+      total,
+    });
+
+    // -----------------------------
+    // FETCH RECOMMENDED EVENTS
+    // -----------------------------
+    recommendedEvents = await Event.aggregate([
+      {
+        $match: matchQuery,
+      },
+
+      {
+        $sort: user.interests?.length ? { startDate: 1 } : { soldTickets: -1 },
+      },
+
+      {
+        $skip: skip,
+      },
+
+      {
+        $limit: limitNum,
+      },
+
+      {
+        $lookup: {
+          from: "users",
+          localField: "organizer",
+          foreignField: "_id",
+          as: "organizer",
+        },
+      },
+
+      {
+        $unwind: "$organizer",
+      },
+
+      {
+        $project: {
+          title: 1,
+          slug: 1,
+          description: 1,
+          category: 1,
+          bannerImage: 1,
+          startDate: 1,
+          endDate: 1,
+          venue: 1,
+          city: 1,
+          ticketPrice: 1,
+          soldTickets: 1,
+          totalTickets: 1,
+
+          organizer: {
+            _id: "$organizer._id",
+            fullName: "$organizer.fullName",
+            email: "$organizer.email",
+          },
+        },
+      },
+    ]);
 
     return successResponse(res, {
       statusCode: httpStatus.OK,
