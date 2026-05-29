@@ -21,8 +21,16 @@ export const markAsRead = async (req, res) => {
       });
     }
 
-    notification.isRead = true;
+    // check if already read
+    if (notification.isRead) {
+      return successResponse(res, {
+        statusCode: httpStatus.OK,
+        message: "Notification already marked as read",
+        data: notification,
+      });
+    }
 
+    notification.isRead = true;
     await notification.save();
 
     return successResponse(res, {

@@ -8,6 +8,7 @@ import { successResponse } from "../../utils/response/success.js";
 import TokenCollection from "../../models/token.js";
 import { sendEmail } from "../../utils/email/sendEmail.js";
 import { resetPasswordTemplate } from "../../utils/email/templates/resetPassword.js";
+import { sendNotification } from "../../services/notification.js";
 
 export const forgotPassword = async (req, res) => {
   try {
@@ -43,6 +44,14 @@ export const forgotPassword = async (req, res) => {
     const emailBody = resetPasswordTemplate(user.fullName, resetUrl);
 
     await sendEmail(email, "Reset your password", emailBody);
+
+    await sendNotification({
+      user: user._id,
+      title: "Password Reset Requested 🔐",
+      message:
+        "We received a request to reset your password. If this wasn't you, ignore this message.",
+      type: "warning",
+    });
 
     return successResponse(res, {
       statusCode: httpStatus.OK,

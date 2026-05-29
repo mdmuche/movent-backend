@@ -13,6 +13,13 @@ export const getMyTickets = async (req, res) => {
     const { page = 1, limit = 10 } = req.query;
 
     // -----------------------------
+    // TOTAL TICKETS
+    // -----------------------------
+    const total = await TicketCollection.countDocuments({
+      user: userId,
+    });
+
+    // -----------------------------
     // PAGINATION UTILS
     // -----------------------------
     const {
@@ -22,6 +29,7 @@ export const getMyTickets = async (req, res) => {
     } = paginationUtils({
       page,
       limit,
+      total,
     });
 
     // -----------------------------

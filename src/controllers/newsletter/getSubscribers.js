@@ -10,20 +10,33 @@ export const getSubscribers = async (req, res) => {
   try {
     const { page = 1, limit = 10 } = req.query;
 
+    // -------------------------
+    // BASE QUERY
+    // -------------------------
+    const query = { isSubscribed: true };
+
+    // -------------------------
+    // TOTAL
+    // -------------------------
+    const total = await NewsletterCollection.countDocuments(query);
+
+    // -------------------------
+    // PAGINATION
+    // -------------------------
     const {
       skip,
       limit: limitNum,
       pagination,
-    } = await paginationUtils({
+    } = paginationUtils({
       page,
       limit,
-      model: NewsletterCollection,
-      query: { isSubscribed: true },
+      total,
     });
 
-    const subscribers = await NewsletterCollection.find({
-      isSubscribed: true,
-    })
+    // -------------------------
+    // FETCH DATA
+    // -------------------------
+    const subscribers = await NewsletterCollection.find(query)
       .sort({ createdAt: -1 })
       .skip(skip)
       .limit(limitNum);

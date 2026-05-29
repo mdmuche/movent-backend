@@ -12,20 +12,33 @@ export const getNotifications = async (req, res) => {
 
     const { page = 1, limit = 10 } = req.query;
 
+    // -------------------------
+    // BASE QUERY
+    // -------------------------
+    const query = { user: userId };
+
+    // -------------------------
+    // TOTAL
+    // -------------------------
+    const total = await NotificationCollection.countDocuments(query);
+
+    // -------------------------
+    // PAGINATION
+    // -------------------------
     const {
       skip,
       limit: limitNum,
       pagination,
-    } = await paginationUtils({
+    } = paginationUtils({
       page,
       limit,
-      model: NotificationCollection,
-      query: { user: userId },
+      total,
     });
 
-    const notifications = await NotificationCollection.find({
-      user: userId,
-    })
+    // -------------------------
+    // FETCH NOTIFICATIONS
+    // -------------------------
+    const notifications = await NotificationCollection.find(query)
       .sort({ createdAt: -1 })
       .skip(skip)
       .limit(limitNum);

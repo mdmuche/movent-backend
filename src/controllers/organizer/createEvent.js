@@ -8,6 +8,7 @@ import { uploadToCloudinary } from "../../utils/cloudinary/uploadCloudinary.js";
 import Event from "../../models/event.js";
 import AuditLog from "../../models/auditLog.js";
 import User from "../../models/user.js";
+import { sendNotification } from "../../services/notification.js";
 
 const normalizeList = (value) => {
   if (!value) return [];
@@ -166,6 +167,14 @@ export const createEvent = async (req, res) => {
       performedBy: req.user.userId,
       targetType: "event",
       targetId: event._id,
+    });
+
+    await sendNotification({
+      user: req.user.userId,
+      title: "Event Created 🎉",
+      message: `Your event "${event.title}" has been created successfully.`,
+      type: "success",
+      metadata: { eventId: event._id },
     });
 
     return successResponse(res, {

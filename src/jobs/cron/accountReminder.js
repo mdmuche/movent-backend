@@ -13,28 +13,29 @@ cron.schedule("0 9 * * *", async () => {
     });
 
     for (const user of users) {
-      const daysClosed =
-        (now - new Date(user.closedAt)) / (1000 * 60 * 60 * 24);
+      const daysClosed = Math.floor(
+        (now - new Date(user.closedAt)) / (1000 * 60 * 60 * 24),
+      );
 
-      let message = null;
+      let emailTemplate = null;
+      let daysLeft = null;
 
-      // 150 days (30 days left)
       if (daysClosed >= 150 && daysClosed < 151) {
-        message = accountDeletionWarningTemplate(user.fullName, 30);
+        daysLeft = 30;
       }
 
-      // 173 days (7 days left)
       if (daysClosed >= 173 && daysClosed < 174) {
-        message = accountDeletionWarningTemplate(user.fullName, 7);
+        daysLeft = 7;
       }
 
-      // 179 days (1 day left)
       if (daysClosed >= 179 && daysClosed < 180) {
-        message = accountDeletionWarningTemplate(user.fullName, 30);
+        daysLeft = 1;
       }
 
-      if (message) {
-        await sendEmail(user.email, "Account Deletion Notice", message);
+      if (daysLeft) {
+        emailTemplate = accountDeletionWarningTemplate(user.fullName, daysLeft);
+
+        await sendEmail(user.email, "Account Deletion Notice", emailTemplate);
       }
     }
   } catch (error) {

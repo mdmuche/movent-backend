@@ -21,7 +21,7 @@ router.get(
 
 // purchase ticket
 router.post(
-  "/purchase",
+  "/:slug/purchase",
   requireAuth,
   validateRequest(purchaseTicketSchema),
   purchaseTicket,

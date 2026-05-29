@@ -9,19 +9,40 @@ export const markAllAsRead = async (req, res) => {
   try {
     const userId = req.user.userId;
 
-    await NotificationCollection.updateMany(
+    // check if user has any unread notifications
+    const unreadCount = await NotificationCollection.countDocuments({
+      user: userId,
+      isRead: false,
+    });
+
+    // no notifications at all
+    if (unreadCount === 0) {
+      return successResponse(res, {
+        statusCode: httpStatus.OK,
+        message: "No unread notifications found",
+        data: {
+          modifiedCount: 0,
+        },
+      });
+    }
+
+    // mark as read
+    const result = await NotificationCollection.updateMany(
       {
         user: userId,
         isRead: false,
       },
       {
-        isRead: true,
+        $set: { isRead: true },
       },
     );
 
     return successResponse(res, {
       statusCode: httpStatus.OK,
       message: "All notifications marked as read",
+      data: {
+        modifiedCount: result.modifiedCount,
+      },
     });
   } catch (error) {
     return errorResponse(res, {
