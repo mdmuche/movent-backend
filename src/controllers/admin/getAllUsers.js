@@ -13,6 +13,11 @@ export const getAllUsers = async (req, res) => {
     const { page = 1, limit = 10 } = req.query;
 
     // -----------------------------
+    // TOTAL USERS
+    // -----------------------------
+    const total = await User.countDocuments();
+
+    // -----------------------------
     // PAGINATION UTILS
     // -----------------------------
     const {
@@ -22,6 +27,7 @@ export const getAllUsers = async (req, res) => {
     } = paginationUtils({
       page,
       limit,
+      total,
     });
 
     // -----------------------------

@@ -1,16 +1,34 @@
 import httpStatus from "http-status";
 
-import { successResponse } from "../../utils/response/success.js";
-import { errorResponse } from "../../utils/response/error.js";
 import SystemSettings from "../../models/systemSettings.js";
 import AuditLog from "../../models/auditLog.js";
 
+import { successResponse } from "../../utils/response/success.js";
+import { errorResponse } from "../../utils/response/error.js";
+
 export const updateSystemSettings = async (req, res) => {
   try {
-    const settings = await SystemSettings.findOneAndUpdate({}, req.body, {
-      new: true,
-      upsert: true,
-    });
+    const {
+      platformCommission,
+      maxTicketPerPurchase,
+      maintenanceMode,
+      supportEmail,
+    } = req.body;
+    console.log(req.body);
+    const settings = await SystemSettings.findOneAndUpdate(
+      {},
+      {
+        platformCommission,
+        maxTicketPerPurchase,
+        maintenanceMode,
+        supportEmail,
+      },
+      {
+        new: true,
+        upsert: true,
+        runValidators: true,
+      },
+    );
 
     await AuditLog.create({
       action: "settings_updated",
@@ -27,7 +45,7 @@ export const updateSystemSettings = async (req, res) => {
   } catch (error) {
     return errorResponse(res, {
       statusCode: httpStatus.INTERNAL_SERVER_ERROR,
-      message: "Error updating settings",
+      message: "Error updating system settings",
       error: error.message,
     });
   }

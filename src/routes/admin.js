@@ -40,7 +40,7 @@ router.get(
 
 // route to get all users (for admin)
 router.get(
-  "/",
+  "/users",
   requireAdmin,
   validateRequest(getAllUsersSchema, "query"),
   getAllUsers,
@@ -66,7 +66,7 @@ router.get(
 );
 // route to make a user an organizer
 router.patch(
-  "/users/:id/make-organizer",
+  "/users/:userId/make-organizer",
   requireAdmin,
   validateRequest(makeOrganizerSchema, "params"),
   makeOrganizer,

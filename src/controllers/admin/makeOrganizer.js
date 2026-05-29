@@ -7,9 +7,9 @@ import { errorResponse } from "../../utils/response/error.js";
 
 export const makeOrganizer = async (req, res) => {
   try {
-    const { id } = req.params;
+    const { userId } = req.params;
 
-    const user = await User.findById(id);
+    const user = await User.findById(userId);
 
     if (!user) {
       return errorResponse(res, {

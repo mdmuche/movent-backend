@@ -6,8 +6,10 @@ import SystemSettings from "../../models/systemSettings.js";
 
 export const getSystemSettings = async (req, res) => {
   try {
-    const settings = await SystemSettings.findOne();
-
+    let settings = await SystemSettings.findOne();
+    if (!settings) {
+      settings = await SystemSettings.create({});
+    }
     return successResponse(res, {
       statusCode: httpStatus.OK,
       message: "System settings fetched successfully",
