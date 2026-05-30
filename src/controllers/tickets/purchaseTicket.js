@@ -1,5 +1,5 @@
 import httpStatus from "http-status";
-import { v4 } from "uuid";
+import { v4 as uuidv4 } from "uuid";
 
 import Event from "../../models/event.js";
 import TicketCollection from "../../models/ticket.js";
@@ -13,7 +13,7 @@ export const purchaseTicket = async (req, res) => {
   try {
     const userId = req.user.userId;
     const { slug } = req.params;
-    const { quantity, ticketType } = req.body;
+    const { quantity = 1, ticketType = "regular" } = req.body;
 
     const event = await Event.findOne({ slug });
 
@@ -24,6 +24,15 @@ export const purchaseTicket = async (req, res) => {
       });
     }
 
+    // ❌ BLOCK PAID EVENTS
+    if (!event.isFree) {
+      return errorResponse(res, {
+        statusCode: httpStatus.BAD_REQUEST,
+        message: "This event requires payment. Use checkout instead.",
+      });
+    }
+
+    // check availability
     const remainingTickets = event.totalTickets - event.soldTickets;
 
     if (remainingTickets < quantity) {
@@ -33,61 +42,61 @@ export const purchaseTicket = async (req, res) => {
       });
     }
 
-    const totalAmount = event.isFree ? 0 : event.ticketPrice * quantity;
+    // prevent duplicate free ticket purchase
+    const existingTicket = await TicketCollection.findOne({
+      user: userId,
+      event: event._id,
+    });
 
-    try {
-      const ticket = await TicketCollection.create({
-        user: userId,
-        event: event._id,
-        quantity,
-        ticketType,
-        totalAmount,
-        paymentStatus: "paid",
-        ticketCode: v4(),
+    if (existingTicket) {
+      return errorResponse(res, {
+        statusCode: httpStatus.CONFLICT,
+        message: "You already claimed this free ticket",
       });
-
-      event.soldTickets += quantity;
-      await event.save();
-
-      // notification logic
-      await sendNotification({
-        user: userId,
-        title: "Ticket Purchase Successful 🎟",
-        message: `You successfully purchased ${quantity} ticket(s) for ${event.title}`,
-        type: "ticket",
-        metadata: {
-          eventId: event._id,
-          quantity,
-          amount: totalAmount,
-        },
-      });
-
-      await UserActivity.create({
-        user: userId,
-        type: "ticket_purchase",
-        event: event._id,
-        metadata: {
-          amount: totalAmount,
-          quantity,
-        },
-      });
-
-      return successResponse(res, {
-        statusCode: httpStatus.CREATED,
-        message: "Ticket purchased successfully",
-        data: ticket,
-      });
-    } catch (err) {
-      // handles duplicate key from race condition
-      if (err.code === 11000) {
-        return errorResponse(res, {
-          statusCode: httpStatus.CONFLICT,
-          message: "You already purchased this ticket",
-        });
-      }
-
-      throw err;
     }
+
+    // create ticket
+    const ticket = await TicketCollection.create({
+      user: userId,
+      event: event._id,
+      quantity,
+      ticketType,
+      totalAmount: 0,
+      paymentStatus: "paid",
+      ticketCode: uuidv4(),
+    });
+
+    // update event
+    event.soldTickets += quantity;
+    await event.save();
+
+    // notification
+    await sendNotification({
+      user: userId,
+      title: "Ticket Claimed 🎟",
+      message: `You successfully claimed ${quantity} free ticket(s) for ${event.title}`,
+      type: "ticket",
+      metadata: {
+        eventId: event._id,
+        quantity,
+      },
+    });
+
+    // activity log
+    await UserActivity.create({
+      user: userId,
+      type: "ticket_claim",
+      event: event._id,
+      metadata: {
+        quantity,
+      },
+    });
+
+    return successResponse(res, {
+      statusCode: httpStatus.CREATED,
+      message: "Free ticket claimed successfully",
+      data: ticket,
+    });
   } catch (error) {
     return errorResponse(res, {
       statusCode: httpStatus.INTERNAL_SERVER_ERROR,

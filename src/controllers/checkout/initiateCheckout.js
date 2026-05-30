@@ -1,19 +1,22 @@
 import httpStatus from "http-status";
 import axios from "axios";
+import { v4 } from "uuid";
 
 import PaymentCollection from "../../models/payment.js";
 import Event from "../../models/event.js";
 
 import { successResponse } from "../../utils/response/success.js";
 import { errorResponse } from "../../utils/response/error.js";
+import SystemSettings from "../../models/systemSettings.js";
 
 export const initiateCheckout = async (req, res) => {
   try {
     const userId = req.user.userId;
 
-    const { eventId, quantity = 1, billingInfo } = req.body;
+    const { slug } = req.params;
+    const { quantity = 1, billingInfo } = req.body;
 
-    const event = await Event.findById(eventId);
+    const event = await Event.findOne({ slug });
 
     if (!event) {
       return errorResponse(res, {
@@ -22,13 +25,25 @@ export const initiateCheckout = async (req, res) => {
       });
     }
 
+    //blocks user from purchasing more than the maximum allowed ticket purchase
+    const settings = await SystemSettings.findOne();
+
+    const maxTicketPerPurchase = settings?.maxTicketPerPurchase || 10;
+
+    if (quantity > maxTicketPerPurchase) {
+      return errorResponse(res, {
+        statusCode: httpStatus.BAD_REQUEST,
+        message: `You can only purchase a maximum of ${maxTicketPerPurchase} tickets per order`,
+      });
+    }
+
     const amount = event.ticketPrice * quantity;
 
-    const reference = `MOVENT_${Date.now()}`;
+    const reference = `MOVENT_${v4()}`;
 
     await PaymentCollection.create({
       user: userId,
-      event: eventId,
+      event: event._id,
       amount,
       quantity,
       reference,

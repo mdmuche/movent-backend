@@ -13,17 +13,23 @@ export const getPaymentHistory = async (req, res) => {
     const { page = 1, limit = 10 } = req.query;
 
     // -----------------------------
-    // PAGINATION UTILS (includes total)
+    // TOTAL COUNT
+    // -----------------------------
+    const total = await PaymentCollection.countDocuments({
+      user: userId,
+    });
+
+    // -----------------------------
+    // PAGINATION UTILS
     // -----------------------------
     const {
       skip,
       limit: limitNum,
       pagination,
-    } = paginationUtils({
+    } = await paginationUtils({
       page,
       limit,
-      model: PaymentCollection,
-      query: { user: userId },
+      total,
     });
 
     // -----------------------------

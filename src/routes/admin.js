@@ -24,6 +24,8 @@ import {
 } from "../validators/admin/suspendUser.js";
 import { updateSystemSettingsSchema } from "../validators/admin/updateSystemSettings.js";
 import { getEventQueueSchema } from "../validators/admin/getEventQueue.js";
+import { createPromoCode } from "../controllers/admin/createPromoCode.js";
+import { createPromoCodeSchema } from "../validators/admin/promoCode.js";
 
 const router = express.Router();
 
@@ -95,6 +97,14 @@ router.patch(
   requireAdmin,
   validateRequest(updateSystemSettingsSchema),
   updateSystemSettings,
+);
+
+// route to create promo code
+router.post(
+  "/promo-codes",
+  requireAdmin,
+  validateRequest(createPromoCodeSchema),
+  createPromoCode,
 );
 
 export default router;

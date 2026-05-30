@@ -33,10 +33,18 @@ const router = express.Router();
 
 // initiate checkout
 router.post(
-  "/initiate",
+  "/initiate/:slug",
   requireAuth,
   validateRequest(initiateCheckoutSchema),
   initiateCheckout,
+);
+
+//  Apply promo code
+router.post(
+  "/promo/:slug/apply",
+  requireAuth,
+  validateRequest(applyPromoCodeSchema),
+  applyPromoCode,
 );
 
 // Verify payment
@@ -47,16 +55,7 @@ router.get(
   verifyPayment,
 );
 
-//  Apply promo code
-router.post(
-  "/promo/apply",
-  requireAuth,
-  validateRequest(applyPromoCodeSchema),
-  applyPromoCode,
-);
-
-// Refund payment (Admin only)
-
+//todo Refund payment (Admin only)
 router.post(
   "/refund/:paymentId",
   requireAdmin,
@@ -65,11 +64,9 @@ router.post(
 );
 
 // Webhook (No auth / No validation)
-
 router.post("/webhook", express.raw({ type: "application/json" }), webhook);
 
 // Payment History
-
 router.get(
   "/history",
   requireAuth,
@@ -85,7 +82,7 @@ router.get(
   getPaymentDetails,
 );
 
-// Cancel Checkout
+//todo Cancel Checkout
 router.patch(
   "/cancel/:reference",
   requireAuth,
@@ -93,8 +90,7 @@ router.patch(
   cancelCheckout,
 );
 
-// Resent Ticket
-
+//todo Resend Ticket
 router.post(
   "/resend-ticket/:ticketId",
   requireAuth,
@@ -102,8 +98,7 @@ router.post(
   resendTicket,
 );
 
-// Validate Ticket
-
+//todo Validate Ticket
 router.post(
   "/validate-ticket/:ticketId",
   requireOrganizer,

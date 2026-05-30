@@ -8,7 +8,8 @@ import { errorResponse } from "../../utils/response/error.js";
 
 export const applyPromoCode = async (req, res) => {
   try {
-    const { code, eventId, quantity = 1 } = req.body;
+    const { slug } = req.params;
+    const { code, quantity = 1 } = req.body;
 
     const promo = await PromoCodeCollection.findOne({
       code: code.toUpperCase(),
@@ -35,7 +36,7 @@ export const applyPromoCode = async (req, res) => {
       });
     }
 
-    const event = await Event.findById(eventId);
+    const event = await Event.findOne({ slug });
 
     if (!event) {
       return errorResponse(res, {
