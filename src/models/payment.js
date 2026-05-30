@@ -32,12 +32,28 @@ const paymentSchema = new mongoose.Schema(
 
     status: {
       type: String,
-      enum: ["pending", "paid", "failed", "refunded", "cancelled"],
+      enum: [
+        "pending",
+        "initialized",
+        "paid",
+        "failed",
+        "refunded",
+        "cancelled",
+      ],
       default: "pending",
     },
 
     promoCode: {
       type: String,
+    },
+
+    discountAmount: {
+      type: Number,
+      default: 0,
+    },
+
+    finalAmount: {
+      type: Number,
     },
 
     billingInfo: {

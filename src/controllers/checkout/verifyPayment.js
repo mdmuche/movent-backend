@@ -49,19 +49,6 @@ export const verifyPayment = async (req, res) => {
     }
 
     // -----------------------------
-    // IDENTITY CHECK (FULL FIX)
-    // -----------------------------
-    const existingTicket = await TicketCollection.findOne({ reference });
-
-    if (existingTicket) {
-      return successResponse(res, {
-        statusCode: httpStatus.OK,
-        message: "Payment already processed",
-        data: existingTicket,
-      });
-    }
-
-    // -----------------------------
     // UPDATE PAYMENT
     // -----------------------------
     payment.status = "paid";
@@ -81,71 +68,80 @@ export const verifyPayment = async (req, res) => {
     }
 
     // -----------------------------
-    // CREATE TICKET (SAFE)
+    // CREATE TICKET (IDEMPOTENT SAFE)
     // -----------------------------
-    const ticket = await TicketCollection.create({
-      user: payment.user,
-      event: payment.event,
-      quantity: payment.quantity,
-      ticketType: payment.ticketType,
-      totalAmount: payment.amount,
-      paymentStatus: "paid",
-      ticketCode: uuidv4(),
-      reference,
-    });
-
-    // -----------------------------
-    // UPDATE EVENT SALES
-    // -----------------------------
-    event.soldTickets += payment.quantity;
-    await event.save();
-
-    // -----------------------------
-    // NOTIFICATION
-    // -----------------------------
-    await sendNotification({
-      user: payment.user,
-      title: "Ticket Purchase Successful 🎟",
-      message: `Your payment for ${event.title} was successful and your ticket is confirmed.`,
-      type: "ticket",
-      metadata: {
-        eventId: event._id,
-        quantity: payment.quantity,
-        amount: payment.amount,
+    const result = await TicketCollection.findOneAndUpdate(
+      { reference },
+      {
+        $setOnInsert: {
+          user: payment.user,
+          event: payment.event,
+          quantity: payment.quantity,
+          ticketType: payment.ticketType,
+          totalAmount: payment.amount,
+          paymentStatus: "paid",
+          ticketCode: uuidv4(),
+          reference,
+        },
       },
-    });
-
-    // -----------------------------
-    // ACTIVITY LOG
-    // -----------------------------
-    await UserActivity.create({
-      user: payment.user,
-      type: "ticket_purchase",
-      event: event._id,
-      metadata: {
-        amount: payment.amount,
-        quantity: payment.quantity,
-        reference,
+      {
+        new: true,
+        upsert: true,
+        rawResult: true,
       },
-    });
+    );
 
-    return successResponse(res, {
-      statusCode: httpStatus.OK,
-      message: "Payment verified and ticket created successfully",
-      data: ticket,
-    });
-  } catch (error) {
+    // detect if this is first insert
+    const isNewTicket = result?.lastErrorObject?.upserted ? true : false;
+
+    const ticket = result.value;
+
     // -----------------------------
-    // HANDLE DUPLICATE KEY ERROR
+    // UPDATE EVENT SALES (ONLY ONCE)
     // -----------------------------
-    if (error.code === 11000) {
-      return errorResponse(res, {
-        statusCode: httpStatus.CONFLICT,
-        message: "Ticket already exists for this payment",
-        error: null,
+    if (isNewTicket) {
+      await Event.findByIdAndUpdate(event._id, {
+        $inc: { soldTickets: payment.quantity },
+      });
+
+      // -----------------------------
+      // NOTIFICATION (ONLY ONCE)
+      // -----------------------------
+      await sendNotification({
+        user: payment.user,
+        title: "Ticket Purchase Successful 🎟",
+        message: `Your payment for ${event.title} was successful and your ticket is confirmed.`,
+        type: "ticket",
+        metadata: {
+          eventId: event._id,
+          quantity: payment.quantity,
+          amount: payment.amount,
+        },
+      });
+
+      // -----------------------------
+      // ACTIVITY LOG (ONLY ONCE)
+      // -----------------------------
+      await UserActivity.create({
+        user: payment.user,
+        type: "ticket_purchase",
+        event: event._id,
+        metadata: {
+          amount: payment.amount,
+          quantity: payment.quantity,
+          reference,
+        },
       });
     }
 
+    return successResponse(res, {
+      statusCode: httpStatus.OK,
+      message: isNewTicket
+        ? "Payment verified and ticket created successfully"
+        : "Payment already processed",
+      data: ticket,
+    });
+  } catch (error) {
     return errorResponse(res, {
       statusCode: httpStatus.INTERNAL_SERVER_ERROR,
       message: "Verification failed",

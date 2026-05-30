@@ -4,10 +4,11 @@ import { v4 } from "uuid";
 
 import PaymentCollection from "../../models/payment.js";
 import Event from "../../models/event.js";
+import PromoCodeCollection from "../../models/promoCode.js";
+import SystemSettings from "../../models/systemSettings.js";
 
 import { successResponse } from "../../utils/response/success.js";
 import { errorResponse } from "../../utils/response/error.js";
-import SystemSettings from "../../models/systemSettings.js";
 
 export const initiateCheckout = async (req, res) => {
   try {
@@ -16,6 +17,14 @@ export const initiateCheckout = async (req, res) => {
     const { slug } = req.params;
     const { quantity = 1, billingInfo } = req.body;
 
+    // -----------------------------
+    // CREATE REFERENCE
+    // -----------------------------
+    const reference = `MOVENT_${v4()}`;
+
+    // -----------------------------
+    // GET EVENT
+    // -----------------------------
     const event = await Event.findOne({ slug });
 
     if (!event) {
@@ -25,9 +34,10 @@ export const initiateCheckout = async (req, res) => {
       });
     }
 
-    //blocks user from purchasing more than the maximum allowed ticket purchase
+    // -----------------------------
+    // SYSTEM SETTINGS CHECK
+    // -----------------------------
     const settings = await SystemSettings.findOne();
-
     const maxTicketPerPurchase = settings?.maxTicketPerPurchase || 10;
 
     if (quantity > maxTicketPerPurchase) {
@@ -37,19 +47,71 @@ export const initiateCheckout = async (req, res) => {
       });
     }
 
-    const amount = event.ticketPrice * quantity;
-
-    const reference = `MOVENT_${v4()}`;
-
-    await PaymentCollection.create({
+    // -----------------------------
+    // CHECK EXISTING SESSION
+    // -----------------------------
+    let paymentSession = await PaymentCollection.findOne({
       user: userId,
       event: event._id,
-      amount,
-      quantity,
-      reference,
-      billingInfo,
+      status: "pending",
     });
 
+    // -----------------------------
+    // CREATE SESSION IF NOT EXISTS
+    // -----------------------------
+    if (!paymentSession) {
+      paymentSession = await PaymentCollection.create({
+        user: userId,
+        event: event._id,
+        quantity,
+        reference,
+        amount: event.ticketPrice * quantity,
+        status: "pending",
+      });
+    }
+
+    // -----------------------------
+    // APPLY PROMO IF EXISTS
+    // -----------------------------
+    let amount = paymentSession.amount;
+
+    if (paymentSession.promoCode) {
+      const promo = await PromoCodeCollection.findOne({
+        code: paymentSession.promoCode.toUpperCase(),
+        isActive: true,
+      });
+
+      if (promo) {
+        if (promo.expiresAt < new Date()) {
+          return errorResponse(res, {
+            statusCode: httpStatus.BAD_REQUEST,
+            message: "Promo code expired",
+          });
+        }
+
+        if (promo.usageLimit && promo.usedCount >= promo.usageLimit) {
+          return errorResponse(res, {
+            statusCode: httpStatus.BAD_REQUEST,
+            message: "Promo code usage limit reached",
+          });
+        }
+
+        amount = paymentSession.finalAmount || amount;
+      }
+    }
+
+    // -----------------------------
+    // UPDATE SESSION
+    // -----------------------------
+    paymentSession.reference = reference;
+    paymentSession.billingInfo = billingInfo;
+    paymentSession.status = "initialized";
+
+    await paymentSession.save();
+
+    // -----------------------------
+    // INIT PAYSTACK
+    // -----------------------------
     const paystack = await axios.post(
       "https://api.paystack.co/transaction/initialize",
       {

@@ -27,6 +27,13 @@ const ticketSchema = new mongoose.Schema(
       default: 0,
     },
 
+    reference: {
+      type: String,
+      unique: true,
+      required: true,
+      index: true,
+    },
+
     ticketType: {
       type: String,
       enum: ["regular", "vip"],
@@ -53,8 +60,6 @@ const ticketSchema = new mongoose.Schema(
     timestamps: true,
   },
 );
-
-ticketSchema.index({ user: 1, event: 1 }, { unique: true });
 
 const TicketCollection = mongoose.model("Ticket", ticketSchema);
 
