@@ -1,4 +1,6 @@
 import httpStatus from "http-status";
+import { nanoid } from "nanoid";
+
 import PromoCodeCollection from "../../models/promoCode.js";
 
 import { successResponse } from "../../utils/response/success.js";
@@ -7,29 +9,29 @@ import { errorResponse } from "../../utils/response/error.js";
 export const createPromoCode = async (req, res) => {
   try {
     const {
-      code,
       discountType,
       discountValue,
-      expiresAt,
+      durationDays,
       usageLimit,
       isActive = true,
     } = req.body;
 
-    const existing = await PromoCodeCollection.findOne({
-      code: code.toUpperCase(),
-    });
-
-    if (existing) {
+    if (!durationDays || durationDays <= 0) {
       return errorResponse(res, {
-        statusCode: httpStatus.CONFLICT,
-        message: "Promo code already exists",
+        statusCode: httpStatus.BAD_REQUEST,
+        message: "durationDays must be greater than 0",
       });
     }
 
+    const expiresAt = new Date(Date.now() + durationDays * 86400000);
+
+    const code = `MOVENT-${nanoid(8).toUpperCase()}`;
+
     const promo = await PromoCodeCollection.create({
-      code: code.toUpperCase(),
+      code,
       discountType,
       discountValue,
+      durationDays,
       expiresAt,
       isActive,
       usageLimit,

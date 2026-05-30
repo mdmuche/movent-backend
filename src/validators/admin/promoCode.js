@@ -1,17 +1,10 @@
 import Joi from "joi";
 
 export const createPromoCodeSchema = Joi.object({
-  code: Joi.string().trim().min(3).max(30).required().messages({
-    "string.base": "Promo code must be a string",
-    "string.empty": "Promo code cannot be empty",
-    "string.min": "Promo code must be at least 3 characters",
-    "string.max": "Promo code must not exceed 30 characters",
-    "any.required": "Promo code is required",
-  }),
-
   discountType: Joi.string().valid("percentage", "fixed").required().messages({
     "any.only": "Discount type must be either percentage or fixed",
     "any.required": "Discount type is required",
+    "string.base": "Discount type must be a string",
   }),
 
   discountValue: Joi.number().positive().required().messages({
@@ -20,17 +13,21 @@ export const createPromoCodeSchema = Joi.object({
     "any.required": "Discount value is required",
   }),
 
+  durationDays: Joi.number().integer().min(1).max(365).required().messages({
+    "number.base": "Duration must be a number",
+    "number.integer": "Duration must be an integer",
+    "number.min": "Duration must be at least 1 day",
+    "number.max": "Duration cannot exceed 365 days",
+    "any.required": "Duration is required",
+  }),
+
   isActive: Joi.boolean().optional().messages({
     "boolean.base": "isActive must be true or false",
   }),
 
-  expiresAt: Joi.date().optional().messages({
-    "date.base": "expiresAt must be a valid date",
-  }),
-
   usageLimit: Joi.number().integer().min(1).optional().messages({
-    "number.base": "usageLimit must be a number",
-    "number.integer": "usageLimit must be an integer",
-    "number.min": "usageLimit must be at least 1",
+    "number.base": "Usage limit must be a number",
+    "number.integer": "Usage limit must be an integer",
+    "number.min": "Usage limit must be at least 1",
   }),
 });

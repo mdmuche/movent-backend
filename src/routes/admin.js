@@ -26,6 +26,8 @@ import { updateSystemSettingsSchema } from "../validators/admin/updateSystemSett
 import { getEventQueueSchema } from "../validators/admin/getEventQueue.js";
 import { createPromoCode } from "../controllers/admin/createPromoCode.js";
 import { createPromoCodeSchema } from "../validators/admin/promoCode.js";
+import { getAllPromoCodes } from "../controllers/admin/getAllPromoCodes.js";
+import { getAllPromoCodesSchema } from "../validators/admin/getAllPromoCodes.js";
 
 const router = express.Router();
 
@@ -107,4 +109,11 @@ router.post(
   createPromoCode,
 );
 
+// route to get all promo codes
+router.get(
+  "/promo-codes",
+  requireAdmin,
+  validateRequest(getAllPromoCodesSchema),
+  getAllPromoCodes,
+);
 export default router;

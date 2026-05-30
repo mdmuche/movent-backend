@@ -55,7 +55,7 @@ router.get(
   verifyPayment,
 );
 
-//todo Refund payment (Admin only)
+// Refund payment (Admin only)
 router.post(
   "/refund/:paymentId",
   requireAdmin,
@@ -82,7 +82,7 @@ router.get(
   getPaymentDetails,
 );
 
-//todo Cancel Checkout
+// Cancel Checkout
 router.patch(
   "/cancel/:reference",
   requireAuth,
@@ -90,7 +90,7 @@ router.patch(
   cancelCheckout,
 );
 
-//todo Resend Ticket
+// Resend Ticket
 router.post(
   "/resend-ticket/:ticketId",
   requireAuth,
@@ -98,7 +98,7 @@ router.post(
   resendTicket,
 );
 
-//todo Validate Ticket
+// Validate Ticket
 router.post(
   "/validate-ticket/:ticketId",
   requireOrganizer,
