@@ -7,33 +7,26 @@ const smtpSecure =
   (process.env.SMTP_SECURE !== "false" && smtpPort === 465);
 const smtpHost = process.env.SMTP_HOST || "smtp.gmail.com";
 
-const resolveSocketOptions = async () => {
+const resolveSmtpHost = async () => {
   if (process.env.SMTP_FORCE_IPV4 === "false") {
-    return false;
+    return smtpHost;
   }
 
   const [address] = await dns.resolve4(smtpHost);
 
-  return {
-    host: address,
-    servername: smtpHost,
-    tls: {
-      servername: smtpHost,
-    },
-  };
+  return address;
 };
 
+const smtpConnectionHost =
+  process.env.SMTP_HOST_IPV4 || (await resolveSmtpHost());
+
 export const tp = nodeMailer.createTransport({
-  host: smtpHost,
+  host: smtpConnectionHost,
   port: smtpPort,
   secure: smtpSecure,
   requireTLS: !smtpSecure,
-  family: 4,
-  getSocket: (_options, callback) => {
-    resolveSocketOptions().then(
-      (socketOptions) => callback(null, socketOptions),
-      (error) => callback(error),
-    );
+  tls: {
+    servername: smtpHost,
   },
   auth: {
     user: process.env.EMAIL_USERNAME,
