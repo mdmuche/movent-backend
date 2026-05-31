@@ -43,7 +43,16 @@ export const forgotPassword = async (req, res) => {
 
     const emailBody = resetPasswordTemplate(user.fullName, resetUrl);
 
-    await sendEmail(email, "Reset your password", emailBody);
+    const emailSent = await sendEmail(email, "Reset your password", emailBody);
+
+    if (!emailSent) {
+      await TokenCollection.deleteOne({ passwordResetToken: resetToken });
+
+      return errorResponse(res, {
+        statusCode: httpStatus.SERVICE_UNAVAILABLE,
+        message: "Reset email could not be sent. Please try again later",
+      });
+    }
 
     await sendNotification({
       user: user._id,

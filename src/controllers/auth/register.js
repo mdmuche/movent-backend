@@ -36,9 +36,6 @@ export const register = async (req, res) => {
     //5.send email to verify otp
     const verificationUrl = `${process.env.FRONTEND_TEST_URL}/verify-email/${verificationToken}`;
 
-    const emailBody = verifyEmailTemplate(user.fullName, verificationUrl);
-    await sendEmail(email, "verify your email", emailBody);
-
     // store email verification token
     await TokenCollection.create({
       user: user._id,
@@ -46,6 +43,22 @@ export const register = async (req, res) => {
       emailVerificationToken: verificationToken,
       expiresAt: new Date(Date.now() + 24 * 60 * 60 * 1000),
     });
+
+    const emailBody = verifyEmailTemplate(user.fullName, verificationUrl);
+    const emailSent = await sendEmail(email, "Verify your email", emailBody);
+
+    if (!emailSent) {
+      await Promise.all([
+        User.deleteOne({ _id: user._id }),
+        TokenCollection.deleteMany({ user: user._id }),
+      ]);
+
+      return errorResponse(res, {
+        statusCode: httpStatus.SERVICE_UNAVAILABLE,
+        message:
+          "Registration failed because the verification email could not be sent",
+      });
+    }
 
     //6. Return a success response with the created user data
     return successResponse(res, {
