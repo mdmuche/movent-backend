@@ -1,6 +1,9 @@
 import dotenv from "dotenv";
 dotenv.config();
 
+import dns from "dns";
+dns.setDefaultResultOrder("ipv4first");
+
 const { connectDB } = await import("./config/connection.js");
 const { default: app } = await import("./app.js");
 
