@@ -11,8 +11,7 @@ import { getProfile } from "../controllers/user/profile.js";
 import { getDashboardOverview } from "../controllers/user/getDashboardOverview.js";
 import { getSavedEvents } from "../controllers/user/getSavedEvents.js";
 import { getUserActivity } from "../controllers/user/userActivity.js";
-import { saveEvent } from "../controllers/user/saveEvent.js";
-import { deleteSavedEvent } from "../controllers/user/deleteSavedEvent.js";
+import { toggleSaveEvent } from "../controllers/user/toggleSaveEvent.js";
 import { updateProfile } from "../controllers/user/updateProfile.js";
 import { updateNotificationPreferences } from "../controllers/user/notificationPreference.js";
 import { updateLanguage } from "../controllers/user/updateLanguage.js";
@@ -20,8 +19,8 @@ import { closeAccount } from "../controllers/user/closeAccount.js";
 import { updateProfilePicture } from "../controllers/user/updateProfilePicture.js";
 
 // validators
-import { saveEventSchema } from "../validators/user/saveEvent.js";
-import { deleteSavedEventSchema } from "../validators/user/deleteSavedEvent.js";
+import { toggleSaveEventSchema } from "../validators/user/toggleSaveEvent.js";
+
 import { updateProfileSchema } from "../validators/user/updateProfile.js";
 import { updateLanguageSchema } from "../validators/user/updateLanguage.js";
 import { closeAccountSchema } from "../validators/user/closeAccount.js";
@@ -47,8 +46,8 @@ router.get(
 router.post(
   "/saved-events/:eventId",
   requireAuth,
-  validateRequest(saveEventSchema, "params"),
-  saveEvent,
+  validateRequest(toggleSaveEventSchema, "params"),
+  toggleSaveEvent,
 );
 
 // saved events list
@@ -105,14 +104,6 @@ router.delete(
   requireAuth,
   validateRequest(closeAccountSchema),
   closeAccount,
-);
-
-// delete saved event
-router.delete(
-  "/saved-events/:eventId",
-  requireAuth,
-  validateRequest(deleteSavedEventSchema, "params"),
-  deleteSavedEvent,
 );
 
 export default router;

@@ -16,6 +16,8 @@ const userActivitySchema = new mongoose.Schema(
         "event_attended",
         "event_created",
         "profile_updated",
+        "event_saved",
+        "event_unsaved",
       ],
       required: true,
     },
