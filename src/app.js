@@ -4,9 +4,14 @@ import swaggerUi from "swagger-ui-express";
 import helmet from "helmet";
 import cors from "cors";
 import cookieParser from "cookie-parser";
+import morgan from "morgan";
 
 // Import custom modules
+
+import monitor from "./middlewares/monitor.js";
+import logger from "./utils/logger/logger.js";
 import apiRouter from "./routes/index.js";
+import healthRouter from "./routes/health.js";
 import { swaggerSpec } from "./config/swagger.js";
 import { generalLimiter } from "./middlewares/rateLimit.js";
 import { errorHandler } from "./middlewares/errorHandler.js";
@@ -32,6 +37,14 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(helmet({ crossOriginResourcePolicy: false }));
 app.use(cookieParser());
+app.use(monitor);
+app.use(
+  morgan("combined", {
+    stream: {
+      write: (message) => logger.info(message.trim()),
+    },
+  }),
+);
 
 const allowedOrigins = [
   process.env.FRONTEND_URL_LOCAL,
@@ -62,6 +75,7 @@ if (process.env.NODE_ENV !== "production") {
 }
 
 app.use("/v1", apiRouter);
+app.use(healthRouter);
 
 app.get("/", function (req, res) {
   res.send("Welcome to Movent API!");

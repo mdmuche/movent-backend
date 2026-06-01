@@ -1,0 +1,42 @@
+2026-06-01T14:51:26.120Z info: GET /health 200 44ms
+2026-06-01T14:51:26.131Z info: ::1 - - [01/Jun/2026:14:51:26 +0000] "GET /health HTTP/1.1" 200 46 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-01T14:51:26.251Z info: GET /favicon.ico 404 4ms
+2026-06-01T14:51:26.252Z info: ::1 - - [01/Jun/2026:14:51:26 +0000] "GET /favicon.ico HTTP/1.1" 404 92 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-01T14:59:25.641Z info: GET /health 200 18ms
+2026-06-01T14:59:25.648Z info: ::1 - - [01/Jun/2026:14:59:25 +0000] "GET /health HTTP/1.1" 200 280 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-01T15:10:46.974Z info: GET /health 200 15ms
+2026-06-01T15:10:46.979Z info: ::1 - - [01/Jun/2026:15:10:46 +0000] "GET /health HTTP/1.1" 200 280 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-01T15:10:49.025Z info: GET /health 200 3ms
+2026-06-01T15:10:49.026Z info: ::1 - - [01/Jun/2026:15:10:49 +0000] "GET /health HTTP/1.1" 200 280 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-01T15:10:49.964Z info: GET /health 200 1ms
+2026-06-01T15:10:49.965Z info: ::1 - - [01/Jun/2026:15:10:49 +0000] "GET /health HTTP/1.1" 200 280 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-01T15:11:19.468Z info: GET /health 200 4ms
+2026-06-01T15:11:19.471Z info: ::1 - - [01/Jun/2026:15:11:19 +0000] "GET /health HTTP/1.1" 200 280 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-01T15:56:39.313Z info: GET /blogs/fetch 404 2ms
+2026-06-01T15:56:39.316Z info: ::1 - - [01/Jun/2026:15:56:39 +0000] "GET /blogs/fetch HTTP/1.1" 404 92 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-01T15:56:47.761Z info: GET /blogs/fetch 404 2ms
+2026-06-01T15:56:47.771Z info: ::1 - - [01/Jun/2026:15:56:47 +0000] "GET /blogs/fetch HTTP/1.1" 404 92 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-01T15:56:50.134Z info: GET /blogs/fetch 404 6ms
+2026-06-01T15:56:50.136Z info: ::1 - - [01/Jun/2026:15:56:50 +0000] "GET /blogs/fetch HTTP/1.1" 404 92 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-01T15:56:55.998Z info: GET /blogs/fetch 404 1ms
+2026-06-01T15:56:56.000Z info: ::1 - - [01/Jun/2026:15:56:56 +0000] "GET /blogs/fetch HTTP/1.1" 404 92 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-01T15:57:00.842Z info: GET /blogs/fetch 404 5ms
+2026-06-01T15:57:00.844Z info: ::1 - - [01/Jun/2026:15:57:00 +0000] "GET /blogs/fetch HTTP/1.1" 404 92 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-01T15:57:02.633Z info: GET /blogs/fetch 404 2ms
+2026-06-01T15:57:02.635Z info: ::1 - - [01/Jun/2026:15:57:02 +0000] "GET /blogs/fetch HTTP/1.1" 404 92 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-01T15:57:03.621Z info: GET /blogs/fetch 404 3ms
+2026-06-01T15:57:03.623Z info: ::1 - - [01/Jun/2026:15:57:03 +0000] "GET /blogs/fetch HTTP/1.1" 404 92 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-01T15:57:08.040Z info: GET /blogs/fetch 404 1ms
+2026-06-01T15:57:08.041Z info: ::1 - - [01/Jun/2026:15:57:08 +0000] "GET /blogs/fetch HTTP/1.1" 404 92 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-01T16:22:02.505Z info: GET /v1/event/upcoming 403 78ms
+2026-06-01T16:22:02.512Z info: ::1 - - [01/Jun/2026:16:22:02 +0000] "GET /v1/event/upcoming HTTP/1.1" 403 94 "-" "PostmanRuntime/7.54.0"
+2026-06-01T16:22:14.101Z info: POST /v1/auth/login 200 558ms
+2026-06-01T16:22:14.102Z info: ::1 - - [01/Jun/2026:16:22:14 +0000] "POST /v1/auth/login HTTP/1.1" 200 308 "-" "PostmanRuntime/7.54.0"
+2026-06-01T16:22:29.846Z info: GET /v1/event/upcoming 200 1361ms
+2026-06-01T16:22:29.847Z info: ::1 - - [01/Jun/2026:16:22:29 +0000] "GET /v1/event/upcoming HTTP/1.1" 200 230 "-" "PostmanRuntime/7.54.0"
+2026-06-01T16:46:34.717Z info: GET /v1/admin/users 403 24ms
+2026-06-01T16:46:34.728Z info: ::1 - - [01/Jun/2026:16:46:34 +0000] "GET /v1/admin/users HTTP/1.1" 403 94 "-" "PostmanRuntime/7.54.0"
+2026-06-01T16:46:45.604Z info: POST /v1/auth/login 200 530ms
+2026-06-01T16:46:45.605Z info: ::1 - - [01/Jun/2026:16:46:45 +0000] "POST /v1/auth/login HTTP/1.1" 200 257 "-" "PostmanRuntime/7.54.0"
+2026-06-01T16:47:05.870Z info: GET /v1/admin/users 200 1297ms
+2026-06-01T16:47:05.871Z info: ::1 - - [01/Jun/2026:16:47:05 +0000] "GET /v1/admin/users HTTP/1.1" 200 2838 "-" "PostmanRuntime/7.54.0"
