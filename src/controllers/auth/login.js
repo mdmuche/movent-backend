@@ -45,6 +45,12 @@ export const login = async (req, res) => {
       });
     }
 
+    // Reactivate closed account
+    if (user.accountStatus === "closed") {
+      user.accountStatus = "active";
+      user.closedAt = undefined;
+      await user.save();
+    }
     // 5. Generate JWT Token
     const accessToken = jwt.sign(
       {
