@@ -57,7 +57,7 @@ cron.schedule("0 9 * * *", async () => {
             user: ticket.user,
             title,
             message,
-            type: "info",
+            type: "system",
             metadata: {
               eventId: event._id,
             },

@@ -173,7 +173,7 @@ export const createEvent = async (req, res) => {
       user: req.user.userId,
       title: "Event Created 🎉",
       message: `Your event "${event.title}" has been created successfully.`,
-      type: "success",
+      type: "event",
       metadata: { eventId: event._id },
     });
 

@@ -59,7 +59,7 @@ export const forgotPassword = async (req, res) => {
       title: "Password Reset Requested 🔐",
       message:
         "We received a request to reset your password. If this wasn't you, ignore this message.",
-      type: "warning",
+      type: "syst",
     });
 
     return successResponse(res, {
