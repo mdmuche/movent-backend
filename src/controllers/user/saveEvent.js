@@ -6,40 +6,49 @@ import User from "../../models/user.js";
 import { successResponse } from "../../utils/response/success.js";
 import { errorResponse } from "../../utils/response/error.js";
 
-export const saveEvent = async (req, res) => {
+export const getSavedEvents = async (req, res) => {
   try {
     const userId = req.user.userId;
-    const { eventId } = req.params;
+
+    const { page = 1, limit = 10 } = req.query;
 
     const user = await User.findById(userId);
 
-    // prevent duplicates
-    if (user.savedEvents.includes(eventId)) {
+    if (!user) {
       return errorResponse(res, {
-        statusCode: httpStatus.BAD_REQUEST,
-        message: "Event already saved",
+        statusCode: httpStatus.NOT_FOUND,
+        message: "User not found",
       });
     }
 
-    user.savedEvents.push(eventId);
+    const total = user.savedEvents.length;
 
-    await user.save();
+    const skip = (page - 1) * limit;
 
-    // CREATE ACTIVITY ✅
-    await UserActivity.create({
-      user: userId,
-      type: "event_saved",
-      event: eventId,
+    // ✅ slice before populate
+    const paginatedIds = user.savedEvents.slice(skip, skip + Number(limit));
+
+    const events = await User.findById(userId).populate({
+      path: "savedEvents",
+      match: { _id: { $in: paginatedIds } },
     });
 
     return successResponse(res, {
       statusCode: httpStatus.OK,
-      message: "Event saved successfully",
+      message: "Saved events fetched successfully",
+      data: {
+        savedEvents: events.savedEvents,
+        pagination: {
+          page: Number(page),
+          limit: Number(limit),
+          total,
+        },
+      },
     });
   } catch (error) {
     return errorResponse(res, {
       statusCode: httpStatus.INTERNAL_SERVER_ERROR,
-      message: "Error saving event",
+      message: "Error fetching saved events",
       error: error.message,
     });
   }
