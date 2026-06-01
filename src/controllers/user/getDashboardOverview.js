@@ -2,82 +2,50 @@ import httpStatus from "http-status";
 import mongoose from "mongoose";
 
 import TicketCollection from "../../models/ticket.js";
+import UserActivity from "../../models/userActivity.js";
 
 import { successResponse } from "../../utils/response/success.js";
 import { errorResponse } from "../../utils/response/error.js";
-import { paginationUtils } from "../../utils/pagination/pagination.js";
 
 export const getDashboardOverview = async (req, res) => {
   try {
     const userId = new mongoose.Types.ObjectId(req.user.userId);
-
-    const { page = 1, limit = 10 } = req.query;
-
-    const total = await TicketCollection.aggregate([
-      {
-        $match: {
-          user: userId,
-        },
-      },
-
-      {
-        $lookup: {
-          from: "events",
-          localField: "event",
-          foreignField: "_id",
-          as: "event",
-        },
-      },
-
-      {
-        $unwind: "$event",
-      },
-
-      {
-        $match: {
-          "event.startDate": {
-            $gte: new Date(),
-          },
-        },
-      },
-
-      {
-        $count: "total",
-      },
-    ]);
-
-    const totalUpcomingEvents = total[0]?.total || 0;
-
-    // -----------------------------
-    // PAGINATION UTILS
-    // -----------------------------
-    const {
-      skip,
-      limit: limitNum,
-      pagination,
-    } = paginationUtils({
-      page,
-      limit,
-      total: totalUpcomingEvents,
-    });
 
     // -----------------------------
     // TOTAL PURCHASED TICKETS
     // -----------------------------
     const purchasedTickets = await TicketCollection.countDocuments({
       user: userId,
+      paymentStatus: "paid",
     });
 
     // -----------------------------
-    // UPCOMING EVENTS AGGREGATION
+    // REVENUE + TICKETS SOLD
     // -----------------------------
-    const upcomingEvents = await TicketCollection.aggregate([
+    const stats = await TicketCollection.aggregate([
       {
         $match: {
           user: userId,
+          paymentStatus: "paid",
         },
       },
+      {
+        $group: {
+          _id: null,
+          ticketsSold: { $sum: "$quantity" },
+          netEarnings: { $sum: "$totalAmount" },
+        },
+      },
+    ]);
 
+    const ticketsSold = stats[0]?.ticketsSold || 0;
+    const netEarnings = stats[0]?.netEarnings || 0;
+
+    // -----------------------------
+    // UPCOMING EVENTS
+    // -----------------------------
+    const upcomingEvents = await TicketCollection.aggregate([
+      { $match: { user: userId } },
       {
         $lookup: {
           from: "events",
@@ -86,39 +54,62 @@ export const getDashboardOverview = async (req, res) => {
           as: "event",
         },
       },
-
-      {
-        $unwind: "$event",
-      },
-
+      { $unwind: "$event" },
       {
         $match: {
-          "event.startDate": {
-            $gte: new Date(),
-          },
+          "event.startDate": { $gte: new Date() },
         },
       },
-
       {
-        $sort: {
-          createdAt: -1,
-        },
+        $sort: { "event.startDate": 1 },
       },
-
       {
-        $skip: skip,
+        $limit: 5,
       },
-
       {
-        $limit: limitNum,
-      },
-
-      {
-        $replaceRoot: {
-          newRoot: "$event",
-        },
+        $replaceRoot: { newRoot: "$event" },
       },
     ]);
+
+    // -----------------------------
+    // ACTIVE EVENTS COUNT
+    // -----------------------------
+    const activeEventsAgg = await TicketCollection.aggregate([
+      { $match: { user: userId } },
+      {
+        $lookup: {
+          from: "events",
+          localField: "event",
+          foreignField: "_id",
+          as: "event",
+        },
+      },
+      { $unwind: "$event" },
+      {
+        $match: {
+          "event.startDate": { $gte: new Date() },
+        },
+      },
+      {
+        $count: "total",
+      },
+    ]);
+
+    const activeEvents = activeEventsAgg[0]?.total || 0;
+
+    // -----------------------------
+    // RECENT ACTIVITY
+    // -----------------------------
+    const recentActivity = await UserActivity.find({
+      user: userId,
+    })
+      .sort({ createdAt: -1 })
+      .limit(10);
+
+    // -----------------------------
+    // CREDIT BALANCE (placeholder)
+    // -----------------------------
+    const creditBalance = 0; // later replace with wallet/subscription system
 
     // -----------------------------
     // RESPONSE
@@ -127,13 +118,14 @@ export const getDashboardOverview = async (req, res) => {
       statusCode: httpStatus.OK,
       success: true,
       message: "Dashboard overview fetched successfully",
-
       data: {
+        creditBalance,
+        activeEvents,
         purchasedTickets,
-
+        ticketsSold,
+        netEarnings,
         upcomingEvents,
-
-        pagination,
+        recentActivity,
       },
     });
   } catch (error) {
