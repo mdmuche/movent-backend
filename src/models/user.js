@@ -95,6 +95,10 @@ const userSchema = new Schema(
         ref: "Event",
       },
     ],
+    creditBalance: {
+      type: Number,
+      default: 0,
+    },
   },
   { timestamps: true },
 );
