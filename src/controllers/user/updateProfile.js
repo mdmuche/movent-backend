@@ -17,7 +17,7 @@ export const updateProfile = async (req, res) => {
         email,
         bio,
       },
-      { new: true },
+      { returnDocument: "after" },
     ).select("-password");
 
     return successResponse(res, {

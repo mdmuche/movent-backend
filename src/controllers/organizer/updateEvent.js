@@ -84,7 +84,7 @@ export const updateEvent = async (req, res) => {
 
       bannerImage = {
         public_id: uploadedImage.public_id,
-        url: uploadedImage.secure_url,
+        secure_url: uploadedImage.secure_url,
       };
     }
 
@@ -124,7 +124,7 @@ export const updateEvent = async (req, res) => {
     }
 
     const updatedEvent = await Event.findByIdAndUpdate(id, updatedData, {
-      new: true,
+      returnDocument: "after",
     });
 
     await AuditLog.create({

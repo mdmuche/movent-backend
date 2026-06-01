@@ -70,7 +70,7 @@ export const applyPromoCode = async (req, res) => {
         amount: baseAmount,
         status: "pending",
       },
-      { upsert: true, new: true },
+      { upsert: true, returnDocument: "after" },
     );
 
     return successResponse(res, {

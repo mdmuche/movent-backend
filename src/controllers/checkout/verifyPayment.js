@@ -85,7 +85,7 @@ export const verifyPayment = async (req, res) => {
         },
       },
       {
-        new: true,
+        returnDocument: "after",
         upsert: true,
         rawResult: true,
       },

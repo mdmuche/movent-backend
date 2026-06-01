@@ -18,7 +18,7 @@ export const updateNotificationPreferences = async (req, res) => {
         promotionalOffers,
         securityAlerts,
       },
-      { new: true, upsert: true },
+      { returnDocument: "after", upsert: true },
     );
 
     return successResponse(res, {
