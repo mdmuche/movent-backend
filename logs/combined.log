@@ -40,3 +40,11 @@
 2026-06-01T16:46:45.605Z info: ::1 - - [01/Jun/2026:16:46:45 +0000] "POST /v1/auth/login HTTP/1.1" 200 257 "-" "PostmanRuntime/7.54.0"
 2026-06-01T16:47:05.870Z info: GET /v1/admin/users 200 1297ms
 2026-06-01T16:47:05.871Z info: ::1 - - [01/Jun/2026:16:47:05 +0000] "GET /v1/admin/users HTTP/1.1" 200 2838 "-" "PostmanRuntime/7.54.0"
+2026-06-01T17:23:00.502Z info: POST /v1/auth/login 200 856ms
+2026-06-01T17:23:00.511Z info: ::1 - - [01/Jun/2026:17:23:00 +0000] "POST /v1/auth/login HTTP/1.1" 200 308 "-" "PostmanRuntime/7.54.0"
+2026-06-01T17:23:29.231Z info: GET /v1/user/saved-events 200 830ms
+2026-06-01T17:23:29.235Z info: ::1 - - [01/Jun/2026:17:23:29 +0000] "GET /v1/user/saved-events HTTP/1.1" 200 1445 "-" "PostmanRuntime/7.54.0"
+2026-06-02T08:09:52.611Z info: POST /v1/auth/register 201 3986ms
+2026-06-02T08:09:52.617Z info: ::1 - - [02/Jun/2026:08:09:52 +0000] "POST /v1/auth/register HTTP/1.1" 201 261 "-" "PostmanRuntime/7.54.0"
+2026-06-02T08:16:19.540Z info: POST /v1/auth/register 201 1375ms
+2026-06-02T08:16:19.540Z info: ::1 - - [02/Jun/2026:08:16:19 +0000] "POST /v1/auth/register HTTP/1.1" 201 263 "-" "PostmanRuntime/7.54.0"

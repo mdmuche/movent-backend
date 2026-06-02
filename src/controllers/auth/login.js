@@ -29,12 +29,12 @@ export const login = async (req, res) => {
     }
 
     // 3. check if user is verified
-    // if (!user.isEmailVerified) {
-    //   return errorResponse(res, {
-    //     statusCode: httpStatus.FORBIDDEN,
-    //     message: "Please verify your email before logging in.",
-    //   });
-    // }
+    if (!user.isEmailVerified) {
+      return errorResponse(res, {
+        statusCode: httpStatus.FORBIDDEN,
+        message: "Please verify your email before logging in.",
+      });
+    }
 
     // 4. Compare Password
     const isMatch = await bcrypt.compare(password, user.password);
