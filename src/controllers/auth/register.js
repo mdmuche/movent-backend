@@ -34,7 +34,7 @@ export const register = async (req, res) => {
     });
 
     //5.send email to verify otp
-    const verificationUrl = `${process.env.FRONTEND_TEST_URL}/verify-email/${verificationToken}`;
+    const verificationUrl = `${process.env.FRONTEND_URL_MAIN}/verify-email/${verificationToken}`;
 
     // store email verification token
     await TokenCollection.create({

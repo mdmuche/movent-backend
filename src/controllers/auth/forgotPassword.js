@@ -39,7 +39,7 @@ export const forgotPassword = async (req, res) => {
     });
 
     // Reset URL
-    const resetUrl = `${process.env.FRONTEND_TEST_URL}/reset-password/${resetToken}`;
+    const resetUrl = `${process.env.FRONTEND_URL_MAIN}/reset-password/${resetToken}`;
 
     const emailBody = resetPasswordTemplate(user.fullName, resetUrl);
 

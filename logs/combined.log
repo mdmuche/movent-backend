@@ -48,3 +48,129 @@
 2026-06-02T08:09:52.617Z info: ::1 - - [02/Jun/2026:08:09:52 +0000] "POST /v1/auth/register HTTP/1.1" 201 261 "-" "PostmanRuntime/7.54.0"
 2026-06-02T08:16:19.540Z info: POST /v1/auth/register 201 1375ms
 2026-06-02T08:16:19.540Z info: ::1 - - [02/Jun/2026:08:16:19 +0000] "POST /v1/auth/register HTTP/1.1" 201 263 "-" "PostmanRuntime/7.54.0"
+2026-06-02T08:39:29.638Z info: GET /blogs/fetch 404 92ms
+2026-06-02T08:39:29.649Z info: ::1 - - [02/Jun/2026:08:39:29 +0000] "GET /blogs/fetch HTTP/1.1" 404 92 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T08:41:00.289Z info: OPTIONS /users/register 204 2ms
+2026-06-02T08:41:00.291Z info: ::1 - - [02/Jun/2026:08:41:00 +0000] "OPTIONS /users/register HTTP/1.1" 204 0 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T08:41:00.697Z info: POST /users/register 404 1ms
+2026-06-02T08:41:00.698Z info: ::1 - - [02/Jun/2026:08:41:00 +0000] "POST /users/register HTTP/1.1" 404 92 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T08:42:30.473Z info: OPTIONS /users/login 204 1ms
+2026-06-02T08:42:30.473Z info: ::1 - - [02/Jun/2026:08:42:30 +0000] "OPTIONS /users/login HTTP/1.1" 204 0 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T08:42:30.485Z info: POST /users/login 404 10ms
+2026-06-02T08:42:30.486Z info: ::1 - - [02/Jun/2026:08:42:30 +0000] "POST /users/login HTTP/1.1" 404 92 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T08:43:15.053Z info: OPTIONS /users/login 204 1ms
+2026-06-02T08:43:15.054Z info: ::1 - - [02/Jun/2026:08:43:15 +0000] "OPTIONS /users/login HTTP/1.1" 204 0 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T08:43:15.056Z info: POST /users/login 404 1ms
+2026-06-02T08:43:15.057Z info: ::1 - - [02/Jun/2026:08:43:15 +0000] "POST /users/login HTTP/1.1" 404 92 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T08:43:32.554Z info: OPTIONS /users/login 204 1ms
+2026-06-02T08:43:32.554Z info: ::1 - - [02/Jun/2026:08:43:32 +0000] "OPTIONS /users/login HTTP/1.1" 204 0 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T08:43:32.559Z info: POST /users/login 404 3ms
+2026-06-02T08:43:32.560Z info: ::1 - - [02/Jun/2026:08:43:32 +0000] "POST /users/login HTTP/1.1" 404 92 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T08:56:28.286Z info: OPTIONS /users/login 204 1ms
+2026-06-02T08:56:28.288Z info: ::1 - - [02/Jun/2026:08:56:28 +0000] "OPTIONS /users/login HTTP/1.1" 204 0 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-02T08:56:28.293Z info: POST /users/login 404 2ms
+2026-06-02T08:56:28.294Z info: ::1 - - [02/Jun/2026:08:56:28 +0000] "POST /users/login HTTP/1.1" 404 92 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-02T08:56:56.993Z info: OPTIONS /users/login 204 1ms
+2026-06-02T08:56:56.994Z info: ::1 - - [02/Jun/2026:08:56:56 +0000] "OPTIONS /users/login HTTP/1.1" 204 0 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-02T08:56:56.997Z info: POST /users/login 404 1ms
+2026-06-02T08:56:56.999Z info: ::1 - - [02/Jun/2026:08:56:56 +0000] "POST /users/login HTTP/1.1" 404 92 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-02T08:57:56.352Z info: OPTIONS /users/login 204 2ms
+2026-06-02T08:57:56.354Z info: ::1 - - [02/Jun/2026:08:57:56 +0000] "OPTIONS /users/login HTTP/1.1" 204 0 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-02T08:57:56.362Z info: POST /users/login 404 4ms
+2026-06-02T08:57:56.378Z info: ::1 - - [02/Jun/2026:08:57:56 +0000] "POST /users/login HTTP/1.1" 404 92 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-02T08:59:51.102Z info: OPTIONS /users/login 204 2ms
+2026-06-02T08:59:51.103Z info: ::1 - - [02/Jun/2026:08:59:51 +0000] "OPTIONS /users/login HTTP/1.1" 204 0 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-02T08:59:51.110Z info: POST /users/login 404 4ms
+2026-06-02T08:59:51.137Z info: ::1 - - [02/Jun/2026:08:59:51 +0000] "POST /users/login HTTP/1.1" 404 92 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-02T09:06:31.584Z info: OPTIONS /users/login 204 3ms
+2026-06-02T09:06:31.589Z info: ::1 - - [02/Jun/2026:09:06:31 +0000] "OPTIONS /users/login HTTP/1.1" 204 0 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-02T09:06:31.593Z info: POST /users/login 404 1ms
+2026-06-02T09:06:31.594Z info: ::1 - - [02/Jun/2026:09:06:31 +0000] "POST /users/login HTTP/1.1" 404 92 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-02T12:20:14.754Z info: OPTIONS /v1/auth/register 204 38ms
+2026-06-02T12:20:14.784Z info: ::1 - - [02/Jun/2026:12:20:14 +0000] "OPTIONS /v1/auth/register HTTP/1.1" 204 0 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-02T12:20:15.470Z info: POST /v1/auth/register 409 657ms
+2026-06-02T12:20:15.474Z info: ::1 - - [02/Jun/2026:12:20:15 +0000] "POST /v1/auth/register HTTP/1.1" 409 95 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-02T12:20:41.740Z info: OPTIONS /v1/auth/register 204 1ms
+2026-06-02T12:20:41.742Z info: ::1 - - [02/Jun/2026:12:20:41 +0000] "OPTIONS /v1/auth/register HTTP/1.1" 204 0 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-02T12:20:41.881Z info: POST /v1/auth/register 409 132ms
+2026-06-02T12:20:41.884Z info: ::1 - - [02/Jun/2026:12:20:41 +0000] "POST /v1/auth/register HTTP/1.1" 409 95 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-02T12:20:52.464Z info: OPTIONS /v1/auth/register 204 1ms
+2026-06-02T12:20:52.464Z info: ::1 - - [02/Jun/2026:12:20:52 +0000] "OPTIONS /v1/auth/register HTTP/1.1" 204 0 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T12:20:52.589Z info: POST /v1/auth/register 409 123ms
+2026-06-02T12:20:52.591Z info: ::1 - - [02/Jun/2026:12:20:52 +0000] "POST /v1/auth/register HTTP/1.1" 409 95 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-02T12:43:23.226Z info: OPTIONS /v1/auth/register 204 1ms
+2026-06-02T12:43:23.230Z info: ::1 - - [02/Jun/2026:12:43:23 +0000] "OPTIONS /v1/auth/register HTTP/1.1" 204 0 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-02T12:43:23.369Z info: POST /v1/auth/register 409 126ms
+2026-06-02T12:43:23.371Z info: ::1 - - [02/Jun/2026:12:43:23 +0000] "POST /v1/auth/register HTTP/1.1" 409 95 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-02T12:47:33.599Z info: OPTIONS /v1/auth/register 204 2ms
+2026-06-02T12:47:33.601Z info: ::1 - - [02/Jun/2026:12:47:33 +0000] "OPTIONS /v1/auth/register HTTP/1.1" 204 0 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-02T12:47:36.025Z info: POST /v1/auth/register 201 2420ms
+2026-06-02T12:47:36.026Z info: ::1 - - [02/Jun/2026:12:47:36 +0000] "POST /v1/auth/register HTTP/1.1" 201 270 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-02T12:54:01.817Z info: OPTIONS /v1/auth/register 204 1ms
+2026-06-02T12:54:01.818Z info: ::1 - - [02/Jun/2026:12:54:01 +0000] "OPTIONS /v1/auth/register HTTP/1.1" 204 0 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-02T12:54:05.683Z info: POST /v1/auth/register 201 3863ms
+2026-06-02T12:54:05.684Z info: ::1 - - [02/Jun/2026:12:54:05 +0000] "POST /v1/auth/register HTTP/1.1" 201 270 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-03T08:30:01.049Z info: OPTIONS /v1/auth/login 204 9ms
+2026-06-03T08:30:01.058Z info: ::1 - - [03/Jun/2026:08:30:01 +0000] "OPTIONS /v1/auth/login HTTP/1.1" 204 0 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-03T08:30:01.354Z info: POST /v1/auth/login 403 176ms
+2026-06-03T08:30:01.355Z info: ::1 - - [03/Jun/2026:08:30:01 +0000] "POST /v1/auth/login HTTP/1.1" 403 103 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-03T08:30:34.405Z info: OPTIONS /v1/auth/login 204 3ms
+2026-06-03T08:30:34.408Z info: ::1 - - [03/Jun/2026:08:30:34 +0000] "OPTIONS /v1/auth/login HTTP/1.1" 204 0 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-03T08:30:34.569Z info: POST /v1/auth/login 403 146ms
+2026-06-03T08:30:34.570Z info: ::1 - - [03/Jun/2026:08:30:34 +0000] "POST /v1/auth/login HTTP/1.1" 403 103 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-03T08:32:05.424Z info: OPTIONS /v1/auth/login 204 2ms
+2026-06-03T08:32:05.426Z info: ::1 - - [03/Jun/2026:08:32:05 +0000] "OPTIONS /v1/auth/login HTTP/1.1" 204 0 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-03T08:32:06.689Z info: POST /v1/auth/login 200 1249ms
+2026-06-03T08:32:06.690Z info: ::1 - - [03/Jun/2026:08:32:06 +0000] "POST /v1/auth/login HTTP/1.1" 200 308 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-03T08:52:07.826Z info: OPTIONS /v1/auth/login 204 1ms
+2026-06-03T08:52:07.829Z info: ::1 - - [03/Jun/2026:08:52:07 +0000] "OPTIONS /v1/auth/login HTTP/1.1" 204 0 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-03T08:52:08.271Z info: POST /v1/auth/login 200 439ms
+2026-06-03T08:52:08.273Z info: ::1 - - [03/Jun/2026:08:52:08 +0000] "POST /v1/auth/login HTTP/1.1" 200 308 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-03T08:53:37.484Z info: OPTIONS /v1/auth/login 204 3ms
+2026-06-03T08:53:37.485Z info: ::1 - - [03/Jun/2026:08:53:37 +0000] "OPTIONS /v1/auth/login HTTP/1.1" 204 0 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-03T08:53:38.200Z info: POST /v1/auth/login 200 711ms
+2026-06-03T08:53:38.202Z info: ::1 - - [03/Jun/2026:08:53:38 +0000] "POST /v1/auth/login HTTP/1.1" 200 308 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-03T08:55:45.853Z info: OPTIONS /v1/auth/login 204 2ms
+2026-06-03T08:55:45.855Z info: ::1 - - [03/Jun/2026:08:55:45 +0000] "OPTIONS /v1/auth/login HTTP/1.1" 204 0 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-03T08:55:46.378Z info: POST /v1/auth/login 200 520ms
+2026-06-03T08:55:46.380Z info: ::1 - - [03/Jun/2026:08:55:46 +0000] "POST /v1/auth/login HTTP/1.1" 200 308 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-03T09:17:04.707Z info: OPTIONS /v1/auth/login 204 2ms
+2026-06-03T09:17:04.709Z info: ::1 - - [03/Jun/2026:09:17:04 +0000] "OPTIONS /v1/auth/login HTTP/1.1" 204 0 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-03T09:17:05.306Z info: POST /v1/auth/login 200 594ms
+2026-06-03T09:17:05.306Z info: ::1 - - [03/Jun/2026:09:17:05 +0000] "POST /v1/auth/login HTTP/1.1" 200 308 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-03T09:29:27.065Z info: OPTIONS /v1/auth/login 204 1ms
+2026-06-03T09:29:27.067Z info: ::1 - - [03/Jun/2026:09:29:27 +0000] "OPTIONS /v1/auth/login HTTP/1.1" 204 0 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-03T09:29:27.447Z info: POST /v1/auth/login 200 378ms
+2026-06-03T09:29:27.448Z info: ::1 - - [03/Jun/2026:09:29:27 +0000] "POST /v1/auth/login HTTP/1.1" 200 308 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-03T09:37:14.474Z info: OPTIONS /v1/auth/login 204 1ms
+2026-06-03T09:37:14.475Z info: ::1 - - [03/Jun/2026:09:37:14 +0000] "OPTIONS /v1/auth/login HTTP/1.1" 204 0 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-03T09:37:15.014Z info: POST /v1/auth/login 200 532ms
+2026-06-03T09:37:15.040Z info: ::1 - - [03/Jun/2026:09:37:15 +0000] "POST /v1/auth/login HTTP/1.1" 200 308 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-03T09:38:34.071Z info: OPTIONS /v1/auth/login 204 1ms
+2026-06-03T09:38:34.072Z info: ::1 - - [03/Jun/2026:09:38:34 +0000] "OPTIONS /v1/auth/login HTTP/1.1" 204 0 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-03T09:38:34.546Z info: POST /v1/auth/login 200 472ms
+2026-06-03T09:38:34.547Z info: ::1 - - [03/Jun/2026:09:38:34 +0000] "POST /v1/auth/login HTTP/1.1" 200 257 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-03T09:43:53.929Z info: OPTIONS /v1/auth/login 204 1ms
+2026-06-03T09:43:53.930Z info: ::1 - - [03/Jun/2026:09:43:53 +0000] "OPTIONS /v1/auth/login HTTP/1.1" 204 0 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-03T09:43:54.305Z info: POST /v1/auth/login 200 372ms
+2026-06-03T09:43:54.306Z info: ::1 - - [03/Jun/2026:09:43:54 +0000] "POST /v1/auth/login HTTP/1.1" 200 308 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-03T09:45:44.527Z info: OPTIONS /v1/auth/login 204 1ms
+2026-06-03T09:45:44.529Z info: ::1 - - [03/Jun/2026:09:45:44 +0000] "OPTIONS /v1/auth/login HTTP/1.1" 204 0 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-03T09:45:44.873Z info: POST /v1/auth/login 200 340ms
+2026-06-03T09:45:44.874Z info: ::1 - - [03/Jun/2026:09:45:44 +0000] "POST /v1/auth/login HTTP/1.1" 200 308 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-03T09:47:31.009Z info: OPTIONS /v1/auth/login 204 1ms
+2026-06-03T09:47:31.011Z info: ::1 - - [03/Jun/2026:09:47:31 +0000] "OPTIONS /v1/auth/login HTTP/1.1" 204 0 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-03T09:47:31.360Z info: POST /v1/auth/login 200 346ms
+2026-06-03T09:47:31.361Z info: ::1 - - [03/Jun/2026:09:47:31 +0000] "POST /v1/auth/login HTTP/1.1" 200 308 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-03T10:03:05.382Z info: OPTIONS /v1/auth/login 204 1ms
+2026-06-03T10:03:05.384Z info: ::1 - - [03/Jun/2026:10:03:05 +0000] "OPTIONS /v1/auth/login HTTP/1.1" 204 0 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-03T10:03:05.729Z info: POST /v1/auth/login 200 342ms
+2026-06-03T10:03:05.730Z info: ::1 - - [03/Jun/2026:10:03:05 +0000] "POST /v1/auth/login HTTP/1.1" 200 308 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-03T10:04:48.859Z info: OPTIONS /v1/auth/login 204 1ms
+2026-06-03T10:04:48.859Z info: ::1 - - [03/Jun/2026:10:04:48 +0000] "OPTIONS /v1/auth/login HTTP/1.1" 204 0 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-03T10:04:49.291Z info: POST /v1/auth/login 200 428ms
+2026-06-03T10:04:49.292Z info: ::1 - - [03/Jun/2026:10:04:49 +0000] "POST /v1/auth/login HTTP/1.1" 200 257 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-03T10:16:58.288Z info: OPTIONS /v1/auth/forgot-password 204 1ms
+2026-06-03T10:16:58.289Z info: ::1 - - [03/Jun/2026:10:16:58 +0000] "OPTIONS /v1/auth/forgot-password HTTP/1.1" 204 0 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-03T10:17:00.050Z info: POST /v1/auth/forgot-password 200 1760ms
+2026-06-03T10:17:00.051Z info: ::1 - - [03/Jun/2026:10:17:00 +0000] "POST /v1/auth/forgot-password HTTP/1.1" 200 87 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
