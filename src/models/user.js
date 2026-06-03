@@ -17,12 +17,25 @@ const userSchema = new Schema(
       required: true,
       unique: true,
     },
+    password: {
+      type: String,
+      required: true,
+    },
+    profilePicture: {
+      type: String,
+      default: "https://cdn-icons-png.flaticon.com/128/2202/2202112.png",
+    },
     bio: {
       type: String,
     },
     isEmailVerified: {
       type: Boolean,
       default: false,
+    },
+    role: {
+      type: String,
+      enum: ["attendee", "organizer", "admin"],
+      default: "attendee",
     },
     isVerifiedOrganizer: {
       type: Boolean,
@@ -35,14 +48,6 @@ const userSchema = new Schema(
     location: {
       type: String,
     },
-    password: {
-      type: String,
-      required: true,
-    },
-    profilePicture: {
-      type: String,
-      default: "https://cdn-icons-png.flaticon.com/128/2202/2202112.png",
-    },
     language: {
       type: String,
       enum: ["en", "fr", "es", "pt", "de", "zh", "ar", "ha", "yo", "ig"],
@@ -50,11 +55,6 @@ const userSchema = new Schema(
     },
     interests: {
       type: [String],
-    },
-    role: {
-      type: String,
-      enum: ["attendee", "organizer", "admin"],
-      default: "attendee",
     },
     accountStatus: {
       type: String,
