@@ -10,7 +10,7 @@ import { successResponse } from "../../utils/response/success.js";
 export const resetPassword = async (req, res) => {
   try {
     const { resetToken } = req.params;
-    const { newPassword } = req.body;
+    const { password } = req.body;
 
     try {
       jwt.verify(resetToken, process.env.JWT_RESET_SECRET);
@@ -53,7 +53,7 @@ export const resetPassword = async (req, res) => {
     }
 
     // Update password
-    user.password = newPassword;
+    user.password = password;
 
     await user.save();
 
