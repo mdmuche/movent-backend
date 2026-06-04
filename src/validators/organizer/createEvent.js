@@ -96,18 +96,6 @@ export const createEventSchema = Joi.object({
     "string.base": "Banner image must be a string",
   }),
 
-  longitude: Joi.number().min(-180).max(180).optional().messages({
-    "number.base": "Longitude must be a number",
-    "number.min": "Longitude cannot be less than -180",
-    "number.max": "Longitude cannot be greater than 180",
-  }),
-
-  latitude: Joi.number().min(-90).max(90).optional().messages({
-    "number.base": "Latitude must be a number",
-    "number.min": "Latitude cannot be less than -90",
-    "number.max": "Latitude cannot be greater than 90",
-  }),
-
   agreedToRefundPolicy: Joi.boolean().valid(true).required().messages({
     "any.only": "You must agree to the refund policy",
     "any.required": "Refund policy agreement is required",

@@ -42,7 +42,7 @@ export const verifyToken = async (req, res, next) => {
     return next();
   } catch (error) {
     return errorResponse(res, {
-      statusCode: httpStatus.FORBIDDEN,
+      statusCode: httpStatus.UNAUTHORIZED,
       message: "Invalid or expired token.",
       error: error.message,
     });

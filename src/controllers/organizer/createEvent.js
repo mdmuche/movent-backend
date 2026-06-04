@@ -10,6 +10,9 @@ import AuditLog from "../../models/auditLog.js";
 import User from "../../models/user.js";
 import { sendNotification } from "../../services/notification.js";
 
+//will need to use geocoding api to convert address to coordinates for location field in event model
+//todo import axios from "axios";
+
 const normalizeList = (value) => {
   if (!value) return [];
 
@@ -21,32 +24,32 @@ const normalizeList = (value) => {
     .filter(Boolean);
 };
 
-const buildLocation = ({ longitude, latitude }) => {
-  const hasLongitude = longitude !== undefined && longitude !== "";
-  const hasLatitude = latitude !== undefined && latitude !== "";
+//todo const buildLocation = ({ latitude, longitude }) => {
+//   const hasLongitude = longitude !== undefined && longitude !== "";
+//   const hasLatitude = latitude !== undefined && latitude !== "";
 
-  if (!hasLongitude && !hasLatitude) return null;
-  if (!hasLongitude || !hasLatitude) return false;
+//   if (!hasLongitude && !hasLatitude) return null;
+//   if (!hasLongitude || !hasLatitude) return false;
 
-  const lng = Number(longitude);
-  const lat = Number(latitude);
+//   const lng = Number(longitude);
+//   const lat = Number(latitude);
 
-  if (
-    !Number.isFinite(lng) ||
-    !Number.isFinite(lat) ||
-    lng < -180 ||
-    lng > 180 ||
-    lat < -90 ||
-    lat > 90
-  ) {
-    return false;
-  }
+//   if (
+//     !Number.isFinite(lng) ||
+//     !Number.isFinite(lat) ||
+//     lng < -180 ||
+//     lng > 180 ||
+//     lat < -90 ||
+//     lat > 90
+//   ) {
+//     return false;
+//   }
 
-  return {
-    type: "Point",
-    coordinates: [lng, lat],
-  };
-};
+//   return {
+//     type: "Point",
+//     coordinates: [lng, lat],
+//   };
+// };
 
 const getBannerImageSource = (req) => {
   if (req.file?.path) return req.file.path;
@@ -78,9 +81,28 @@ export const createEvent = async (req, res) => {
       ticketPrice,
       totalTickets,
       tags,
-      longitude,
-      latitude,
     } = req.body;
+
+    //todo const address = `${venue}, ${city}, ${state}, ${country}`;
+
+    // const geo = await axios.get(
+    //   `https://maps.googleapis.com/maps/api/geocode/json`,
+    //   {
+    //     params: {
+    //       address,
+    //       key: process.env.GOOGLE_MAPS_KEY,
+    //     },
+    //   },
+    // );
+
+    // if (!geo.data.results || geo.data.results.length === 0) {
+    //   return errorResponse(res, {
+    //     statusCode: httpStatus.BAD_REQUEST,
+    //     message: "Invalid location. Could not geocode address",
+    //   });
+    // }
+
+    // const { lat, lng } = geo.data.results[0].geometry.location;
 
     const organizer = await User.findById(req.user.userId);
 
@@ -100,14 +122,17 @@ export const createEvent = async (req, res) => {
       });
     }
 
-    const location = buildLocation({ longitude, latitude });
+    //todo const location = buildLocation({
+    //   latitude: Number(lat),
+    //   longitude: Number(lng),
+    // });
 
-    if (location === false) {
-      return errorResponse(res, {
-        statusCode: httpStatus.BAD_REQUEST,
-        message: "Longitude and latitude must both be valid coordinates",
-      });
-    }
+    // if (location === false) {
+    //   return errorResponse(res, {
+    //     statusCode: httpStatus.BAD_REQUEST,
+    //     message: "Longitude and latitude must both be valid coordinates",
+    //   });
+    // }
 
     let bannerImage;
     const bannerImageSource = getBannerImageSource(req);
@@ -160,7 +185,7 @@ export const createEvent = async (req, res) => {
           : "pending",
       entryRequirements: normalizeList(entryRequirements),
       agreedToRefundPolicy,
-      ...(location && { location }),
+      //todo ...(location && { location }),
     });
     await AuditLog.create({
       action: "event_created",

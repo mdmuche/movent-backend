@@ -55,8 +55,8 @@ export const refreshToken = async (req, res) => {
     // Send new access token cookie
     res.cookie("accessToken", newAccessToken, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      sameSite: "none",
+      secure: false,
+      sameSite: "lax",
       maxAge: 24 * 60 * 60 * 1000,
     });
 

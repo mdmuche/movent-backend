@@ -82,16 +82,16 @@ export const login = async (req, res) => {
     // SEND ACCESSTOKEN COOKIE TO CLIENT
     res.cookie("accessToken", accessToken, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      sameSite: "none",
+      secure: false,
+      sameSite: "lax",
       maxAge: 24 * 60 * 60 * 1000,
     });
 
     // SEND REFRESHTOKEN COOKIE TO CLIENT
     res.cookie("refreshToken", refreshToken, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      sameSite: "none",
+      secure: false,
+      sameSite: "lax",
       maxAge: 7 * 24 * 60 * 60 * 1000,
     });
     // 5. Send Response

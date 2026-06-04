@@ -133,21 +133,21 @@ const eventSchema = new mongoose.Schema(
       enum: ["pending", "approved", "rejected"],
       default: "pending",
     },
-    location: {
-      type: {
-        type: String,
-        enum: ["Point"],
-        required: true,
-      },
-      coordinates: {
-        type: [Number], // [lng, lat]
-        required: true,
-        validate: {
-          validator: (coordinates) => coordinates.length === 2,
-          message: "Location coordinates must include longitude and latitude",
-        },
-      },
-    },
+    //todo location: {
+    //   type: {
+    //     type: String,
+    //     enum: ["Point"],
+    //     required: true,
+    //   },
+    //   coordinates: {
+    //     type: [Number], // [lng, lat]
+    //     required: true,
+    //     validate: {
+    //       validator: (coordinates) => coordinates.length === 2,
+    //       message: "Location coordinates must include longitude and latitude",
+    //     },
+    //   },
+    // },
   },
   {
     timestamps: true,
