@@ -21,6 +21,7 @@ import { notFound } from "./middlewares/notFound.js";
 const app = express();
 // In production, trust the first proxy (e.g., Vercel) to get correct client IP and handle secure cookies
 app.set("trust proxy", 1);
+app.set("etag", false);
 
 const jsonParser = express.json();
 const webhookPath = "/v1/checkout/webhook";
@@ -46,24 +47,62 @@ app.use(
   }),
 );
 
-const allowedOrigins = [
-  process.env.FRONTEND_URL_LOCAL,
-  process.env.FRONTEND_URL_MAIN,
-  process.env.FRONTEND_TEST_URL,
-].filter(Boolean);
+const parseOriginList = (...values) =>
+  values
+    .flatMap((value) => (value || "").split(","))
+    .map((origin) => origin.trim().replace(/\/$/, ""))
+    .filter(Boolean);
+
+const withDomainVariants = (origins) => {
+  const variants = new Set(origins);
+
+  origins.forEach((origin) => {
+    try {
+      const url = new URL(origin);
+
+      if (url.hostname.startsWith("www.")) {
+        url.hostname = url.hostname.slice(4);
+        variants.add(url.origin);
+      } else {
+        url.hostname = `www.${url.hostname}`;
+        variants.add(url.origin);
+      }
+    } catch {
+      // Ignore invalid env values; the raw value remains unusable for CORS.
+    }
+  });
+
+  return variants;
+};
+
+const allowedOrigins = withDomainVariants(
+  parseOriginList(
+    process.env.FRONTEND_URL_LOCAL,
+    process.env.FRONTEND_URL_MAIN,
+    process.env.FRONTEND_TEST_URL,
+  ),
+);
 
 app.use(
   cors({
     origin: function (origin, callback) {
       if (!origin) return callback(null, true);
-      if (allowedOrigins.includes(origin)) {
+      if (allowedOrigins.has(origin.replace(/\/$/, ""))) {
         return callback(null, true);
       }
-      return callback(new Error("Not allowed by CORS"));
+      return callback(null, false);
     },
     credentials: true,
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization", "Accept"],
+    allowedHeaders: [
+      "Content-Type",
+      "Authorization",
+      "Accept",
+      "Cache-Control",
+      "Pragma",
+      "X-Requested-With",
+    ],
+    optionsSuccessStatus: 200,
   }),
 );
 

@@ -8,3 +8,4 @@ process.env.RATE_LIMIT_WINDOW_MS = "60000";
 process.env.RATE_LIMIT_MAX = "1000";
 process.env.AUTH_RATE_LIMIT_MAX = "1000";
 process.env.FRONTEND_URL_LOCAL = "http://localhost:3000";
+process.env.RESEND_API_KEY = "re_test_key";
