@@ -14,15 +14,22 @@ import { getRecommendationsSchema } from "../validators/events/getRecommendation
 import { getTrendingEventsSchema } from "../validators/events/getTrendingEvents.js";
 import { getUpcomingEventsSchema } from "../validators/events/getUpcomingEvents.js";
 import { getEventSchema } from "../validators/events/getEvent.js";
+import { noCache } from "../middlewares/noCache.js";
 
 const router = express.Router();
 
 // GET all events
-router.get("/", validateRequest(getAllEventsSchema, "query"), getAllEvents);
+router.get(
+  "/",
+  noCache,
+  validateRequest(getAllEventsSchema, "query"),
+  getAllEvents,
+);
 
 // trending events
 router.get(
   "/trending",
+  noCache,
   validateRequest(getTrendingEventsSchema, "query"),
   getTrendingEvents,
 );
@@ -30,6 +37,7 @@ router.get(
 // recommendations
 router.get(
   "/recommendations",
+  noCache,
   requireAuth,
   validateRequest(getRecommendationsSchema, "query"),
   getRecommendations,
@@ -38,12 +46,18 @@ router.get(
 // upcoming events
 router.get(
   "/upcoming",
+  noCache,
   requireAuth,
   validateRequest(getUpcomingEventsSchema, "query"),
   getUpcomingEvents,
 );
 
 // single event (slug param)
-router.get("/:slug", validateRequest(getEventSchema, "params"), getEvent);
+router.get(
+  "/:slug",
+  noCache,
+  validateRequest(getEventSchema, "params"),
+  getEvent,
+);
 
 export default router;
