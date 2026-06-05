@@ -6,30 +6,9 @@ import { errorResponse } from "../../utils/response/error.js";
 export const updateProfile = async (req, res) => {
   try {
     const userId = req.user.userId;
-
     const { fullName, email, bio } = req.body;
 
-    if (email) {
-      const exists = await User.findOne({ email });
-      if (exists && exists._id.toString() !== userId) {
-        return errorResponse(res, {
-          statusCode: httpStatus.CONFLICT,
-          message: "Email already in use",
-        });
-      }
-    }
-
-    // Build update object safely (prevents undefined overwrite)
-    const updateData = {};
-
-    if (fullName !== undefined) updateData.fullName = fullName;
-    if (email !== undefined) updateData.email = email;
-    if (bio !== undefined) updateData.bio = bio;
-
-    const user = await User.findByIdAndUpdate(userId, updateData, {
-      new: true,
-      runValidators: true, // IMPORTANT
-    }).select("-password");
+    const user = await User.findById(userId).select("-password");
 
     if (!user) {
       return errorResponse(res, {
@@ -38,10 +17,72 @@ export const updateProfile = async (req, res) => {
       });
     }
 
+    // -----------------------------
+    // NORMALIZE EMAIL ONCE
+    // -----------------------------
+    const normalizedEmail = email?.trim().toLowerCase();
+    const currentEmail = user.email?.trim().toLowerCase();
+
+    // -----------------------------
+    // CHECK IF ANYTHING CHANGED (FIXED)
+    // -----------------------------
+    const isSame =
+      (fullName ?? user.fullName) === user.fullName &&
+      (normalizedEmail ?? currentEmail) === currentEmail &&
+      (bio ?? user.bio) === user.bio;
+
+    if (isSame) {
+      return successResponse(res, {
+        statusCode: httpStatus.OK,
+        message: "No changes detected",
+        data: user,
+      });
+    }
+
+    // -----------------------------
+    // EMAIL CHECK
+    // -----------------------------
+    if (normalizedEmail && normalizedEmail !== currentEmail) {
+      const exists = await User.findOne({
+        email: normalizedEmail,
+        _id: { $ne: userId },
+      });
+
+      if (exists) {
+        return errorResponse(res, {
+          statusCode: httpStatus.CONFLICT,
+          message: "Email already in use",
+        });
+      }
+    }
+
+    // -----------------------------
+    // BUILD UPDATE DATA (FIXED)
+    // -----------------------------
+    const updateData = {};
+
+    if (fullName !== undefined && fullName !== user.fullName) {
+      updateData.fullName = fullName;
+    }
+
+    if (normalizedEmail && normalizedEmail !== currentEmail) {
+      updateData.email = normalizedEmail; // ✅ IMPORTANT FIX
+    }
+
+    if (bio !== undefined && bio !== user.bio) {
+      updateData.bio = bio;
+    }
+
+    const updatedUser = await User.findByIdAndUpdate(
+      userId,
+      { $set: updateData },
+      { new: true, runValidators: true },
+    ).select("-password");
+
     return successResponse(res, {
       statusCode: httpStatus.OK,
       message: "Profile updated successfully",
-      data: user,
+      data: updatedUser,
     });
   } catch (error) {
     return errorResponse(res, {
