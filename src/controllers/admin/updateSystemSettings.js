@@ -24,7 +24,7 @@ export const updateSystemSettings = async (req, res) => {
         supportEmail,
       },
       {
-        returnDocument: "after",
+        new: true,
         upsert: true,
         runValidators: true,
       },

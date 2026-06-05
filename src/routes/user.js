@@ -12,6 +12,7 @@ import { getDashboardOverview } from "../controllers/user/getDashboardOverview.j
 import { getSavedEvents } from "../controllers/user/getSavedEvents.js";
 import { getUserActivity } from "../controllers/user/userActivity.js";
 import { toggleSaveEvent } from "../controllers/user/toggleSaveEvent.js";
+import { deleteSavedEvent } from "../controllers/user/deleteSavedEvent.js";
 import { updateProfile } from "../controllers/user/updateProfile.js";
 import { updateNotificationPreferences } from "../controllers/user/notificationPreference.js";
 import { updateLanguage } from "../controllers/user/updateLanguage.js";
@@ -56,6 +57,14 @@ router.get(
   requireAuth,
   validateRequest(getSavedEventsSchema, "query"),
   getSavedEvents,
+);
+
+// remove saved event
+router.delete(
+  "/saved-events/:eventId",
+  requireAuth,
+  validateRequest(toggleSaveEventSchema, "params"),
+  deleteSavedEvent,
 );
 
 // activity

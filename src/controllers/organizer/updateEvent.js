@@ -124,7 +124,7 @@ export const updateEvent = async (req, res) => {
     }
 
     const updatedEvent = await Event.findByIdAndUpdate(id, updatedData, {
-      returnDocument: "after",
+      new: true,
     });
 
     await AuditLog.create({

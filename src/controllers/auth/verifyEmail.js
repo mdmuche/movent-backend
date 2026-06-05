@@ -11,7 +11,7 @@ export const verifyEmail = async (req, res) => {
     const user = await User.findOneAndUpdate(
       { authToken: token, authPurpose: "verify-email" },
       { isEmailVerified: true, authToken: "", authPurpose: "" },
-      { returnDocument: "after" },
+      { new: true },
     );
 
     if (!user) {
