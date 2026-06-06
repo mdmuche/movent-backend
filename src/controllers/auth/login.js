@@ -7,6 +7,8 @@ import { successResponse } from "../../utils/response/success.js";
 import User from "../../models/user.js";
 import TokenCollection from "../../models/token.js";
 
+const isProduction = process.env.NODE_ENV === "production";
+
 export const login = async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -82,16 +84,16 @@ export const login = async (req, res) => {
     // SEND ACCESSTOKEN COOKIE TO CLIENT
     res.cookie("accessToken", accessToken, {
       httpOnly: true,
-      secure: false,
-      sameSite: "lax",
+      secure: isProduction,
+      sameSite: isProduction ? "none" : "lax",
       maxAge: 24 * 60 * 60 * 1000,
     });
 
     // SEND REFRESHTOKEN COOKIE TO CLIENT
     res.cookie("refreshToken", refreshToken, {
       httpOnly: true,
-      secure: false,
-      sameSite: "lax",
+      secure: isProduction,
+      sameSite: isProduction ? "none" : "lax",
       maxAge: 7 * 24 * 60 * 60 * 1000,
     });
     // 5. Send Response

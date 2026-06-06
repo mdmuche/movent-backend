@@ -3494,3 +3494,41 @@
 2026-06-06T13:38:08.453Z info: ::1 - - [06/Jun/2026:13:38:08 +0000] "GET /v1/user/profile HTTP/1.1" 200 4894 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
 2026-06-06T13:38:09.558Z info: GET /v1/user/profile 200 1096ms
 2026-06-06T13:38:09.559Z info: ::1 - - [06/Jun/2026:13:38:09 +0000] "GET /v1/user/profile HTTP/1.1" 200 4894 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-06T13:44:03.185Z info: OPTIONS /v1/auth/login 200 7ms
+2026-06-06T13:44:03.188Z info: ::1 - - [06/Jun/2026:13:44:03 +0000] "OPTIONS /v1/auth/login HTTP/1.1" 200 0 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-06T13:44:03.640Z info: POST /v1/auth/login 200 430ms
+2026-06-06T13:44:03.642Z info: ::1 - - [06/Jun/2026:13:44:03 +0000] "POST /v1/auth/login HTTP/1.1" 200 308 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-06T13:44:11.184Z info: GET /v1/user/profile 200 1537ms
+2026-06-06T13:44:11.186Z info: ::1 - - [06/Jun/2026:13:44:11 +0000] "GET /v1/user/profile HTTP/1.1" 200 4894 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-06T13:44:14.322Z info: GET /v1/user/profile 200 3128ms
+2026-06-06T13:44:14.324Z info: ::1 - - [06/Jun/2026:13:44:14 +0000] "GET /v1/user/profile HTTP/1.1" 200 4894 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+2026-06-06T14:04:03.263Z info: OPTIONS /v1/auth/login 200 7ms
+2026-06-06T14:04:03.267Z info: ::1 - - [06/Jun/2026:14:04:03 +0000] "OPTIONS /v1/auth/login HTTP/1.1" 200 0 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-06T14:04:03.770Z info: POST /v1/auth/login 200 448ms
+2026-06-06T14:04:03.772Z info: ::1 - - [06/Jun/2026:14:04:03 +0000] "POST /v1/auth/login HTTP/1.1" 200 308 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-06T14:04:23.187Z info: GET /v1/user/profile 200 1060ms
+2026-06-06T14:04:23.190Z info: ::1 - - [06/Jun/2026:14:04:23 +0000] "GET /v1/user/profile HTTP/1.1" 200 4894 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-06T14:04:24.247Z info: GET /v1/user/profile 200 1046ms
+2026-06-06T14:04:24.248Z info: ::1 - - [06/Jun/2026:14:04:24 +0000] "GET /v1/user/profile HTTP/1.1" 200 4894 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-06T14:05:00.128Z info: OPTIONS /v1/auth/login 200 2ms
+2026-06-06T14:05:00.131Z info: ::1 - - [06/Jun/2026:14:05:00 +0000] "OPTIONS /v1/auth/login HTTP/1.1" 200 0 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-06T14:05:00.366Z info: POST /v1/auth/login 401 231ms
+2026-06-06T14:05:00.367Z info: ::1 - - [06/Jun/2026:14:05:00 +0000] "POST /v1/auth/login HTTP/1.1" 401 79 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-06T14:05:00.374Z info: OPTIONS /v1/auth/refresh-token 200 2ms
+2026-06-06T14:05:00.374Z info: ::1 - - [06/Jun/2026:14:05:00 +0000] "OPTIONS /v1/auth/refresh-token HTTP/1.1" 200 0 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-06T14:05:00.615Z info: POST /v1/auth/refresh-token 200 239ms
+2026-06-06T14:05:00.615Z info: ::1 - - [06/Jun/2026:14:05:00 +0000] "POST /v1/auth/refresh-token HTTP/1.1" 200 80 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-06T14:05:00.851Z info: POST /v1/auth/login 401 229ms
+2026-06-06T14:05:00.853Z info: ::1 - - [06/Jun/2026:14:05:00 +0000] "POST /v1/auth/login HTTP/1.1" 401 79 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-06T14:05:07.152Z info: OPTIONS /v1/auth/login 200 1ms
+2026-06-06T14:05:07.153Z info: ::1 - - [06/Jun/2026:14:05:07 +0000] "OPTIONS /v1/auth/login HTTP/1.1" 200 0 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-06T14:05:07.540Z info: POST /v1/auth/login 200 381ms
+2026-06-06T14:05:07.540Z info: ::1 - - [06/Jun/2026:14:05:07 +0000] "POST /v1/auth/login HTTP/1.1" 200 308 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-06T14:05:17.836Z info: GET /v1/user/profile 200 984ms
+2026-06-06T14:05:17.837Z info: ::1 - - [06/Jun/2026:14:05:17 +0000] "GET /v1/user/profile HTTP/1.1" 200 4894 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-06T14:05:18.853Z info: GET /v1/user/profile 200 1004ms
+2026-06-06T14:05:18.855Z info: ::1 - - [06/Jun/2026:14:05:18 +0000] "GET /v1/user/profile HTTP/1.1" 200 4894 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-06T14:05:38.731Z info: OPTIONS /v1/user/profile/picture 200 3ms
+2026-06-06T14:05:38.732Z info: ::1 - - [06/Jun/2026:14:05:38 +0000] "OPTIONS /v1/user/profile/picture HTTP/1.1" 200 0 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"
+2026-06-06T14:05:41.055Z info: PATCH /v1/user/profile/picture 200 2318ms
+2026-06-06T14:05:41.056Z info: ::1 - - [06/Jun/2026:14:05:41 +0000] "PATCH /v1/user/profile/picture HTTP/1.1" 200 302 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Mobile Safari/537.36"

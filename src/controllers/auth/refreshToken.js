@@ -7,6 +7,8 @@ import User from "../../models/user.js";
 import { errorResponse } from "../../utils/response/error.js";
 import { successResponse } from "../../utils/response/success.js";
 
+const isProduction = process.env.NODE_ENV === "production";
+
 export const refreshToken = async (req, res) => {
   try {
     const { refreshToken } = req.cookies;
@@ -55,8 +57,8 @@ export const refreshToken = async (req, res) => {
     // Send new access token cookie
     res.cookie("accessToken", newAccessToken, {
       httpOnly: true,
-      secure: false,
-      sameSite: "lax",
+      secure: isProduction,
+      sameSite: isProduction ? "none" : "lax",
       maxAge: 24 * 60 * 60 * 1000,
     });
 
