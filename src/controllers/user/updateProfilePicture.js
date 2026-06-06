@@ -53,7 +53,10 @@ export const updateProfilePicture = async (req, res) => {
       statusCode: httpStatus.OK,
       message: "Profile picture updated successfully",
       data: {
-        profilePicture: user.profilePicture,
+        user: {
+          profilePicture: user.profilePicture,
+          profilePicturePublicId: user.profilePicturePublicId,
+        },
       },
     });
   } catch (error) {
