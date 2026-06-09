@@ -10,7 +10,7 @@ export const getUserActivity = async (req, res) => {
   try {
     const userId = req.user.userId;
 
-    const { page = 1, limit = 20 } = req.query;
+    const { page = 1, limit = 3 } = req.query;
 
     const total = await UserActivity.countDocuments({
       user: userId,

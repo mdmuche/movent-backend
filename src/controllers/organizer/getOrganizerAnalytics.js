@@ -14,8 +14,16 @@ export const getOrganizerAnalytics = async (req, res) => {
 
     const { page = 1, limit = 10 } = req.query;
 
-    const total = await Event.countDocuments({
-      organizer: organizerId,
+    // -------------------------
+    // GET ORGANIZER EVENT IDS
+    // -------------------------
+    const organizerEvents = await Event.find({ organizer: organizerId }, "_id");
+
+    const eventIds = organizerEvents.map((event) => event._id);
+
+    const total = await TicketCollection.countDocuments({
+      event: { $in: eventIds },
+      paymentStatus: "paid",
     });
 
     // -------------------------
@@ -77,13 +85,6 @@ export const getOrganizerAnalytics = async (req, res) => {
         },
       },
     ]);
-
-    // -------------------------
-    // GET ORGANIZER EVENT IDS
-    // -------------------------
-    const organizerEvents = await Event.find({ organizer: organizerId }, "_id");
-
-    const eventIds = organizerEvents.map((event) => event._id);
 
     // -------------------------
     // TOTAL TICKETS + REVENUE

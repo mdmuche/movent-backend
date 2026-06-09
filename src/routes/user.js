@@ -8,7 +8,7 @@ import upload from "../config/multer.js";
 
 // controllers
 import { getProfile } from "../controllers/user/profile.js";
-import { getDashboardOverview } from "../controllers/user/getDashboardOverview.js";
+import { getUserDashboardOverview } from "../controllers/user/getUserDashboardOverview.js";
 import { getSavedEvents } from "../controllers/user/getSavedEvents.js";
 import { getUserActivity } from "../controllers/user/userActivity.js";
 import { toggleSaveEvent } from "../controllers/user/toggleSaveEvent.js";
@@ -40,7 +40,7 @@ router.get(
   "/dashboard",
   requireAuth,
   validateRequest(getDashboardOverviewSchema, "query"),
-  getDashboardOverview,
+  getUserDashboardOverview,
 );
 
 // save event

@@ -29,7 +29,12 @@ router.post(
   register,
 );
 
-router.post("/login", authLimiter, validateRequest(loginSchema), login);
+router.post(
+  "/login",
+  //authLimiter,
+  validateRequest(loginSchema),
+  login,
+);
 
 router.get(
   "/verify-email/:token",

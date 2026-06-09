@@ -19,8 +19,17 @@ import { getMyEventsSchema } from "../validators/organizer/getMyEvents.js";
 import { getOrganizerAnalyticsSchema } from "../validators/organizer/getOrganizerAnalytics.js";
 import { getEventStatsSchema } from "../validators/organizer/getEventStats.js";
 import { deleteEventSchema } from "../validators/organizer/deleteEvent.js";
+import { getOrganizerDashboardOverview } from "../controllers/organizer/getOrganizerDashboardOverview.js";
+import { getDashboardOverviewSchema } from "../validators/organizer/getDashboardOverview.js";
 
 const router = express.Router();
+
+router.get(
+  "/dashboard",
+  requireOrganizer,
+  validateRequest(getDashboardOverviewSchema, "query"),
+  getOrganizerDashboardOverview,
+);
 
 router.get(
   "/analytics",

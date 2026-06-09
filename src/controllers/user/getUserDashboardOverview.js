@@ -2,17 +2,16 @@ import httpStatus from "http-status";
 import mongoose from "mongoose";
 
 import TicketCollection from "../../models/ticket.js";
-import UserActivity from "../../models/userActivity.js";
 
 import { successResponse } from "../../utils/response/success.js";
 import { errorResponse } from "../../utils/response/error.js";
 
-export const getDashboardOverview = async (req, res) => {
+export const getUserDashboardOverview = async (req, res) => {
   try {
     const userId = new mongoose.Types.ObjectId(req.user.userId);
 
     // -----------------------------
-    // TOTAL PURCHASED TICKETS
+    // PURCHASED TICKETS
     // -----------------------------
     const purchasedTickets = await TicketCollection.countDocuments({
       user: userId,
@@ -20,7 +19,7 @@ export const getDashboardOverview = async (req, res) => {
     });
 
     // -----------------------------
-    // REVENUE + TICKETS SOLD
+    // SPENT + TICKETS
     // -----------------------------
     const stats = await TicketCollection.aggregate([
       {
@@ -32,17 +31,17 @@ export const getDashboardOverview = async (req, res) => {
       {
         $group: {
           _id: null,
-          ticketsSold: { $sum: "$quantity" },
-          netEarnings: { $sum: "$totalAmount" },
+          ticketsBought: { $sum: "$quantity" },
+          totalSpent: { $sum: "$totalAmount" },
         },
       },
     ]);
 
-    const ticketsSold = stats[0]?.ticketsSold || 0;
-    const netEarnings = stats[0]?.netEarnings || 0;
+    const ticketsBought = stats[0]?.ticketsBought || 0;
+    const totalSpent = stats[0]?.totalSpent || 0;
 
     // -----------------------------
-    // UPCOMING EVENTS
+    // UPCOMING EVENTS (USER ATTENDING)
     // -----------------------------
     const upcomingEvents = await TicketCollection.aggregate([
       { $match: { user: userId } },
@@ -71,67 +70,20 @@ export const getDashboardOverview = async (req, res) => {
       },
     ]);
 
-    // -----------------------------
-    // ACTIVE EVENTS COUNT
-    // -----------------------------
-    const activeEventsAgg = await TicketCollection.aggregate([
-      { $match: { user: userId } },
-      {
-        $lookup: {
-          from: "events",
-          localField: "event",
-          foreignField: "_id",
-          as: "event",
-        },
-      },
-      { $unwind: "$event" },
-      {
-        $match: {
-          "event.startDate": { $gte: new Date() },
-        },
-      },
-      {
-        $count: "total",
-      },
-    ]);
-
-    const activeEvents = activeEventsAgg[0]?.total || 0;
-
-    // -----------------------------
-    // RECENT ACTIVITY
-    // -----------------------------
-    const recentActivity = await UserActivity.find({
-      user: userId,
-    })
-      .sort({ createdAt: -1 })
-      .limit(10);
-
-    // -----------------------------
-    // CREDIT BALANCE (placeholder)
-    // -----------------------------
-    const creditBalance = 0; // later replace with wallet/subscription system
-
-    // -----------------------------
-    // RESPONSE
-    // -----------------------------
     return successResponse(res, {
       statusCode: httpStatus.OK,
-      success: true,
-      message: "Dashboard overview fetched successfully",
+      message: "User dashboard fetched successfully",
       data: {
-        creditBalance,
-        activeEvents,
         purchasedTickets,
-        ticketsSold,
-        netEarnings,
+        ticketsBought,
+        totalSpent,
         upcomingEvents,
-        recentActivity,
       },
     });
   } catch (error) {
     return errorResponse(res, {
       statusCode: httpStatus.INTERNAL_SERVER_ERROR,
-      message: "Error fetching dashboard overview",
+      message: "Error fetching user dashboard",
       error: error.message,
     });
   }
