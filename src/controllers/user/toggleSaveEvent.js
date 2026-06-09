@@ -39,6 +39,7 @@ export const toggleSaveEvent = async (req, res) => {
       return successResponse(res, {
         statusCode: httpStatus.OK,
         message: "Event removed from saved list",
+        data: user.savedEvents,
       });
     }
 
@@ -55,6 +56,7 @@ export const toggleSaveEvent = async (req, res) => {
     return successResponse(res, {
       statusCode: httpStatus.OK,
       message: "Event saved successfully",
+      data: user.savedEvents,
     });
   } catch (error) {
     return errorResponse(res, {

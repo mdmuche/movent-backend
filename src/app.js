@@ -106,7 +106,7 @@ app.use(
   }),
 );
 
-app.use(generalLimiter);
+// app.use(generalLimiter);
 
 // Swagger UI setup (only in non-production environments)
 if (process.env.NODE_ENV !== "production") {
