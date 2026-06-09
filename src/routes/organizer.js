@@ -21,6 +21,8 @@ import { getEventStatsSchema } from "../validators/organizer/getEventStats.js";
 import { deleteEventSchema } from "../validators/organizer/deleteEvent.js";
 import { getOrganizerDashboardOverview } from "../controllers/organizer/getOrganizerDashboardOverview.js";
 import { getDashboardOverviewSchema } from "../validators/organizer/getDashboardOverview.js";
+import { getSingleEventSchema } from "../validators/organizer/getSingleEventSchema.js";
+import { getEventById } from "../controllers/organizer/getSingleEvent.js";
 
 const router = express.Router();
 
@@ -58,6 +60,13 @@ router.post(
   upload.single("bannerImage"),
   validateRequest(createEventSchema),
   createEvent,
+);
+
+router.get(
+  "/events/:id",
+  requireOrganizer,
+  validateRequest(getSingleEventSchema, "params"),
+  getEventById,
 );
 
 router.put(
