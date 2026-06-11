@@ -113,6 +113,10 @@ const eventSchema = new mongoose.Schema(
         required: true,
       },
     },
+    maxTicketPerPurchase: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "SystemSetting",
+    },
 
     tags: [String],
     entryRequirements: {

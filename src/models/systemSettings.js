@@ -27,6 +27,6 @@ const systemSettingsSchema = new mongoose.Schema(
   },
 );
 
-const SystemSettings = mongoose.model("SystemSettings", systemSettingsSchema);
+const SystemSettings = mongoose.model("SystemSetting", systemSettingsSchema);
 
 export default SystemSettings;
