@@ -46,6 +46,16 @@ const ticketSchema = new mongoose.Schema(
       default: "pending",
     },
 
+    status: {
+      type: String,
+      enum: ["active", "cancelled", "used"],
+      default: "active",
+    },
+
+    checkedInAt: {
+      type: Date,
+    },
+
     ticketCode: {
       type: String,
       unique: true,

@@ -47,6 +47,26 @@ export const validateTicket = async (req, res) => {
       });
     }
 
+    // -----------------------------
+    // STATUS CHECK
+    // -----------------------------
+    if (ticket.status === "cancelled") {
+      return errorResponse(res, {
+        statusCode: httpStatus.BAD_REQUEST,
+        message: "This ticket was cancelled",
+      });
+    }
+
+    if (ticket.attended) {
+      return errorResponse(res, {
+        statusCode: httpStatus.BAD_REQUEST,
+        message: "Ticket already used",
+      });
+    }
+
+    // -----------------------------
+    // EVENT TIME CHECK
+    // -----------------------------
     const now = new Date();
 
     if (ticket.event.startDate && new Date(ticket.event.startDate) > now) {
@@ -62,6 +82,15 @@ export const validateTicket = async (req, res) => {
         message: "Event has already ended",
       });
     }
+
+    // -----------------------------
+    // MARK AS USED
+    // -----------------------------
+    ticket.attended = true;
+    ticket.status = "used";
+    ticket.checkedInAt = new Date();
+
+    await ticket.save();
 
     return successResponse(res, {
       statusCode: httpStatus.OK,
