@@ -92,6 +92,11 @@ const eventSchema = new mongoose.Schema(
       type: Number,
       default: 0,
     },
+    // todo capacity
+    capacity: {
+      type: Number,
+      default: 0,
+    },
 
     soldTickets: {
       type: Number,

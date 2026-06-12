@@ -37,7 +37,8 @@ export const getAllUsers = async (req, res) => {
       .select("-password")
       .populate("savedEvents")
       .skip(skip)
-      .limit(limitNum);
+      .limit(limitNum)
+      .sort({ createdAt: -1 });
 
     const events = await Event.find();
 
