@@ -3,7 +3,7 @@ import cron from "node-cron";
 import TicketCollection from "../../models/ticket.js";
 import Event from "../../models/event.js";
 
-import { sendNotification } from "../../services/notification.service.js";
+import { sendNotification } from "../../services/notification.js";
 
 // Runs every day at 9 AM
 cron.schedule("0 9 * * *", async () => {
