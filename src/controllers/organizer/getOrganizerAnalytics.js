@@ -17,9 +17,32 @@ export const getOrganizerAnalytics = async (req, res) => {
     // -------------------------
     // GET ORGANIZER EVENT IDS
     // -------------------------
-    const organizerEvents = await Event.find({ organizer: organizerId }, "_id");
-
-    const eventIds = organizerEvents.map((event) => event._id);
+    const eventIds = await Event.distinct("_id", {
+      organizer: organizerId,
+    });
+    console.log("organizerId:", organizerId);
+    console.log("eventIds:", eventIds);
+    if (!eventIds.length) {
+      return successResponse(res, {
+        statusCode: httpStatus.OK,
+        message: "No analytics data for organizer",
+        data: {
+          totalEvents: 0,
+          totalTicketsSold: 0,
+          totalRevenue: 0,
+          upcomingEvents: 0,
+          pastEvents: 0,
+          activeEvents: 0,
+          recentActivity: [],
+          pagination: {
+            page: Number(page),
+            limit: Number(limit),
+            total: 0,
+            totalPages: 0,
+          },
+        },
+      });
+    }
 
     const total = await TicketCollection.countDocuments({
       event: { $in: eventIds },
@@ -92,7 +115,9 @@ export const getOrganizerAnalytics = async (req, res) => {
     const ticketStats = await TicketCollection.aggregate([
       {
         $match: {
-          event: { $in: eventIds },
+          event: {
+            $in: eventIds.map((id) => new mongoose.Types.ObjectId(id)),
+          },
           paymentStatus: "paid",
         },
       },
@@ -116,25 +141,25 @@ export const getOrganizerAnalytics = async (req, res) => {
     // -------------------------
     const recentActivity = await TicketCollection.aggregate([
       {
+        $lookup: {
+          from: "events",
+          localField: "event",
+          foreignField: "_id",
+          as: "event",
+        },
+      },
+      { $unwind: "$event" },
+
+      {
         $match: {
-          event: { $in: eventIds },
+          "event.organizer": organizerId,
           paymentStatus: "paid",
         },
       },
 
-      {
-        $sort: {
-          createdAt: -1,
-        },
-      },
-
-      {
-        $skip: skip,
-      },
-
-      {
-        $limit: limitNum,
-      },
+      { $sort: { createdAt: -1 } },
+      { $skip: skip },
+      { $limit: limitNum },
 
       {
         $lookup: {
@@ -144,39 +169,19 @@ export const getOrganizerAnalytics = async (req, res) => {
           as: "user",
         },
       },
-
-      {
-        $unwind: "$user",
-      },
-
-      {
-        $lookup: {
-          from: "events",
-          localField: "event",
-          foreignField: "_id",
-          as: "event",
-        },
-      },
-
-      {
-        $unwind: "$event",
-      },
+      { $unwind: "$user" },
 
       {
         $project: {
           _id: 0,
           type: "ticket_purchase",
-
           amount: "$totalAmount",
-
           createdAt: 1,
-
           user: {
             _id: "$user._id",
             fullName: "$user.fullName",
             email: "$user.email",
           },
-
           event: {
             _id: "$event._id",
             title: "$event.title",

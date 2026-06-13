@@ -11,6 +11,11 @@ export const getAuditLogs = async (req, res) => {
     const { page = 1, limit = 20 } = req.query;
 
     // -----------------------------
+    // TOTAL LOG COUNT
+    // -----------------------------
+    const total = await AuditLog.countDocuments();
+
+    // -----------------------------
     // PAGINATION UTILS
     // -----------------------------
     const {
@@ -20,12 +25,8 @@ export const getAuditLogs = async (req, res) => {
     } = paginationUtils({
       page,
       limit,
+      total,
     });
-
-    // -----------------------------
-    // TOTAL LOG COUNT
-    // -----------------------------
-    const total = await AuditLog.countDocuments();
 
     // -----------------------------
     // FETCH PAGINATED LOGS
@@ -41,10 +42,7 @@ export const getAuditLogs = async (req, res) => {
       message: "Audit logs fetched successfully",
       data: {
         logs,
-        pagination: {
-          ...pagination,
-          total,
-        },
+        pagination,
       },
     });
   } catch (error) {
