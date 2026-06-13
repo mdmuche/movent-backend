@@ -25,6 +25,7 @@ const eventSchema = new mongoose.Schema(
         "technology",
         "business",
         "sports",
+        "culture",
         "education",
         "fashion",
         "comedy",

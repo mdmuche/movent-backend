@@ -25033,3 +25033,553 @@
 2026-06-13T12:24:54.552Z info: ::1 - - [13/Jun/2026:12:24:54 +0000] "GET /v1/user/profile HTTP/1.1" 200 6093 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
 2026-06-13T12:24:55.731Z info: GET /v1/user/profile 200 1174ms
 2026-06-13T12:24:55.741Z info: ::1 - - [13/Jun/2026:12:24:55 +0000] "GET /v1/user/profile HTTP/1.1" 200 6093 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-13T15:18:12.189Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 514ms
+2026-06-13T15:18:12.194Z info: ::1 - - [13/Jun/2026:15:18:12 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-13T15:18:12.642Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 445ms
+2026-06-13T15:18:12.644Z info: ::1 - - [13/Jun/2026:15:18:12 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-13T15:35:11.091Z info: GET /v1/event/categories 200 184ms
+2026-06-13T15:35:11.100Z info: ::1 - - [13/Jun/2026:15:35:11 +0000] "GET /v1/event/categories HTTP/1.1" 200 187 "-" "PostmanRuntime/7.54.0"
+2026-06-13T15:40:28.799Z info: GET /v1/event/categories 200 172ms
+2026-06-13T15:40:28.803Z info: ::1 - - [13/Jun/2026:15:40:28 +0000] "GET /v1/event/categories HTTP/1.1" 200 382 "-" "PostmanRuntime/7.54.0"
+2026-06-13T15:58:22.269Z info: GET /v1/event/categories 200 161ms
+2026-06-13T15:58:22.270Z info: ::1 - - [13/Jun/2026:15:58:22 +0000] "GET /v1/event/categories HTTP/1.1" 200 382 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T15:58:22.418Z info: GET /v1/event/categories 200 141ms
+2026-06-13T15:58:22.421Z info: ::1 - - [13/Jun/2026:15:58:22 +0000] "GET /v1/event/categories HTTP/1.1" 200 382 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T15:58:22.580Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 467ms
+2026-06-13T15:58:22.581Z info: ::1 - - [13/Jun/2026:15:58:22 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T15:58:23.046Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 464ms
+2026-06-13T15:58:23.047Z info: ::1 - - [13/Jun/2026:15:58:23 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T15:58:23.158Z info: GET /v1/user/profile 200 1034ms
+2026-06-13T15:58:23.158Z info: ::1 - - [13/Jun/2026:15:58:23 +0000] "GET /v1/user/profile HTTP/1.1" 200 6093 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T15:58:24.221Z info: GET /v1/user/profile 200 1061ms
+2026-06-13T15:58:24.222Z info: ::1 - - [13/Jun/2026:15:58:24 +0000] "GET /v1/user/profile HTTP/1.1" 200 6093 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T15:58:37.292Z info: GET /v1/event/categories 200 184ms
+2026-06-13T15:58:37.293Z info: ::1 - - [13/Jun/2026:15:58:37 +0000] "GET /v1/event/categories HTTP/1.1" 200 382 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T15:58:37.428Z info: GET /v1/event/categories 200 128ms
+2026-06-13T15:58:37.431Z info: ::1 - - [13/Jun/2026:15:58:37 +0000] "GET /v1/event/categories HTTP/1.1" 200 382 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T15:58:37.591Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 478ms
+2026-06-13T15:58:37.592Z info: ::1 - - [13/Jun/2026:15:58:37 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T15:58:38.039Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 446ms
+2026-06-13T15:58:38.040Z info: ::1 - - [13/Jun/2026:15:58:38 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T15:58:38.171Z info: GET /v1/user/profile 200 1052ms
+2026-06-13T15:58:38.171Z info: ::1 - - [13/Jun/2026:15:58:38 +0000] "GET /v1/user/profile HTTP/1.1" 200 6093 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T15:58:39.195Z info: GET /v1/user/profile 200 1021ms
+2026-06-13T15:58:39.197Z info: ::1 - - [13/Jun/2026:15:58:39 +0000] "GET /v1/user/profile HTTP/1.1" 200 6093 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T15:59:07.193Z info: GET /v1/event/categories 200 182ms
+2026-06-13T15:59:07.204Z info: ::1 - - [13/Jun/2026:15:59:07 +0000] "GET /v1/event/categories HTTP/1.1" 200 382 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T15:59:07.378Z info: GET /v1/event/categories 200 168ms
+2026-06-13T15:59:07.379Z info: ::1 - - [13/Jun/2026:15:59:07 +0000] "GET /v1/event/categories HTTP/1.1" 200 382 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T15:59:07.512Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 499ms
+2026-06-13T15:59:07.513Z info: ::1 - - [13/Jun/2026:15:59:07 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T15:59:07.997Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 478ms
+2026-06-13T15:59:08.008Z info: ::1 - - [13/Jun/2026:15:59:08 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T15:59:08.135Z info: GET /v1/user/profile 200 1108ms
+2026-06-13T15:59:08.136Z info: ::1 - - [13/Jun/2026:15:59:08 +0000] "GET /v1/user/profile HTTP/1.1" 200 6093 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T15:59:09.170Z info: GET /v1/user/profile 200 1030ms
+2026-06-13T15:59:09.171Z info: ::1 - - [13/Jun/2026:15:59:09 +0000] "GET /v1/user/profile HTTP/1.1" 200 6093 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:02:44.195Z info: GET /v1/event/categories 200 162ms
+2026-06-13T16:02:44.195Z info: ::1 - - [13/Jun/2026:16:02:44 +0000] "GET /v1/event/categories HTTP/1.1" 200 382 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-13T16:02:44.361Z info: GET /v1/event/categories 200 162ms
+2026-06-13T16:02:44.362Z info: ::1 - - [13/Jun/2026:16:02:44 +0000] "GET /v1/event/categories HTTP/1.1" 200 382 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-13T16:02:44.505Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 468ms
+2026-06-13T16:02:44.507Z info: ::1 - - [13/Jun/2026:16:02:44 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-13T16:02:44.983Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 471ms
+2026-06-13T16:02:44.991Z info: ::1 - - [13/Jun/2026:16:02:44 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-13T16:02:45.117Z info: GET /v1/user/profile 200 1074ms
+2026-06-13T16:02:45.122Z info: ::1 - - [13/Jun/2026:16:02:45 +0000] "GET /v1/user/profile HTTP/1.1" 200 6093 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-13T16:02:46.176Z info: GET /v1/user/profile 200 1030ms
+2026-06-13T16:02:46.177Z info: ::1 - - [13/Jun/2026:16:02:46 +0000] "GET /v1/user/profile HTTP/1.1" 200 6093 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-13T16:05:08.599Z info: GET /v1/event/categories 200 136ms
+2026-06-13T16:05:08.599Z info: ::1 - - [13/Jun/2026:16:05:08 +0000] "GET /v1/event/categories HTTP/1.1" 200 382 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:05:08.768Z info: GET /v1/event/categories 200 165ms
+2026-06-13T16:05:08.768Z info: ::1 - - [13/Jun/2026:16:05:08 +0000] "GET /v1/event/categories HTTP/1.1" 200 382 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:05:08.928Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 460ms
+2026-06-13T16:05:08.928Z info: ::1 - - [13/Jun/2026:16:05:08 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:05:09.410Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 480ms
+2026-06-13T16:05:09.410Z info: ::1 - - [13/Jun/2026:16:05:09 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:05:09.523Z info: GET /v1/user/profile 200 1051ms
+2026-06-13T16:05:09.549Z info: ::1 - - [13/Jun/2026:16:05:09 +0000] "GET /v1/user/profile HTTP/1.1" 200 6093 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:05:10.693Z info: GET /v1/user/profile 200 1089ms
+2026-06-13T16:05:10.694Z info: ::1 - - [13/Jun/2026:16:05:10 +0000] "GET /v1/user/profile HTTP/1.1" 200 6093 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:05:24.208Z info: GET /v1/event/categories 200 160ms
+2026-06-13T16:05:24.209Z info: ::1 - - [13/Jun/2026:16:05:24 +0000] "GET /v1/event/categories HTTP/1.1" 200 382 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:05:24.336Z info: GET /v1/event/categories 200 125ms
+2026-06-13T16:05:24.337Z info: ::1 - - [13/Jun/2026:16:05:24 +0000] "GET /v1/event/categories HTTP/1.1" 200 382 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:05:24.542Z info: ::1 - - [13/Jun/2026:16:05:24 +0000] "GET /v1/user/profile HTTP/1.1" - - "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:05:24.595Z info: ::1 - - [13/Jun/2026:16:05:24 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:05:26.340Z info: GET /v1/event/categories 200 196ms
+2026-06-13T16:05:26.342Z info: ::1 - - [13/Jun/2026:16:05:26 +0000] "GET /v1/event/categories HTTP/1.1" 200 382 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:05:26.480Z info: GET /v1/event/categories 200 136ms
+2026-06-13T16:05:26.481Z info: ::1 - - [13/Jun/2026:16:05:26 +0000] "GET /v1/event/categories HTTP/1.1" 200 382 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:05:26.634Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 478ms
+2026-06-13T16:05:26.664Z info: ::1 - - [13/Jun/2026:16:05:26 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:05:27.236Z info: GET /v1/user/profile 200 1073ms
+2026-06-13T16:05:27.238Z info: ::1 - - [13/Jun/2026:16:05:27 +0000] "GET /v1/user/profile HTTP/1.1" 200 6093 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:05:27.241Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 479ms
+2026-06-13T16:05:27.301Z info: ::1 - - [13/Jun/2026:16:05:27 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:05:28.488Z info: GET /v1/user/profile 200 1075ms
+2026-06-13T16:05:28.489Z info: ::1 - - [13/Jun/2026:16:05:28 +0000] "GET /v1/user/profile HTTP/1.1" 200 6093 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:14:10.523Z info: ::1 - - [13/Jun/2026:16:14:10 +0000] "GET /v1/event/categories HTTP/1.1" - - "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:14:10.527Z info: ::1 - - [13/Jun/2026:16:14:10 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" - - "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:14:10.529Z info: ::1 - - [13/Jun/2026:16:14:10 +0000] "GET /v1/user/profile HTTP/1.1" - - "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:14:20.787Z info: GET /v1/event/categories 200 157ms
+2026-06-13T16:14:20.788Z info: ::1 - - [13/Jun/2026:16:14:20 +0000] "GET /v1/event/categories HTTP/1.1" 200 382 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:14:20.939Z info: GET /v1/event/categories 200 148ms
+2026-06-13T16:14:20.940Z info: ::1 - - [13/Jun/2026:16:14:20 +0000] "GET /v1/event/categories HTTP/1.1" 200 382 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:14:21.080Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 448ms
+2026-06-13T16:14:21.080Z info: ::1 - - [13/Jun/2026:16:14:21 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:14:21.530Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 447ms
+2026-06-13T16:14:21.534Z info: ::1 - - [13/Jun/2026:16:14:21 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:14:21.674Z info: GET /v1/user/profile 200 1038ms
+2026-06-13T16:14:21.675Z info: ::1 - - [13/Jun/2026:16:14:21 +0000] "GET /v1/user/profile HTTP/1.1" 200 6093 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:14:22.468Z info: ::1 - - [13/Jun/2026:16:14:22 +0000] "GET /v1/user/profile HTTP/1.1" - - "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:14:23.326Z info: GET /v1/event/categories 200 167ms
+2026-06-13T16:14:23.326Z info: ::1 - - [13/Jun/2026:16:14:23 +0000] "GET /v1/event/categories HTTP/1.1" 200 382 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:14:23.484Z info: GET /v1/event/categories 200 155ms
+2026-06-13T16:14:23.484Z info: ::1 - - [13/Jun/2026:16:14:23 +0000] "GET /v1/event/categories HTTP/1.1" 200 382 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:14:23.610Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 449ms
+2026-06-13T16:14:23.611Z info: ::1 - - [13/Jun/2026:16:14:23 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:14:24.079Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 466ms
+2026-06-13T16:14:24.080Z info: ::1 - - [13/Jun/2026:16:14:24 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:14:24.221Z info: GET /v1/user/profile 200 1056ms
+2026-06-13T16:14:24.222Z info: ::1 - - [13/Jun/2026:16:14:24 +0000] "GET /v1/user/profile HTTP/1.1" 200 6093 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:14:25.241Z info: GET /v1/user/profile 200 1015ms
+2026-06-13T16:14:25.241Z info: ::1 - - [13/Jun/2026:16:14:25 +0000] "GET /v1/user/profile HTTP/1.1" 200 6093 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:14:50.524Z info: GET /v1/event/categories 200 131ms
+2026-06-13T16:14:50.525Z info: ::1 - - [13/Jun/2026:16:14:50 +0000] "GET /v1/event/categories HTTP/1.1" 200 382 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:14:50.701Z info: GET /v1/event/categories 200 174ms
+2026-06-13T16:14:50.701Z info: ::1 - - [13/Jun/2026:16:14:50 +0000] "GET /v1/event/categories HTTP/1.1" 200 382 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:14:50.856Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 460ms
+2026-06-13T16:14:50.857Z info: ::1 - - [13/Jun/2026:16:14:50 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:14:51.320Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 459ms
+2026-06-13T16:14:51.320Z info: ::1 - - [13/Jun/2026:16:14:51 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:14:51.451Z info: GET /v1/user/profile 200 1052ms
+2026-06-13T16:14:51.452Z info: ::1 - - [13/Jun/2026:16:14:51 +0000] "GET /v1/user/profile HTTP/1.1" 200 6093 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:14:52.490Z info: GET /v1/user/profile 200 1037ms
+2026-06-13T16:14:52.491Z info: ::1 - - [13/Jun/2026:16:14:52 +0000] "GET /v1/user/profile HTTP/1.1" 200 6093 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:15:16.942Z info: ::1 - - [13/Jun/2026:16:15:16 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" - - "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:15:16.984Z info: ::1 - - [13/Jun/2026:16:15:16 +0000] "GET /v1/user/profile HTTP/1.1" - - "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:15:16.993Z info: ::1 - - [13/Jun/2026:16:15:16 +0000] "GET /v1/event/categories HTTP/1.1" - - "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:15:18.487Z info: GET /v1/event/categories 200 138ms
+2026-06-13T16:15:18.488Z info: ::1 - - [13/Jun/2026:16:15:18 +0000] "GET /v1/event/categories HTTP/1.1" 200 382 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:15:18.636Z info: GET /v1/event/categories 200 147ms
+2026-06-13T16:15:18.637Z info: ::1 - - [13/Jun/2026:16:15:18 +0000] "GET /v1/event/categories HTTP/1.1" 200 382 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:15:18.779Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 425ms
+2026-06-13T16:15:18.779Z info: ::1 - - [13/Jun/2026:16:15:18 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:15:19.211Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 429ms
+2026-06-13T16:15:19.212Z info: ::1 - - [13/Jun/2026:16:15:19 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:15:19.381Z info: GET /v1/user/profile 200 1022ms
+2026-06-13T16:15:19.383Z info: ::1 - - [13/Jun/2026:16:15:19 +0000] "GET /v1/user/profile HTTP/1.1" 200 6093 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:15:20.467Z info: GET /v1/user/profile 200 1079ms
+2026-06-13T16:15:20.467Z info: ::1 - - [13/Jun/2026:16:15:20 +0000] "GET /v1/user/profile HTTP/1.1" 200 6093 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:16:06.488Z info: GET /v1/event/categories 200 155ms
+2026-06-13T16:16:06.490Z info: ::1 - - [13/Jun/2026:16:16:06 +0000] "GET /v1/event/categories HTTP/1.1" 200 382 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:16:06.634Z info: GET /v1/event/categories 200 143ms
+2026-06-13T16:16:06.635Z info: ::1 - - [13/Jun/2026:16:16:06 +0000] "GET /v1/event/categories HTTP/1.1" 200 382 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:16:06.792Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 455ms
+2026-06-13T16:16:06.797Z info: ::1 - - [13/Jun/2026:16:16:06 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:16:07.238Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 439ms
+2026-06-13T16:16:07.238Z info: ::1 - - [13/Jun/2026:16:16:07 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:16:07.496Z info: GET /v1/user/profile 200 1133ms
+2026-06-13T16:16:07.496Z info: ::1 - - [13/Jun/2026:16:16:07 +0000] "GET /v1/user/profile HTTP/1.1" 200 6093 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:16:08.567Z info: GET /v1/user/profile 200 1068ms
+2026-06-13T16:16:08.567Z info: ::1 - - [13/Jun/2026:16:16:08 +0000] "GET /v1/user/profile HTTP/1.1" 200 6093 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:17:11.363Z info: GET /v1/event/categories 200 148ms
+2026-06-13T16:17:11.365Z info: ::1 - - [13/Jun/2026:16:17:11 +0000] "GET /v1/event/categories HTTP/1.1" 200 382 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:17:11.492Z info: ::1 - - [13/Jun/2026:16:17:11 +0000] "GET /v1/user/profile HTTP/1.1" - - "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:17:11.527Z info: ::1 - - [13/Jun/2026:16:17:11 +0000] "GET /v1/event/categories HTTP/1.1" 200 382 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:17:11.531Z info: ::1 - - [13/Jun/2026:16:17:11 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" - - "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:17:13.288Z info: GET /v1/event/categories 200 160ms
+2026-06-13T16:17:13.289Z info: ::1 - - [13/Jun/2026:16:17:13 +0000] "GET /v1/event/categories HTTP/1.1" 200 382 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:17:13.432Z info: GET /v1/event/categories 200 142ms
+2026-06-13T16:17:13.432Z info: ::1 - - [13/Jun/2026:16:17:13 +0000] "GET /v1/event/categories HTTP/1.1" 200 382 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:17:13.583Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 453ms
+2026-06-13T16:17:13.583Z info: ::1 - - [13/Jun/2026:16:17:13 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:17:13.792Z info: ::1 - - [13/Jun/2026:16:17:13 +0000] "GET /v1/user/profile HTTP/1.1" - - "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:17:13.849Z info: ::1 - - [13/Jun/2026:16:17:13 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" - - "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:17:24.568Z info: GET /v1/event/categories 200 161ms
+2026-06-13T16:17:24.568Z info: ::1 - - [13/Jun/2026:16:17:24 +0000] "GET /v1/event/categories HTTP/1.1" 200 382 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:17:24.714Z info: GET /v1/event/categories 200 142ms
+2026-06-13T16:17:24.715Z info: ::1 - - [13/Jun/2026:16:17:24 +0000] "GET /v1/event/categories HTTP/1.1" 200 382 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:17:24.856Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 445ms
+2026-06-13T16:17:24.856Z info: ::1 - - [13/Jun/2026:16:17:24 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:17:25.287Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 428ms
+2026-06-13T16:17:25.288Z info: ::1 - - [13/Jun/2026:16:17:25 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:17:25.434Z info: GET /v1/user/profile 200 1019ms
+2026-06-13T16:17:25.434Z info: ::1 - - [13/Jun/2026:16:17:25 +0000] "GET /v1/user/profile HTTP/1.1" 200 6093 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:17:26.488Z info: GET /v1/user/profile 200 1052ms
+2026-06-13T16:17:26.489Z info: ::1 - - [13/Jun/2026:16:17:26 +0000] "GET /v1/user/profile HTTP/1.1" 200 6093 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:17:29.455Z info: GET /v1/event/categories 200 167ms
+2026-06-13T16:17:29.459Z info: ::1 - - [13/Jun/2026:16:17:29 +0000] "GET /v1/event/categories HTTP/1.1" 200 382 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:17:29.932Z info: GET /v1/event/categories 200 470ms
+2026-06-13T16:17:30.331Z info: ::1 - - [13/Jun/2026:16:17:30 +0000] "GET /v1/event/categories HTTP/1.1" 200 382 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:17:30.343Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 1051ms
+2026-06-13T16:17:30.353Z info: ::1 - - [13/Jun/2026:16:17:30 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:17:30.815Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 452ms
+2026-06-13T16:17:30.816Z info: ::1 - - [13/Jun/2026:16:17:30 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:17:30.973Z info: GET /v1/user/profile 200 1677ms
+2026-06-13T16:17:30.996Z info: ::1 - - [13/Jun/2026:16:17:30 +0000] "GET /v1/user/profile HTTP/1.1" 200 6093 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:17:32.059Z info: GET /v1/user/profile 200 1040ms
+2026-06-13T16:17:32.060Z info: ::1 - - [13/Jun/2026:16:17:32 +0000] "GET /v1/user/profile HTTP/1.1" 200 6093 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:17:52.805Z info: GET /v1/event/categories 200 154ms
+2026-06-13T16:17:52.806Z info: ::1 - - [13/Jun/2026:16:17:52 +0000] "GET /v1/event/categories HTTP/1.1" 200 382 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:17:52.948Z info: GET /v1/event/categories 200 137ms
+2026-06-13T16:17:52.949Z info: ::1 - - [13/Jun/2026:16:17:52 +0000] "GET /v1/event/categories HTTP/1.1" 200 382 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:17:53.094Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 435ms
+2026-06-13T16:17:53.095Z info: ::1 - - [13/Jun/2026:16:17:53 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:17:53.557Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 460ms
+2026-06-13T16:17:53.558Z info: ::1 - - [13/Jun/2026:16:17:53 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:17:53.819Z info: GET /v1/user/profile 200 1156ms
+2026-06-13T16:17:53.820Z info: ::1 - - [13/Jun/2026:16:17:53 +0000] "GET /v1/user/profile HTTP/1.1" 200 6093 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:17:54.857Z info: GET /v1/user/profile 200 1031ms
+2026-06-13T16:17:54.858Z info: ::1 - - [13/Jun/2026:16:17:54 +0000] "GET /v1/user/profile HTTP/1.1" 200 6093 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:18:55.416Z info: GET /v1/event/categories 200 150ms
+2026-06-13T16:18:55.418Z info: ::1 - - [13/Jun/2026:16:18:55 +0000] "GET /v1/event/categories HTTP/1.1" 200 382 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:18:55.479Z info: ::1 - - [13/Jun/2026:16:18:55 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" - - "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:18:55.591Z info: ::1 - - [13/Jun/2026:16:18:55 +0000] "GET /v1/event/categories HTTP/1.1" 200 382 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:18:55.601Z info: ::1 - - [13/Jun/2026:16:18:55 +0000] "GET /v1/user/profile HTTP/1.1" - - "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:18:59.473Z info: ::1 - - [13/Jun/2026:16:18:59 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" - - "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:18:59.477Z info: ::1 - - [13/Jun/2026:16:18:59 +0000] "GET /v1/event/categories HTTP/1.1" - - "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:18:59.479Z info: ::1 - - [13/Jun/2026:16:18:59 +0000] "GET /v1/user/profile HTTP/1.1" - - "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:19:00.488Z info: GET /v1/event/categories 200 139ms
+2026-06-13T16:19:00.488Z info: ::1 - - [13/Jun/2026:16:19:00 +0000] "GET /v1/event/categories HTTP/1.1" 200 382 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:19:00.636Z info: GET /v1/event/categories 200 145ms
+2026-06-13T16:19:00.638Z info: ::1 - - [13/Jun/2026:16:19:00 +0000] "GET /v1/event/categories HTTP/1.1" 200 382 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:19:00.755Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 400ms
+2026-06-13T16:19:00.757Z info: ::1 - - [13/Jun/2026:16:19:00 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:19:01.188Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 430ms
+2026-06-13T16:19:01.190Z info: ::1 - - [13/Jun/2026:16:19:01 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:19:01.446Z info: GET /v1/user/profile 200 1089ms
+2026-06-13T16:19:01.448Z info: ::1 - - [13/Jun/2026:16:19:01 +0000] "GET /v1/user/profile HTTP/1.1" 200 6093 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:19:02.567Z info: GET /v1/user/profile 200 1117ms
+2026-06-13T16:19:02.567Z info: ::1 - - [13/Jun/2026:16:19:02 +0000] "GET /v1/user/profile HTTP/1.1" 200 6093 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:25:48.073Z info: GET /v1/event/categories 200 136ms
+2026-06-13T16:25:48.074Z info: ::1 - - [13/Jun/2026:16:25:48 +0000] "GET /v1/event/categories HTTP/1.1" 200 382 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:25:48.220Z info: GET /v1/event/categories 200 143ms
+2026-06-13T16:25:48.225Z info: ::1 - - [13/Jun/2026:16:25:48 +0000] "GET /v1/event/categories HTTP/1.1" 200 382 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:25:48.376Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 435ms
+2026-06-13T16:25:48.408Z info: ::1 - - [13/Jun/2026:16:25:48 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:25:48.865Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 433ms
+2026-06-13T16:25:48.882Z info: ::1 - - [13/Jun/2026:16:25:48 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:25:49.040Z info: GET /v1/user/profile 200 1094ms
+2026-06-13T16:25:49.041Z info: ::1 - - [13/Jun/2026:16:25:49 +0000] "GET /v1/user/profile HTTP/1.1" 200 6093 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:25:50.089Z info: GET /v1/user/profile 200 1047ms
+2026-06-13T16:25:50.090Z info: ::1 - - [13/Jun/2026:16:25:50 +0000] "GET /v1/user/profile HTTP/1.1" 200 6093 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:30:15.481Z info: GET /v1/event/categories 200 170ms
+2026-06-13T16:30:15.481Z info: ::1 - - [13/Jun/2026:16:30:15 +0000] "GET /v1/event/categories HTTP/1.1" 200 382 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:30:15.642Z info: GET /v1/event/categories 200 155ms
+2026-06-13T16:30:15.643Z info: ::1 - - [13/Jun/2026:16:30:15 +0000] "GET /v1/event/categories HTTP/1.1" 200 382 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:30:15.807Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 494ms
+2026-06-13T16:30:15.808Z info: ::1 - - [13/Jun/2026:16:30:15 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:30:16.250Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 434ms
+2026-06-13T16:30:16.250Z info: ::1 - - [13/Jun/2026:16:30:16 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:30:16.400Z info: GET /v1/user/profile 200 1084ms
+2026-06-13T16:30:16.401Z info: ::1 - - [13/Jun/2026:16:30:16 +0000] "GET /v1/user/profile HTTP/1.1" 200 6093 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:30:17.421Z info: GET /v1/user/profile 200 1015ms
+2026-06-13T16:30:17.423Z info: ::1 - - [13/Jun/2026:16:30:17 +0000] "GET /v1/user/profile HTTP/1.1" 200 6093 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:30:45.587Z info: GET /v1/event/categories 200 176ms
+2026-06-13T16:30:45.592Z info: ::1 - - [13/Jun/2026:16:30:45 +0000] "GET /v1/event/categories HTTP/1.1" 200 382 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:30:45.741Z info: GET /v1/event/categories 200 147ms
+2026-06-13T16:30:45.743Z info: ::1 - - [13/Jun/2026:16:30:45 +0000] "GET /v1/event/categories HTTP/1.1" 200 382 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:30:45.885Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 470ms
+2026-06-13T16:30:45.886Z info: ::1 - - [13/Jun/2026:16:30:45 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:30:46.385Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 497ms
+2026-06-13T16:30:46.387Z info: ::1 - - [13/Jun/2026:16:30:46 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:30:46.524Z info: GET /v1/user/profile 200 1102ms
+2026-06-13T16:30:46.525Z info: ::1 - - [13/Jun/2026:16:30:46 +0000] "GET /v1/user/profile HTTP/1.1" 200 6093 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:30:47.567Z info: GET /v1/user/profile 200 1041ms
+2026-06-13T16:30:47.567Z info: ::1 - - [13/Jun/2026:16:30:47 +0000] "GET /v1/user/profile HTTP/1.1" 200 6093 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:30:51.585Z info: GET /v1/event/categories 200 210ms
+2026-06-13T16:30:51.592Z info: ::1 - - [13/Jun/2026:16:30:51 +0000] "GET /v1/event/categories HTTP/1.1" 200 382 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:30:51.770Z info: GET /v1/event/categories 200 160ms
+2026-06-13T16:30:51.771Z info: ::1 - - [13/Jun/2026:16:30:51 +0000] "GET /v1/event/categories HTTP/1.1" 200 382 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:30:51.898Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 519ms
+2026-06-13T16:30:51.899Z info: ::1 - - [13/Jun/2026:16:30:51 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:30:52.366Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 466ms
+2026-06-13T16:30:52.368Z info: ::1 - - [13/Jun/2026:16:30:52 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:30:52.464Z info: GET /v1/user/profile 200 1082ms
+2026-06-13T16:30:52.464Z info: ::1 - - [13/Jun/2026:16:30:52 +0000] "GET /v1/user/profile HTTP/1.1" 200 6093 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:30:53.598Z info: GET /v1/user/profile 200 1132ms
+2026-06-13T16:30:53.599Z info: ::1 - - [13/Jun/2026:16:30:53 +0000] "GET /v1/user/profile HTTP/1.1" 200 6093 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:30:56.304Z info: GET /v1/event/categories 200 157ms
+2026-06-13T16:30:56.310Z info: ::1 - - [13/Jun/2026:16:30:56 +0000] "GET /v1/event/categories HTTP/1.1" 200 382 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:30:56.483Z info: GET /v1/event/categories 200 137ms
+2026-06-13T16:30:56.519Z info: ::1 - - [13/Jun/2026:16:30:56 +0000] "GET /v1/event/categories HTTP/1.1" 200 382 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:30:56.592Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 440ms
+2026-06-13T16:30:56.593Z info: ::1 - - [13/Jun/2026:16:30:56 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:30:57.029Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 434ms
+2026-06-13T16:30:57.030Z info: ::1 - - [13/Jun/2026:16:30:57 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:30:57.252Z info: GET /v1/user/profile 200 1087ms
+2026-06-13T16:30:57.253Z info: ::1 - - [13/Jun/2026:16:30:57 +0000] "GET /v1/user/profile HTTP/1.1" 200 6093 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:30:58.302Z info: GET /v1/user/profile 200 1048ms
+2026-06-13T16:30:58.303Z info: ::1 - - [13/Jun/2026:16:30:58 +0000] "GET /v1/user/profile HTTP/1.1" 200 6093 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:31:10.859Z info: GET /v1/event/categories 200 215ms
+2026-06-13T16:31:10.859Z info: ::1 - - [13/Jun/2026:16:31:10 +0000] "GET /v1/event/categories HTTP/1.1" 200 382 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:31:11.007Z info: GET /v1/event/categories 200 144ms
+2026-06-13T16:31:11.009Z info: ::1 - - [13/Jun/2026:16:31:11 +0000] "GET /v1/event/categories HTTP/1.1" 200 382 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:31:11.148Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 501ms
+2026-06-13T16:31:11.148Z info: ::1 - - [13/Jun/2026:16:31:11 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:31:11.562Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 411ms
+2026-06-13T16:31:11.563Z info: ::1 - - [13/Jun/2026:16:31:11 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:31:11.714Z info: GET /v1/user/profile 200 1062ms
+2026-06-13T16:31:11.715Z info: ::1 - - [13/Jun/2026:16:31:11 +0000] "GET /v1/user/profile HTTP/1.1" 200 6093 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:31:12.773Z info: GET /v1/user/profile 200 1053ms
+2026-06-13T16:31:12.773Z info: ::1 - - [13/Jun/2026:16:31:12 +0000] "GET /v1/user/profile HTTP/1.1" 200 6093 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:34:41.950Z info: GET /v1/event/categories 200 210ms
+2026-06-13T16:34:41.950Z info: ::1 - - [13/Jun/2026:16:34:41 +0000] "GET /v1/event/categories HTTP/1.1" 200 382 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:34:42.108Z info: GET /v1/event/categories 200 156ms
+2026-06-13T16:34:42.109Z info: ::1 - - [13/Jun/2026:16:34:42 +0000] "GET /v1/event/categories HTTP/1.1" 200 382 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:34:42.219Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 474ms
+2026-06-13T16:34:42.219Z info: ::1 - - [13/Jun/2026:16:34:42 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:34:42.706Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 484ms
+2026-06-13T16:34:42.708Z info: ::1 - - [13/Jun/2026:16:34:42 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:34:42.785Z info: GET /v1/user/profile 200 1035ms
+2026-06-13T16:34:42.785Z info: ::1 - - [13/Jun/2026:16:34:42 +0000] "GET /v1/user/profile HTTP/1.1" 200 6093 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:34:43.834Z info: GET /v1/user/profile 200 1047ms
+2026-06-13T16:34:43.835Z info: ::1 - - [13/Jun/2026:16:34:43 +0000] "GET /v1/user/profile HTTP/1.1" 200 6093 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:35:01.880Z info: GET /v1/event/categories 200 160ms
+2026-06-13T16:35:01.880Z info: ::1 - - [13/Jun/2026:16:35:01 +0000] "GET /v1/event/categories HTTP/1.1" 200 382 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:35:02.025Z info: GET /v1/event/categories 200 144ms
+2026-06-13T16:35:02.026Z info: ::1 - - [13/Jun/2026:16:35:02 +0000] "GET /v1/event/categories HTTP/1.1" 200 382 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:35:02.220Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 455ms
+2026-06-13T16:35:02.221Z info: ::1 - - [13/Jun/2026:16:35:02 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:35:02.436Z info: ::1 - - [13/Jun/2026:16:35:02 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" - - "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:35:02.447Z info: ::1 - - [13/Jun/2026:16:35:02 +0000] "GET /v1/user/profile HTTP/1.1" - - "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:35:04.681Z info: GET /v1/event/categories 200 147ms
+2026-06-13T16:35:04.681Z info: ::1 - - [13/Jun/2026:16:35:04 +0000] "GET /v1/event/categories HTTP/1.1" 200 382 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:35:04.827Z info: GET /v1/event/categories 200 145ms
+2026-06-13T16:35:04.827Z info: ::1 - - [13/Jun/2026:16:35:04 +0000] "GET /v1/event/categories HTTP/1.1" 200 382 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:35:04.969Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 428ms
+2026-06-13T16:35:04.970Z info: ::1 - - [13/Jun/2026:16:35:04 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:35:05.417Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 445ms
+2026-06-13T16:35:05.420Z info: ::1 - - [13/Jun/2026:16:35:05 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:35:05.454Z info: ::1 - - [13/Jun/2026:16:35:05 +0000] "GET /v1/user/profile HTTP/1.1" - - "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:35:06.311Z info: GET /v1/event/categories 200 144ms
+2026-06-13T16:35:06.312Z info: ::1 - - [13/Jun/2026:16:35:06 +0000] "GET /v1/event/categories HTTP/1.1" 200 382 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:35:06.456Z info: GET /v1/event/categories 200 143ms
+2026-06-13T16:35:06.456Z info: ::1 - - [13/Jun/2026:16:35:06 +0000] "GET /v1/event/categories HTTP/1.1" 200 382 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:35:06.599Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 426ms
+2026-06-13T16:35:06.599Z info: ::1 - - [13/Jun/2026:16:35:06 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:35:07.064Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 462ms
+2026-06-13T16:35:07.065Z info: ::1 - - [13/Jun/2026:16:35:07 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:35:07.228Z info: GET /v1/user/profile 200 1051ms
+2026-06-13T16:35:07.229Z info: ::1 - - [13/Jun/2026:16:35:07 +0000] "GET /v1/user/profile HTTP/1.1" 200 6093 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:35:08.351Z info: GET /v1/user/profile 200 1120ms
+2026-06-13T16:35:08.352Z info: ::1 - - [13/Jun/2026:16:35:08 +0000] "GET /v1/user/profile HTTP/1.1" 200 6093 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:35:40.452Z info: ::1 - - [13/Jun/2026:16:35:40 +0000] "GET /v1/user/profile HTTP/1.1" - - "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:35:40.491Z info: ::1 - - [13/Jun/2026:16:35:40 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" - - "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:35:40.501Z info: ::1 - - [13/Jun/2026:16:35:40 +0000] "GET /v1/event/categories HTTP/1.1" 200 382 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:35:41.600Z info: GET /v1/event/categories 200 150ms
+2026-06-13T16:35:41.601Z info: ::1 - - [13/Jun/2026:16:35:41 +0000] "GET /v1/event/categories HTTP/1.1" 200 382 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:35:41.735Z info: GET /v1/event/categories 200 133ms
+2026-06-13T16:35:41.735Z info: ::1 - - [13/Jun/2026:16:35:41 +0000] "GET /v1/event/categories HTTP/1.1" 200 382 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:35:41.881Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 428ms
+2026-06-13T16:35:41.881Z info: ::1 - - [13/Jun/2026:16:35:41 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:35:42.312Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 427ms
+2026-06-13T16:35:42.319Z info: ::1 - - [13/Jun/2026:16:35:42 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:35:42.460Z info: GET /v1/user/profile 200 1004ms
+2026-06-13T16:35:42.461Z info: ::1 - - [13/Jun/2026:16:35:42 +0000] "GET /v1/user/profile HTTP/1.1" 200 6093 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:35:43.563Z info: GET /v1/user/profile 200 1101ms
+2026-06-13T16:35:43.563Z info: ::1 - - [13/Jun/2026:16:35:43 +0000] "GET /v1/user/profile HTTP/1.1" 200 6093 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:35:48.956Z info: GET /v1/event/categories 200 181ms
+2026-06-13T16:35:48.956Z info: ::1 - - [13/Jun/2026:16:35:48 +0000] "GET /v1/event/categories HTTP/1.1" 200 382 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:35:49.125Z info: GET /v1/event/categories 200 167ms
+2026-06-13T16:35:49.126Z info: ::1 - - [13/Jun/2026:16:35:49 +0000] "GET /v1/event/categories HTTP/1.1" 200 382 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:35:49.271Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 493ms
+2026-06-13T16:35:49.272Z info: ::1 - - [13/Jun/2026:16:35:49 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:35:49.715Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 440ms
+2026-06-13T16:35:49.722Z info: ::1 - - [13/Jun/2026:16:35:49 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:35:49.864Z info: GET /v1/user/profile 200 1083ms
+2026-06-13T16:35:49.864Z info: ::1 - - [13/Jun/2026:16:35:49 +0000] "GET /v1/user/profile HTTP/1.1" 200 6093 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:35:50.938Z info: GET /v1/user/profile 200 1072ms
+2026-06-13T16:35:50.940Z info: ::1 - - [13/Jun/2026:16:35:50 +0000] "GET /v1/user/profile HTTP/1.1" 200 6093 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:38:56.972Z info: GET /v1/event/categories 200 132ms
+2026-06-13T16:38:56.973Z info: ::1 - - [13/Jun/2026:16:38:56 +0000] "GET /v1/event/categories HTTP/1.1" 200 382 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:38:57.139Z info: GET /v1/event/categories 200 164ms
+2026-06-13T16:38:57.139Z info: ::1 - - [13/Jun/2026:16:38:57 +0000] "GET /v1/event/categories HTTP/1.1" 200 382 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:38:57.273Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 430ms
+2026-06-13T16:38:57.273Z info: ::1 - - [13/Jun/2026:16:38:57 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:38:57.423Z info: ::1 - - [13/Jun/2026:16:38:57 +0000] "GET /v1/user/profile HTTP/1.1" - - "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:38:57.426Z info: ::1 - - [13/Jun/2026:16:38:57 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" - - "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:38:58.790Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 460ms
+2026-06-13T16:38:58.791Z info: ::1 - - [13/Jun/2026:16:38:58 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:38:59.229Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 434ms
+2026-06-13T16:38:59.229Z info: ::1 - - [13/Jun/2026:16:38:59 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:38:59.385Z info: GET /v1/user/profile 200 1052ms
+2026-06-13T16:38:59.387Z info: ::1 - - [13/Jun/2026:16:38:59 +0000] "GET /v1/user/profile HTTP/1.1" 200 6093 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:39:00.498Z info: GET /v1/user/profile 200 1108ms
+2026-06-13T16:39:00.499Z info: ::1 - - [13/Jun/2026:16:39:00 +0000] "GET /v1/user/profile HTTP/1.1" 200 6093 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:40:00.922Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 459ms
+2026-06-13T16:40:00.923Z info: ::1 - - [13/Jun/2026:16:40:00 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:40:01.363Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 439ms
+2026-06-13T16:40:01.363Z info: ::1 - - [13/Jun/2026:16:40:01 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:40:01.547Z info: GET /v1/user/profile 200 1081ms
+2026-06-13T16:40:01.547Z info: ::1 - - [13/Jun/2026:16:40:01 +0000] "GET /v1/user/profile HTTP/1.1" 200 6093 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:40:02.651Z info: GET /v1/user/profile 200 1102ms
+2026-06-13T16:40:02.652Z info: ::1 - - [13/Jun/2026:16:40:02 +0000] "GET /v1/user/profile HTTP/1.1" 200 6093 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:40:58.013Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 461ms
+2026-06-13T16:40:58.014Z info: ::1 - - [13/Jun/2026:16:40:58 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:40:58.428Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 412ms
+2026-06-13T16:40:58.432Z info: ::1 - - [13/Jun/2026:16:40:58 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:40:58.433Z info: ::1 - - [13/Jun/2026:16:40:58 +0000] "GET /v1/user/profile HTTP/1.1" - - "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:40:59.754Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 486ms
+2026-06-13T16:40:59.754Z info: ::1 - - [13/Jun/2026:16:40:59 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:41:00.185Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 427ms
+2026-06-13T16:41:00.186Z info: ::1 - - [13/Jun/2026:16:41:00 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:41:00.332Z info: GET /v1/user/profile 200 1053ms
+2026-06-13T16:41:00.333Z info: ::1 - - [13/Jun/2026:16:41:00 +0000] "GET /v1/user/profile HTTP/1.1" 200 6093 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:41:00.465Z info: ::1 - - [13/Jun/2026:16:41:00 +0000] "GET /v1/user/profile HTTP/1.1" - - "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:41:01.964Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 441ms
+2026-06-13T16:41:01.969Z info: ::1 - - [13/Jun/2026:16:41:01 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:41:02.458Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 486ms
+2026-06-13T16:41:02.459Z info: ::1 - - [13/Jun/2026:16:41:02 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:41:02.552Z info: GET /v1/user/profile 200 1022ms
+2026-06-13T16:41:02.553Z info: ::1 - - [13/Jun/2026:16:41:02 +0000] "GET /v1/user/profile HTTP/1.1" 200 6093 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:41:03.587Z info: GET /v1/user/profile 200 1033ms
+2026-06-13T16:41:03.588Z info: ::1 - - [13/Jun/2026:16:41:03 +0000] "GET /v1/user/profile HTTP/1.1" 200 6093 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:47:26.366Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 588ms
+2026-06-13T16:47:26.372Z info: ::1 - - [13/Jun/2026:16:47:26 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:47:26.772Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 397ms
+2026-06-13T16:47:26.774Z info: ::1 - - [13/Jun/2026:16:47:26 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:47:26.934Z info: GET /v1/user/profile 200 1131ms
+2026-06-13T16:47:26.935Z info: ::1 - - [13/Jun/2026:16:47:26 +0000] "GET /v1/user/profile HTTP/1.1" 200 6093 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:47:28.018Z info: GET /v1/user/profile 200 1081ms
+2026-06-13T16:47:28.019Z info: ::1 - - [13/Jun/2026:16:47:28 +0000] "GET /v1/user/profile HTTP/1.1" 200 6093 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-13T16:48:15.642Z info: ::1 - - [13/Jun/2026:16:48:15 +0000] "GET /v1/user/profile HTTP/1.1" - - "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-13T16:48:15.666Z info: ::1 - - [13/Jun/2026:16:48:15 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" - - "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-13T16:48:16.538Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 446ms
+2026-06-13T16:48:16.538Z info: ::1 - - [13/Jun/2026:16:48:16 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-13T16:48:16.987Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 446ms
+2026-06-13T16:48:16.990Z info: ::1 - - [13/Jun/2026:16:48:16 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-13T16:48:17.145Z info: GET /v1/user/profile 200 1050ms
+2026-06-13T16:48:17.147Z info: ::1 - - [13/Jun/2026:16:48:17 +0000] "GET /v1/user/profile HTTP/1.1" 200 6093 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-13T16:48:18.192Z info: GET /v1/user/profile 200 1042ms
+2026-06-13T16:48:18.192Z info: ::1 - - [13/Jun/2026:16:48:18 +0000] "GET /v1/user/profile HTTP/1.1" 200 6093 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-13T16:56:46.500Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 479ms
+2026-06-13T16:56:46.501Z info: ::1 - - [13/Jun/2026:16:56:46 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-13T16:56:46.943Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 437ms
+2026-06-13T16:56:46.944Z info: ::1 - - [13/Jun/2026:16:56:46 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-13T16:56:47.113Z info: GET /v1/user/profile 200 1089ms
+2026-06-13T16:56:47.113Z info: ::1 - - [13/Jun/2026:16:56:47 +0000] "GET /v1/user/profile HTTP/1.1" 200 6093 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-13T16:56:48.215Z info: GET /v1/user/profile 200 1101ms
+2026-06-13T16:56:48.217Z info: ::1 - - [13/Jun/2026:16:56:48 +0000] "GET /v1/user/profile HTTP/1.1" 200 6093 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-13T16:57:50.980Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 482ms
+2026-06-13T16:57:50.982Z info: ::1 - - [13/Jun/2026:16:57:50 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-13T16:57:51.467Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 477ms
+2026-06-13T16:57:51.468Z info: ::1 - - [13/Jun/2026:16:57:51 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-13T16:57:51.619Z info: GET /v1/user/profile 200 1117ms
+2026-06-13T16:57:51.620Z info: ::1 - - [13/Jun/2026:16:57:51 +0000] "GET /v1/user/profile HTTP/1.1" 200 6093 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-13T16:57:52.692Z info: GET /v1/user/profile 200 1068ms
+2026-06-13T16:57:52.693Z info: ::1 - - [13/Jun/2026:16:57:52 +0000] "GET /v1/user/profile HTTP/1.1" 200 6093 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-13T16:58:02.656Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 445ms
+2026-06-13T16:58:02.657Z info: ::1 - - [13/Jun/2026:16:58:02 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-13T16:58:03.120Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 462ms
+2026-06-13T16:58:03.120Z info: ::1 - - [13/Jun/2026:16:58:03 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-13T16:58:03.237Z info: GET /v1/user/profile 200 1016ms
+2026-06-13T16:58:03.238Z info: ::1 - - [13/Jun/2026:16:58:03 +0000] "GET /v1/user/profile HTTP/1.1" 200 6093 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-13T16:58:04.377Z info: GET /v1/user/profile 200 1137ms
+2026-06-13T16:58:04.384Z info: ::1 - - [13/Jun/2026:16:58:04 +0000] "GET /v1/user/profile HTTP/1.1" 200 6093 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-13T16:58:12.418Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 470ms
+2026-06-13T16:58:12.419Z info: ::1 - - [13/Jun/2026:16:58:12 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-13T16:58:12.868Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 447ms
+2026-06-13T16:58:12.870Z info: ::1 - - [13/Jun/2026:16:58:12 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-13T16:58:13.012Z info: GET /v1/user/profile 200 1060ms
+2026-06-13T16:58:13.013Z info: ::1 - - [13/Jun/2026:16:58:13 +0000] "GET /v1/user/profile HTTP/1.1" 200 6093 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-13T16:58:14.111Z info: GET /v1/user/profile 200 1097ms
+2026-06-13T16:58:14.111Z info: ::1 - - [13/Jun/2026:16:58:14 +0000] "GET /v1/user/profile HTTP/1.1" 200 6093 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-13T17:01:11.871Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 467ms
+2026-06-13T17:01:11.872Z info: ::1 - - [13/Jun/2026:17:01:11 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-13T17:01:12.286Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 411ms
+2026-06-13T17:01:12.287Z info: ::1 - - [13/Jun/2026:17:01:12 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-13T17:01:12.441Z info: GET /v1/user/profile 200 1034ms
+2026-06-13T17:01:12.443Z info: ::1 - - [13/Jun/2026:17:01:12 +0000] "GET /v1/user/profile HTTP/1.1" 200 6093 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-13T17:01:13.550Z info: GET /v1/user/profile 200 1103ms
+2026-06-13T17:01:13.550Z info: ::1 - - [13/Jun/2026:17:01:13 +0000] "GET /v1/user/profile HTTP/1.1" 200 6093 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-13T17:01:21.376Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 469ms
+2026-06-13T17:01:21.377Z info: ::1 - - [13/Jun/2026:17:01:21 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-13T17:01:21.838Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 460ms
+2026-06-13T17:01:21.839Z info: ::1 - - [13/Jun/2026:17:01:21 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-13T17:01:21.949Z info: GET /v1/user/profile 200 1039ms
+2026-06-13T17:01:21.949Z info: ::1 - - [13/Jun/2026:17:01:21 +0000] "GET /v1/user/profile HTTP/1.1" 200 6093 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-13T17:01:23.027Z info: GET /v1/user/profile 200 1075ms
+2026-06-13T17:01:23.027Z info: ::1 - - [13/Jun/2026:17:01:23 +0000] "GET /v1/user/profile HTTP/1.1" 200 6093 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-13T17:02:41.428Z info: GET /v1/event/lagos-business-and-investment-conference 200 302ms
+2026-06-13T17:02:41.429Z info: ::1 - - [13/Jun/2026:17:02:41 +0000] "GET /v1/event/lagos-business-and-investment-conference HTTP/1.1" 200 1366 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-13T17:02:41.738Z info: GET /v1/event/lagos-business-and-investment-conference 200 305ms
+2026-06-13T17:02:41.739Z info: ::1 - - [13/Jun/2026:17:02:41 +0000] "GET /v1/event/lagos-business-and-investment-conference HTTP/1.1" 200 1366 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-13T17:02:44.459Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 500ms
+2026-06-13T17:02:44.459Z info: ::1 - - [13/Jun/2026:17:02:44 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-13T17:02:44.891Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 430ms
+2026-06-13T17:02:44.891Z info: ::1 - - [13/Jun/2026:17:02:44 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-13T17:02:53.468Z info: GET /v1/event/ 200 456ms
+2026-06-13T17:02:53.469Z info: ::1 - - [13/Jun/2026:17:02:53 +0000] "GET /v1/event/ HTTP/1.1" 200 4040 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-13T17:02:53.916Z info: GET /v1/event/ 200 443ms
+2026-06-13T17:02:53.916Z info: ::1 - - [13/Jun/2026:17:02:53 +0000] "GET /v1/event/ HTTP/1.1" 200 4040 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-13T17:03:12.429Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 482ms
+2026-06-13T17:03:12.429Z info: ::1 - - [13/Jun/2026:17:03:12 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-13T17:03:12.900Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 469ms
+2026-06-13T17:03:12.901Z info: ::1 - - [13/Jun/2026:17:03:12 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-13T17:03:24.301Z info: GET /v1/event/ 200 473ms
+2026-06-13T17:03:24.302Z info: ::1 - - [13/Jun/2026:17:03:24 +0000] "GET /v1/event/ HTTP/1.1" 200 4040 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-13T17:03:24.750Z info: GET /v1/event/ 200 444ms
+2026-06-13T17:03:24.751Z info: ::1 - - [13/Jun/2026:17:03:24 +0000] "GET /v1/event/ HTTP/1.1" 200 4040 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-13T17:03:48.890Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 434ms
+2026-06-13T17:03:48.891Z info: ::1 - - [13/Jun/2026:17:03:48 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-13T17:03:49.321Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 429ms
+2026-06-13T17:03:49.321Z info: ::1 - - [13/Jun/2026:17:03:49 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-13T17:06:29.002Z info: GET /v1/event/ 200 452ms
+2026-06-13T17:06:29.003Z info: ::1 - - [13/Jun/2026:17:06:29 +0000] "GET /v1/event/ HTTP/1.1" 200 4040 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-13T17:06:29.457Z info: GET /v1/event/ 200 451ms
+2026-06-13T17:06:29.457Z info: ::1 - - [13/Jun/2026:17:06:29 +0000] "GET /v1/event/ HTTP/1.1" 200 4040 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-13T17:06:33.489Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 441ms
+2026-06-13T17:06:33.489Z info: ::1 - - [13/Jun/2026:17:06:33 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-13T17:06:33.954Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 461ms
+2026-06-13T17:06:33.954Z info: ::1 - - [13/Jun/2026:17:06:33 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-13T17:06:54.915Z info: GET /v1/event/ 200 457ms
+2026-06-13T17:06:54.918Z info: ::1 - - [13/Jun/2026:17:06:54 +0000] "GET /v1/event/ HTTP/1.1" 200 4040 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-13T17:06:55.364Z info: GET /v1/event/ 200 442ms
+2026-06-13T17:06:55.365Z info: ::1 - - [13/Jun/2026:17:06:55 +0000] "GET /v1/event/ HTTP/1.1" 200 4040 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-13T17:07:08.375Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 468ms
+2026-06-13T17:07:08.376Z info: ::1 - - [13/Jun/2026:17:07:08 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-13T17:07:08.843Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 466ms
+2026-06-13T17:07:08.844Z info: ::1 - - [13/Jun/2026:17:07:08 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-13T17:13:20.670Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 455ms
+2026-06-13T17:13:20.672Z info: ::1 - - [13/Jun/2026:17:13:20 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-13T17:13:21.087Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 410ms
+2026-06-13T17:13:21.088Z info: ::1 - - [13/Jun/2026:17:13:21 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-13T17:13:21.263Z info: GET /v1/user/profile 200 1045ms
+2026-06-13T17:13:21.265Z info: ::1 - - [13/Jun/2026:17:13:21 +0000] "GET /v1/user/profile HTTP/1.1" 200 6093 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-13T17:13:22.353Z info: GET /v1/user/profile 200 1085ms
+2026-06-13T17:13:22.354Z info: ::1 - - [13/Jun/2026:17:13:22 +0000] "GET /v1/user/profile HTTP/1.1" 200 6093 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-13T17:13:30.442Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 470ms
+2026-06-13T17:13:30.443Z info: ::1 - - [13/Jun/2026:17:13:30 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-13T17:13:30.896Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 448ms
+2026-06-13T17:13:30.897Z info: ::1 - - [13/Jun/2026:17:13:30 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-13T17:13:31.008Z info: GET /v1/user/profile 200 1032ms
+2026-06-13T17:13:31.009Z info: ::1 - - [13/Jun/2026:17:13:31 +0000] "GET /v1/user/profile HTTP/1.1" 200 6093 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-13T17:13:32.137Z info: GET /v1/user/profile 200 1126ms
+2026-06-13T17:13:32.138Z info: ::1 - - [13/Jun/2026:17:13:32 +0000] "GET /v1/user/profile HTTP/1.1" 200 6093 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-13T17:13:39.134Z info: GET /v1/event/ 200 418ms
+2026-06-13T17:13:39.136Z info: ::1 - - [13/Jun/2026:17:13:39 +0000] "GET /v1/event/ HTTP/1.1" 200 4040 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-13T17:13:39.630Z info: GET /v1/event/ 200 490ms
+2026-06-13T17:13:39.631Z info: ::1 - - [13/Jun/2026:17:13:39 +0000] "GET /v1/event/ HTTP/1.1" 200 4040 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-13T17:13:42.205Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 455ms
+2026-06-13T17:13:42.206Z info: ::1 - - [13/Jun/2026:17:13:42 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-13T17:13:42.636Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 425ms
+2026-06-13T17:13:42.637Z info: ::1 - - [13/Jun/2026:17:13:42 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-13T17:16:11.866Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 493ms
+2026-06-13T17:16:11.867Z info: ::1 - - [13/Jun/2026:17:16:11 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-13T17:16:12.306Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 438ms
+2026-06-13T17:16:12.306Z info: ::1 - - [13/Jun/2026:17:16:12 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-13T17:16:12.444Z info: GET /v1/user/profile 200 1066ms
+2026-06-13T17:16:12.445Z info: ::1 - - [13/Jun/2026:17:16:12 +0000] "GET /v1/user/profile HTTP/1.1" 200 6093 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-13T17:16:13.504Z info: GET /v1/user/profile 200 1056ms
+2026-06-13T17:16:13.505Z info: ::1 - - [13/Jun/2026:17:16:13 +0000] "GET /v1/user/profile HTTP/1.1" 200 6093 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-13T17:16:46.759Z info: GET /v1/event/ 200 1088ms
+2026-06-13T17:16:46.759Z info: ::1 - - [13/Jun/2026:17:16:46 +0000] "GET /v1/event/ HTTP/1.1" 200 4040 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-13T17:16:47.658Z info: GET /v1/event/ 200 897ms
+2026-06-13T17:16:47.658Z info: ::1 - - [13/Jun/2026:17:16:47 +0000] "GET /v1/event/ HTTP/1.1" 200 4040 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-13T17:16:50.746Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 445ms
+2026-06-13T17:16:50.747Z info: ::1 - - [13/Jun/2026:17:16:50 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-13T17:16:51.252Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 502ms
+2026-06-13T17:16:51.252Z info: ::1 - - [13/Jun/2026:17:16:51 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"

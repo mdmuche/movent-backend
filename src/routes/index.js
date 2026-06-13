@@ -1,5 +1,6 @@
 import express from "express";
 
+import pingRoutes from "./ping.js";
 import adminRouter from "./admin.js";
 import authRouter from "./auth.js";
 import checkoutRouter from "./checkout.js";
@@ -11,7 +12,7 @@ import ticketRouter from "./ticket.js";
 import userRouter from "./user.js";
 
 const router = express.Router();
-
+router.use("/", pingRoutes);
 router.use("/auth", authRouter);
 router.use("/user", userRouter);
 router.use("/event", eventRouter);
