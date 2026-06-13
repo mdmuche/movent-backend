@@ -1,3 +1,4 @@
+// todo used dotenv for a minor fix we improve this later
 import dotenv from "dotenv";
 dotenv.config();
 
