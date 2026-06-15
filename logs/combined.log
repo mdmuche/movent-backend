@@ -25583,3 +25583,399 @@
 2026-06-13T17:16:50.747Z info: ::1 - - [13/Jun/2026:17:16:50 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
 2026-06-13T17:16:51.252Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 502ms
 2026-06-13T17:16:51.252Z info: ::1 - - [13/Jun/2026:17:16:51 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-15T11:30:41.624Z info: GET /v1/user/profile 401 9ms
+2026-06-15T11:30:41.635Z info: ::1 - - [15/Jun/2026:11:30:41 +0000] "GET /v1/user/profile HTTP/1.1" 401 93 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-15T11:30:41.642Z info: GET /v1/user/profile 401 2ms
+2026-06-15T11:30:41.647Z info: ::1 - - [15/Jun/2026:11:30:41 +0000] "GET /v1/user/profile HTTP/1.1" 401 93 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-15T11:30:41.665Z info: OPTIONS /v1/auth/refresh-token 200 3ms
+2026-06-15T11:30:41.667Z info: ::1 - - [15/Jun/2026:11:30:41 +0000] "OPTIONS /v1/auth/refresh-token HTTP/1.1" 200 0 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-15T11:30:43.151Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 1554ms
+2026-06-15T11:30:43.152Z info: ::1 - - [15/Jun/2026:11:30:43 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-15T11:30:44.218Z info: POST /v1/auth/refresh-token 200 2435ms
+2026-06-15T11:30:44.218Z info: ::1 - - [15/Jun/2026:11:30:44 +0000] "POST /v1/auth/refresh-token HTTP/1.1" 200 80 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-15T11:30:44.710Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 490ms
+2026-06-15T11:30:44.711Z info: ::1 - - [15/Jun/2026:11:30:44 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-15T11:30:45.360Z info: GET /v1/user/profile 200 1080ms
+2026-06-15T11:30:45.363Z info: ::1 - - [15/Jun/2026:11:30:45 +0000] "GET /v1/user/profile HTTP/1.1" 200 6093 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-15T11:30:46.483Z info: GET /v1/user/profile 200 1115ms
+2026-06-15T11:30:46.483Z info: ::1 - - [15/Jun/2026:11:30:46 +0000] "GET /v1/user/profile HTTP/1.1" 200 6093 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-15T11:31:07.471Z info: OPTIONS /v1/auth/login 200 1ms
+2026-06-15T11:31:07.472Z info: ::1 - - [15/Jun/2026:11:31:07 +0000] "OPTIONS /v1/auth/login HTTP/1.1" 200 0 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-15T11:31:08.659Z info: POST /v1/auth/login 200 1183ms
+2026-06-15T11:31:08.660Z info: ::1 - - [15/Jun/2026:11:31:08 +0000] "POST /v1/auth/login HTTP/1.1" 200 262 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-15T11:31:12.299Z info: GET /v1/organizer/analytics 403 184ms
+2026-06-15T11:31:12.300Z info: ::1 - - [15/Jun/2026:11:31:12 +0000] "GET /v1/organizer/analytics HTTP/1.1" 403 128 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-15T11:31:12.588Z info: GET /v1/user/activity 200 476ms
+2026-06-15T11:31:12.590Z info: ::1 - - [15/Jun/2026:11:31:12 +0000] "GET /v1/user/activity HTTP/1.1" 200 231 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-15T11:31:12.765Z info: GET /v1/user/dashboard 200 656ms
+2026-06-15T11:31:12.766Z info: ::1 - - [15/Jun/2026:11:31:12 +0000] "GET /v1/user/dashboard HTTP/1.1" 200 164 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-15T11:31:13.258Z info: GET /v1/organizer/analytics 403 164ms
+2026-06-15T11:31:13.258Z info: ::1 - - [15/Jun/2026:11:31:13 +0000] "GET /v1/organizer/analytics HTTP/1.1" 403 128 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-15T11:31:13.607Z info: GET /v1/user/activity 200 504ms
+2026-06-15T11:31:13.608Z info: ::1 - - [15/Jun/2026:11:31:13 +0000] "GET /v1/user/activity HTTP/1.1" 200 231 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-15T11:31:13.762Z info: GET /v1/user/dashboard 200 653ms
+2026-06-15T11:31:13.763Z info: ::1 - - [15/Jun/2026:11:31:13 +0000] "GET /v1/user/dashboard HTTP/1.1" 200 164 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-15T11:31:25.179Z info: GET /v1/user/profile 200 961ms
+2026-06-15T11:31:25.180Z info: ::1 - - [15/Jun/2026:11:31:25 +0000] "GET /v1/user/profile HTTP/1.1" 200 851 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-15T11:31:26.157Z info: GET /v1/user/profile 200 974ms
+2026-06-15T11:31:26.159Z info: ::1 - - [15/Jun/2026:11:31:26 +0000] "GET /v1/user/profile HTTP/1.1" 200 851 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-15T11:32:08.877Z info: OPTIONS /v1/user/profile 200 1ms
+2026-06-15T11:32:08.877Z info: ::1 - - [15/Jun/2026:11:32:08 +0000] "OPTIONS /v1/user/profile HTTP/1.1" 200 0 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-15T11:32:09.275Z info: PATCH /v1/user/profile 200 395ms
+2026-06-15T11:32:09.276Z info: ::1 - - [15/Jun/2026:11:32:09 +0000] "PATCH /v1/user/profile HTTP/1.1" 200 678 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-15T11:33:51.404Z info: GET /v1/user/profile 200 910ms
+2026-06-15T11:33:51.405Z info: ::1 - - [15/Jun/2026:11:33:51 +0000] "GET /v1/user/profile HTTP/1.1" 200 851 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-15T11:33:52.326Z info: GET /v1/user/profile 200 916ms
+2026-06-15T11:33:52.328Z info: ::1 - - [15/Jun/2026:11:33:52 +0000] "GET /v1/user/profile HTTP/1.1" 200 851 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-15T11:34:08.595Z info: ::1 - - [15/Jun/2026:11:34:08 +0000] "GET /v1/user/profile HTTP/1.1" - - "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-15T11:34:10.455Z info: GET /v1/user/profile 200 922ms
+2026-06-15T11:34:10.465Z info: ::1 - - [15/Jun/2026:11:34:10 +0000] "GET /v1/user/profile HTTP/1.1" 200 851 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-15T11:34:11.426Z info: GET /v1/user/profile 200 940ms
+2026-06-15T11:34:11.427Z info: ::1 - - [15/Jun/2026:11:34:11 +0000] "GET /v1/user/profile HTTP/1.1" 200 851 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-15T11:34:17.596Z info: ::1 - - [15/Jun/2026:11:34:17 +0000] "GET /v1/user/profile HTTP/1.1" - - "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-15T11:34:19.768Z info: GET /v1/user/profile 200 957ms
+2026-06-15T11:34:19.768Z info: ::1 - - [15/Jun/2026:11:34:19 +0000] "GET /v1/user/profile HTTP/1.1" 200 851 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-15T11:34:20.812Z info: GET /v1/user/profile 200 1040ms
+2026-06-15T11:34:20.814Z info: ::1 - - [15/Jun/2026:11:34:20 +0000] "GET /v1/user/profile HTTP/1.1" 200 851 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-15T11:34:28.404Z info: OPTIONS /v1/user/profile 200 1ms
+2026-06-15T11:34:28.406Z info: ::1 - - [15/Jun/2026:11:34:28 +0000] "OPTIONS /v1/user/profile HTTP/1.1" 200 0 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-15T11:34:28.748Z info: PATCH /v1/user/profile 200 338ms
+2026-06-15T11:34:28.775Z info: ::1 - - [15/Jun/2026:11:34:28 +0000] "PATCH /v1/user/profile HTTP/1.1" 200 678 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-15T11:35:00.095Z info: GET /v1/ping 200 1ms
+2026-06-15T11:35:00.095Z info: ::1 - - [15/Jun/2026:11:35:00 +0000] "GET /v1/ping HTTP/1.1" 200 67 "-" "axios/1.16.1"
+2026-06-15T11:35:09.587Z info: GET /v1/user/profile 200 964ms
+2026-06-15T11:35:09.588Z info: ::1 - - [15/Jun/2026:11:35:09 +0000] "GET /v1/user/profile HTTP/1.1" 200 851 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-15T11:35:10.511Z info: GET /v1/user/profile 200 917ms
+2026-06-15T11:35:10.512Z info: ::1 - - [15/Jun/2026:11:35:10 +0000] "GET /v1/user/profile HTTP/1.1" 200 851 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-15T11:40:00.032Z info: GET /v1/ping 200 1ms
+2026-06-15T11:40:00.033Z info: ::1 - - [15/Jun/2026:11:40:00 +0000] "GET /v1/ping HTTP/1.1" 200 67 "-" "axios/1.16.1"
+2026-06-15T11:45:00.060Z info: GET /v1/ping 200 1ms
+2026-06-15T11:45:00.060Z info: ::1 - - [15/Jun/2026:11:45:00 +0000] "GET /v1/ping HTTP/1.1" 200 67 "-" "axios/1.16.1"
+2026-06-15T11:50:00.031Z info: GET /v1/ping 200 1ms
+2026-06-15T11:50:00.032Z info: ::1 - - [15/Jun/2026:11:50:00 +0000] "GET /v1/ping HTTP/1.1" 200 67 "-" "axios/1.16.1"
+2026-06-15T11:55:00.025Z info: GET /v1/ping 200 1ms
+2026-06-15T11:55:00.025Z info: ::1 - - [15/Jun/2026:11:55:00 +0000] "GET /v1/ping HTTP/1.1" 200 67 "-" "axios/1.16.1"
+2026-06-15T12:00:00.060Z info: GET /v1/ping 200 1ms
+2026-06-15T12:00:00.060Z info: ::1 - - [15/Jun/2026:12:00:00 +0000] "GET /v1/ping HTTP/1.1" 200 67 "-" "axios/1.16.1"
+2026-06-15T12:05:00.048Z info: GET /v1/ping 200 1ms
+2026-06-15T12:05:00.049Z info: ::1 - - [15/Jun/2026:12:05:00 +0000] "GET /v1/ping HTTP/1.1" 200 67 "-" "axios/1.16.1"
+2026-06-15T12:10:00.042Z info: GET /v1/ping 200 1ms
+2026-06-15T12:10:00.042Z info: ::1 - - [15/Jun/2026:12:10:00 +0000] "GET /v1/ping HTTP/1.1" 200 67 "-" "axios/1.16.1"
+2026-06-15T12:15:00.067Z info: GET /v1/ping 200 1ms
+2026-06-15T12:15:00.068Z info: ::1 - - [15/Jun/2026:12:15:00 +0000] "GET /v1/ping HTTP/1.1" 200 67 "-" "axios/1.16.1"
+2026-06-15T14:54:19.695Z info: GET /v1/admin/promo-codes 401 19ms
+2026-06-15T14:54:19.709Z info: ::1 - - [15/Jun/2026:14:54:19 +0000] "GET /v1/admin/promo-codes HTTP/1.1" 401 93 "-" "PostmanRuntime/7.54.0"
+2026-06-15T14:54:35.902Z info: POST /v1/auth/login 200 843ms
+2026-06-15T14:54:35.903Z info: ::1 - - [15/Jun/2026:14:54:35 +0000] "POST /v1/auth/login HTTP/1.1" 200 312 "-" "PostmanRuntime/7.54.0"
+2026-06-15T14:54:46.659Z info: GET /v1/admin/promo-codes 200 631ms
+2026-06-15T14:54:46.662Z info: ::1 - - [15/Jun/2026:14:54:46 +0000] "GET /v1/admin/promo-codes HTTP/1.1" 200 821 "-" "PostmanRuntime/7.54.0"
+2026-06-15T14:55:00.277Z info: GET /v1/ping 200 3ms
+2026-06-15T14:55:00.278Z info: ::1 - - [15/Jun/2026:14:55:00 +0000] "GET /v1/ping HTTP/1.1" 200 67 "-" "axios/1.16.1"
+2026-06-15T15:00:00.063Z info: GET /v1/ping 200 2ms
+2026-06-15T15:00:00.064Z info: ::1 - - [15/Jun/2026:15:00:00 +0000] "GET /v1/ping HTTP/1.1" 200 67 "-" "axios/1.16.1"
+2026-06-15T15:05:00.077Z info: GET /v1/ping 200 3ms
+2026-06-15T15:05:00.078Z info: ::1 - - [15/Jun/2026:15:05:00 +0000] "GET /v1/ping HTTP/1.1" 200 67 "-" "axios/1.16.1"
+2026-06-15T15:10:00.073Z info: GET /v1/ping 200 3ms
+2026-06-15T15:10:00.074Z info: ::1 - - [15/Jun/2026:15:10:00 +0000] "GET /v1/ping HTTP/1.1" 200 67 "-" "axios/1.16.1"
+2026-06-15T15:15:00.061Z info: GET /v1/ping 200 1ms
+2026-06-15T15:15:00.061Z info: ::1 - - [15/Jun/2026:15:15:00 +0000] "GET /v1/ping HTTP/1.1" 200 67 "-" "axios/1.16.1"
+2026-06-15T15:20:00.059Z info: GET /v1/ping 200 3ms
+2026-06-15T15:20:00.060Z info: ::1 - - [15/Jun/2026:15:20:00 +0000] "GET /v1/ping HTTP/1.1" 200 67 "-" "axios/1.16.1"
+2026-06-15T15:25:00.063Z info: GET /v1/ping 200 2ms
+2026-06-15T15:25:00.063Z info: ::1 - - [15/Jun/2026:15:25:00 +0000] "GET /v1/ping HTTP/1.1" 200 67 "-" "axios/1.16.1"
+2026-06-15T15:30:00.092Z info: GET /v1/ping 200 2ms
+2026-06-15T15:30:00.102Z info: ::1 - - [15/Jun/2026:15:30:00 +0000] "GET /v1/ping HTTP/1.1" 200 67 "-" "axios/1.16.1"
+2026-06-15T15:35:00.034Z info: GET /v1/ping 200 1ms
+2026-06-15T15:35:00.035Z info: ::1 - - [15/Jun/2026:15:35:00 +0000] "GET /v1/ping HTTP/1.1" 200 67 "-" "axios/1.16.1"
+2026-06-15T15:40:00.068Z info: GET /v1/ping 200 2ms
+2026-06-15T15:40:00.069Z info: ::1 - - [15/Jun/2026:15:40:00 +0000] "GET /v1/ping HTTP/1.1" 200 67 "-" "axios/1.16.1"
+2026-06-15T15:45:00.064Z info: GET /v1/ping 200 2ms
+2026-06-15T15:45:00.065Z info: ::1 - - [15/Jun/2026:15:45:00 +0000] "GET /v1/ping HTTP/1.1" 200 67 "-" "axios/1.16.1"
+2026-06-15T15:50:00.064Z info: GET /v1/ping 200 2ms
+2026-06-15T15:50:00.064Z info: ::1 - - [15/Jun/2026:15:50:00 +0000] "GET /v1/ping HTTP/1.1" 200 67 "-" "axios/1.16.1"
+2026-06-15T21:05:00.248Z info: GET /v1/ping 200 26ms
+2026-06-15T21:05:00.252Z info: ::1 - - [15/Jun/2026:21:05:00 +0000] "GET /v1/ping HTTP/1.1" 200 67 "-" "axios/1.16.1"
+2026-06-15T21:08:02.506Z info: GET /v1/user/profile 200 1060ms
+2026-06-15T21:08:02.506Z info: ::1 - - [15/Jun/2026:21:08:02 +0000] "GET /v1/user/profile HTTP/1.1" 200 851 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-15T21:08:03.401Z info: GET /v1/user/profile 200 892ms
+2026-06-15T21:08:03.401Z info: ::1 - - [15/Jun/2026:21:08:03 +0000] "GET /v1/user/profile HTTP/1.1" 200 851 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-15T21:08:08.635Z info: OPTIONS /v1/user/profile 200 2ms
+2026-06-15T21:08:08.635Z info: ::1 - - [15/Jun/2026:21:08:08 +0000] "OPTIONS /v1/user/profile HTTP/1.1" 200 0 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-15T21:08:09.145Z info: PATCH /v1/user/profile 200 332ms
+2026-06-15T21:08:09.158Z info: ::1 - - [15/Jun/2026:21:08:09 +0000] "PATCH /v1/user/profile HTTP/1.1" 200 678 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-15T21:08:27.444Z info: OPTIONS /v1/user/notification/preferences 200 3ms
+2026-06-15T21:08:27.450Z info: ::1 - - [15/Jun/2026:21:08:27 +0000] "OPTIONS /v1/user/notification/preferences HTTP/1.1" 200 0 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-15T21:08:27.613Z info: PATCH /v1/user/notification/preferences 400 154ms
+2026-06-15T21:08:27.614Z info: ::1 - - [15/Jun/2026:21:08:27 +0000] "PATCH /v1/user/notification/preferences HTTP/1.1" 400 135 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-15T21:10:00.054Z info: GET /v1/ping 200 2ms
+2026-06-15T21:10:00.054Z info: ::1 - - [15/Jun/2026:21:10:00 +0000] "GET /v1/ping HTTP/1.1" 200 67 "-" "axios/1.16.1"
+2026-06-15T21:13:52.166Z info: OPTIONS /v1/user/notification/preferences 200 2ms
+2026-06-15T21:13:52.169Z info: ::1 - - [15/Jun/2026:21:13:52 +0000] "OPTIONS /v1/user/notification/preferences HTTP/1.1" 200 0 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-15T21:13:52.342Z info: PATCH /v1/user/notification/preferences 400 169ms
+2026-06-15T21:13:52.343Z info: ::1 - - [15/Jun/2026:21:13:52 +0000] "PATCH /v1/user/notification/preferences HTTP/1.1" 400 135 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-15T21:13:53.561Z info: PATCH /v1/user/notification/preferences 400 149ms
+2026-06-15T21:13:53.562Z info: ::1 - - [15/Jun/2026:21:13:53 +0000] "PATCH /v1/user/notification/preferences HTTP/1.1" 400 130 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-15T21:13:55.016Z info: PATCH /v1/user/notification/preferences 400 153ms
+2026-06-15T21:13:55.018Z info: ::1 - - [15/Jun/2026:21:13:55 +0000] "PATCH /v1/user/notification/preferences HTTP/1.1" 400 133 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-15T21:15:00.075Z info: GET /v1/ping 200 6ms
+2026-06-15T21:15:00.078Z info: ::1 - - [15/Jun/2026:21:15:00 +0000] "GET /v1/ping HTTP/1.1" 200 67 "-" "axios/1.16.1"
+2026-06-15T21:15:34.835Z info: OPTIONS /v1/user/notification/preferences 200 2ms
+2026-06-15T21:15:34.839Z info: ::1 - - [15/Jun/2026:21:15:34 +0000] "OPTIONS /v1/user/notification/preferences HTTP/1.1" 200 0 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-15T21:15:35.118Z info: PATCH /v1/user/notification/preferences 400 221ms
+2026-06-15T21:15:35.127Z info: ::1 - - [15/Jun/2026:21:15:35 +0000] "PATCH /v1/user/notification/preferences HTTP/1.1" 400 143 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-15T21:16:18.343Z info: GET /v1/user/profile 200 868ms
+2026-06-15T21:16:18.344Z info: ::1 - - [15/Jun/2026:21:16:18 +0000] "GET /v1/user/profile HTTP/1.1" 200 851 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-15T21:16:19.190Z info: GET /v1/user/profile 200 842ms
+2026-06-15T21:16:19.191Z info: ::1 - - [15/Jun/2026:21:16:19 +0000] "GET /v1/user/profile HTTP/1.1" 200 851 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-15T21:16:24.490Z info: OPTIONS /v1/user/notification/preferences 200 1ms
+2026-06-15T21:16:24.492Z info: ::1 - - [15/Jun/2026:21:16:24 +0000] "OPTIONS /v1/user/notification/preferences HTTP/1.1" 200 0 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-15T21:16:24.646Z info: PATCH /v1/user/notification/preferences 400 151ms
+2026-06-15T21:16:24.647Z info: ::1 - - [15/Jun/2026:21:16:24 +0000] "PATCH /v1/user/notification/preferences HTTP/1.1" 400 143 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-15T21:17:16.169Z info: GET /v1/user/profile 200 1143ms
+2026-06-15T21:17:16.182Z info: ::1 - - [15/Jun/2026:21:17:16 +0000] "GET /v1/user/profile HTTP/1.1" 200 851 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-15T21:17:17.071Z info: GET /v1/user/profile 200 882ms
+2026-06-15T21:17:17.072Z info: ::1 - - [15/Jun/2026:21:17:17 +0000] "GET /v1/user/profile HTTP/1.1" 200 851 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-15T21:17:21.433Z info: OPTIONS /v1/user/notification/preferences 200 2ms
+2026-06-15T21:17:21.436Z info: ::1 - - [15/Jun/2026:21:17:21 +0000] "OPTIONS /v1/user/notification/preferences HTTP/1.1" 200 0 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-15T21:17:21.660Z info: PATCH /v1/user/notification/preferences 400 179ms
+2026-06-15T21:17:21.660Z info: ::1 - - [15/Jun/2026:21:17:21 +0000] "PATCH /v1/user/notification/preferences HTTP/1.1" 400 143 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-15T21:17:39.673Z info: POST /v1/auth/logout 200 175ms
+2026-06-15T21:17:39.675Z info: ::1 - - [15/Jun/2026:21:17:39 +0000] "POST /v1/auth/logout HTTP/1.1" 200 75 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-15T21:18:11.324Z info: OPTIONS /v1/auth/login 200 1ms
+2026-06-15T21:18:11.327Z info: ::1 - - [15/Jun/2026:21:18:11 +0000] "OPTIONS /v1/auth/login HTTP/1.1" 200 0 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-15T21:18:11.822Z info: POST /v1/auth/login 200 491ms
+2026-06-15T21:18:11.822Z info: ::1 - - [15/Jun/2026:21:18:11 +0000] "POST /v1/auth/login HTTP/1.1" 200 262 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-15T21:18:20.187Z info: GET /v1/user/profile 200 941ms
+2026-06-15T21:18:20.187Z info: ::1 - - [15/Jun/2026:21:18:20 +0000] "GET /v1/user/profile HTTP/1.1" 200 851 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-15T21:18:21.150Z info: GET /v1/user/profile 200 959ms
+2026-06-15T21:18:21.151Z info: ::1 - - [15/Jun/2026:21:18:21 +0000] "GET /v1/user/profile HTTP/1.1" 200 851 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-15T21:18:44.728Z info: OPTIONS /v1/auth/login 200 1ms
+2026-06-15T21:18:44.733Z info: ::1 - - [15/Jun/2026:21:18:44 +0000] "OPTIONS /v1/auth/login HTTP/1.1" 200 0 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-15T21:18:45.201Z info: POST /v1/auth/login 200 465ms
+2026-06-15T21:18:45.202Z info: ::1 - - [15/Jun/2026:21:18:45 +0000] "POST /v1/auth/login HTTP/1.1" 200 262 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-15T21:18:48.727Z info: GET /v1/organizer/analytics 403 168ms
+2026-06-15T21:18:48.727Z info: ::1 - - [15/Jun/2026:21:18:48 +0000] "GET /v1/organizer/analytics HTTP/1.1" 403 128 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-15T21:18:48.890Z info: GET /v1/organizer/analytics 403 155ms
+2026-06-15T21:18:48.892Z info: ::1 - - [15/Jun/2026:21:18:48 +0000] "GET /v1/organizer/analytics HTTP/1.1" 403 128 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-15T21:18:49.036Z info: GET /v1/user/activity 200 482ms
+2026-06-15T21:18:49.038Z info: ::1 - - [15/Jun/2026:21:18:49 +0000] "GET /v1/user/activity HTTP/1.1" 200 231 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-15T21:18:49.194Z info: GET /v1/user/dashboard 200 650ms
+2026-06-15T21:18:49.194Z info: ::1 - - [15/Jun/2026:21:18:49 +0000] "GET /v1/user/dashboard HTTP/1.1" 200 164 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-15T21:18:49.520Z info: GET /v1/user/activity 200 475ms
+2026-06-15T21:18:49.522Z info: ::1 - - [15/Jun/2026:21:18:49 +0000] "GET /v1/user/activity HTTP/1.1" 200 231 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-15T21:18:49.821Z info: GET /v1/user/dashboard 200 625ms
+2026-06-15T21:18:49.822Z info: ::1 - - [15/Jun/2026:21:18:49 +0000] "GET /v1/user/dashboard HTTP/1.1" 200 164 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-15T21:18:56.454Z info: OPTIONS /v1/user/notification/preferences 200 1ms
+2026-06-15T21:18:56.457Z info: ::1 - - [15/Jun/2026:21:18:56 +0000] "OPTIONS /v1/user/notification/preferences HTTP/1.1" 200 0 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-15T21:18:56.638Z info: PATCH /v1/user/notification/preferences 400 176ms
+2026-06-15T21:18:56.638Z info: ::1 - - [15/Jun/2026:21:18:56 +0000] "PATCH /v1/user/notification/preferences HTTP/1.1" 400 143 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-15T21:20:00.059Z info: GET /v1/ping 200 1ms
+2026-06-15T21:20:00.060Z info: ::1 - - [15/Jun/2026:21:20:00 +0000] "GET /v1/ping HTTP/1.1" 200 67 "-" "axios/1.16.1"
+2026-06-15T21:23:14.067Z info: POST /v1/auth/login 200 634ms
+2026-06-15T21:23:14.093Z info: ::1 - - [15/Jun/2026:21:23:14 +0000] "POST /v1/auth/login HTTP/1.1" 200 312 "-" "PostmanRuntime/7.54.0"
+2026-06-15T21:23:55.835Z info: PATCH /v1/user/notification/preferences 400 165ms
+2026-06-15T21:23:55.835Z info: ::1 - - [15/Jun/2026:21:23:55 +0000] "PATCH /v1/user/notification/preferences HTTP/1.1" 400 143 "-" "PostmanRuntime/7.54.0"
+2026-06-15T21:25:00.051Z info: GET /v1/ping 200 2ms
+2026-06-15T21:25:00.052Z info: ::1 - - [15/Jun/2026:21:25:00 +0000] "GET /v1/ping HTTP/1.1" 200 67 "-" "axios/1.16.1"
+2026-06-15T21:28:56.445Z info: GET /v1/user/profile 200 1199ms
+2026-06-15T21:28:56.460Z info: ::1 - - [15/Jun/2026:21:28:56 +0000] "GET /v1/user/profile HTTP/1.1" 200 851 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-15T21:28:57.427Z info: GET /v1/user/profile 200 957ms
+2026-06-15T21:28:57.429Z info: ::1 - - [15/Jun/2026:21:28:57 +0000] "GET /v1/user/profile HTTP/1.1" 200 851 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-15T21:29:02.723Z info: OPTIONS /v1/user/notification/preferences 200 1ms
+2026-06-15T21:29:02.728Z info: ::1 - - [15/Jun/2026:21:29:02 +0000] "OPTIONS /v1/user/notification/preferences HTTP/1.1" 200 0 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-15T21:29:03.824Z info: PATCH /v1/user/notification/preferences 200 379ms
+2026-06-15T21:29:03.825Z info: ::1 - - [15/Jun/2026:21:29:03 +0000] "PATCH /v1/user/notification/preferences HTTP/1.1" 200 320 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-15T21:29:14.758Z info: OPTIONS /v1/user/notification/preferences 200 3ms
+2026-06-15T21:29:14.762Z info: ::1 - - [15/Jun/2026:21:29:14 +0000] "OPTIONS /v1/user/notification/preferences HTTP/1.1" 200 0 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-15T21:29:15.095Z info: PATCH /v1/user/notification/preferences 200 330ms
+2026-06-15T21:29:15.098Z info: ::1 - - [15/Jun/2026:21:29:15 +0000] "PATCH /v1/user/notification/preferences HTTP/1.1" 200 321 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-15T21:29:18.566Z info: PATCH /v1/user/notification/preferences 200 334ms
+2026-06-15T21:29:18.567Z info: ::1 - - [15/Jun/2026:21:29:18 +0000] "PATCH /v1/user/notification/preferences HTTP/1.1" 200 322 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-15T21:29:20.316Z info: OPTIONS /v1/user/notification/preferences 200 0ms
+2026-06-15T21:29:20.320Z info: ::1 - - [15/Jun/2026:21:29:20 +0000] "OPTIONS /v1/user/notification/preferences HTTP/1.1" 200 0 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-15T21:29:20.642Z info: PATCH /v1/user/notification/preferences 200 317ms
+2026-06-15T21:29:20.643Z info: ::1 - - [15/Jun/2026:21:29:20 +0000] "PATCH /v1/user/notification/preferences HTTP/1.1" 200 323 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-15T21:29:22.939Z info: PATCH /v1/user/notification/preferences 200 349ms
+2026-06-15T21:29:22.941Z info: ::1 - - [15/Jun/2026:21:29:22 +0000] "PATCH /v1/user/notification/preferences HTTP/1.1" 200 322 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-15T21:29:28.691Z info: GET /v1/user/profile 200 948ms
+2026-06-15T21:29:28.692Z info: ::1 - - [15/Jun/2026:21:29:28 +0000] "GET /v1/user/profile HTTP/1.1" 200 1070 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-15T21:29:29.637Z info: GET /v1/user/profile 200 938ms
+2026-06-15T21:29:29.638Z info: ::1 - - [15/Jun/2026:21:29:29 +0000] "GET /v1/user/profile HTTP/1.1" 200 1070 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-15T21:30:00.039Z info: GET /v1/ping 200 1ms
+2026-06-15T21:30:00.039Z info: ::1 - - [15/Jun/2026:21:30:00 +0000] "GET /v1/ping HTTP/1.1" 200 67 "-" "axios/1.16.1"
+2026-06-15T21:33:24.274Z info: OPTIONS /v1/user/language/preference 200 1ms
+2026-06-15T21:33:24.277Z info: ::1 - - [15/Jun/2026:21:33:24 +0000] "OPTIONS /v1/user/language/preference HTTP/1.1" 200 0 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-15T21:33:24.633Z info: PATCH /v1/user/language/preference 200 353ms
+2026-06-15T21:33:24.636Z info: ::1 - - [15/Jun/2026:21:33:24 +0000] "PATCH /v1/user/language/preference HTTP/1.1" 200 688 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-15T21:35:00.057Z info: GET /v1/ping 200 1ms
+2026-06-15T21:35:00.057Z info: ::1 - - [15/Jun/2026:21:35:00 +0000] "GET /v1/ping HTTP/1.1" 200 67 "-" "axios/1.16.1"
+2026-06-15T21:35:24.734Z info: GET /v1/organizer/analytics 403 143ms
+2026-06-15T21:35:24.735Z info: ::1 - - [15/Jun/2026:21:35:24 +0000] "GET /v1/organizer/analytics HTTP/1.1" 403 128 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-15T21:35:24.874Z info: GET /v1/organizer/analytics 403 137ms
+2026-06-15T21:35:24.874Z info: ::1 - - [15/Jun/2026:21:35:24 +0000] "GET /v1/organizer/analytics HTTP/1.1" 403 128 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-15T21:35:25.048Z info: GET /v1/user/activity 200 459ms
+2026-06-15T21:35:25.049Z info: ::1 - - [15/Jun/2026:21:35:25 +0000] "GET /v1/user/activity HTTP/1.1" 200 231 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-15T21:35:25.191Z info: GET /v1/user/dashboard 200 604ms
+2026-06-15T21:35:25.191Z info: ::1 - - [15/Jun/2026:21:35:25 +0000] "GET /v1/user/dashboard HTTP/1.1" 200 164 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-15T21:35:25.538Z info: GET /v1/user/activity 200 481ms
+2026-06-15T21:35:25.541Z info: ::1 - - [15/Jun/2026:21:35:25 +0000] "GET /v1/user/activity HTTP/1.1" 200 231 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-15T21:35:25.819Z info: GET /v1/user/dashboard 200 624ms
+2026-06-15T21:35:25.819Z info: ::1 - - [15/Jun/2026:21:35:25 +0000] "GET /v1/user/dashboard HTTP/1.1" 200 164 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-15T21:35:51.351Z info: GET /v1/ticket/my-tickets?page=1&limit=10 200 514ms
+2026-06-15T21:35:51.352Z info: ::1 - - [15/Jun/2026:21:35:51 +0000] "GET /v1/ticket/my-tickets?page=1&limit=10 HTTP/1.1" 200 223 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-15T21:35:51.817Z info: GET /v1/ticket/my-tickets?page=1&limit=10 200 459ms
+2026-06-15T21:35:51.819Z info: ::1 - - [15/Jun/2026:21:35:51 +0000] "GET /v1/ticket/my-tickets?page=1&limit=10 HTTP/1.1" 200 223 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-15T21:35:53.540Z info: GET /v1/user/saved-events 200 553ms
+2026-06-15T21:35:53.541Z info: ::1 - - [15/Jun/2026:21:35:53 +0000] "GET /v1/user/saved-events HTTP/1.1" 200 232 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-15T21:35:54.614Z info: GET /v1/ticket/my-tickets?page=1&limit=10 200 435ms
+2026-06-15T21:35:54.614Z info: ::1 - - [15/Jun/2026:21:35:54 +0000] "GET /v1/ticket/my-tickets?page=1&limit=10 HTTP/1.1" 200 223 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-15T21:36:00.311Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 464ms
+2026-06-15T21:36:00.312Z info: ::1 - - [15/Jun/2026:21:36:00 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-15T21:36:00.793Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 478ms
+2026-06-15T21:36:00.798Z info: ::1 - - [15/Jun/2026:21:36:00 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-15T21:36:04.232Z info: GET /v1/event/lagos-afrobeats-night-festival 200 329ms
+2026-06-15T21:36:04.234Z info: ::1 - - [15/Jun/2026:21:36:04 +0000] "GET /v1/event/lagos-afrobeats-night-festival HTTP/1.1" 200 1333 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-15T21:36:04.550Z info: GET /v1/event/lagos-afrobeats-night-festival 200 314ms
+2026-06-15T21:36:04.551Z info: ::1 - - [15/Jun/2026:21:36:04 +0000] "GET /v1/event/lagos-afrobeats-night-festival HTTP/1.1" 200 1333 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-15T21:36:07.372Z info: POST /v1/user/saved-events/6a1d6032ec5be9fbae75996f 200 664ms
+2026-06-15T21:36:07.374Z info: ::1 - - [15/Jun/2026:21:36:07 +0000] "POST /v1/user/saved-events/6a1d6032ec5be9fbae75996f HTTP/1.1" 200 106 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-15T21:36:10.217Z info: POST /v1/user/saved-events/6a1d6032ec5be9fbae75996f 200 675ms
+2026-06-15T21:36:10.220Z info: ::1 - - [15/Jun/2026:21:36:10 +0000] "POST /v1/user/saved-events/6a1d6032ec5be9fbae75996f HTTP/1.1" 200 85 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-15T21:36:14.702Z info: POST /v1/user/saved-events/6a1d6032ec5be9fbae75996f 200 763ms
+2026-06-15T21:36:14.703Z info: ::1 - - [15/Jun/2026:21:36:14 +0000] "POST /v1/user/saved-events/6a1d6032ec5be9fbae75996f HTTP/1.1" 200 106 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-15T21:36:16.955Z info: POST /v1/user/saved-events/6a1d6032ec5be9fbae75996f 200 634ms
+2026-06-15T21:36:16.956Z info: ::1 - - [15/Jun/2026:21:36:16 +0000] "POST /v1/user/saved-events/6a1d6032ec5be9fbae75996f HTTP/1.1" 200 85 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-15T21:36:23.438Z info: GET /v1/organizer/analytics 403 154ms
+2026-06-15T21:36:23.439Z info: ::1 - - [15/Jun/2026:21:36:23 +0000] "GET /v1/organizer/analytics HTTP/1.1" 403 128 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-15T21:36:23.588Z info: GET /v1/organizer/analytics 403 147ms
+2026-06-15T21:36:23.589Z info: ::1 - - [15/Jun/2026:21:36:23 +0000] "GET /v1/organizer/analytics HTTP/1.1" 403 128 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-15T21:36:23.883Z info: GET /v1/user/activity 200 602ms
+2026-06-15T21:36:23.884Z info: ::1 - - [15/Jun/2026:21:36:23 +0000] "GET /v1/user/activity HTTP/1.1" 200 1342 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-15T21:36:23.896Z info: GET /v1/user/dashboard 200 618ms
+2026-06-15T21:36:23.896Z info: ::1 - - [15/Jun/2026:21:36:23 +0000] "GET /v1/user/dashboard HTTP/1.1" 200 164 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-15T21:36:24.550Z info: GET /v1/user/activity 200 663ms
+2026-06-15T21:36:24.550Z info: ::1 - - [15/Jun/2026:21:36:24 +0000] "GET /v1/user/activity HTTP/1.1" 200 1342 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-15T21:36:24.564Z info: GET /v1/user/dashboard 200 658ms
+2026-06-15T21:36:24.565Z info: ::1 - - [15/Jun/2026:21:36:24 +0000] "GET /v1/user/dashboard HTTP/1.1" 200 164 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-15T21:36:28.526Z info: GET /v1/ticket/my-tickets?page=1&limit=10 200 492ms
+2026-06-15T21:36:28.527Z info: ::1 - - [15/Jun/2026:21:36:28 +0000] "GET /v1/ticket/my-tickets?page=1&limit=10 HTTP/1.1" 200 223 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-15T21:36:29.012Z info: GET /v1/ticket/my-tickets?page=1&limit=10 200 483ms
+2026-06-15T21:36:29.013Z info: ::1 - - [15/Jun/2026:21:36:29 +0000] "GET /v1/ticket/my-tickets?page=1&limit=10 HTTP/1.1" 200 223 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-15T21:36:30.126Z info: GET /v1/user/saved-events 200 548ms
+2026-06-15T21:36:30.128Z info: ::1 - - [15/Jun/2026:21:36:30 +0000] "GET /v1/user/saved-events HTTP/1.1" 200 232 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-15T21:36:33.837Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 522ms
+2026-06-15T21:36:33.838Z info: ::1 - - [15/Jun/2026:21:36:33 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-15T21:36:34.299Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 455ms
+2026-06-15T21:36:34.300Z info: ::1 - - [15/Jun/2026:21:36:34 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-15T21:36:38.791Z info: GET /v1/event/lagos-afrobeats-night-festival 200 322ms
+2026-06-15T21:36:38.792Z info: ::1 - - [15/Jun/2026:21:36:38 +0000] "GET /v1/event/lagos-afrobeats-night-festival HTTP/1.1" 200 1333 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-15T21:36:39.078Z info: GET /v1/event/lagos-afrobeats-night-festival 200 281ms
+2026-06-15T21:36:39.080Z info: ::1 - - [15/Jun/2026:21:36:39 +0000] "GET /v1/event/lagos-afrobeats-night-festival HTTP/1.1" 200 1333 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-15T21:36:50.058Z info: POST /v1/user/saved-events/6a1d6032ec5be9fbae75996f 200 668ms
+2026-06-15T21:36:50.058Z info: ::1 - - [15/Jun/2026:21:36:50 +0000] "POST /v1/user/saved-events/6a1d6032ec5be9fbae75996f HTTP/1.1" 200 106 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-15T21:37:09.391Z info: GET /v1/organizer/analytics 403 159ms
+2026-06-15T21:37:09.392Z info: ::1 - - [15/Jun/2026:21:37:09 +0000] "GET /v1/organizer/analytics HTTP/1.1" 403 128 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-15T21:37:09.535Z info: GET /v1/organizer/analytics 403 137ms
+2026-06-15T21:37:09.536Z info: ::1 - - [15/Jun/2026:21:37:09 +0000] "GET /v1/organizer/analytics HTTP/1.1" 403 128 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-15T21:37:09.878Z info: GET /v1/user/activity 200 650ms
+2026-06-15T21:37:09.879Z info: ::1 - - [15/Jun/2026:21:37:09 +0000] "GET /v1/user/activity HTTP/1.1" 200 1363 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-15T21:37:09.895Z info: GET /v1/user/dashboard 200 671ms
+2026-06-15T21:37:09.898Z info: ::1 - - [15/Jun/2026:21:37:09 +0000] "GET /v1/user/dashboard HTTP/1.1" 200 164 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-15T21:37:10.502Z info: GET /v1/user/activity 200 620ms
+2026-06-15T21:37:10.503Z info: ::1 - - [15/Jun/2026:21:37:10 +0000] "GET /v1/user/activity HTTP/1.1" 200 1363 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-15T21:37:10.517Z info: GET /v1/user/dashboard 200 610ms
+2026-06-15T21:37:10.517Z info: ::1 - - [15/Jun/2026:21:37:10 +0000] "GET /v1/user/dashboard HTTP/1.1" 200 164 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-15T21:37:11.885Z info: GET /v1/ticket/my-tickets?page=1&limit=10 200 486ms
+2026-06-15T21:37:11.885Z info: ::1 - - [15/Jun/2026:21:37:11 +0000] "GET /v1/ticket/my-tickets?page=1&limit=10 HTTP/1.1" 200 223 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-15T21:37:12.357Z info: GET /v1/ticket/my-tickets?page=1&limit=10 200 470ms
+2026-06-15T21:37:12.358Z info: ::1 - - [15/Jun/2026:21:37:12 +0000] "GET /v1/ticket/my-tickets?page=1&limit=10 HTTP/1.1" 200 223 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-15T21:37:14.202Z info: GET /v1/user/saved-events 200 647ms
+2026-06-15T21:37:14.203Z info: ::1 - - [15/Jun/2026:21:37:14 +0000] "GET /v1/user/saved-events HTTP/1.1" 200 1425 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-15T21:37:22.934Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 473ms
+2026-06-15T21:37:22.935Z info: ::1 - - [15/Jun/2026:21:37:22 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-15T21:37:23.431Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 494ms
+2026-06-15T21:37:23.432Z info: ::1 - - [15/Jun/2026:21:37:23 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-15T21:37:34.855Z info: GET /v1/organizer/analytics 403 156ms
+2026-06-15T21:37:34.856Z info: ::1 - - [15/Jun/2026:21:37:34 +0000] "GET /v1/organizer/analytics HTTP/1.1" 403 128 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-15T21:37:35.011Z info: GET /v1/organizer/analytics 403 141ms
+2026-06-15T21:37:35.013Z info: ::1 - - [15/Jun/2026:21:37:35 +0000] "GET /v1/organizer/analytics HTTP/1.1" 403 128 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-15T21:37:35.300Z info: GET /v1/user/dashboard 200 610ms
+2026-06-15T21:37:35.301Z info: ::1 - - [15/Jun/2026:21:37:35 +0000] "GET /v1/user/dashboard HTTP/1.1" 200 164 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-15T21:37:35.318Z info: GET /v1/user/activity 200 622ms
+2026-06-15T21:37:35.319Z info: ::1 - - [15/Jun/2026:21:37:35 +0000] "GET /v1/user/activity HTTP/1.1" 200 1363 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-15T21:37:35.934Z info: GET /v1/user/activity 200 612ms
+2026-06-15T21:37:35.935Z info: ::1 - - [15/Jun/2026:21:37:35 +0000] "GET /v1/user/activity HTTP/1.1" 200 1363 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-15T21:37:35.949Z info: GET /v1/user/dashboard 200 645ms
+2026-06-15T21:37:35.950Z info: ::1 - - [15/Jun/2026:21:37:35 +0000] "GET /v1/user/dashboard HTTP/1.1" 200 164 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-15T21:37:38.886Z info: GET /v1/ticket/my-tickets?page=1&limit=10 200 484ms
+2026-06-15T21:37:38.887Z info: ::1 - - [15/Jun/2026:21:37:38 +0000] "GET /v1/ticket/my-tickets?page=1&limit=10 HTTP/1.1" 200 223 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-15T21:37:39.363Z info: GET /v1/ticket/my-tickets?page=1&limit=10 200 471ms
+2026-06-15T21:37:39.364Z info: ::1 - - [15/Jun/2026:21:37:39 +0000] "GET /v1/ticket/my-tickets?page=1&limit=10 HTTP/1.1" 200 223 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-15T21:37:40.362Z info: GET /v1/user/saved-events 200 648ms
+2026-06-15T21:37:40.362Z info: ::1 - - [15/Jun/2026:21:37:40 +0000] "GET /v1/user/saved-events HTTP/1.1" 200 1425 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-15T21:38:10.023Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 427ms
+2026-06-15T21:38:10.023Z info: ::1 - - [15/Jun/2026:21:38:10 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-15T21:38:10.504Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 480ms
+2026-06-15T21:38:10.504Z info: ::1 - - [15/Jun/2026:21:38:10 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-15T21:38:14.341Z info: GET /v1/event/lagos-afrobeats-night-festival 200 318ms
+2026-06-15T21:38:14.342Z info: ::1 - - [15/Jun/2026:21:38:14 +0000] "GET /v1/event/lagos-afrobeats-night-festival HTTP/1.1" 200 1333 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-15T21:38:14.645Z info: GET /v1/event/lagos-afrobeats-night-festival 200 300ms
+2026-06-15T21:38:14.648Z info: ::1 - - [15/Jun/2026:21:38:14 +0000] "GET /v1/event/lagos-afrobeats-night-festival HTTP/1.1" 200 1333 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-15T21:38:18.762Z info: POST /v1/user/saved-events/6a1d6032ec5be9fbae75996f 200 1246ms
+2026-06-15T21:38:18.762Z info: ::1 - - [15/Jun/2026:21:38:18 +0000] "POST /v1/user/saved-events/6a1d6032ec5be9fbae75996f HTTP/1.1" 200 85 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-15T21:40:00.064Z info: GET /v1/ping 200 1ms
+2026-06-15T21:40:00.065Z info: ::1 - - [15/Jun/2026:21:40:00 +0000] "GET /v1/ping HTTP/1.1" 200 67 "-" "axios/1.16.1"
+2026-06-15T21:40:08.705Z info: POST /v1/user/saved-events/6a1d6032ec5be9fbae75996f 200 667ms
+2026-06-15T21:40:08.706Z info: ::1 - - [15/Jun/2026:21:40:08 +0000] "POST /v1/user/saved-events/6a1d6032ec5be9fbae75996f HTTP/1.1" 200 106 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-15T21:40:11.141Z info: POST /v1/user/saved-events/6a1d6032ec5be9fbae75996f 200 621ms
+2026-06-15T21:40:11.141Z info: ::1 - - [15/Jun/2026:21:40:11 +0000] "POST /v1/user/saved-events/6a1d6032ec5be9fbae75996f HTTP/1.1" 200 85 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-15T21:40:56.970Z info: GET /v1/event/lagos-afrobeats-night-festival 200 345ms
+2026-06-15T21:40:56.974Z info: ::1 - - [15/Jun/2026:21:40:56 +0000] "GET /v1/event/lagos-afrobeats-night-festival HTTP/1.1" 200 1333 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-15T21:40:57.289Z info: GET /v1/event/lagos-afrobeats-night-festival 200 312ms
+2026-06-15T21:40:57.298Z info: ::1 - - [15/Jun/2026:21:40:57 +0000] "GET /v1/event/lagos-afrobeats-night-festival HTTP/1.1" 200 1333 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-15T21:40:57.799Z info: GET /v1/user/profile 200 1165ms
+2026-06-15T21:40:57.800Z info: ::1 - - [15/Jun/2026:21:40:57 +0000] "GET /v1/user/profile HTTP/1.1" 200 4917 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-15T21:40:58.892Z info: GET /v1/user/profile 200 1086ms
+2026-06-15T21:40:58.898Z info: ::1 - - [15/Jun/2026:21:40:58 +0000] "GET /v1/user/profile HTTP/1.1" 200 4917 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-15T21:41:02.186Z info: POST /v1/user/saved-events/6a1d6032ec5be9fbae75996f 200 675ms
+2026-06-15T21:41:02.186Z info: ::1 - - [15/Jun/2026:21:41:02 +0000] "POST /v1/user/saved-events/6a1d6032ec5be9fbae75996f HTTP/1.1" 200 106 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-15T21:41:22.570Z info: GET /v1/event/lagos-afrobeats-night-festival 200 327ms
+2026-06-15T21:41:22.578Z info: ::1 - - [15/Jun/2026:21:41:22 +0000] "GET /v1/event/lagos-afrobeats-night-festival HTTP/1.1" 200 1333 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-15T21:41:22.874Z info: GET /v1/event/lagos-afrobeats-night-festival 200 295ms
+2026-06-15T21:41:22.880Z info: ::1 - - [15/Jun/2026:21:41:22 +0000] "GET /v1/event/lagos-afrobeats-night-festival HTTP/1.1" 200 1333 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-15T21:41:23.377Z info: GET /v1/user/profile 200 1130ms
+2026-06-15T21:41:23.378Z info: ::1 - - [15/Jun/2026:21:41:23 +0000] "GET /v1/user/profile HTTP/1.1" 200 5423 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-15T21:41:24.496Z info: GET /v1/user/profile 200 1116ms
+2026-06-15T21:41:24.497Z info: ::1 - - [15/Jun/2026:21:41:24 +0000] "GET /v1/user/profile HTTP/1.1" 200 5423 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-15T21:41:28.620Z info: GET /v1/event/lagos-afrobeats-night-festival 200 337ms
+2026-06-15T21:41:28.621Z info: ::1 - - [15/Jun/2026:21:41:28 +0000] "GET /v1/event/lagos-afrobeats-night-festival HTTP/1.1" 200 1333 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-15T21:41:28.913Z info: GET /v1/event/lagos-afrobeats-night-festival 200 290ms
+2026-06-15T21:41:28.913Z info: ::1 - - [15/Jun/2026:21:41:28 +0000] "GET /v1/event/lagos-afrobeats-night-festival HTTP/1.1" 200 1333 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-15T21:41:29.417Z info: GET /v1/user/profile 200 1126ms
+2026-06-15T21:41:29.420Z info: ::1 - - [15/Jun/2026:21:41:29 +0000] "GET /v1/user/profile HTTP/1.1" 200 5423 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-15T21:41:30.495Z info: GET /v1/user/profile 200 1071ms
+2026-06-15T21:41:30.496Z info: ::1 - - [15/Jun/2026:21:41:30 +0000] "GET /v1/user/profile HTTP/1.1" 200 5423 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-15T21:41:32.172Z info: POST /v1/user/saved-events/6a1d6032ec5be9fbae75996f 200 643ms
+2026-06-15T21:41:32.173Z info: ::1 - - [15/Jun/2026:21:41:32 +0000] "POST /v1/user/saved-events/6a1d6032ec5be9fbae75996f HTTP/1.1" 200 85 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-15T21:41:41.949Z info: POST /v1/user/saved-events/6a1d6032ec5be9fbae75996f 200 680ms
+2026-06-15T21:41:41.951Z info: ::1 - - [15/Jun/2026:21:41:41 +0000] "POST /v1/user/saved-events/6a1d6032ec5be9fbae75996f HTTP/1.1" 200 106 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-15T21:41:50.189Z info: POST /v1/user/saved-events/6a1d6032ec5be9fbae75996f 200 705ms
+2026-06-15T21:41:50.190Z info: ::1 - - [15/Jun/2026:21:41:50 +0000] "POST /v1/user/saved-events/6a1d6032ec5be9fbae75996f HTTP/1.1" 200 85 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-15T21:42:35.952Z info: GET /v1/event/lagos-afrobeats-night-festival 200 326ms
+2026-06-15T21:42:35.953Z info: ::1 - - [15/Jun/2026:21:42:35 +0000] "GET /v1/event/lagos-afrobeats-night-festival HTTP/1.1" 200 1333 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-15T21:42:36.277Z info: GET /v1/event/lagos-afrobeats-night-festival 200 322ms
+2026-06-15T21:42:36.278Z info: ::1 - - [15/Jun/2026:21:42:36 +0000] "GET /v1/event/lagos-afrobeats-night-festival HTTP/1.1" 200 1333 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-15T21:42:36.768Z info: GET /v1/user/profile 200 1131ms
+2026-06-15T21:42:36.768Z info: ::1 - - [15/Jun/2026:21:42:36 +0000] "GET /v1/user/profile HTTP/1.1" 200 5880 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-15T21:42:37.942Z info: GET /v1/user/profile 200 1173ms
+2026-06-15T21:42:37.943Z info: ::1 - - [15/Jun/2026:21:42:37 +0000] "GET /v1/user/profile HTTP/1.1" 200 5880 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-15T21:42:40.021Z info: GET /v1/event/lagos-afrobeats-night-festival 200 314ms
+2026-06-15T21:42:40.022Z info: ::1 - - [15/Jun/2026:21:42:40 +0000] "GET /v1/event/lagos-afrobeats-night-festival HTTP/1.1" 200 1333 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-15T21:42:40.355Z info: GET /v1/event/lagos-afrobeats-night-festival 200 331ms
+2026-06-15T21:42:40.358Z info: ::1 - - [15/Jun/2026:21:42:40 +0000] "GET /v1/event/lagos-afrobeats-night-festival HTTP/1.1" 200 1333 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-15T21:42:40.903Z info: GET /v1/user/profile 200 1164ms
+2026-06-15T21:42:40.903Z info: ::1 - - [15/Jun/2026:21:42:40 +0000] "GET /v1/user/profile HTTP/1.1" 200 5880 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-15T21:42:42.104Z info: GET /v1/user/profile 200 1199ms
+2026-06-15T21:42:42.105Z info: ::1 - - [15/Jun/2026:21:42:42 +0000] "GET /v1/user/profile HTTP/1.1" 200 5880 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-15T21:45:00.061Z info: GET /v1/ping 200 1ms
+2026-06-15T21:45:00.061Z info: ::1 - - [15/Jun/2026:21:45:00 +0000] "GET /v1/ping HTTP/1.1" 200 67 "-" "axios/1.16.1"
