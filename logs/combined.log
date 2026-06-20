@@ -25979,3 +25979,169 @@
 2026-06-15T21:42:42.105Z info: ::1 - - [15/Jun/2026:21:42:42 +0000] "GET /v1/user/profile HTTP/1.1" 200 5880 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
 2026-06-15T21:45:00.061Z info: GET /v1/ping 200 1ms
 2026-06-15T21:45:00.061Z info: ::1 - - [15/Jun/2026:21:45:00 +0000] "GET /v1/ping HTTP/1.1" 200 67 "-" "axios/1.16.1"
+2026-06-17T10:30:13.402Z info: GET /v1/user/profile 401 14ms
+2026-06-17T10:30:13.411Z info: ::1 - - [17/Jun/2026:10:30:13 +0000] "GET /v1/user/profile HTTP/1.1" 401 93 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-17T10:30:13.419Z info: GET /v1/user/profile 401 3ms
+2026-06-17T10:30:13.430Z info: ::1 - - [17/Jun/2026:10:30:13 +0000] "GET /v1/user/profile HTTP/1.1" 401 93 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-17T10:30:13.446Z info: OPTIONS /v1/auth/refresh-token 200 8ms
+2026-06-17T10:30:13.452Z info: ::1 - - [17/Jun/2026:10:30:13 +0000] "OPTIONS /v1/auth/refresh-token HTTP/1.1" 200 0 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-17T10:30:14.054Z info: POST /v1/auth/refresh-token 200 477ms
+2026-06-17T10:30:14.059Z info: ::1 - - [17/Jun/2026:10:30:14 +0000] "POST /v1/auth/refresh-token HTTP/1.1" 200 80 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-17T10:30:14.265Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 899ms
+2026-06-17T10:30:14.269Z info: ::1 - - [17/Jun/2026:10:30:14 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-17T10:30:14.898Z info: GET /v1/event?status=upcoming&limit=3&sort=latest 200 594ms
+2026-06-17T10:30:14.900Z info: ::1 - - [17/Jun/2026:10:30:14 +0000] "GET /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 4039 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-17T10:30:15.510Z info: GET /v1/user/profile 200 1441ms
+2026-06-17T10:30:15.518Z info: ::1 - - [17/Jun/2026:10:30:15 +0000] "GET /v1/user/profile HTTP/1.1" 200 5880 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-17T10:30:16.888Z info: GET /v1/user/profile 200 1357ms
+2026-06-17T10:30:16.895Z info: ::1 - - [17/Jun/2026:10:30:16 +0000] "GET /v1/user/profile HTTP/1.1" 200 5880 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-17T10:30:22.718Z info: GET /v1/event/lagos-afrobeats-night-festival 200 428ms
+2026-06-17T10:30:22.719Z info: ::1 - - [17/Jun/2026:10:30:22 +0000] "GET /v1/event/lagos-afrobeats-night-festival HTTP/1.1" 200 1333 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-17T10:30:23.131Z info: GET /v1/event/lagos-afrobeats-night-festival 200 410ms
+2026-06-17T10:30:23.133Z info: ::1 - - [17/Jun/2026:10:30:23 +0000] "GET /v1/event/lagos-afrobeats-night-festival HTTP/1.1" 200 1333 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-17T10:30:26.832Z info: GET /v1/event/lagos-afrobeats-night-festival 200 377ms
+2026-06-17T10:30:26.834Z info: ::1 - - [17/Jun/2026:10:30:26 +0000] "GET /v1/event/lagos-afrobeats-night-festival HTTP/1.1" 200 1333 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-17T10:30:27.225Z info: GET /v1/event/lagos-afrobeats-night-festival 200 386ms
+2026-06-17T10:30:27.226Z info: ::1 - - [17/Jun/2026:10:30:27 +0000] "GET /v1/event/lagos-afrobeats-night-festival HTTP/1.1" 200 1333 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-17T10:31:20.926Z info: OPTIONS /v1/checkout/initiate/lagos-afrobeats-night-festival 200 1ms
+2026-06-17T10:31:20.926Z info: ::1 - - [17/Jun/2026:10:31:20 +0000] "OPTIONS /v1/checkout/initiate/lagos-afrobeats-night-festival HTTP/1.1" 200 0 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-17T10:31:23.343Z info: POST /v1/checkout/initiate/lagos-afrobeats-night-festival 200 2413ms
+2026-06-17T10:31:23.344Z info: ::1 - - [17/Jun/2026:10:31:23 +0000] "POST /v1/checkout/initiate/lagos-afrobeats-night-festival HTTP/1.1" 200 246 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-17T10:32:10.625Z info: GET /v1/user/profile 200 1345ms
+2026-06-17T10:32:10.626Z info: ::1 - - [17/Jun/2026:10:32:10 +0000] "GET /v1/user/profile HTTP/1.1" 200 5880 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-17T10:32:12.158Z info: GET /v1/user/profile 200 1519ms
+2026-06-17T10:32:12.161Z info: ::1 - - [17/Jun/2026:10:32:12 +0000] "GET /v1/user/profile HTTP/1.1" 200 5880 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-17T10:32:12.775Z info: GET /v1/checkout/verify/MOVENT_4b4121f7-34e3-4c05-a844-6773f56701c3 200 2044ms
+2026-06-17T10:32:12.778Z info: ::1 - - [17/Jun/2026:10:32:12 +0000] "GET /v1/checkout/verify/MOVENT_4b4121f7-34e3-4c05-a844-6773f56701c3 HTTP/1.1" 200 83 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-17T10:32:14.204Z info: GET /v1/checkout/verify/MOVENT_4b4121f7-34e3-4c05-a844-6773f56701c3 200 1420ms
+2026-06-17T10:32:14.205Z info: ::1 - - [17/Jun/2026:10:32:14 +0000] "GET /v1/checkout/verify/MOVENT_4b4121f7-34e3-4c05-a844-6773f56701c3 HTTP/1.1" 200 83 "http://localhost:5173/" "Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Mobile Safari/537.36"
+2026-06-17T10:35:00.066Z info: GET /v1/ping 200 1ms
+2026-06-17T10:35:00.066Z info: ::1 - - [17/Jun/2026:10:35:00 +0000] "GET /v1/ping HTTP/1.1" 200 67 "-" "axios/1.16.1"
+2026-06-17T10:37:54.719Z info: GET /v1/user/profile 200 1746ms
+2026-06-17T10:37:54.720Z info: ::1 - - [17/Jun/2026:10:37:54 +0000] "GET /v1/user/profile HTTP/1.1" 200 5880 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-17T10:37:56.185Z info: GET /v1/user/profile 200 1455ms
+2026-06-17T10:37:56.186Z info: ::1 - - [17/Jun/2026:10:37:56 +0000] "GET /v1/user/profile HTTP/1.1" 200 5880 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-17T10:37:57.326Z info: GET /v1/checkout/verify/MOVENT_2d9f6c27-ec12-4bf6-9361-d699a8a0116c 200 1712ms
+2026-06-17T10:37:57.348Z info: ::1 - - [17/Jun/2026:10:37:57 +0000] "GET /v1/checkout/verify/MOVENT_2d9f6c27-ec12-4bf6-9361-d699a8a0116c HTTP/1.1" 200 83 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-17T10:37:58.750Z info: GET /v1/checkout/verify/MOVENT_2d9f6c27-ec12-4bf6-9361-d699a8a0116c 200 1384ms
+2026-06-17T10:37:58.752Z info: ::1 - - [17/Jun/2026:10:37:58 +0000] "GET /v1/checkout/verify/MOVENT_2d9f6c27-ec12-4bf6-9361-d699a8a0116c HTTP/1.1" 200 83 "http://localhost:5173/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+2026-06-17T10:40:00.066Z info: GET /v1/ping 200 2ms
+2026-06-17T10:40:00.067Z info: ::1 - - [17/Jun/2026:10:40:00 +0000] "GET /v1/ping HTTP/1.1" 200 67 "-" "axios/1.16.1"
+2026-06-20T10:20:26.679Z info: GET /v1/user/profile 401 18ms
+2026-06-20T10:20:26.707Z info: ::ffff:127.0.0.1 - - [20/Jun/2026:10:20:26 +0000] "GET /v1/user/profile HTTP/1.1" 401 93 "-" "-"
+2026-06-20T10:20:26.749Z info: GET /v1/user/dashboard 401 3ms
+2026-06-20T10:20:26.750Z info: ::ffff:127.0.0.1 - - [20/Jun/2026:10:20:26 +0000] "GET /v1/user/dashboard HTTP/1.1" 401 93 "-" "-"
+2026-06-20T10:20:26.765Z info: POST /v1/user/saved-events/64f000000000000000000001 401 3ms
+2026-06-20T10:20:26.767Z info: ::ffff:127.0.0.1 - - [20/Jun/2026:10:20:26 +0000] "POST /v1/user/saved-events/64f000000000000000000001 HTTP/1.1" 401 93 "-" "-"
+2026-06-20T10:20:26.775Z info: GET /v1/user/saved-events 401 1ms
+2026-06-20T10:20:26.776Z info: ::ffff:127.0.0.1 - - [20/Jun/2026:10:20:26 +0000] "GET /v1/user/saved-events HTTP/1.1" 401 93 "-" "-"
+2026-06-20T10:20:26.785Z info: GET /v1/user/activity 401 2ms
+2026-06-20T10:20:26.786Z info: ::ffff:127.0.0.1 - - [20/Jun/2026:10:20:26 +0000] "GET /v1/user/activity HTTP/1.1" 401 93 "-" "-"
+2026-06-20T10:20:26.795Z info: PATCH /v1/user/profile 401 1ms
+2026-06-20T10:20:26.796Z info: ::ffff:127.0.0.1 - - [20/Jun/2026:10:20:26 +0000] "PATCH /v1/user/profile HTTP/1.1" 401 93 "-" "-"
+2026-06-20T10:20:26.804Z info: PATCH /v1/user/profile/picture 401 1ms
+2026-06-20T10:20:26.805Z info: ::ffff:127.0.0.1 - - [20/Jun/2026:10:20:26 +0000] "PATCH /v1/user/profile/picture HTTP/1.1" 401 93 "-" "-"
+2026-06-20T10:20:26.815Z info: PATCH /v1/user/notification/preferences 401 1ms
+2026-06-20T10:20:26.817Z info: ::ffff:127.0.0.1 - - [20/Jun/2026:10:20:26 +0000] "PATCH /v1/user/notification/preferences HTTP/1.1" 401 93 "-" "-"
+2026-06-20T10:20:26.830Z info: PATCH /v1/user/language/preference 401 2ms
+2026-06-20T10:20:26.831Z info: ::ffff:127.0.0.1 - - [20/Jun/2026:10:20:26 +0000] "PATCH /v1/user/language/preference HTTP/1.1" 401 93 "-" "-"
+2026-06-20T10:20:26.840Z info: DELETE /v1/user/account 401 1ms
+2026-06-20T10:20:26.841Z info: ::ffff:127.0.0.1 - - [20/Jun/2026:10:20:26 +0000] "DELETE /v1/user/account HTTP/1.1" 401 93 "-" "-"
+2026-06-20T10:20:26.848Z info: DELETE /v1/user/saved-events/64f000000000000000000001 401 1ms
+2026-06-20T10:20:26.849Z info: ::ffff:127.0.0.1 - - [20/Jun/2026:10:20:26 +0000] "DELETE /v1/user/saved-events/64f000000000000000000001 HTTP/1.1" 401 93 "-" "-"
+2026-06-20T10:20:26.856Z info: GET /v1/ticket/my-tickets 401 1ms
+2026-06-20T10:20:26.857Z info: ::ffff:127.0.0.1 - - [20/Jun/2026:10:20:26 +0000] "GET /v1/ticket/my-tickets HTTP/1.1" 401 93 "-" "-"
+2026-06-20T10:20:26.871Z info: POST /v1/ticket/test-event/purchase 401 2ms
+2026-06-20T10:20:26.872Z info: ::ffff:127.0.0.1 - - [20/Jun/2026:10:20:26 +0000] "POST /v1/ticket/test-event/purchase HTTP/1.1" 401 93 "-" "-"
+2026-06-20T10:20:26.879Z info: GET /v1/organizer/analytics 401 1ms
+2026-06-20T10:20:26.880Z info: ::ffff:127.0.0.1 - - [20/Jun/2026:10:20:26 +0000] "GET /v1/organizer/analytics HTTP/1.1" 401 93 "-" "-"
+2026-06-20T10:20:26.887Z info: GET /v1/organizer/events/64f000000000000000000001/stats 401 1ms
+2026-06-20T10:20:26.889Z info: ::ffff:127.0.0.1 - - [20/Jun/2026:10:20:26 +0000] "GET /v1/organizer/events/64f000000000000000000001/stats HTTP/1.1" 401 93 "-" "-"
+2026-06-20T10:20:26.896Z info: GET /v1/organizer/my-events 401 1ms
+2026-06-20T10:20:26.897Z info: ::ffff:127.0.0.1 - - [20/Jun/2026:10:20:26 +0000] "GET /v1/organizer/my-events HTTP/1.1" 401 93 "-" "-"
+2026-06-20T10:20:26.903Z info: POST /v1/organizer/events 401 1ms
+2026-06-20T10:20:26.904Z info: ::ffff:127.0.0.1 - - [20/Jun/2026:10:20:26 +0000] "POST /v1/organizer/events HTTP/1.1" 401 93 "-" "-"
+2026-06-20T10:20:26.910Z info: PUT /v1/organizer/events/64f000000000000000000001 401 1ms
+2026-06-20T10:20:26.911Z info: ::ffff:127.0.0.1 - - [20/Jun/2026:10:20:26 +0000] "PUT /v1/organizer/events/64f000000000000000000001 HTTP/1.1" 401 93 "-" "-"
+2026-06-20T10:20:26.920Z info: DELETE /v1/organizer/events/64f000000000000000000001 401 1ms
+2026-06-20T10:20:26.921Z info: ::ffff:127.0.0.1 - - [20/Jun/2026:10:20:26 +0000] "DELETE /v1/organizer/events/64f000000000000000000001 HTTP/1.1" 401 93 "-" "-"
+2026-06-20T10:20:26.928Z info: GET /v1/event/recommendations 401 1ms
+2026-06-20T10:20:26.929Z info: ::ffff:127.0.0.1 - - [20/Jun/2026:10:20:26 +0000] "GET /v1/event/recommendations HTTP/1.1" 401 93 "-" "-"
+2026-06-20T10:20:26.936Z info: GET /v1/event/upcoming 401 1ms
+2026-06-20T10:20:26.937Z info: ::ffff:127.0.0.1 - - [20/Jun/2026:10:20:26 +0000] "GET /v1/event/upcoming HTTP/1.1" 401 93 "-" "-"
+2026-06-20T10:20:26.943Z info: POST /v1/checkout/initiate/test-event 401 1ms
+2026-06-20T10:20:26.944Z info: ::ffff:127.0.0.1 - - [20/Jun/2026:10:20:26 +0000] "POST /v1/checkout/initiate/test-event HTTP/1.1" 401 93 "-" "-"
+2026-06-20T10:20:26.950Z info: GET /v1/checkout/verify/test-reference 401 1ms
+2026-06-20T10:20:26.951Z info: ::ffff:127.0.0.1 - - [20/Jun/2026:10:20:26 +0000] "GET /v1/checkout/verify/test-reference HTTP/1.1" 401 93 "-" "-"
+2026-06-20T10:20:26.960Z info: POST /v1/checkout/promo/test-event/apply 401 1ms
+2026-06-20T10:20:26.960Z info: ::ffff:127.0.0.1 - - [20/Jun/2026:10:20:26 +0000] "POST /v1/checkout/promo/test-event/apply HTTP/1.1" 401 93 "-" "-"
+2026-06-20T10:20:26.972Z info: POST /v1/checkout/refund/64f000000000000000000001 401 1ms
+2026-06-20T10:20:26.972Z info: ::ffff:127.0.0.1 - - [20/Jun/2026:10:20:26 +0000] "POST /v1/checkout/refund/64f000000000000000000001 HTTP/1.1" 401 93 "-" "-"
+2026-06-20T10:20:26.979Z info: GET /v1/checkout/history 401 1ms
+2026-06-20T10:20:26.980Z info: ::ffff:127.0.0.1 - - [20/Jun/2026:10:20:26 +0000] "GET /v1/checkout/history HTTP/1.1" 401 93 "-" "-"
+2026-06-20T10:20:26.985Z info: GET /v1/checkout/test-reference 401 1ms
+2026-06-20T10:20:26.986Z info: ::ffff:127.0.0.1 - - [20/Jun/2026:10:20:26 +0000] "GET /v1/checkout/test-reference HTTP/1.1" 401 93 "-" "-"
+2026-06-20T10:20:26.992Z info: PATCH /v1/checkout/cancel/test-reference 401 1ms
+2026-06-20T10:20:26.992Z info: ::ffff:127.0.0.1 - - [20/Jun/2026:10:20:26 +0000] "PATCH /v1/checkout/cancel/test-reference HTTP/1.1" 401 93 "-" "-"
+2026-06-20T10:20:26.998Z info: POST /v1/checkout/resend-ticket/64f000000000000000000001 401 0ms
+2026-06-20T10:20:26.999Z info: ::ffff:127.0.0.1 - - [20/Jun/2026:10:20:26 +0000] "POST /v1/checkout/resend-ticket/64f000000000000000000001 HTTP/1.1" 401 93 "-" "-"
+2026-06-20T10:20:27.012Z info: POST /v1/checkout/validate-ticket/64f000000000000000000001 401 3ms
+2026-06-20T10:20:27.013Z info: ::ffff:127.0.0.1 - - [20/Jun/2026:10:20:27 +0000] "POST /v1/checkout/validate-ticket/64f000000000000000000001 HTTP/1.1" 401 93 "-" "-"
+2026-06-20T10:20:27.021Z info: POST /v1/notification 401 1ms
+2026-06-20T10:20:27.023Z info: ::ffff:127.0.0.1 - - [20/Jun/2026:10:20:27 +0000] "POST /v1/notification HTTP/1.1" 401 93 "-" "-"
+2026-06-20T10:20:27.029Z info: GET /v1/notification 401 1ms
+2026-06-20T10:20:27.030Z info: ::ffff:127.0.0.1 - - [20/Jun/2026:10:20:27 +0000] "GET /v1/notification HTTP/1.1" 401 93 "-" "-"
+2026-06-20T10:20:27.036Z info: GET /v1/notification/unread-count 401 1ms
+2026-06-20T10:20:27.037Z info: ::ffff:127.0.0.1 - - [20/Jun/2026:10:20:27 +0000] "GET /v1/notification/unread-count HTTP/1.1" 401 93 "-" "-"
+2026-06-20T10:20:27.044Z info: PATCH /v1/notification/64f000000000000000000001/read 401 2ms
+2026-06-20T10:20:27.045Z info: ::ffff:127.0.0.1 - - [20/Jun/2026:10:20:27 +0000] "PATCH /v1/notification/64f000000000000000000001/read HTTP/1.1" 401 93 "-" "-"
+2026-06-20T10:20:27.054Z info: PATCH /v1/notification/mark-all-read 401 2ms
+2026-06-20T10:20:27.055Z info: ::ffff:127.0.0.1 - - [20/Jun/2026:10:20:27 +0000] "PATCH /v1/notification/mark-all-read HTTP/1.1" 401 93 "-" "-"
+2026-06-20T10:20:27.061Z info: DELETE /v1/notification/64f000000000000000000001 401 1ms
+2026-06-20T10:20:27.062Z info: ::ffff:127.0.0.1 - - [20/Jun/2026:10:20:27 +0000] "DELETE /v1/notification/64f000000000000000000001 HTTP/1.1" 401 93 "-" "-"
+2026-06-20T10:20:27.068Z info: GET /v1/admin/overview 401 1ms
+2026-06-20T10:20:27.068Z info: ::ffff:127.0.0.1 - - [20/Jun/2026:10:20:27 +0000] "GET /v1/admin/overview HTTP/1.1" 401 93 "-" "-"
+2026-06-20T10:20:27.079Z info: GET /v1/admin/event-queue 401 0ms
+2026-06-20T10:20:27.080Z info: ::ffff:127.0.0.1 - - [20/Jun/2026:10:20:27 +0000] "GET /v1/admin/event-queue HTTP/1.1" 401 93 "-" "-"
+2026-06-20T10:20:27.086Z info: GET /v1/admin/users 401 1ms
+2026-06-20T10:20:27.087Z info: ::ffff:127.0.0.1 - - [20/Jun/2026:10:20:27 +0000] "GET /v1/admin/users HTTP/1.1" 401 93 "-" "-"
+2026-06-20T10:20:27.092Z info: GET /v1/admin/settings 401 1ms
+2026-06-20T10:20:27.093Z info: ::ffff:127.0.0.1 - - [20/Jun/2026:10:20:27 +0000] "GET /v1/admin/settings HTTP/1.1" 401 93 "-" "-"
+2026-06-20T10:20:27.098Z info: GET /v1/admin/audit-logs 401 0ms
+2026-06-20T10:20:27.099Z info: ::ffff:127.0.0.1 - - [20/Jun/2026:10:20:27 +0000] "GET /v1/admin/audit-logs HTTP/1.1" 401 93 "-" "-"
+2026-06-20T10:20:27.105Z info: GET /v1/admin/reports/export 401 1ms
+2026-06-20T10:20:27.105Z info: ::ffff:127.0.0.1 - - [20/Jun/2026:10:20:27 +0000] "GET /v1/admin/reports/export HTTP/1.1" 401 93 "-" "-"
+2026-06-20T10:20:27.111Z info: PATCH /v1/admin/users/64f000000000000000000001/make-organizer 401 1ms
+2026-06-20T10:20:27.112Z info: ::ffff:127.0.0.1 - - [20/Jun/2026:10:20:27 +0000] "PATCH /v1/admin/users/64f000000000000000000001/make-organizer HTTP/1.1" 401 93 "-" "-"
+2026-06-20T10:20:27.118Z info: PATCH /v1/admin/users/64f000000000000000000001/flag 401 1ms
+2026-06-20T10:20:27.119Z info: ::ffff:127.0.0.1 - - [20/Jun/2026:10:20:27 +0000] "PATCH /v1/admin/users/64f000000000000000000001/flag HTTP/1.1" 401 93 "-" "-"
+2026-06-20T10:20:27.124Z info: PATCH /v1/admin/users/64f000000000000000000001/suspend 401 1ms
+2026-06-20T10:20:27.125Z info: ::ffff:127.0.0.1 - - [20/Jun/2026:10:20:27 +0000] "PATCH /v1/admin/users/64f000000000000000000001/suspend HTTP/1.1" 401 93 "-" "-"
+2026-06-20T10:20:27.131Z info: PATCH /v1/admin/settings 401 1ms
+2026-06-20T10:20:27.132Z info: ::ffff:127.0.0.1 - - [20/Jun/2026:10:20:27 +0000] "PATCH /v1/admin/settings HTTP/1.1" 401 93 "-" "-"
+2026-06-20T10:20:27.138Z info: GET /v1/newsletter/subscribers 401 1ms
+2026-06-20T10:20:27.139Z info: ::ffff:127.0.0.1 - - [20/Jun/2026:10:20:27 +0000] "GET /v1/newsletter/subscribers HTTP/1.1" 401 93 "-" "-"
+2026-06-20T10:20:30.713Z info: GET / 200 3ms
+2026-06-20T10:20:30.716Z info: ::ffff:127.0.0.1 - - [20/Jun/2026:10:20:30 +0000] "GET / HTTP/1.1" 200 22 "-" "-"
+2026-06-20T10:20:30.734Z info: GET /v1/does-not-exist 404 2ms
+2026-06-20T10:20:30.735Z info: ::ffff:127.0.0.1 - - [20/Jun/2026:10:20:30 +0000] "GET /v1/does-not-exist HTTP/1.1" 404 92 "-" "-"
+2026-06-20T10:20:30.783Z info: POST /v1/newsletter/subscribe 400 2ms
+2026-06-20T10:20:30.785Z info: ::ffff:127.0.0.1 - - [20/Jun/2026:10:20:30 +0000] "POST /v1/newsletter/subscribe HTTP/1.1" 400 94 "-" "-"
+2026-06-20T10:20:30.797Z info: POST /v1/newsletter/unsubscribe 400 3ms
+2026-06-20T10:20:30.799Z info: ::ffff:127.0.0.1 - - [20/Jun/2026:10:20:30 +0000] "POST /v1/newsletter/unsubscribe HTTP/1.1" 400 98 "-" "-"
+2026-06-20T10:20:30.818Z info: GET /v1/event?page=0 400 5ms
+2026-06-20T10:20:30.819Z info: ::ffff:127.0.0.1 - - [20/Jun/2026:10:20:30 +0000] "GET /v1/event?page=0 HTTP/1.1" 400 100 "-" "-"
+2026-06-20T10:20:30.828Z info: OPTIONS /v1/event?status=upcoming&limit=3&sort=latest 200 1ms
+2026-06-20T10:20:30.829Z info: ::ffff:127.0.0.1 - - [20/Jun/2026:10:20:30 +0000] "OPTIONS /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 0 "-" "-"
+2026-06-20T10:20:30.849Z info: OPTIONS /v1/event?status=upcoming&limit=3&sort=latest 200 1ms
+2026-06-20T10:20:30.850Z info: ::ffff:127.0.0.1 - - [20/Jun/2026:10:20:30 +0000] "OPTIONS /v1/event?status=upcoming&limit=3&sort=latest HTTP/1.1" 200 9 "-" "-"
+2026-06-20T10:20:37.174Z info: POST /v1/auth/register 400 25ms
+2026-06-20T10:20:37.178Z info: ::ffff:127.0.0.1 - - [20/Jun/2026:10:20:37 +0000] "POST /v1/auth/register HTTP/1.1" 400 141 "-" "-"
+2026-06-20T10:20:37.202Z info: POST /v1/auth/login 400 2ms
+2026-06-20T10:20:37.204Z info: ::ffff:127.0.0.1 - - [20/Jun/2026:10:20:37 +0000] "POST /v1/auth/login HTTP/1.1" 400 117 "-" "-"
+2026-06-20T10:20:37.218Z info: POST /v1/auth/forgot-password 400 3ms
+2026-06-20T10:20:37.220Z info: ::ffff:127.0.0.1 - - [20/Jun/2026:10:20:37 +0000] "POST /v1/auth/forgot-password HTTP/1.1" 400 94 "-" "-"
+2026-06-20T10:20:37.246Z info: POST /v1/auth/reset-password/test-token 400 7ms
+2026-06-20T10:20:37.248Z info: ::ffff:127.0.0.1 - - [20/Jun/2026:10:20:37 +0000] "POST /v1/auth/reset-password/test-token HTTP/1.1" 400 101 "-" "-"
+2026-06-20T10:20:37.271Z info: POST /v1/auth/refresh-token 401 2ms
+2026-06-20T10:20:37.272Z info: ::ffff:127.0.0.1 - - [20/Jun/2026:10:20:37 +0000] "POST /v1/auth/refresh-token HTTP/1.1" 401 85 "-" "-"
