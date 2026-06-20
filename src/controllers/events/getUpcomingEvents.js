@@ -12,7 +12,7 @@ export const getUpcomingEvents = async (req, res) => {
 
     const query = {
       startDate: { $gte: new Date() },
-      approvalStatus: "pending",
+      approvalStatus: "approved",
     };
 
     const total = await Event.countDocuments(query);

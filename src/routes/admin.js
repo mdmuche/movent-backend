@@ -28,6 +28,11 @@ import { createPromoCode } from "../controllers/admin/createPromoCode.js";
 import { createPromoCodeSchema } from "../validators/admin/promoCode.js";
 import { getAllPromoCodes } from "../controllers/admin/getAllPromoCodes.js";
 import { getAllPromoCodesSchema } from "../validators/admin/getAllPromoCodes.js";
+import { approveRejectEvent } from "../controllers/admin/approveRejectEvent.js";
+import {
+  approveRejectEventParamsSchema,
+  approveRejectEventBodySchema,
+} from "../validators/admin/approveRejectEvent.js";
 
 const router = express.Router();
 
@@ -68,6 +73,7 @@ router.get(
   validateRequest(exportReportsSchema, "query"),
   exportReports,
 );
+
 // route to make a user an organizer
 router.patch(
   "/users/:userId/make-organizer",
@@ -116,4 +122,14 @@ router.get(
   validateRequest(getAllPromoCodesSchema),
   getAllPromoCodes,
 );
+
+// route to approve or reject an event
+router.patch(
+  "/events/:eventId/approve-reject",
+  requireAdmin,
+  validateRequest(approveRejectEventParamsSchema, "params"),
+  validateRequest(approveRejectEventBodySchema),
+  approveRejectEvent,
+);
+
 export default router;

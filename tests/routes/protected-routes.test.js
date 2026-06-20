@@ -48,6 +48,7 @@ const protectedRoutes = [
   ["PATCH", "/v1/admin/users/64f000000000000000000001/suspend"],
   ["PATCH", "/v1/admin/settings"],
   ["GET", "/v1/newsletter/subscribers"],
+  ["PATCH", "/v1/admin/events/64f000000000000000000001/approve-reject"],
 ];
 
 describe("protected routes", () => {
